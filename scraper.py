@@ -163,18 +163,18 @@ def scrape_fx_frankfurter():
 
 # ══════════════════════════════════════════════════════════════════
 
-def patch_news(news_list):
-    """Save news to a separate JSON file."""
-    import json
-    news_file = DATA_FILE.parent / "news_cache.json"
-    try:
-        with open(news_file, "w", encoding="utf-8") as f:
-            json.dump(news_list, f, ensure_ascii=False, indent=2)
-        log.info(f"✓ NEWS saved to news_cache.json — {len(news_list)} articles")
-        return True
-    except Exception as e:
-        log.error(f"✗ NEWS save error: {e}")
-        return False
+#def patch_news(news_list):
+ #   """Save news to a separate JSON file."""
+ #   import json
+ #   news_file = DATA_FILE.parent / "news_cache.json"
+ #   try:
+ #       with open(news_file, "w", encoding="utf-8") as f:
+ #           json.dump(news_list, f, ensure_ascii=False, indent=2)
+ #       log.info(f"✓ NEWS saved to news_cache.json — {len(news_list)} articles")
+ #       return True
+ #   except Exception as e:
+ #       log.error(f"✗ NEWS save error: {e}")
+ #       return False
 # ══════════════════════════════════════════════════════════════════
 # SOURCE 2 — FRED (St Louis Fed, free key, best quality)
 # https://fred.stlouisfed.org/docs/api/api_key.html
