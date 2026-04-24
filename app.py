@@ -356,8 +356,12 @@ if page == "Overview":
     </div>
     """, unsafe_allow_html=True)
 
-    _alert = ((None or {}).get("market_alert") if ai_insights
-              else "US-Iran talks collapsed · BoJ Apr 28 hike expected · UK CPI 3.3% · NZD CPI 3.1% beat · WTI -12%")
+    # Market alert — from risk_sentiment or static
+    if risk_sentiment and risk_sentiment.get("label"):
+        _vix_now = f"VIX {risk_sentiment['vix']:.1f}" if risk_sentiment.get("vix") else "VIX n/a"
+        _alert = f"{_vix_now} · Sentiment: {risk_sentiment['label']} · Updated {risk_sentiment.get('updated','')}"
+    else:
+        _alert = "US-Iran talks collapsed · BoJ Apr 28 hike expected · UK CPI 3.3% · NZD CPI 3.1% beat · WTI -12%"
     st.markdown(
         f'<div style="background:#fefce8;border:1px solid #fde047;border-left:3px solid #eab308;'
         f'border-radius:12px;padding:10px 16px;margin-bottom:22px;font-size:13px;color:#854d0e;'
@@ -732,8 +736,8 @@ elif page == "Risk Sentiment":
     pct   = max(5, min(95, int((total+9)/18*100)))
 
     if   total >= 4:  rlbl,rc,rbg = "RISK-ON",        COLOR_POSITIVE,"#ecfdf5"
-    elif total >= 1:  rlbl,rc,rbg = "MILD RISK-ON",   "#6ee7b7","#0a2818"
-    elif total == 0:  rlbl,rc,rbg = "NEUTRAL",         "#1e293b","#0f172a"
+    elif total >= 1:  rlbl,rc,rbg = "MILD RISK-ON",   "#16a34a","#dcfce7"
+    elif total == 0:  rlbl,rc,rbg = "NEUTRAL",         "#64748b","#f8fafc"
     elif total >= -3: rlbl,rc,rbg = "MILD RISK-OFF",  "#fbbf24","#fffbeb"
     else:             rlbl,rc,rbg = "RISK-OFF",        COLOR_NEGATIVE,"#fff1f2"
 
@@ -766,11 +770,14 @@ elif page == "Risk Sentiment":
             height=300, margin=dict(t=50,b=10,l=30,r=30),
         )
         st.plotly_chart(fig_g, use_container_width=True, config={"displayModeBar":False})
+        _vix_str = f"VIX {vix_val:.1f}" if vix_val else "VIX n/a"
+        _upd_str = f" · {_rs_updated}" if _rs_updated else ""
         st.markdown(
             f'<div style="text-align:center;background:{rbg};border:1px solid {rgba(rc,0.3)};'
-            f'border-radius:8px;padding:11px;margin-top:-10px;">'
-            f'<div style="font-size:16px;font-weight:800;color:{rc};letter-spacing:.06em;">{rlbl}</div>'
-            f'<div style="font-size:10px;color:#334155;margin-top:3px;">Score: {total:+d} / 9</div>'
+            f'border-radius:8px;padding:12px;margin-top:-10px;">'
+            f'<div style="font-size:18px;font-weight:800;color:{rc};letter-spacing:.06em;">{rlbl}</div>'
+            f'<div style="font-size:14px;font-weight:700;color:{rc};margin-top:5px;">{_vix_str}</div>'
+            f'<div style="font-size:11px;color:#64748b;margin-top:3px;">Score: {total:+d} / 9{_upd_str}</div>'
             f'</div>',
             unsafe_allow_html=True
         )
