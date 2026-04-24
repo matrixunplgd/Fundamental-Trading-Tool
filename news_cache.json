@@ -1,5 +1,15 @@
 [
   {
+    "ts": "24 Apr 22:12",
+    "title": "USD/TWD: Rebound seen as fadeable – OCBC",
+    "body": "OCBC strategists Sim Moh Siong and Christopher Wong describe a technical rebound in USD/TWD driven by broader US Dollar (USD) strength and risk aversion linked to the US‑Iran ceasefire stalemate.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "positive"
+  },
+  {
     "ts": "24 Apr 21:39",
     "title": "PBoC: Steepening bias as industrial activity holds – DBS",
     "body": "DBS Group Research economist Samuel Tse analyses recent steepening in Chinese Yuan (CNY) rates, linking it to a ceasefire between the United States (US) and Iran and stronger-than-expected Q1 growth in China.",
@@ -96,8 +106,8 @@
     "body": "The New Zealand Dollar (NZD) gains traction against the US Dollar (USD) on Friday as the Greenback weakens amid renewed hopes for US–Iran talks after stalled negotiations.",
     "cat": "Geopolitics",
     "ccys": [
-      "NZD",
-      "USD"
+      "USD",
+      "NZD"
     ],
     "dir": "positive"
   },
@@ -110,16 +120,6 @@
       "USD"
     ],
     "dir": "negative"
-  },
-  {
-    "ts": "24 Apr 18:06",
-    "title": "Iran's Araghchi tours three capitals with 450kg of leverage; is Trump boxed in?",
-    "body": "Iran's Foreign Minister Abbas Araghchi landed in Islamabad on Friday evening to open the long-delayed second round of talks with the US, and special envoy Steve Witkoff and senior adviser Jared Kushner are due in on Saturday morning.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
   },
   {
     "ts": "24 Apr 14:59",
@@ -147,8 +147,8 @@
     "body": "The GBP/USD pair edges higher during the first half of the European session on Friday and recovers a part of the previous day's losses to levels just below mid-1.3400s, or a nearly two-week trough.",
     "cat": "Central Bank",
     "ccys": [
-      "USD",
       "EUR",
+      "USD",
       "GBP"
     ],
     "dir": "mixed"

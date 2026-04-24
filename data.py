@@ -183,8 +183,8 @@ RATE_EXP = {
         "yield_2y": 3.83, "yield_10y": 4.34,
         "spread_2y_vs_usd":  0.00, "spread_10y_vs_usd": 0.00,
         "curve_slope": 0.51,
-        "yield_2y_hist":  [4.78, 4.65, 4.6, 4.55, 4.52, 3.83],
-        "yield_10y_hist": [4.85, 4.8, 4.78, 4.75, 4.72, 4.34],
+        "yield_2y_hist":  [4.65, 4.6, 4.55, 4.52, 3.83, 3.83],
+        "yield_10y_hist": [4.8, 4.78, 4.75, 4.72, 4.34, 4.34],
         "ois": {"1m": 4.05, "3m": 3.95, "6m": 3.78, "12m": 3.52},
         "comment": "Benchmark currency. 2Y UST 4.52%, curve +20bps. Markets price 2 cuts H2 2026. USD yield advantage vs peers is narrowing — key risk to dollar strength.",
         "meetings": [
@@ -201,7 +201,7 @@ RATE_EXP = {
         "spread_2y_vs_usd":  -2.14, "spread_10y_vs_usd": -1.12,
         "curve_slope": 0.34,
         "yield_2y_hist":  [2.10, 2.15, 2.20, 2.25, 2.32, 2.38],
-        "yield_10y_hist": [2.38, 2.45, 2.52, 2.62, 2.72, 3.22],
+        "yield_10y_hist": [2.45, 2.52, 2.62, 2.72, 3.22, 3.22],
         "ois": {"1m": 2.02, "3m": 2.10, "6m": 2.18, "12m": 2.24},
         "comment": "2Y Bund -214bps vs UST — large negative spread keeps EUR structurally weak vs USD. Rising 2Y yields (+28bps in 6m) signal ECB hike risk from energy shock. Steepening curve (+34bps) = growth expectations intact.",
         "meetings": [
@@ -218,7 +218,7 @@ RATE_EXP = {
         "spread_2y_vs_usd":  -0.24, "spread_10y_vs_usd": 0.36,
         "curve_slope": 0.20,
         "yield_2y_hist":  [4.55, 4.48, 4.38, 4.32, 4.30, 4.28],
-        "yield_10y_hist": [4.58, 4.52, 4.5, 4.48, 4.48, 4.7],
+        "yield_10y_hist": [4.52, 4.5, 4.48, 4.48, 4.7, 4.7],
         "ois": {"1m": 3.76, "3m": 3.72, "6m": 3.58, "12m": 3.30},
         "comment": "2Y Gilt only -24bps vs UST — tightest spread in G8. Near parity with US yields provides GBP strong relative support. Services CPI 4.5% keeping 2Y sticky. BoE cannot ease aggressively without widening the spread.",
         "meetings": [
@@ -235,7 +235,7 @@ RATE_EXP = {
         "spread_2y_vs_usd":  -3.54, "spread_10y_vs_usd": -1.99,
         "curve_slope": 0.57,
         "yield_2y_hist":  [0.38, 0.45, 0.55, 0.68, 0.82, 0.98],
-        "yield_10y_hist": [0.95, 1.08, 1.22, 1.38, 1.55, 2.35],
+        "yield_10y_hist": [1.08, 1.22, 1.38, 1.55, 2.35, 2.35],
         "ois": {"1m": 0.92, "3m": 1.05, "6m": 1.15, "12m": 1.28},
         "comment": "2Y JGB -354bps vs UST — explains USD/JPY 159. BUT: 2Y JGB up +60bps in 6m = fastest rise in G8. Spread narrowing rapidly. BoJ hike Apr 28 will accelerate convergence. Steepest curve (+57bps) = most aggressive normalisation priced in G8.",
         "meetings": [
@@ -252,7 +252,7 @@ RATE_EXP = {
         "spread_2y_vs_usd":  -1.47, "spread_10y_vs_usd": -0.9,
         "curve_slope": 0.33,
         "yield_2y_hist":  [3.55, 3.40, 3.28, 3.20, 3.12, 3.05],
-        "yield_10y_hist": [3.68, 3.58, 3.5, 3.44, 3.38, 3.44],
+        "yield_10y_hist": [3.58, 3.5, 3.44, 3.38, 3.44, 3.44],
         "ois": {"1m": 2.72, "3m": 2.58, "6m": 2.38, "12m": 2.22},
         "comment": "2Y Canada -147bps vs UST, widening (was -120bps 3m ago). Falling 2Y yields as oil collapse reduces BoC hawkish bias. Widening negative spread = persistent CAD weakness. Momentum clearly bearish.",
         "meetings": [
@@ -269,7 +269,7 @@ RATE_EXP = {
         "spread_2y_vs_usd":  -0.57, "spread_10y_vs_usd": 0.56,
         "curve_slope": 0.40,
         "yield_2y_hist":  [3.65, 3.70, 3.78, 3.82, 3.88, 3.95],
-        "yield_10y_hist": [4.1, 4.18, 4.25, 4.3, 4.35, 4.9],
+        "yield_10y_hist": [4.18, 4.25, 4.3, 4.35, 4.9, 4.9],
         "ois": {"1m": 3.62, "3m": 3.72, "6m": 3.80, "12m": 3.75},
         "comment": "2Y ACGB -57bps vs UST, narrowing (was -85bps 6m ago). Rising 2Y yields reflect RBA hawkish bias. Spread convergence = AUD positive. Steepening curve (+40bps) signals durable growth expectations supported by commodities.",
         "meetings": [
@@ -303,7 +303,7 @@ RATE_EXP = {
         "spread_2y_vs_usd":  -4.14, "spread_10y_vs_usd": -3.94,
         "curve_slope": 0.34,
         "yield_2y_hist":  [0.62, 0.55, 0.50, 0.45, 0.42, 0.38],
-        "yield_10y_hist": [0.88, 0.82, 0.78, 0.75, 0.72, 0.4],
+        "yield_10y_hist": [0.82, 0.78, 0.75, 0.72, 0.4, 0.4],
         "ois": {"1m": 0.23, "3m": 0.18, "6m": 0.10, "12m": 0.02},
         "comment": "2Y Swiss -414bps vs UST — widest negative spread in G8. CHF strength is NOT yield-driven: it is pure safe-haven flow and current account surplus (+8.5% GDP). Falling 2Y yields (-24bps in 6m) confirm SNB dovish path.",
         "meetings": [
