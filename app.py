@@ -31,7 +31,8 @@ COLOR_BG_ACCENT     = "#eef2ff"   # indigo-50
 # ── Start background scheduler once ──────────────────────────────
 init_db()
 start_scheduler()
-news_list = get_news()  # loads from news_cache.json if available
+news_list   = get_news()         # loads from news_cache.json
+ai_insights = get_ai_insights()   # loads from ai_insights.json
 
 # ─────────────────────────────────────────────────────────────────
 # PAGE CONFIG
