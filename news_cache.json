@@ -1,5 +1,26 @@
 [
   {
+    "ts": "24 Apr 21:39",
+    "title": "PBoC: Steepening bias as industrial activity holds – DBS",
+    "body": "DBS Group Research economist Samuel Tse analyses recent steepening in Chinese Yuan (CNY) rates, linking it to a ceasefire between the United States (US) and Iran and stronger-than-expected Q1 growth in China.",
+    "cat": "Central Bank",
+    "ccys": [
+      "CAD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "24 Apr 21:24",
+    "title": "USD/CHF Price Forecast: Rejected at 100-day SMA, eyes on 0.7800",
+    "body": "USD/CHF dropped on Friday but finished the week with gains of over 0.35%, trading at 0.7841 as market participants grew confident that US-Iran talks could resume over the weekend to resolve the conflict.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD",
+      "CHF"
+    ],
+    "dir": "positive"
+  },
+  {
     "ts": "24 Apr 20:58",
     "title": "USD/IDR: Upside risks widen on fiscal concerns – MUFG",
     "body": "Lloyd Chan at MUFG highlights that USD/IDR has broken to fresh highs, overshooting earlier expectations for near-term stabilization. The move is attributed more to domestic confidence and fiscal uncertainty than broad US Dollar (USD) strength.",
@@ -11,8 +32,8 @@
   },
   {
     "ts": "24 Apr 20:50",
-    "title": "Silver Price Analysis: Advances but stalls at technical confluence near $75",
-    "body": "Silver price edges up over 0.50% during Friday’s session, after bouncing off a daily low of $73.10. Speculation about a resumption of negotiations between Washington and Tehran is cheered by investors, which pushed US equities higher in tandem with the precious metals segment.",
+    "title": "Silver Price Analysis: XAG advances but stalls at technical confluence near $75",
+    "body": "Silver (XAG/USD) price edges up over 0.50% during Friday’s session, after bouncing off a daily low of $73.95. Speculation about a resumption of negotiations between Washington and Tehran is cheered by investors, which pushed US equities higher in tandem with the precious metals segment.",
     "cat": "Macro",
     "ccys": [
       "USD"
@@ -75,8 +96,8 @@
     "body": "The New Zealand Dollar (NZD) gains traction against the US Dollar (USD) on Friday as the Greenback weakens amid renewed hopes for US–Iran talks after stalled negotiations.",
     "cat": "Geopolitics",
     "ccys": [
-      "USD",
-      "NZD"
+      "NZD",
+      "USD"
     ],
     "dir": "positive"
   },
@@ -96,27 +117,6 @@
     "body": "Iran's Foreign Minister Abbas Araghchi landed in Islamabad on Friday evening to open the long-delayed second round of talks with the US, and special envoy Steve Witkoff and senior adviser Jared Kushner are due in on Saturday morning.",
     "cat": "Geopolitics",
     "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "24 Apr 18:03",
-    "title": "US: Revenue resilience after IEEPA ruling – Standard Chartered",
-    "body": "Standard Chartered economists Dan Pan and Steve Englander assess the impact of the United States (US) Supreme Court’s IEEPA ruling on US tariff revenue. They note that tariff income has fallen but remains well above pre-Liberation Day levels.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "negative"
-  },
-  {
-    "ts": "24 Apr 17:02",
-    "title": "USD: Inflation shock risk from Hormuz blockade – MUFG",
-    "body": "MUFG’s Derek Halpenny argues that the ongoing United States (US) blockade in the Strait of Hormuz is building a significant inflation shock for the US and globally, with Oil and input costs surging.",
-    "cat": "Macro",
-    "ccys": [
-      "CAD",
       "USD"
     ],
     "dir": "mixed"
@@ -147,8 +147,8 @@
     "body": "The GBP/USD pair edges higher during the first half of the European session on Friday and recovers a part of the previous day's losses to levels just below mid-1.3400s, or a nearly two-week trough.",
     "cat": "Central Bank",
     "ccys": [
-      "EUR",
       "USD",
+      "EUR",
       "GBP"
     ],
     "dir": "mixed"
@@ -204,29 +204,19 @@
     "dir": "mixed"
   },
   {
-    "ts": "24 Apr 22:23",
-    "title": "Deutsche Bank forecasts S&P 500 to hit 7000 by end of 2025",
-    "body": "",
-    "cat": "Macro",
+    "ts": "24 Apr 17:16",
+    "title": "Putin's approval rating falls to lowest since Ukraine invasion, as Kremlin says he may attend G20 after Trump invite",
+    "body": "President Vladimir Putin's approval rating has fallen to its lowest level since the invasion of Ukraine in February 2022, state polling figures show.",
+    "cat": "Geopolitics",
     "ccys": [
       "USD"
     ],
-    "dir": "mixed"
+    "dir": "negative"
   },
   {
-    "ts": "24 Apr 22:23",
-    "title": "Trump's tariffs, Fed minutes, Rumble's Bitcoin buy - what's moving markets",
-    "body": "",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "24 Apr 22:23",
-    "title": "Bitcoin price today: slips to $94k as risk appetite sours on Trump tariff threat",
-    "body": "",
+    "ts": "24 Apr 14:46",
+    "title": "Netanyahu successfully treated for prostate cancer",
+    "body": "Israeli Prime Minister Benjamin Netanyahu said he's been successfully treated for prostate cancer.",
     "cat": "Geopolitics",
     "ccys": [
       "USD"
@@ -234,23 +224,33 @@
     "dir": "mixed"
   },
   {
-    "ts": "24 Apr 22:23",
-    "title": "2025 macro outlook for the US is 'murky at best' says Deutsche Bank",
-    "body": "",
-    "cat": "Macro",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "24 Apr 22:23",
-    "title": "Trump says he will impose additional 10% tariffs on China over drug inflow",
-    "body": "",
+    "ts": "23 Apr 21:37",
+    "title": "Why is Cuba a US target again? | Sky News Explains",
+    "body": "It's no secret that Donald Trump's focus is turning to Cuba.",
     "cat": "Geopolitics",
     "ccys": [
       "USD"
     ],
-    "dir": "mixed"
+    "dir": "positive"
+  },
+  {
+    "ts": "24 Apr 13:51",
+    "title": "Benfica player handed six-game ban for homophobic conduct towards Real star Vinicius Junior",
+    "body": "Benfica's Gianluca Prestianni has been banned for six matches by UEFA for homophobic conduct towards Real Madrid's Vinicius Junior during a Champions League match.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "negative"
+  },
+  {
+    "ts": "24 Apr 11:33",
+    "title": "Pentagon's Falklands email makes Charles's US visit even more challenging",
+    "body": "Mention the Falklands War and dig up the issue of America's support over them and something deep inside the British psyche goes off like a landmine.&#160;",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "negative"
   }
 ]
