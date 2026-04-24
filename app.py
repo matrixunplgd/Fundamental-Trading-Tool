@@ -12,7 +12,7 @@ from datetime import datetime, timezone
 from data import (
     MACRO, RATE_EXP, FX_RATES, CALENDAR, NEWS,
     MONTHS, HIST_CPI, HIST_RATE, HIST_UNEM,
-    start_scheduler, save_snapshot, get_news,
+    start_scheduler, save_snapshot, get_news, get_ai_insights,
     load_history_from_db, load_update_log, get_last_update,
     init_db, score_meta,
 )
@@ -357,13 +357,14 @@ if page == "Overview":
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown("""
-    <div style="background:#fefce8;border:1px solid #fde047;border-left:3px solid #eab308;border-radius:12px;padding:10px 16px;margin-bottom:22px;font-size:11px;color:#854d0e;line-height:1.7;font-weight:500;">
-      <b style="color:#b45309;">Market Alert</b>  —  US-Iran talks collapsed  ·
-      BoJ meeting Apr 28 (hike expected, 78% probability)  ·
-      UK CPI 3.3%  ·  NZD CPI beat 3.1%  ·  DXY 98.5  ·  WTI -12% week
-    </div>
-    """, unsafe_allow_html=True)
+    _alert = (ai_insights.get("market_alert") if ai_insights
+              else "US-Iran talks collapsed · BoJ Apr 28 hike expected · UK CPI 3.3% · NZD CPI 3.1% beat · WTI -12%")
+    st.markdown(
+        f'<div style="background:#fefce8;border:1px solid #fde047;border-left:3px solid #eab308;'
+        f'border-radius:12px;padding:10px 16px;margin-bottom:22px;font-size:13px;color:#854d0e;'
+        f'line-height:1.7;font-weight:500;"><b style="color:#b45309;">Market Alert</b>  —  {_alert}</div>',
+        unsafe_allow_html=True
+    )
 
     # ── Strength ranking – 4 cards per row (light & compact) ──────────
     section("Currency Strength Ranking")
@@ -817,8 +818,13 @@ elif page == "Insights":
                 )
 
     section("Currency Views")
+    _cv = ai_insights.get("currency_views", {}) if ai_insights else {}
     for c in codes:
         d = MACRO[c]
+        _ai_cv = _cv.get(c, {})
+        _view  = _ai_cv.get("view",  d.get("view",""))
+        _bias  = _ai_cv.get("bias",  d.get("bias",""))
+        _score = _ai_cv.get("score", d.get("score", 0))
         col, bg, lbl = score_meta(d["score"])
         st.markdown(
             f'''
@@ -843,15 +849,24 @@ elif page == "Risk Sentiment":
     st.markdown('<div style="font-size:20px;font-weight:700;color:#0f172a;margin-bottom:6px;">Risk Sentiment Barometer</div>', unsafe_allow_html=True)
     st.markdown('<div style="font-size:11px;color:#334155;margin-bottom:20px;">Market risk appetite assessment — 23 Apr 2026</div>', unsafe_allow_html=True)
 
-    factors = {
-        "Middle East geopolitics":    (-3, "US-Iran talks collapsed. Strait of Hormuz partially blocked."),
-        "Global inflation":           (-2, "Elevated CPI in UK, NZD, AUD, USD — limits CB easing globally."),
-        "BoJ policy normalisation":   ( 1, "Rate hike cycle underway — positive for market stability."),
-        "Global growth momentum":     (-1, "Euro Area slowing, US stable, Asia mixed."),
-        "Commodity markets":          ( 2, "Gold and copper well supported. Energy falling post-ceasefire."),
-        "Market volatility (VIX)":    ( 0, "VIX 18.4 — moderate. Not extreme in either direction."),
-    }
-    total = sum(v for v,_ in factors.values())
+    # Use AI risk factors if available
+    if ai_insights and "risk_sentiment" in ai_insights:
+        _rs = ai_insights["risk_sentiment"]
+        total = _rs.get("score", 0)
+        factors = {
+            f["name"]: (f["score"], f["desc"])
+            for f in _rs.get("factors", [])
+        }
+    else:
+        factors = {
+            "Middle East geopolitics":    (-3, "US-Iran talks collapsed. Strait of Hormuz partially blocked."),
+            "Global inflation":           (-2, "Elevated CPI in UK, NZD, AUD, USD — limits CB easing globally."),
+            "BoJ policy normalisation":   ( 1, "Rate hike cycle underway — positive for market stability."),
+            "Global growth momentum":     (-1, "Euro Area slowing, US stable, Asia mixed."),
+            "Commodity markets":          ( 2, "Gold and copper well supported. Energy falling post-ceasefire."),
+            "Market volatility (VIX)":    ( 0, "VIX 18.4 — moderate. Not extreme in either direction."),
+        }
+        total = sum(v for v,_ in factors.values())
     pct   = max(5, min(95, int((total+9)/18*100)))
 
     if   total >= 4:  rlbl,rc,rbg = "RISK-ON",        COLOR_POSITIVE,"#ecfdf5"
