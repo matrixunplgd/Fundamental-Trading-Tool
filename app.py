@@ -63,7 +63,10 @@ button[data-testid="baseButton-headerNoPadding"] {
     display: none !important;
 }
 
-#MainMenu, footer, header, .stDeployButton { display: none !important; }
+#MainMenu, footer, header, .stDeployButton, .stAppToolbar { display: none !important; }
+/* Force white background on all containers */
+.stMainBlockContainer, .main .block-container { background: #f8fafc !important; }
+[data-testid="stAppViewContainer"] { background: #f8fafc !important; }
 
 div[data-testid="metric-container"] {
     background: #ffffff;
@@ -168,7 +171,7 @@ div[data-testid="stMetricDelta"] { font-size: 11px !important; }
 ::-webkit-scrollbar { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track { background: #f1f5f9; }
 ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-hr { border-color: #e2e8f0 !important; margin: 0.8rem 0 !important; }
+hr { border-color: #0f172a !important; margin: 0.8rem 0 !important; }
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(5px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -206,7 +209,7 @@ def chart_layout(title="", h=300, margin=None):
         yaxis=dict(gridcolor="#f1f5f9", zeroline=False, linecolor="#e2e8f0",
                    tickfont=dict(size=10, color="#475569")),
         legend=dict(bgcolor="rgba(0,0,0,0)", font=dict(size=10, color="#0f172a")),
-        hoverlabel=dict(bgcolor="#f8fafc", bordercolor="#cbd5e1",
+        hoverlabel=dict(bgcolor="#ffffff", bordercolor="#cbd5e1",
                         font=dict(size=11, color="#0f172a", family="Inter")),
     )
 
@@ -326,7 +329,7 @@ codes = [c for c in CURRENCIES if c in sel_ccy]
 if page == "Overview":
     st.markdown("""
     <div style="margin-bottom:22px;">
-      <div style="font-size:20px;font-weight:700;color:#e2e8f0;letter-spacing:-.01em;">
+      <div style="font-size:20px;font-weight:700;color:#0f172a;letter-spacing:-.01em;">
         Macro Overview
       </div>
       <div style="font-size:11px;color:#0f172a;margin-top:4px;">
@@ -354,7 +357,7 @@ if page == "Overview":
         with cols_s[i]:
             st.markdown(
                 f'{card_start(rgba(col,0.2), bg)}'
-                f'<div style="font-size:13px;font-weight:700;color:#e2e8f0;margin-bottom:3px;">{c}</div>'
+                f'<div style="font-size:13px;font-weight:700;color:#0f172a;margin-bottom:3px;">{c}</div>'
                 f'<div style="font-size:8.5px;color:{col};font-weight:700;text-transform:uppercase;letter-spacing:.08em;">{lbl}</div>'
                 f'{strength_bar(d["score"], 3, col)}'
                 f'<div style="font-size:9.5px;color:#0f172a;margin-top:6px;">{d["rate"]}%  ·  {d["bias"][:14]}</div>'
@@ -418,10 +421,10 @@ if page == "Overview":
             st.markdown(
                 f'{card_start()}'
                 f'<div style="display:flex;justify-content:space-between;align-items:center;">'
-                f'<div><div style="font-size:12px;font-weight:700;color:#e2e8f0;">{pair}</div>'
+                f'<div><div style="font-size:12px;font-weight:700;color:#0f172a;">{pair}</div>'
                 f'<div style="font-size:9.5px;color:{wcc};margin-top:2px;">{wchg:+.1f}% wk</div></div>'
                 f'<div style="text-align:right;">'
-                f'<div style="font-size:13px;font-weight:700;color:#e2e8f0;">{d["rate"]}</div>'
+                f'<div style="font-size:13px;font-weight:700;color:#0f172a;">{d["rate"]}</div>'
                 f'<div style="font-size:10px;color:{cc};">{chg:+.2f}%</div></div></div>'
                 f'{card_end()}',
                 unsafe_allow_html=True
@@ -434,7 +437,7 @@ if page == "Overview":
     for i, e in enumerate(high_ev):
         ccy_col = MACRO.get(e["ccy"],{}).get("color","#1e293b")
         is_cb   = any(x in e["event"] for x in ["BoJ","BoE","FOMC","Fed","ECB","RBA","RBNZ","BoC"])
-        bg_ev   = "#0a0600" if is_cb else "#ffffff"
+        bg_ev   = "#fff7ed" if is_cb else "#ffffff"
         brd_ev  = "#78350f" if is_cb else "#e2e8f0"
         with ev_cols[i]:
             st.markdown(
@@ -470,10 +473,10 @@ elif page == "Currencies":
         f'padding:20px 24px;margin-bottom:18px;">'
         f'<div style="display:flex;justify-content:space-between;align-items:flex-start;">'
         f'<div>'
-        f'<div style="font-size:18px;font-weight:700;color:#e2e8f0;">{sel}  —  {d["name"]}</div>'
+        f'<div style="font-size:18px;font-weight:700;color:#0f172a;">{sel}  —  {d["name"]}</div>'
         f'<div style="font-size:10.5px;color:#0f172a;margin-top:5px;line-height:2;">'
-        f'Central bank: <b style="color:#94a3b8;">{d["cb"]}</b>'
-        f'&nbsp;&nbsp;·&nbsp;&nbsp;Next meeting: <b style="color:#94a3b8;">{d["next_mtg"]}</b>'
+        f'Central bank: <b style="color:#475569;">{d["cb"]}</b>'
+        f'&nbsp;&nbsp;·&nbsp;&nbsp;Next meeting: <b style="color:#475569;">{d["next_mtg"]}</b>'
         f'&nbsp;&nbsp;·&nbsp;&nbsp;<span style="color:{d["color"]};">{d["updated"]}</span>'
         f'</div>'
         f'</div>'
@@ -526,7 +529,7 @@ elif page == "Currencies":
         for n in d["news"]:
             st.markdown(
                 f'<div style="border-left:2px solid #e2e8f0;padding:8px 12px;'
-                f'margin-bottom:6px;font-size:11.5px;color:#94a3b8;line-height:1.55;">'
+                f'margin-bottom:6px;font-size:11.5px;color:#475569;line-height:1.55;">'
                 f'{n}</div>',
                 unsafe_allow_html=True
             )
@@ -534,7 +537,7 @@ elif page == "Currencies":
         st.markdown(
             f'<div style="background:{bg};border:1px solid {rgba(col,0.15)};'
             f'border-radius:8px;padding:13px 15px;font-size:11.5px;'
-            f'color:#94a3b8;line-height:1.7;">{d["view"]}</div>',
+            f'color:#475569;line-height:1.7;">{d["view"]}</div>',
             unsafe_allow_html=True
         )
         section("Rate Expectations (OIS)")
@@ -546,7 +549,7 @@ elif page == "Currencies":
                 f'<div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:7px;'
                 f'padding:8px 12px;margin-bottom:5px;display:flex;justify-content:space-between;">'
                 f'<span style="font-size:11px;color:#64748b;">OIS {tenor}</span>'
-                f'<span style="font-size:11.5px;font-weight:600;color:#e2e8f0;">'
+                f'<span style="font-size:11.5px;font-weight:600;color:#0f172a;">'
                 f'{val:.2f}%  <span style="color:{dc};font-size:10px;">({delta:+.2f}%)</span></span>'
                 f'</div>',
                 unsafe_allow_html=True
@@ -559,7 +562,7 @@ elif page == "Currencies":
                 st.markdown(
                     f'<div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:7px;'
                     f'padding:8px 12px;margin-bottom:5px;display:flex;justify-content:space-between;">'
-                    f'<span style="font-size:12px;font-weight:600;color:#e2e8f0;">{pair}</span>'
+                    f'<span style="font-size:12px;font-weight:600;color:#0f172a;">{pair}</span>'
                     f'<span style="font-size:12px;color:{cc};">{pd2["rate"]}  {chg:+.2f}%</span>'
                     f'</div>',
                     unsafe_allow_html=True
@@ -595,7 +598,7 @@ elif page == "Calendar":
             st.markdown(
                 f'<div style="display:flex;align-items:center;gap:10px;margin:20px 0 8px;">'
                 f'<div style="width:2px;height:16px;background:#4f46e5;border-radius:1px;"></div>'
-                f'<span style="font-size:12px;font-weight:700;color:#e2e8f0;">{ev["date"]}</span>'
+                f'<span style="font-size:12px;font-weight:700;color:#0f172a;">{ev["date"]}</span>'
                 f'<span style="font-size:10px;color:#0f172a;">({ev["day"]})</span>'
                 f'</div>',
                 unsafe_allow_html=True
@@ -626,13 +629,13 @@ elif page == "Calendar":
             f'</div>'
             f'<div style="width:24px;font-size:9px;color:#0f172a;font-weight:600;">{flag_v}</div>'
             f'<div style="flex:1;">'
-            f'<div style="font-size:12px;font-weight:600;color:#e2e8f0;">{ev_text}</div>'
+            f'<div style="font-size:12px;font-weight:600;color:#0f172a;">{ev_text}</div>'
             f'<div style="font-size:9.5px;color:{ccy_col};margin-top:2px;font-weight:600;">{ccy_v}</div>'
             f'</div>'
             f'<div style="text-align:right;min-width:170px;">'
             f'{act_html}'
             f'<div style="font-size:9.5px;color:#0f172a;margin-top:3px;">'
-            f'Prev: <b style="color:#94a3b8;">{prev_v}</b>'
+            f'Prev: <b style="color:#475569;">{prev_v}</b>'
             f'&nbsp;&#8594;&nbsp;'
             f'Fcst: <b style="color:{ccy_col};">{fore_v}</b>'
             f'</div></div></div>'
@@ -745,7 +748,7 @@ elif page == "Insights":
             f'border-radius:8px;padding:13px 16px;margin-bottom:7px;'
             f'display:flex;gap:16px;align-items:flex-start;">'
             f'<div style="min-width:72px;">'
-            f'<div style="font-size:13px;font-weight:700;color:#e2e8f0;">{c}</div>'
+            f'<div style="font-size:13px;font-weight:700;color:#0f172a;">{c}</div>'
             f'<div style="font-size:8.5px;color:{col};font-weight:700;'
             f'text-transform:uppercase;letter-spacing:.06em;margin-top:3px;">{lbl}</div>'
             f'</div>'
@@ -776,7 +779,7 @@ elif page == "Risk Sentiment":
     if   total >= 4:  rlbl,rc,rbg = "RISK-ON",        COLOR_POSITIVE,"#ecfdf5"
     elif total >= 1:  rlbl,rc,rbg = "MILD RISK-ON",   "#6ee7b7","#0a2818"
     elif total == 0:  rlbl,rc,rbg = "NEUTRAL",         "#1e293b","#0f172a"
-    elif total >= -3: rlbl,rc,rbg = "MILD RISK-OFF",  "#fbbf24","#1c1100"
+    elif total >= -3: rlbl,rc,rbg = "MILD RISK-OFF",  "#fbbf24","#fffbeb"
     else:             rlbl,rc,rbg = "RISK-OFF",        COLOR_NEGATIVE,"#fff1f2"
 
     cg, cs = st.columns([2,1])
@@ -824,7 +827,7 @@ elif page == "Risk Sentiment":
             st.markdown(
                 f'{card_start()}'
                 f'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px;">'
-                f'<span style="font-size:11px;font-weight:600;color:#e2e8f0;">{factor}</span>'
+                f'<span style="font-size:11px;font-weight:600;color:#0f172a;">{factor}</span>'
                 f'<span style="font-size:11.5px;font-weight:700;color:{fc};">{score:+d}</span>'
                 f'</div>'
                 f'<div style="font-size:10px;color:#0f172a;">{desc}</div>'
@@ -839,7 +842,7 @@ elif page == "Risk Sentiment":
          [("AUD","Commodity exposure, hawkish RBA"),
           ("NZD","CPI surprise, RBNZ pivot"),
           ("GBP","Persistent inflation, BoE hawkish")]),
-        ("Safe Haven Currencies", COLOR_NEGATIVE, "#1a0505",
+        ("Safe Haven Currencies", COLOR_NEGATIVE, "#fff1f2",
          [("CHF","Primary safe haven, SNB limited"),
           ("JPY","Safe haven + hawkish BoJ pivot")]),
         ("Neutral / Mixed", "#1e293b", "#0f172a",
@@ -1315,7 +1318,7 @@ elif page == "Trade Simulator":
             f'<div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:7px;'
             f'padding:9px 14px;margin:8px 0;display:flex;justify-content:space-between;">'
             f'<span style="font-size:11px;color:#0f172a;">Current {pair}</span>'
-            f'<span style="font-size:13px;font-weight:700;color:#e2e8f0;">{curr_px}</span>'
+            f'<span style="font-size:13px;font-weight:700;color:#0f172a;">{curr_px}</span>'
             f'</div>',
             unsafe_allow_html=True
         )
@@ -1362,7 +1365,7 @@ elif page == "Trade Simulator":
             f'border:2px solid {rgba(fs_c,0.4)};border-radius:10px;padding:18px 22px;margin-bottom:16px;">'
             f'<div style="display:flex;justify-content:space-between;align-items:flex-start;">'
             f'<div>'
-            f'<div style="font-size:16px;font-weight:700;color:#e2e8f0;margin-bottom:4px;">'
+            f'<div style="font-size:16px;font-weight:700;color:#0f172a;margin-bottom:4px;">'
             f'{direction}  {pair}</div>'
             f'<div style="font-size:10.5px;color:#0f172a;">'
             f'{base} fundamental score <b style="color:{b_info.get("color","#0f172a")}">{b_sc:+d}</b>'
@@ -1393,7 +1396,7 @@ elif page == "Trade Simulator":
                     f'<div style="background:#ffffff;border:1px solid {rgba(sub_c,0.2)};'
                     f'border-radius:8px;padding:13px 14px;text-align:center;">'
                     f'<div style="font-size:9px;color:#0f172a;text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px;">{lbl}</div>'
-                    f'<div style="font-size:17px;font-weight:700;color:#e2e8f0;">{val}</div>'
+                    f'<div style="font-size:17px;font-weight:700;color:#0f172a;">{val}</div>'
                     f'<div style="font-size:10px;color:{sub_c};margin-top:3px;">{sub}</div>'
                     f'</div>',
                     unsafe_allow_html=True
@@ -1565,19 +1568,19 @@ elif page == "System":
       <div style="display:flex;gap:24px;flex-wrap:wrap;">
         <div>
           <div style="font-size:9.5px;color:#0f172a;text-transform:uppercase;letter-spacing:.1em;">London Close</div>
-          <div style="font-size:14px;font-weight:700;color:#e2e8f0;margin-top:4px;">17:00 UTC  Mon-Fri</div>
+          <div style="font-size:14px;font-weight:700;color:#0f172a;margin-top:4px;">17:00 UTC  Mon-Fri</div>
           <div style="font-size:10px;color:#0f172a;margin-top:2px;">Session key: YYYY-MM-DD-LDN</div>
         </div>
         <div style="width:1px;background:#e2e8f0;"></div>
         <div>
           <div style="font-size:9.5px;color:#0f172a;text-transform:uppercase;letter-spacing:.1em;">New York Close</div>
-          <div style="font-size:14px;font-weight:700;color:#e2e8f0;margin-top:4px;">22:00 UTC  Mon-Fri</div>
+          <div style="font-size:14px;font-weight:700;color:#0f172a;margin-top:4px;">22:00 UTC  Mon-Fri</div>
           <div style="font-size:10px;color:#0f172a;margin-top:2px;">Session key: YYYY-MM-DD-NY</div>
         </div>
         <div style="width:1px;background:#e2e8f0;"></div>
         <div>
           <div style="font-size:9.5px;color:#0f172a;text-transform:uppercase;letter-spacing:.1em;">Storage</div>
-          <div style="font-size:14px;font-weight:700;color:#e2e8f0;margin-top:4px;">SQLite  fx_data.db</div>
+          <div style="font-size:14px;font-weight:700;color:#0f172a;margin-top:4px;">SQLite  fx_data.db</div>
           <div style="font-size:10px;color:#0f172a;margin-top:2px;">Tables: snapshots · fx_snapshots · update_log</div>
         </div>
       </div>
@@ -1594,7 +1597,7 @@ elif page == "System":
                 f'padding:9px 14px;margin-bottom:5px;display:flex;gap:14px;align-items:center;">'
                 f'<div style="width:6px;height:6px;border-radius:50%;background:{sc};flex-shrink:0;"></div>'
                 f'<span style="font-size:10px;color:#0f172a;min-width:160px;">{log.get("ts","")}</span>'
-                f'<span style="font-size:10.5px;font-weight:600;color:#94a3b8;">{log.get("session","")}</span>'
+                f'<span style="font-size:10.5px;font-weight:600;color:#475569;">{log.get("session","")}</span>'
                 f'<span style="font-size:10px;color:#475569;">{log.get("trigger","")}</span>'
                 f'<span style="font-size:10px;color:{sc};margin-left:auto;">{log.get("status","")}</span>'
                 f'</div>',
@@ -1606,14 +1609,14 @@ elif page == "System":
     section("How Data Updates Work")
     st.markdown("""
     <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;padding:16px 18px;font-size:11.5px;color:#64748b;line-height:1.9;">
-      <b style="color:#94a3b8;">Automatic (background scheduler)</b><br>
+      <b style="color:#475569;">Automatic (background scheduler)</b><br>
       The APScheduler runs inside the Streamlit process. At 17:00 UTC (London close) and 22:00 UTC
       (New York close) on weekdays, it calls <code style="color:#4f46e5;">save_snapshot()</code>
       which writes the current macro data to <code>fx_data.db</code>.<br><br>
-      <b style="color:#94a3b8;">Historical charts</b><br>
+      <b style="color:#475569;">Historical charts</b><br>
       The Historical tab in Comparison reads from the DB first. After 2+ sessions are stored,
       charts show live session data instead of static fallback data.<br><br>
-      <b style="color:#94a3b8;">Manual updates</b><br>
+      <b style="color:#475569;">Manual updates</b><br>
       Edit <code>MACRO</code>, <code>RATE_EXP</code>, <code>FX_RATES</code>, <code>CALENDAR</code>
       and <code>NEWS</code> in <code>data.py</code> each week after major releases.
       The scheduler then persists those values automatically.
