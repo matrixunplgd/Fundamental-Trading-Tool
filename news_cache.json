@@ -1,18 +1,69 @@
 [
   {
-    "ts": "24 Apr 09:19",
-    "title": "Financial Markets Brace for High-Stakes Week Amid Global Tensions",
-    "body": "The coming week is pivotal for financial markets with attention focused on the Iran conflict, interest rate decisions, and the AI-driven earnings reports from tech giants. Central banks and major corporations will make critical announcements amidst geopolitical uncertainties and market volatility aggravated by high energy prices.",
+    "ts": "24 Apr 21:39",
+    "title": "PBoC: Steepening bias as industrial activity holds – DBS",
+    "body": "DBS Group Research economist Samuel Tse analyses recent steepening in Chinese Yuan (CNY) rates, linking it to a ceasefire between the United States (US) and Iran and stronger-than-expected Q1 growth in China.",
+    "cat": "Central Bank",
+    "ccys": [
+      "CAD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "24 Apr 21:24",
+    "title": "USD/CHF Price Forecast: Rejected at 100-day SMA, eyes on 0.7800",
+    "body": "USD/CHF dropped on Friday but finished the week with gains of over 0.35%, trading at 0.7841 as market participants grew confident that US-Iran talks could resume over the weekend to resolve the conflict.",
     "cat": "Geopolitics",
+    "ccys": [
+      "USD",
+      "CHF"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "24 Apr 20:58",
+    "title": "USD/IDR: Upside risks widen on fiscal concerns – MUFG",
+    "body": "Lloyd Chan at MUFG highlights that USD/IDR has broken to fresh highs, overshooting earlier expectations for near-term stabilization. The move is attributed more to domestic confidence and fiscal uncertainty than broad US Dollar (USD) strength.",
+    "cat": "Macro",
     "ccys": [
       "USD"
     ],
     "dir": "mixed"
   },
   {
-    "ts": "24 Apr 09:04",
-    "title": "BOE Survey Finds Inflation Expectations Rise, But Wage Outlook Cools",
-    "body": "By Paul Hannon\nU.K. businesses polled in April expected to raise their prices at a faster rate than they did prior to the conflict in the Middle East, but wage increases were seen slowing,...\n-April 24, 2026 at 05:04 am EDT\n- MarketScreener",
+    "ts": "24 Apr 20:50",
+    "title": "Silver Price Analysis: XAG advances but stalls at technical confluence near $75",
+    "body": "Silver (XAG/USD) price edges up over 0.50% during Friday’s session, after bouncing off a daily low of $73.95. Speculation about a resumption of negotiations between Washington and Tehran is cheered by investors, which pushed US equities higher in tandem with the precious metals segment.",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "24 Apr 20:22",
+    "title": "PHP: BSP tightening supports Peso but risks linger – OCBC",
+    "body": "OCBC strategists Sim Moh Siong and Christopher Wong note the central bank of Philippines Bangko Sentral ng Pilipinas' (BSP) 25bp hike to 4.5% and guidance that further increases are possible as inflation forecasts are revised higher and second-round effects emerge.",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "24 Apr 19:44",
+    "title": "BoC: Cautious hold and two‑sided risks – TD Securities",
+    "body": "TD Securities strategists, including Andrew Kelvin and colleagues, expect the Bank of Canada to keep the Overnight Rate at 2.25% through the April meeting and likely for the rest of 2026.",
+    "cat": "Central Bank",
+    "ccys": [
+      "CAD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "24 Apr 19:07",
+    "title": "BoE: MPC holds vigilant stance – Rabobank",
+    "body": "Rabobank’s Senior Macro Strategist Stefan Koopman expects the Bank of England’s (BoE) Monetary Policy Committee (MPC) to leave Bank Rate at 3.75% at the April meeting, maintaining its vigilant stance.",
     "cat": "Central Bank",
     "ccys": [
       "GBP"
@@ -20,49 +71,9 @@
     "dir": "mixed"
   },
   {
-    "ts": "24 Apr 08:30",
-    "title": "India growth expected to be around 6.5% this year: Gita Gopinath",
-    "body": "India's economy is projected to grow at 6.5% this year, says Former IMF Deputy Managing Director Gita Gopinath to ET NOW. Global risks, particularly from West Asia, are impacting growth. Inflation is currently managed as companies absorb costs, but this may not last. Food prices could rise if disruptions continue. Central banks might delay interest rate cuts. Oil shocks will affect many economic s",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "negative"
-  },
-  {
-    "ts": "24 Apr 07:21",
-    "title": "War and rising prices test Bank of England’s nerve",
-    "body": "Markets expect caution from interest rate-setters at their April 30 meeting but forecasts are shifting as the Iran conflict clouds the outlook",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "24 Apr 05:10",
-    "title": "Global Market: BOJ faces policy dilemma as inflation eases but energy risks persist",
-    "body": "Japans core inflation slipped below the Bank of Japans 2% target for a second straight month in March, as subsidies and easing food prices offset energy pressures. While underlying inflation remains resilient, rising oil costs and geopolitical risks may push prices higher, keeping policymakers cautious on future interest rate decisions.",
-    "cat": "Central Bank",
-    "ccys": [
-      "JPY"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "24 Apr 04:57",
-    "title": "US housing market faces volatility despite decline in mortgage rates",
-    "body": "US mortgage rates fell for a third straight week, with the 30-year fixed rate easing to 6.23%, its lowest since mid-March. Declining Treasury yields supported the trend, though volatility from inflation and geopolitical risks persists. Despite easing borrowing costs, housing activity remains subdued amid affordability and demand pressures.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "24 Apr 04:00",
-    "title": "Silver dips Rs 2,300, gold at Rs 1.51 lakh as oil surge, Iran war uncertainty raise inflation worries. What’s next?",
-    "body": "Gold and silver opened lower on MCX amid rising crude oil prices near $110 per barrel, fuelling inflation concerns and rate outlook uncertainty. Geopolitical tensions in the Strait of Hormuz added to volatility. Analysts expect range-bound trading with key support and resistance levels guiding near-term strategy across bullion markets.",
+    "ts": "24 Apr 18:48",
+    "title": "Forecasting the upcoming week: US Dollar eases into weekend as markets eye central bank meetings",
+    "body": "The US Dollar Index (DXY) is losing momentum near the 98.50 price zone and continues drifting lower from recent highs as markets unwind part of the recent US Dollar (USD) rally despite still strong United States (US) data and ongoing Middle East tensions.",
     "cat": "Geopolitics",
     "ccys": [
       "USD"
@@ -70,9 +81,40 @@
     "dir": "positive"
   },
   {
-    "ts": "24 Apr 03:57",
-    "title": "Best corporate bond mutual funds to invest in April 2026",
-    "body": "For investors seeking relatively safe debt options for near-term or medium-term goals, corporate bond funds are recommended for April 2026. These funds invest primarily in highly-rated corporate papers, offering a safer alternative to credit risk and interest-rate sensitive funds. Investors should prioritize safety and consider the current interest rate environment.",
+    "ts": "24 Apr 18:43",
+    "title": "Gold rebounds as Iran-US deal hopes drive upside",
+    "body": "Gold (XAU/USD) price recovers some ground on Friday, extending its gains above $4,700 as market sentiment remains upbeat amid headlines from Iran and the US pointing to a resumption of second-round talks aimed at ending the conflict. At the time of writing XAU/USD trades at $4,726, up 0.47%.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "24 Apr 18:37",
+    "title": "NZD/USD rises as US Dollar weakens on renewed US-Iran talks hopes",
+    "body": "The New Zealand Dollar (NZD) gains traction against the US Dollar (USD) on Friday as the Greenback weakens amid renewed hopes for US–Iran talks after stalled negotiations.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD",
+      "NZD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "24 Apr 18:37",
+    "title": "Germany: Growth hit by energy shock – Commerzbank",
+    "body": "Commerzbank’s Chief Economist Dr. Jörg Krämer argues that the sharp fall in the Ifo Business Climate Index underlines how severely the energy price shock is weighing on the German economy.",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "negative"
+  },
+  {
+    "ts": "24 Apr 18:06",
+    "title": "Iran's Araghchi tours three capitals with 450kg of leverage; is Trump boxed in?",
+    "body": "Iran's Foreign Minister Abbas Araghchi landed in Islamabad on Friday evening to open the long-delayed second round of talks with the US, and special envoy Steve Witkoff and senior adviser Jared Kushner are due in on Saturday morning.",
     "cat": "Geopolitics",
     "ccys": [
       "USD"
@@ -80,9 +122,71 @@
     "dir": "mixed"
   },
   {
-    "ts": "24 Apr 03:34",
-    "title": "Silver rate today in India drops over ₹2,300 per kg on rising crude oil prices, firm dollar",
-    "body": "Silver prices in India dropped 1% to ₹2,39,200 per kg on April 24, influenced by rising crude oil prices, bond yields, and a stronger U.S. dollar. Global silver also fell to $75.22 per ounce, while gold prices declined amid inflation concerns and geopolitical tensions.",
+    "ts": "24 Apr 14:59",
+    "title": "EUR/USD Weekly Forecast: War and central banks in the limelight",
+    "body": "The EUR/USD pair ended a three-week winning streak and settled below the 1.1700 mark as the US Dollar (USD) strengthened amid Middle East uncertainty.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "negative"
+  },
+  {
+    "ts": "24 Apr 14:30",
+    "title": "US Dollar Weekly: Will Kevin Warsh please President Trump?",
+    "body": "United States President Donald Trump’s nominee to succeed Jerome Powell as Federal Reserve Chair, Kevin Warsh, faced senators, and there was no subtlety.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "negative"
+  },
+  {
+    "ts": "24 Apr 09:02",
+    "title": "GBP/USD Price Forecast: Bulls seem hesitant as US-Iran tensions counter Fed-BoE divergence",
+    "body": "The GBP/USD pair edges higher during the first half of the European session on Friday and recovers a part of the previous day's losses to levels just below mid-1.3400s, or a nearly two-week trough.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD",
+      "EUR",
+      "GBP"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "24 Apr 02:56",
+    "title": "Gold Price Forecast: XAU/USD eyes weekly loss as bears tighten grip",
+    "body": "Gold is testing the $4,700 level early Friday, holding at its weakest level in over a week and eyeing the first weekly drop in five weeks.",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "23 Apr 18:11",
+    "title": "Silver Price Forecast: XAG/USD could retest recent lows at $61",
+    "body": "Silver came under selling pressure in the second half of Thursday, as risk aversion fueled US Dollar (USD) demand.",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "23 Apr 14:28",
+    "title": "Gold is supposed to be a hedge against war and inflation – Not this time",
+    "body": "Current global circumstances should be highly favorable for Gold, which functions as a safe-haven asset when geopolitical tensions arise and also acts as a store of value when fiat currencies decline during prolonged inflationary periods. That’s a nice theory, but this isn’t happening now.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "23 Apr 08:57",
+    "title": "USD/JPY Price Forecast: Approaches 160.00 intervention threshold amid US-Iran tensions",
+    "body": "The USD/JPY pair builds on last week's bounce from the vicinity of mid-157.00s and prolongs its uptrend for the fourth straight day on Thursday.",
     "cat": "Geopolitics",
     "ccys": [
       "USD"
@@ -90,9 +194,59 @@
     "dir": "mixed"
   },
   {
-    "ts": "24 Apr 02:37",
-    "title": "India’s inflation, external debt well within target levels: RBI Governor",
-    "body": "RBI Governor Sanjay Malhotra assures India’s stable inflation and external debt despite global shocks, highlighting strong fundamentals, resilient financial sector, and global economic engagement. However, rising energy prices and conflicts pose risks to inflation. Policy rate unchanged, but GDP growth projected to decline and retail inflation to increase due to supply chain disruptions.",
+    "ts": "23 Apr 03:22",
+    "title": "Gold Price Forecast: XAU/USD awaits a clear impetus amid US-Iran stand-off",
+    "body": "Gold is challenging the $4,700 level on renewed downside in Asia on Thursday, wiping out the previous rebound.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "24 Apr 22:16",
+    "title": "Deutsche Bank forecasts S&P 500 to hit 7000 by end of 2025",
+    "body": "",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "24 Apr 22:16",
+    "title": "Trump's tariffs, Fed minutes, Rumble's Bitcoin buy - what's moving markets",
+    "body": "",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "24 Apr 22:16",
+    "title": "Bitcoin price today: slips to $94k as risk appetite sours on Trump tariff threat",
+    "body": "",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "24 Apr 22:16",
+    "title": "2025 macro outlook for the US is 'murky at best' says Deutsche Bank",
+    "body": "",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "24 Apr 22:16",
+    "title": "Trump says he will impose additional 10% tariffs on China over drug inflow",
+    "body": "",
     "cat": "Geopolitics",
     "ccys": [
       "USD"
