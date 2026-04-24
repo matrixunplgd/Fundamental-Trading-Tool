@@ -1,0 +1,47 @@
+name: FX Data Scraper
+
+on:
+  schedule:
+    - cron: '5 17 * * 1-5'   # London close 17:05 UTC Mon-Fri
+    - cron: '5 22 * * 1-5'   # NY close 22:05 UTC Mon-Fri
+  workflow_dispatch:           # manual trigger from GitHub UI
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4 lxml apscheduler
+
+      - name: Run scraper
+        run: python scraper.py
+        env:
+          FRED_API_KEY:     ${{ secrets.FRED_API_KEY }}
+          ALPHAVANTAGE_KEY: ${{ secrets.ALPHAVANTAGE_KEY }}
+
+      - name: Commit updated data.py if changed
+        run: |
+          git config --global user.name  "FX Scraper Bot"
+          git config --global user.email "bot@fxdashboard.local"
+          git add data.py
+          git diff --staged --quiet || git commit -m "auto: data update $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      - name: Show scraper log
+        if: always()
+        run: tail -30 scraper.log 2>/dev/null || echo "No log file"
