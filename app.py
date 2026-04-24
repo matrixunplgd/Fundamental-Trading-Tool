@@ -258,67 +258,78 @@ def hline(fig, y, color, label=""):
 # ─────────────────────────────────────────────────────────────────
 # SIDEBAR
 # ─────────────────────────────────────────────────────────────────
-with st.sidebar:
-    st.markdown("""
-    <div style="padding:4px 0 18px;">
-      <div style="font-size:12px;font-weight:700;color:#4f46e5;
-           letter-spacing:.1em;text-transform:uppercase;">FX Dashboard</div>
-      <div style="font-size:9.5px;color:#d1d5db;margin-top:3px;
-           letter-spacing:.08em;text-transform:uppercase;">Fundamental Analysis</div>
-    </div>
-    """, unsafe_allow_html=True)
+# ── Top navigation ────────────────────────────────────────────────
+now_utc = datetime.now(timezone.utc)
+last    = get_last_update()
 
-    page = st.radio("", [
-        "Overview",
-        "Currencies",
-        "Calendar",
-        "News",
-        "Insights",
-        "Risk Sentiment",
-        "Comparison",
-        "Trade Simulator",
-        "System",
-    ], label_visibility="collapsed")
+PAGES = [
+    ("Overview",       "overview"),
+    ("Currencies",     "currencies"),
+    ("Calendar",       "calendar"),
+    ("News",           "news"),
+    ("Insights",       "insights"),
+    ("Risk Sentiment", "risk"),
+    ("Comparison",     "comparison"),
+    ("Trade Simulator","simulator"),
+    ("System",         "system"),
+]
 
-    st.markdown('<div style="height:1px;background:#e2e8f0;margin:12px 0;"></div>', unsafe_allow_html=True)
+if "page" not in st.session_state:
+    st.session_state["page"] = "Overview"
 
-    sel_ccy = st.multiselect("Currencies", CURRENCIES, default=CURRENCIES)
+# Read page from URL
+params   = st.query_params
+page_key = params.get("page", "overview")
+key_to_label = {k: l for l, k in PAGES}
+page = key_to_label.get(page_key, "Overview")
+st.session_state["page"] = page
 
-    st.markdown('<div style="height:1px;background:#e2e8f0;margin:12px 0;"></div>', unsafe_allow_html=True)
+# Build nav items
+nav_html = ""
+for label, key in PAGES:
+    active  = (page == label)
+    bg      = "#4f46e5" if active else "transparent"
+    color   = "#ffffff" if active else "#334155"
+    weight  = "600"     if active else "500"
+    nav_html += (
+        f'<a href="?page={key}" target="_self" style="'
+        f'display:inline-flex;align-items:center;gap:5px;'
+        f'padding:6px 12px;border-radius:7px;'
+        f'background:{bg};color:{color};'
+        f'font-size:11.5px;font-weight:{weight};'
+        f'text-decoration:none;white-space:nowrap;'
+        f'transition:all 0.15s ease;">'
+        f'{label}</a>'
+    )
 
-    last = get_last_update()
-    now_utc = datetime.now(timezone.utc)
-    next_ldn = now_utc.replace(hour=17, minute=0, second=0, microsecond=0)
-    next_ny  = now_utc.replace(hour=22, minute=0, second=0, microsecond=0)
-    if now_utc.hour >= 17: next_ldn = next_ldn + __import__("datetime").timedelta(days=1)
-    if now_utc.hour >= 22: next_ny  = next_ny  + __import__("datetime").timedelta(days=1)
+st.markdown(f"""
+<div style="
+  background:#ffffff;border-bottom:1px solid #e2e8f0;
+  padding:10px 28px;margin:-1.8rem -2.8rem 1.5rem -2.8rem;
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:999;
+  box-shadow:0 1px 4px rgba(0,0,0,0.05);
+">
+  <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">
+    <div style="width:8px;height:8px;background:#4f46e5;border-radius:2px;"></div>
+    <span style="font-size:13px;font-weight:700;color:#0f172a;letter-spacing:.03em;">FX Dashboard</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:3px;overflow-x:auto;">
+    {nav_html}
+  </div>
+  <div style="font-size:10px;color:#94a3b8;flex-shrink:0;margin-left:16px;">
+    {now_utc.strftime('%d %b %Y  %H:%M')} UTC
+  </div>
+</div>
+""", unsafe_allow_html=True)
 
-    st.markdown(f"""
-    <div style="font-size:9.5px;color:#d1d5db;line-height:2.2;">
-      <div style="color:#0f172a;font-weight:600;margin-bottom:4px;">Auto-Update Schedule</div>
-      <div>London close  <span style="color:#475569;">17:00 UTC</span></div>
-      <div>NY close  <span style="color:#475569;">22:00 UTC</span></div>
-      <div style="margin-top:6px;">Last update</div>
-      <div style="color:#475569;">{last.get('ts','—')}</div>
-      <div style="margin-top:6px;">Session: <span style="color:#475569;">{last.get('session','—')}</span></div>
-    </div>
-    """, unsafe_allow_html=True)
-
-    st.markdown('<div style="height:1px;background:#e2e8f0;margin:12px 0;"></div>', unsafe_allow_html=True)
-    if st.button("Force snapshot now", use_container_width=True):
-        save_snapshot("manual")
-        st.success("Snapshot saved.")
-
-    st.markdown(f"""
-    <div style="font-size:9px;color:#d1d5db;margin-top:10px;line-height:1.8;">
-      {now_utc.strftime('%d %b %Y  %H:%M UTC')}<br>
-      IMF WEO · TradingEconomics<br>
-      ECB · BoE · BoJ · Fed · RBA<br>
-      <span style="margin-top:6px;display:block;">
-        For informational purposes only.<br>Not financial advice.
-      </span>
-    </div>
-    """, unsafe_allow_html=True)
+# Currency filter
+sel_ccy = st.multiselect(
+    "Filtrer devises",
+    CURRENCIES,
+    default=CURRENCIES,
+    label_visibility="collapsed",
+)
 
 codes = [c for c in CURRENCIES if c in sel_ccy]
 
