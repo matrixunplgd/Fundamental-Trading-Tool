@@ -147,8 +147,8 @@
     "body": "The GBP/USD pair edges higher during the first half of the European session on Friday and recovers a part of the previous day's losses to levels just below mid-1.3400s, or a nearly two-week trough.",
     "cat": "Central Bank",
     "ccys": [
-      "GBP",
       "EUR",
+      "GBP",
       "USD"
     ],
     "dir": "mixed"
