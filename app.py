@@ -12,7 +12,7 @@ from datetime import datetime, timezone
 from data import (
     MACRO, RATE_EXP, FX_RATES, CALENDAR, NEWS,
     MONTHS, HIST_CPI, HIST_RATE, HIST_UNEM,
-    start_scheduler, save_snapshot, get_news, get_ai_insights,
+    start_scheduler, save_snapshot, get_news, get_ai_insights, get_risk_sentiment,
     load_history_from_db, load_update_log, get_last_update,
     init_db, score_meta,
 )
@@ -32,7 +32,8 @@ COLOR_BG_ACCENT     = "#eef2ff"   # indigo-50
 init_db()
 start_scheduler()
 news_list   = get_news()         # loads from news_cache.json
-ai_insights = get_ai_insights()   # loads from ai_insights.json
+ai_insights    = get_ai_insights()    # loads from ai_insights.json
+risk_sentiment = get_risk_sentiment()  # loads from risk_sentiment.json (VIX-based)
 
 # ─────────────────────────────────────────────────────────────────
 # PAGE CONFIG
@@ -269,9 +270,7 @@ last    = get_last_update()
 PAGES = [
     ("Overview",       "overview"),
     ("Currencies",     "currencies"),
-    ("Calendar",       "calendar"),
     ("News",           "news"),
-    ("Insights",       "insights"),
     ("Risk Sentiment", "risk"),
     ("Comparison",     "comparison"),
     ("Trade Simulator","simulator"),
@@ -651,80 +650,7 @@ elif page == "Currencies":
 # ═════════════════════════════════════════════════════════════════
 # CALENDAR
 # ═════════════════════════════════════════════════════════════════
-elif page == "Calendar":
-    st.markdown('<div style="font-size:20px;font-weight:700;color:#334155;margin-bottom:6px;">Economic Calendar</div>', unsafe_allow_html=True)
-    st.markdown('<div style="font-size:11px;color:#334155;margin-bottom:18px;">23 April — 30 April 2026</div>', unsafe_allow_html=True)
 
-    cf1, cf2 = st.columns([2,1])
-    with cf1: f_imp = st.radio("Impact", ["All","High only","Medium+"], horizontal=True)
-    with cf2: f_ccy = st.selectbox("Currency", ["All"]+CURRENCIES)
-
-    events = CALENDAR[:]
-    if f_imp == "High only":  events = [e for e in events if e["imp"]=="high"]
-    elif f_imp == "Medium+":  events = [e for e in events if e["imp"] in ("high","medium")]
-    if f_ccy != "All":        events = [e for e in events if e["ccy"]==f_ccy]
-
-    imp_cfg = {
-        "high":   (COLOR_NEGATIVE,"#fff1f2","#fca5a5"),
-        "medium": ("#d97706","#0d0600","#78350f"),
-        "low":    (COLOR_POSITIVE,"#ecfdf5","#6ee7b7"),
-    }
-
-    cur_date = None
-    for ev in events:
-        if ev["date"] != cur_date:
-            cur_date = ev["date"]
-            st.markdown(
-                f'<div style="display:flex;align-items:center;gap:10px;margin:20px 0 8px;">'
-                f'<div style="width:2px;height:16px;background:#4f46e5;border-radius:1px;"></div>'
-                f'<span style="font-size:12px;font-weight:700;color:#0f172a;">{ev["date"]}</span>'
-                f'<span style="font-size:10px;color:#334155;">({ev["day"]})</span>'
-                f'</div>',
-                unsafe_allow_html=True
-            )
-
-        col_imp, bg_imp, brd_imp = imp_cfg[ev["imp"]]
-        ccy_col = MACRO.get(ev["ccy"],{}).get("color","#1e293b")
-        has_act = bool(str(ev.get("act","")).strip())
-        act_val = str(ev.get("act","")).strip()
-        prev_v  = str(ev.get("prev","")).strip()
-        fore_v  = str(ev.get("fore","")).strip()
-        ev_text = str(ev.get("event","")).strip()
-        time_v  = str(ev.get("time","")).strip()
-        flag_v  = str(ev.get("flag","")).strip()
-        ccy_v   = str(ev.get("ccy","")).strip()
-
-        act_html = (f'<span style="background:#052e16;color:#10b981;'
-                    f'font-size:11px;font-weight:700;padding:2px 8px;'
-                    f'border-radius:3px;">ACT: {act_val}</span>') if has_act else ""
-
-        html = (
-            f'<div style="background:{bg_imp};border:1px solid {brd_imp};border-radius:8px;'
-            f'padding:11px 16px;margin-bottom:5px;display:flex;align-items:center;gap:14px;">'
-            f'<div style="min-width:52px;text-align:center;">'
-            f'<div style="font-size:10.5px;color:{col_imp};font-weight:700;'
-            f'text-transform:uppercase;letter-spacing:.06em;">{ev["imp"]}</div>'
-            f'<div style="font-size:10.5px;color:#64748b;margin-top:2px;">{time_v}</div>'
-            f'</div>'
-            f'<div style="width:24px;font-size:10.5px;color:#0f172a;font-weight:600;">{flag_v}</div>'
-            f'<div style="flex:1;">'
-            f'<div style="font-size:12px;font-weight:600;color:#0f172a;">{ev_text}</div>'
-            f'<div style="font-size:11px;color:{ccy_col};margin-top:2px;font-weight:600;">{ccy_v}</div>'
-            f'</div>'
-            f'<div style="text-align:right;min-width:170px;">'
-            f'{act_html}'
-            f'<div style="font-size:11px;color:#0f172a;margin-top:3px;">'
-            f'Prev: <b style="color:#475569;">{prev_v}</b>'
-            f'&nbsp;&#8594;&nbsp;'
-            f'Fcst: <b style="color:{ccy_col};">{fore_v}</b>'
-            f'</div></div></div>'
-        )
-        st.markdown(html, unsafe_allow_html=True)
-
-
-# ═════════════════════════════════════════════════════════════════
-# NEWS
-# ═════════════════════════════════════════════════════════════════
 elif page == "News":
     st.markdown('<div style="font-size:20px;font-weight:700;color:#334155;margin-bottom:18px;">Market News</div>', unsafe_allow_html=True)
 
@@ -776,98 +702,34 @@ elif page == "News":
 # ═════════════════════════════════════════════════════════════════
 # INSIGHTS
 # ═════════════════════════════════════════════════════════════════
-elif page == "Insights":
-    st.markdown('<div style="font-size:20px;font-weight:700;color:#334155;margin-bottom:6px;">Fundamental Insights</div>', unsafe_allow_html=True)
-    st.markdown('<div style="font-size:11px;color:#334155;margin-bottom:20px;">Qualitative macro themes — week of 23 Apr 2026</div>', unsafe_allow_html=True)
 
-    themes = [
-        {"title":"Energy Shock — Middle East","color":"#f59e0b",
-         "body":"Strait of Hormuz partially blocked. Net energy importers (Eurozone, Japan) most exposed. CPI acceleration driven by fuel costs across Europe.",
-         "impact":"EUR negative  ·  JPY negative  ·  USD positive  ·  CAD ambiguous"},
-        {"title":"Central Bank Divergence — Critical Week","color":COLOR_PRIMARY,
-         "body":"BoJ poised to act Apr 28, BoE and Fed both on hold. Rate differential between USD and JPY narrowing for first time since 2022. Core theme of the week.",
-         "impact":"JPY strongly positive  ·  GBP positive  ·  USD risk to downside"},
-        {"title":"Persistent Inflation — UK &amp; NZD","color":COLOR_NEGATIVE,
-         "body":"UK CPI 3.3% (services 4.5%) and NZD CPI 3.1% (beat). Both central banks constrained — hawkish bias underpins both currencies vs peers.",
-         "impact":"GBP positive  ·  NZD positive"},
-        {"title":"German Weakness — EUR Risk","color":"#1e293b",
-         "body":"ZEW -17.2 and PMI Composite in contraction. Germany weighing on EUR sentiment. ECB cautious but market pricing some hike risk — a policy error could amplify weakness.",
-         "impact":"EUR negative  ·  CHF positive (safe haven)"},
-        {"title":"CHF &amp; JPY — Safe Haven Rotation","color":"#a855f7",
-         "body":"Geopolitical uncertainty and US-Iran breakdown sustaining safe-haven demand. CHF structurally strong; JPY potential hawkish catalyst from BoJ.",
-         "impact":"CHF positive  ·  JPY positive"},
-        {"title":"AUD &amp; NZD — Commodity &amp; Rate Support","color":COLOR_POSITIVE,
-         "body":"Gold, copper and soft commodities well-bid. China fiscal stimulus supporting terms-of-trade. Both RBA and RBNZ leaning hawkish. Risk-on sentiment favours both.",
-         "impact":"AUD positive  ·  NZD positive"},
-    ]
-
-    for i in range(0, len(themes), 2):
-        tc1, tc2 = st.columns(2)
-        for col_idx, t in enumerate(themes[i:i+2]):
-            col_w = tc1 if col_idx==0 else tc2
-            with col_w:
-                st.markdown(
-                    f'<div style="background:#ffffff;border:1px solid {rgba(t["color"],0.2)};'
-                    f'border-top:2px solid {t["color"]};border-radius:8px;'
-                    f'padding:16px 18px;margin-bottom:12px;">'
-                    f'<div style="font-size:12.5px;font-weight:700;color:#0f172a;margin-bottom:10px;">{t["title"]}</div>'
-                    f'<div style="font-size:11.5px;color:#64748b;line-height:1.7;margin-bottom:12px;">{t["body"]}</div>'
-                    f'<div style="background:#f3f4f6;border-radius:5px;padding:7px 10px;'
-                    f'font-size:10px;color:{t["color"]};font-weight:500;">{t["impact"]}</div>'
-                    f'</div>',
-                    unsafe_allow_html=True
-                )
-
-    section("Currency Views")
-    _cv = ai_insights.get("currency_views", {}) if ai_insights else {}
-    for c in codes:
-        d = MACRO[c]
-        _ai_cv = _cv.get(c, {})
-        _view  = _ai_cv.get("view",  d.get("view",""))
-        _bias  = _ai_cv.get("bias",  d.get("bias",""))
-        _score = _ai_cv.get("score", d.get("score", 0))
-        col, bg, lbl = score_meta(d["score"])
-        st.markdown(
-            f'''
-            <div style="background:#ffffff; border-left:3px solid {col}; border-radius:8px; padding:12px 16px; margin-bottom:10px; box-shadow:0 1px 2px rgba(0,0,0,0.02);">
-                <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-                    <div style="min-width:70px;">
-                        <span style="font-size:15px; font-weight:700; color:#0f172a;">{c}</span>
-                        <div style="font-size:10px; color:{col}; font-weight:700; text-transform:uppercase;">{lbl}</div>
-                    </div>
-                    <div style="font-size:12px; color:#334155; line-height:1.6; flex:1;">{d["view"]}</div>
-                </div>
-            </div>
-            ''',
-            unsafe_allow_html=True
-        )
-
-
-# ═════════════════════════════════════════════════════════════════
-# RISK SENTIMENT
-# ═════════════════════════════════════════════════════════════════
 elif page == "Risk Sentiment":
     st.markdown('<div style="font-size:20px;font-weight:700;color:#0f172a;margin-bottom:6px;">Risk Sentiment Barometer</div>', unsafe_allow_html=True)
     st.markdown('<div style="font-size:11px;color:#334155;margin-bottom:20px;">Market risk appetite assessment — 23 Apr 2026</div>', unsafe_allow_html=True)
 
-    # Use AI risk factors if available
-    if ai_insights and "risk_sentiment" in ai_insights:
-        _rs = ai_insights["risk_sentiment"]
-        total = _rs.get("score", 0)
+    # VIX-based risk sentiment (live) or static fallback
+    if risk_sentiment:
+        total   = risk_sentiment.get("score", 0)
+        vix_val = risk_sentiment.get("vix")
         factors = {
             f["name"]: (f["score"], f["desc"])
-            for f in _rs.get("factors", [])
+            for f in risk_sentiment.get("factors", [])
         }
+        _rs_label = risk_sentiment.get("label", "")
+        _rs_updated = risk_sentiment.get("updated", "")
     else:
         factors = {
-            "Middle East geopolitics":    (-3, "US-Iran talks collapsed. Strait of Hormuz partially blocked."),
-            "Global inflation":           (-2, "Elevated CPI in UK, NZD, AUD, USD — limits CB easing globally."),
-            "BoJ policy normalisation":   ( 1, "Rate hike cycle underway — positive for market stability."),
-            "Global growth momentum":     (-1, "Euro Area slowing, US stable, Asia mixed."),
-            "Commodity markets":          ( 2, "Gold and copper well supported. Energy falling post-ceasefire."),
-            "Market volatility (VIX)":    ( 0, "VIX 18.4 — moderate. Not extreme in either direction."),
+            "Middle East geopolitics":  (-3, "US-Iran talks collapsed. Strait of Hormuz partially blocked."),
+            "Global inflation":         (-2, "Elevated CPI in UK, NZD, AUD, USD — limits CB easing globally."),
+            "BoJ policy normalisation": ( 1, "Rate hike cycle underway — positive for market stability."),
+            "Global growth momentum":   (-1, "Euro Area slowing, US stable, Asia mixed."),
+            "Commodity markets":        ( 2, "Gold and copper well supported. Energy falling."),
+            "VIX":                      ( 0, "VIX data not yet available."),
         }
-        total = sum(v for v,_ in factors.values())
+        total      = sum(v for v,_ in factors.values())
+        vix_val    = None
+        _rs_label  = ""
+        _rs_updated = ""
     pct   = max(5, min(95, int((total+9)/18*100)))
 
     if   total >= 4:  rlbl,rc,rbg = "RISK-ON",        COLOR_POSITIVE,"#ecfdf5"
