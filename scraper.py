@@ -164,7 +164,7 @@ def scrape_fx_frankfurter():
 # ══════════════════════════════════════════════════════════════════
 
 def patch_news(news_list):
-    """Save news to a separate JSON file (avoids unicode escape issues in data.py)."""
+    """Save news to a separate JSON file."""
     import json
     news_file = DATA_FILE.parent / "news_cache.json"
     try:
