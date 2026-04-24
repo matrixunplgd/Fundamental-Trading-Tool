@@ -25,6 +25,7 @@ Usage local :
 import os, re, sys, time, json, logging, argparse, types, importlib.util
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+from news_scraper import fetch_financial_juice
 import requests
 
 # ── Logging ───────────────────────────────────────────────────────
@@ -160,6 +161,23 @@ def scrape_fx_frankfurter():
     return result
 
 
+# ══════════════════════════════════════════════════════════════════
+
+def patch_news(news_list):
+    """Remplace la liste NEWS dans data.py par les news scrappées."""
+    import re
+    content = DATA_FILE.read_text(encoding="utf-8")
+    # Convertir la liste Python en chaîne propre
+    news_str = repr(news_list)
+    # Remplacer la ligne NEWS = [...] 
+    pattern = r'(NEWS\s*=\s*)\[.*?\](\s*#.*)?'
+    replacement = r'\1' + news_str + r'\2'
+    new_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
+    if new_content != content:
+        DATA_FILE.write_text(new_content, encoding="utf-8")
+        log.info(f"✓ NEWS mis à jour – {len(news_list)} articles")
+        return True
+    return False
 # ══════════════════════════════════════════════════════════════════
 # SOURCE 2 — FRED (St Louis Fed, free key, best quality)
 # https://fred.stlouisfed.org/docs/api/api_key.html
@@ -414,6 +432,13 @@ def run_full_scrape(currencies=None):
     patch_yield_history(fred_yields)
     patch_dict("FX_RATES", {p: d for p, d in fx_data.items()}, f"({len(fx_data)} pairs)")
 
+        # 6. Récupérer les actualités
+    log.info("\n── Actualités ──")
+    news = fetch_financial_juice()
+    if news:
+        patch_news(news)
+    else:
+        log.warning("Aucune actualité récupérée")
     # 6. Save DB snapshot
     try:
         spec = importlib.util.spec_from_file_location("data", DATA_FILE)

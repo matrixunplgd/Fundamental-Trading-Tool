@@ -1,6 +1,6 @@
 """
-FX Fundamental Dashboard  —  v4.0
-Professional design · No emojis · Auto-update London 17:00 + NY 22:00 UTC
+FX Fundamental Dashboard  —  v4.1
+Soft theme · Auto-update London 17:00 + NY 22:00 UTC · System page hidden
 """
 
 import streamlit as st
@@ -43,17 +43,17 @@ st.set_page_config(
 )
 
 # ─────────────────────────────────────────────────────────────────
-# GLOBAL CSS
+# GLOBAL CSS — Soft theme (lighter text, softer borders)
 # ─────────────────────────────────────────────────────────────────
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-html, body, [class*="css"], .stApp {
+html, body, [class*="css"], .stApp, div, p, span, b, strong, .stMarkdown {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-    color: #0f172a;
+    color: #334155 !important;
 }
-.stApp { background: #f8fafc; }
+.stApp { background: #fafcff; }
 .block-container { padding: 1.8rem 2.8rem 3rem !important; max-width: 1600px !important; }
 
 /* Sidebar complètement cachée */
@@ -64,13 +64,13 @@ button[data-testid="baseButton-headerNoPadding"] {
 }
 
 #MainMenu, footer, header, .stDeployButton, .stAppToolbar { display: none !important; }
-/* Force white background on all containers */
-.stMainBlockContainer, .main .block-container { background: #f8fafc !important; }
-[data-testid="stAppViewContainer"] { background: #f8fafc !important; }
+
+.stMainBlockContainer, .main .block-container { background: #fafcff !important; }
+[data-testid="stAppViewContainer"] { background: #fafcff !important; }
 
 div[data-testid="metric-container"] {
     background: #ffffff;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #eef2ff;
     border-radius: 12px;
     padding: 14px 18px !important;
     transition: all 0.2s ease;
@@ -81,16 +81,16 @@ div[data-testid="metric-container"]:hover {
     box-shadow: 0 4px 8px rgba(0,0,0,0.04);
 }
 div[data-testid="metric-container"] label {
-    font-size: 9.5px !important;
+    font-size: 11px !important;
     color: #475569 !important;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.08em;
     font-weight: 600;
 }
 div[data-testid="stMetricValue"] {
     font-size: 19px !important;
     font-weight: 700 !important;
-    color: #0f172a !important;
+    color: #1e293b !important;
 }
 div[data-testid="stMetricDelta"] { font-size: 11px !important; }
 
@@ -150,7 +150,7 @@ div[data-testid="stMetricDelta"] { font-size: 11px !important; }
 }
 .stSlider [data-baseweb="slider"] > div > div > div { background: #4f46e5 !important; }
 .stButton button {
-    background: #4f46e5 !important;
+    background: #818cf8 !important;
     color: #ffffff !important;
     border: none !important;
     border-radius: 8px !important;
@@ -159,7 +159,7 @@ div[data-testid="stMetricDelta"] { font-size: 11px !important; }
     transition: all 0.2s ease !important;
 }
 .stButton button:hover {
-    background: #4338ca !important;
+    background: #4f46e5 !important;
     transform: translateY(-1px);
     box-shadow: 0 2px 6px rgba(79,70,229,0.25);
 }
@@ -168,10 +168,13 @@ div[data-testid="stMetricDelta"] { font-size: 11px !important; }
     overflow: hidden;
     border: 1px solid #e2e8f0;
 }
+[data-testid="stDataFrame"] td, [data-testid="stDataFrame"] th {
+    color: #334155 !important;
+}
 ::-webkit-scrollbar { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track { background: #f1f5f9; }
 ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-hr { border-color: #0f172a !important; margin: 0.8rem 0 !important; }
+hr { border-color: #cbd5e1 !important; margin: 0.8rem 0 !important; }
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(5px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -197,7 +200,7 @@ def rgba(hex_color, a=1.0):
 def chart_layout(title="", h=300, margin=None):
     m = margin or dict(t=36, b=28, l=32, r=12)
     return dict(
-        title=dict(text=title, font=dict(size=12, color="#0f172a", family="Inter"), x=0, y=0.98),
+        title=dict(text=title, font=dict(size=12, color="#334155", family="Inter"), x=0, y=0.98),
         template="plotly_white",
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="#ffffff",
@@ -208,7 +211,7 @@ def chart_layout(title="", h=300, margin=None):
                    tickfont=dict(size=10, color="#475569")),
         yaxis=dict(gridcolor="#f1f5f9", zeroline=False, linecolor="#e2e8f0",
                    tickfont=dict(size=10, color="#475569")),
-        legend=dict(bgcolor="rgba(0,0,0,0)", font=dict(size=10, color="#0f172a")),
+        legend=dict(bgcolor="rgba(0,0,0,0)", font=dict(size=10, color="#334155")),
         hoverlabel=dict(bgcolor="#ffffff", bordercolor="#cbd5e1",
                         font=dict(size=11, color="#0f172a", family="Inter")),
     )
@@ -216,7 +219,7 @@ def chart_layout(title="", h=300, margin=None):
 
 def section(label):
     st.markdown(
-        f'<div style="font-size:9.5px;font-weight:600;color:#0f172a;'
+        f'<div style="font-size:11px;font-weight:600;color:#334155;'
         f'text-transform:uppercase;letter-spacing:.12em;'
         f'margin:20px 0 10px;padding-bottom:6px;'
         f'border-bottom:1px solid #e2e8f0;">{label}</div>',
@@ -226,7 +229,7 @@ def section(label):
 def pill(label, color):
     return (
         f'<span style="background:{rgba(color,0.12)};color:{color};'
-        f'font-size:9.5px;font-weight:600;padding:2px 9px;'
+        f'font-size:11px;font-weight:600;padding:2px 9px;'
         f'border-radius:4px;border:1px solid {rgba(color,0.25)};'
         f'letter-spacing:.04em;">{label}</span>'
     )
@@ -241,7 +244,7 @@ def card_end():
 
 def bias_badge(score):
     col, bg, lbl = score_meta(score)
-    return f'<span style="background:{bg};color:{col};border:1px solid {rgba(col,0.3)};font-size:9px;font-weight:700;padding:2px 10px;border-radius:3px;letter-spacing:.08em;">{lbl}</span>'
+    return f'<span style="background:{bg};color:{col};border:1px solid {rgba(col,0.3)};font-size:10.5px;font-weight:700;padding:2px 10px;border-radius:3px;letter-spacing:.08em;">{lbl}</span>'
 
 def strength_bar(val, max_val, color):
     pct = max(3, min(100, int(abs(val)/max_val*100)))
@@ -256,9 +259,8 @@ def hline(fig, y, color, label=""):
 
 
 # ─────────────────────────────────────────────────────────────────
-# SIDEBAR
+# SIDEBAR & NAVIGATION (System page hidden)
 # ─────────────────────────────────────────────────────────────────
-# ── Top navigation ────────────────────────────────────────────────
 now_utc = datetime.now(timezone.utc)
 last    = get_last_update()
 
@@ -271,7 +273,8 @@ PAGES = [
     ("Risk Sentiment", "risk"),
     ("Comparison",     "comparison"),
     ("Trade Simulator","simulator"),
-    ("System",         "system"),
+    # La page "System" est volontairement retirée de la barre de navigation
+    # Mais on garde le code plus bas (accessible via ?page=system)
 ]
 
 if "page" not in st.session_state:
@@ -281,7 +284,11 @@ if "page" not in st.session_state:
 params   = st.query_params
 page_key = params.get("page", "overview")
 key_to_label = {k: l for l, k in PAGES}
-page = key_to_label.get(page_key, "Overview")
+# Ajouter la possibilité de system via URL même si pas dans PAGES
+if page_key == "system":
+    page = "System"
+else:
+    page = key_to_label.get(page_key, "Overview")
 st.session_state["page"] = page
 
 # Build nav items
@@ -331,7 +338,7 @@ sel_ccy = st.multiselect(
     label_visibility="collapsed",
 )
 
-codes = [c for c in CURRENCIES if c in sel_ccy]
+codes = [c for c in CURRENCIES if c in sel_ccy] if sel_ccy else CURRENCIES
 
 
 # ═════════════════════════════════════════════════════════════════
@@ -343,7 +350,7 @@ if page == "Overview":
       <div style="font-size:20px;font-weight:700;color:#0f172a;letter-spacing:-.01em;">
         Macro Overview
       </div>
-      <div style="font-size:11px;color:#0f172a;margin-top:4px;">
+      <div style="font-size:11px;color:#334155;margin-top:4px;">
         Week of 21–30 April 2026  ·  Monetary policy &amp; macro fundamentals
       </div>
     </div>
@@ -357,22 +364,80 @@ if page == "Overview":
     </div>
     """, unsafe_allow_html=True)
 
-    # ── Strength ranking ──────────────────────────────────────────
+    # ── Strength ranking – 4 cards per row (light & compact) ──────────
     section("Currency Strength Ranking")
-    cols_s = st.columns(len(codes))
     ordered = sorted([c for c in codes], key=lambda c: MACRO[c]["score"], reverse=True)
-    for i, c in enumerate(ordered):
-        d = MACRO[c]
-        col, bg, lbl = score_meta(d["score"])
-        fill = max(5, min(100, int((d["score"]+3)/6*100)))
-        with cols_s[i]:
+    for i in range(0, len(ordered), 4):
+        row_currencies = ordered[i:i+4]
+        cols = st.columns(4)
+        for j, c in enumerate(row_currencies):
+            d = MACRO[c]
+            col, bg, lbl = score_meta(d["score"])
+            bar_width = max(5, min(100, int((d["score"]+3)/6*100)))
+            bar_html = f'<div style="background:#e2e8f0; border-radius:3px; height:4px; margin-top:6px; overflow:hidden;"><div style="width:{bar_width}%; height:4px; background:{col}; border-radius:3px;"></div></div>'
+            with cols[j]:
+                st.markdown(
+                    f'''
+                    <div style="background:{bg}; border:1px solid {rgba(col,0.2)}; border-radius:10px; padding:12px 10px; margin-bottom:10px;">
+                        <div style="font-size:16px; font-weight:700; color:#334155; margin-bottom:3px;">{c}</div>
+                        <div style="font-size:11px; color:{col}; font-weight:600; text-transform:uppercase;">{lbl}</div>
+                        {bar_html}
+                        <div style="font-size:12px; font-weight:500; color:#475569; margin-top:6px;">{d["rate"]}%  ·  {d["bias"][:14]}</div>
+                    </div>
+                    ''',
+                    unsafe_allow_html=True
+                )
+
+    # ── Rate Expectations ─────────────────────────────────────────
+    section("Next CB Meeting — Hike / Hold / Cut Expectations")
+    re_cols = st.columns(len(codes))
+    for i, c in enumerate(codes):
+        exp  = RATE_EXP[c]
+        d    = MACRO[c]
+        mtg  = exp["meetings"][0]
+        hike = mtg["hike"]
+        hold = mtg["hold"]
+        cut  = mtg["cut"]
+        if hike >= hold and hike >= cut:
+            dom_label, dom_color, dom_bg = "HIKE", COLOR_NEGATIVE, "#fff1f2"
+        elif cut >= hold and cut >= hike:
+            dom_label, dom_color, dom_bg = "CUT",  COLOR_POSITIVE, "#ecfdf5"
+        else:
+            dom_label, dom_color, dom_bg = "HOLD", COLOR_PRIMARY,  "#eef2ff"
+
+        with re_cols[i]:
             st.markdown(
-                f'{card_start(rgba(col,0.2), bg)}'
-                f'<div style="font-size:13px;font-weight:700;color:#0f172a;margin-bottom:3px;">{c}</div>'
-                f'<div style="font-size:8.5px;color:{col};font-weight:700;text-transform:uppercase;letter-spacing:.08em;">{lbl}</div>'
-                f'{strength_bar(d["score"], 3, col)}'
-                f'<div style="font-size:9.5px;color:#0f172a;margin-top:6px;">{d["rate"]}%  ·  {d["bias"][:14]}</div>'
-                f'{card_end()}',
+                f'<div style="background:#ffffff;border:1px solid #e2e8f0;'
+                f'border-top:3px solid {dom_color};border-radius:9px;'
+                f'padding:12px 12px 10px;margin-bottom:8px;">'
+                f'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">'
+                f'<span style="font-size:12px;font-weight:700;color:#0f172a;">{c}</span>'
+                f'<span style="background:{dom_bg};color:{dom_color};font-size:10.5px;font-weight:700;'
+                f'padding:2px 7px;border-radius:4px;letter-spacing:.06em;">{dom_label}</span>'
+                f'</div>'
+                f'<div style="font-size:10.5px;color:#64748b;margin-bottom:8px;">{mtg["label"]}</div>'
+                f'<div style="display:flex;gap:4px;margin-bottom:7px;">'
+                f'<div style="flex:1;text-align:center;">'
+                f'<div style="font-size:10.5px;font-weight:700;color:#ef4444;">{hike}%</div>'
+                f'<div style="background:#f1f5f9;border-radius:2px;height:4px;margin:2px 0;">'
+                f'<div style="width:{hike}%;height:4px;background:#ef4444;border-radius:2px;"></div></div>'
+                f'<div style="font-size:10px;color:#94a3b8;">Hike</div></div>'
+                f'<div style="flex:1;text-align:center;">'
+                f'<div style="font-size:10.5px;font-weight:700;color:#4f46e5;">{hold}%</div>'
+                f'<div style="background:#f1f5f9;border-radius:2px;height:4px;margin:2px 0;">'
+                f'<div style="width:{hold}%;height:4px;background:#4f46e5;border-radius:2px;"></div></div>'
+                f'<div style="font-size:10px;color:#94a3b8;">Hold</div></div>'
+                f'<div style="flex:1;text-align:center;">'
+                f'<div style="font-size:10.5px;font-weight:700;color:#10b981;">{cut}%</div>'
+                f'<div style="background:#f1f5f9;border-radius:2px;height:4px;margin:2px 0;">'
+                f'<div style="width:{cut}%;height:4px;background:#10b981;border-radius:2px;"></div></div>'
+                f'<div style="font-size:10px;color:#94a3b8;">Cut</div></div>'
+                f'</div>'
+                f'<div style="display:flex;justify-content:space-between;'
+                f'padding-top:6px;border-top:1px solid #f1f5f9;">'
+                f'<span style="font-size:10.5px;color:#64748b;">Now: <b style="color:#0f172a;">{d["rate"]}%</b></span>'
+                f'<span style="font-size:10.5px;color:#64748b;">EOY: <b style="color:{dom_color};">{exp["end_year"]}%</b></span>'
+                f'</div></div>',
                 unsafe_allow_html=True
             )
 
@@ -433,7 +498,7 @@ if page == "Overview":
                 f'{card_start()}'
                 f'<div style="display:flex;justify-content:space-between;align-items:center;">'
                 f'<div><div style="font-size:12px;font-weight:700;color:#0f172a;">{pair}</div>'
-                f'<div style="font-size:9.5px;color:{wcc};margin-top:2px;">{wchg:+.1f}% wk</div></div>'
+                f'<div style="font-size:11px;color:{wcc};margin-top:2px;">{wchg:+.1f}% wk</div></div>'
                 f'<div style="text-align:right;">'
                 f'<div style="font-size:13px;font-weight:700;color:#0f172a;">{d["rate"]}</div>'
                 f'<div style="font-size:10px;color:{cc};">{chg:+.2f}%</div></div></div>'
@@ -454,13 +519,13 @@ if page == "Overview":
             st.markdown(
                 f'<div style="background:{bg_ev};border:1px solid {brd_ev};'
                 f'border-radius:8px;padding:13px;">'
-                f'<div style="font-size:9px;color:#0f172a;margin-bottom:5px;">'
+                f'<div style="font-size:10.5px;color:#0f172a;margin-bottom:5px;">'
                 f'{e["date"]}  ·  {e["time"]} UTC</div>'
                 f'<div style="font-size:11.5px;font-weight:600;color:#e2e8f0;'
                 f'line-height:1.4;margin-bottom:7px;">{e["event"]}</div>'
                 f'<div style="display:flex;justify-content:space-between;">'
-                f'<span style="font-size:9.5px;color:#0f172a;">Prev: {e["prev"]}</span>'
-                f'<span style="font-size:9.5px;color:{ccy_col};font-weight:600;">'
+                f'<span style="font-size:11px;color:#0f172a;">Prev: {e["prev"]}</span>'
+                f'<span style="font-size:11px;color:{ccy_col};font-weight:600;">'
                 f'Fcst: {e["fore"]}</span></div></div>',
                 unsafe_allow_html=True
             )
@@ -470,7 +535,7 @@ if page == "Overview":
 # CURRENCIES
 # ═════════════════════════════════════════════════════════════════
 elif page == "Currencies":
-    st.markdown('<div style="font-size:20px;font-weight:700;color:#e2e8f0;margin-bottom:18px;">Currency Analysis</div>', unsafe_allow_html=True)
+    st.markdown('<div style="font-size:20px;font-weight:700;color:#334155;margin-bottom:18px;">Currency Analysis</div>', unsafe_allow_html=True)
 
     sel = st.selectbox("", codes, format_func=lambda c: f"{c}  —  {MACRO[c]['name']}", label_visibility="collapsed")
     d   = MACRO[sel]
@@ -485,7 +550,7 @@ elif page == "Currencies":
         f'<div style="display:flex;justify-content:space-between;align-items:flex-start;">'
         f'<div>'
         f'<div style="font-size:18px;font-weight:700;color:#0f172a;">{sel}  —  {d["name"]}</div>'
-        f'<div style="font-size:10.5px;color:#0f172a;margin-top:5px;line-height:2;">'
+        f'<div style="font-size:10.5px;color:#334155;margin-top:5px;line-height:2;">'
         f'Central bank: <b style="color:#475569;">{d["cb"]}</b>'
         f'&nbsp;&nbsp;·&nbsp;&nbsp;Next meeting: <b style="color:#475569;">{d["next_mtg"]}</b>'
         f'&nbsp;&nbsp;·&nbsp;&nbsp;<span style="color:{d["color"]};">{d["updated"]}</span>'
@@ -493,7 +558,7 @@ elif page == "Currencies":
         f'</div>'
         f'<div style="text-align:right;">'
         f'<div style="font-size:30px;font-weight:800;color:{col};line-height:1;">{d["rate"]}%</div>'
-        f'<div style="font-size:9.5px;color:{col};text-transform:uppercase;'
+        f'<div style="font-size:11px;color:{col};text-transform:uppercase;'
         f'letter-spacing:.08em;margin-top:5px;">{d["bias"]}</div>'
         f'<div style="margin-top:7px;">{bias_badge(d["score"])}</div>'
         f'</div>'
@@ -584,8 +649,8 @@ elif page == "Currencies":
 # CALENDAR
 # ═════════════════════════════════════════════════════════════════
 elif page == "Calendar":
-    st.markdown('<div style="font-size:20px;font-weight:700;color:#e2e8f0;margin-bottom:6px;">Economic Calendar</div>', unsafe_allow_html=True)
-    st.markdown('<div style="font-size:11px;color:#0f172a;margin-bottom:18px;">23 April — 30 April 2026</div>', unsafe_allow_html=True)
+    st.markdown('<div style="font-size:20px;font-weight:700;color:#334155;margin-bottom:6px;">Economic Calendar</div>', unsafe_allow_html=True)
+    st.markdown('<div style="font-size:11px;color:#334155;margin-bottom:18px;">23 April — 30 April 2026</div>', unsafe_allow_html=True)
 
     cf1, cf2 = st.columns([2,1])
     with cf1: f_imp = st.radio("Impact", ["All","High only","Medium+"], horizontal=True)
@@ -610,7 +675,7 @@ elif page == "Calendar":
                 f'<div style="display:flex;align-items:center;gap:10px;margin:20px 0 8px;">'
                 f'<div style="width:2px;height:16px;background:#4f46e5;border-radius:1px;"></div>'
                 f'<span style="font-size:12px;font-weight:700;color:#0f172a;">{ev["date"]}</span>'
-                f'<span style="font-size:10px;color:#0f172a;">({ev["day"]})</span>'
+                f'<span style="font-size:10px;color:#334155;">({ev["day"]})</span>'
                 f'</div>',
                 unsafe_allow_html=True
             )
@@ -627,25 +692,25 @@ elif page == "Calendar":
         ccy_v   = str(ev.get("ccy","")).strip()
 
         act_html = (f'<span style="background:#052e16;color:#10b981;'
-                    f'font-size:9.5px;font-weight:700;padding:2px 8px;'
+                    f'font-size:11px;font-weight:700;padding:2px 8px;'
                     f'border-radius:3px;">ACT: {act_val}</span>') if has_act else ""
 
         html = (
             f'<div style="background:{bg_imp};border:1px solid {brd_imp};border-radius:8px;'
             f'padding:11px 16px;margin-bottom:5px;display:flex;align-items:center;gap:14px;">'
             f'<div style="min-width:52px;text-align:center;">'
-            f'<div style="font-size:9px;color:{col_imp};font-weight:700;'
+            f'<div style="font-size:10.5px;color:{col_imp};font-weight:700;'
             f'text-transform:uppercase;letter-spacing:.06em;">{ev["imp"]}</div>'
             f'<div style="font-size:10.5px;color:#64748b;margin-top:2px;">{time_v}</div>'
             f'</div>'
-            f'<div style="width:24px;font-size:9px;color:#0f172a;font-weight:600;">{flag_v}</div>'
+            f'<div style="width:24px;font-size:10.5px;color:#0f172a;font-weight:600;">{flag_v}</div>'
             f'<div style="flex:1;">'
             f'<div style="font-size:12px;font-weight:600;color:#0f172a;">{ev_text}</div>'
-            f'<div style="font-size:9.5px;color:{ccy_col};margin-top:2px;font-weight:600;">{ccy_v}</div>'
+            f'<div style="font-size:11px;color:{ccy_col};margin-top:2px;font-weight:600;">{ccy_v}</div>'
             f'</div>'
             f'<div style="text-align:right;min-width:170px;">'
             f'{act_html}'
-            f'<div style="font-size:9.5px;color:#0f172a;margin-top:3px;">'
+            f'<div style="font-size:11px;color:#0f172a;margin-top:3px;">'
             f'Prev: <b style="color:#475569;">{prev_v}</b>'
             f'&nbsp;&#8594;&nbsp;'
             f'Fcst: <b style="color:{ccy_col};">{fore_v}</b>'
@@ -658,7 +723,7 @@ elif page == "Calendar":
 # NEWS
 # ═════════════════════════════════════════════════════════════════
 elif page == "News":
-    st.markdown('<div style="font-size:20px;font-weight:700;color:#e2e8f0;margin-bottom:18px;">Market News</div>', unsafe_allow_html=True)
+    st.markdown('<div style="font-size:20px;font-weight:700;color:#334155;margin-bottom:18px;">Market News</div>', unsafe_allow_html=True)
 
     cats = ["All","Inflation","PMI","Sentiment","Central Bank","Geopolitics"]
     f_cat = st.radio("Category", cats, horizontal=True)
@@ -679,7 +744,7 @@ elif page == "News":
         ccy_pills = " ".join([
             f'<span style="background:{rgba(MACRO.get(c,{}).get("color","#1e293b"),0.12)};'
             f'color:{MACRO.get(c,{}).get("color","#1e293b")};'
-            f'font-size:9px;font-weight:700;padding:2px 8px;border-radius:3px;">{c}</span>'
+            f'font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:3px;">{c}</span>'
             for c in n["ccys"]
         ])
         st.markdown(
@@ -690,15 +755,15 @@ elif page == "News":
             f'align-items:center;margin-bottom:9px;">'
             f'<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">'
             f'<span style="background:{rgba(cc,0.1)};color:{cc};border:1px solid {rgba(cc,0.25)};'
-            f'font-size:9px;font-weight:700;padding:2px 9px;border-radius:3px;'
+            f'font-size:10.5px;font-weight:700;padding:2px 9px;border-radius:3px;'
             f'letter-spacing:.06em;">{n["cat"]}</span>'
             f'{ccy_pills}</div>'
-            f'<span style="font-size:9.5px;color:#0f172a;white-space:nowrap;">{n["ts"]}</span>'
+            f'<span style="font-size:11px;color:#334155;white-space:nowrap;">{n["ts"]}</span>'
             f'</div>'
-            f'<div style="font-size:13px;font-weight:600;color:#e2e8f0;'
+            f'<div style="font-size:13px;font-weight:600;color:#0f172a;'
             f'line-height:1.45;margin-bottom:8px;">{n["title"]}</div>'
             f'<div style="font-size:11.5px;color:#64748b;line-height:1.65;margin-bottom:10px;">{n["body"]}</div>'
-            f'<div style="font-size:9.5px;color:#0f172a;">'
+            f'<div style="font-size:11px;color:#334155;">'
             f'Direction: <span style="color:{dc};font-weight:600;">{n["dir"].upper()}</span></div>'
             f'</div>',
             unsafe_allow_html=True
@@ -709,8 +774,8 @@ elif page == "News":
 # INSIGHTS
 # ═════════════════════════════════════════════════════════════════
 elif page == "Insights":
-    st.markdown('<div style="font-size:20px;font-weight:700;color:#e2e8f0;margin-bottom:6px;">Fundamental Insights</div>', unsafe_allow_html=True)
-    st.markdown('<div style="font-size:11px;color:#0f172a;margin-bottom:20px;">Qualitative macro themes — week of 23 Apr 2026</div>', unsafe_allow_html=True)
+    st.markdown('<div style="font-size:20px;font-weight:700;color:#334155;margin-bottom:6px;">Fundamental Insights</div>', unsafe_allow_html=True)
+    st.markdown('<div style="font-size:11px;color:#334155;margin-bottom:20px;">Qualitative macro themes — week of 23 Apr 2026</div>', unsafe_allow_html=True)
 
     themes = [
         {"title":"Energy Shock — Middle East","color":"#f59e0b",
@@ -742,7 +807,7 @@ elif page == "Insights":
                     f'<div style="background:#ffffff;border:1px solid {rgba(t["color"],0.2)};'
                     f'border-top:2px solid {t["color"]};border-radius:8px;'
                     f'padding:16px 18px;margin-bottom:12px;">'
-                    f'<div style="font-size:12.5px;font-weight:700;color:#e2e8f0;margin-bottom:10px;">{t["title"]}</div>'
+                    f'<div style="font-size:12.5px;font-weight:700;color:#0f172a;margin-bottom:10px;">{t["title"]}</div>'
                     f'<div style="font-size:11.5px;color:#64748b;line-height:1.7;margin-bottom:12px;">{t["body"]}</div>'
                     f'<div style="background:#f3f4f6;border-radius:5px;padding:7px 10px;'
                     f'font-size:10px;color:{t["color"]};font-weight:500;">{t["impact"]}</div>'
@@ -755,16 +820,17 @@ elif page == "Insights":
         d = MACRO[c]
         col, bg, lbl = score_meta(d["score"])
         st.markdown(
-            f'<div style="background:{bg};border:1px solid {rgba(col,0.15)};'
-            f'border-radius:8px;padding:13px 16px;margin-bottom:7px;'
-            f'display:flex;gap:16px;align-items:flex-start;">'
-            f'<div style="min-width:72px;">'
-            f'<div style="font-size:13px;font-weight:700;color:#0f172a;">{c}</div>'
-            f'<div style="font-size:8.5px;color:{col};font-weight:700;'
-            f'text-transform:uppercase;letter-spacing:.06em;margin-top:3px;">{lbl}</div>'
-            f'</div>'
-            f'<div style="font-size:11.5px;color:#64748b;line-height:1.7;flex:1;">{d["view"]}</div>'
-            f'</div>',
+            f'''
+            <div style="background:#ffffff; border-left:3px solid {col}; border-radius:8px; padding:12px 16px; margin-bottom:10px; box-shadow:0 1px 2px rgba(0,0,0,0.02);">
+                <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+                    <div style="min-width:70px;">
+                        <span style="font-size:15px; font-weight:700; color:#0f172a;">{c}</span>
+                        <div style="font-size:10px; color:{col}; font-weight:700; text-transform:uppercase;">{lbl}</div>
+                    </div>
+                    <div style="font-size:12px; color:#334155; line-height:1.6; flex:1;">{d["view"]}</div>
+                </div>
+            </div>
+            ''',
             unsafe_allow_html=True
         )
 
@@ -773,8 +839,8 @@ elif page == "Insights":
 # RISK SENTIMENT
 # ═════════════════════════════════════════════════════════════════
 elif page == "Risk Sentiment":
-    st.markdown('<div style="font-size:20px;font-weight:700;color:#e2e8f0;margin-bottom:6px;">Risk Sentiment Barometer</div>', unsafe_allow_html=True)
-    st.markdown('<div style="font-size:11px;color:#0f172a;margin-bottom:20px;">Market risk appetite assessment — 23 Apr 2026</div>', unsafe_allow_html=True)
+    st.markdown('<div style="font-size:20px;font-weight:700;color:#0f172a;margin-bottom:6px;">Risk Sentiment Barometer</div>', unsafe_allow_html=True)
+    st.markdown('<div style="font-size:11px;color:#334155;margin-bottom:20px;">Market risk appetite assessment — 23 Apr 2026</div>', unsafe_allow_html=True)
 
     factors = {
         "Middle East geopolitics":    (-3, "US-Iran talks collapsed. Strait of Hormuz partially blocked."),
@@ -826,7 +892,7 @@ elif page == "Risk Sentiment":
             f'<div style="text-align:center;background:{rbg};border:1px solid {rgba(rc,0.3)};'
             f'border-radius:8px;padding:11px;margin-top:-10px;">'
             f'<div style="font-size:16px;font-weight:800;color:{rc};letter-spacing:.06em;">{rlbl}</div>'
-            f'<div style="font-size:10px;color:#0f172a;margin-top:3px;">Score: {total:+d} / 9</div>'
+            f'<div style="font-size:10px;color:#334155;margin-top:3px;">Score: {total:+d} / 9</div>'
             f'</div>',
             unsafe_allow_html=True
         )
@@ -841,7 +907,7 @@ elif page == "Risk Sentiment":
                 f'<span style="font-size:11px;font-weight:600;color:#0f172a;">{factor}</span>'
                 f'<span style="font-size:11.5px;font-weight:700;color:{fc};">{score:+d}</span>'
                 f'</div>'
-                f'<div style="font-size:10px;color:#0f172a;">{desc}</div>'
+                f'<div style="font-size:10px;color:#334155;">{desc}</div>'
                 f'{card_end()}',
                 unsafe_allow_html=True
             )
@@ -856,26 +922,20 @@ elif page == "Risk Sentiment":
         ("Safe Haven Currencies", COLOR_NEGATIVE, "#fff1f2",
          [("CHF","Primary safe haven, SNB limited"),
           ("JPY","Safe haven + hawkish BoJ pivot")]),
-        ("Neutral / Mixed", "#1e293b", "#0f172a",
+        ("Neutral / Mixed", "#64748b", "#f8fafc",
          [("USD","Safe haven but inflation drag"),
           ("EUR","Energy risk, weak Germany"),
           ("CAD","Oil falls, BoC may ease")]),
     ]
     for (title, col_g, bg_g, items), col_w in zip(groups, [cr1,cr2,cr3]):
         with col_w:
-            inner = "".join([
-                f'<div style="margin-bottom:9px;">'
-                f'<b style="color:#e2e8f0;font-size:11.5px;">{ccy}</b>'
-                f'<div style="font-size:10px;color:#0f172a;margin-top:2px;">{reason}</div>'
-                f'</div>'
-                for ccy, reason in items
-            ])
             st.markdown(
-                f'<div style="background:{bg_g};border:1px solid {rgba(col_g,0.2)};'
-                f'border-radius:8px;padding:14px 16px;">'
-                f'<div style="font-size:10px;font-weight:700;color:{col_g};'
-                f'text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;">{title}</div>'
-                f'{inner}</div>',
+                f'''
+                <div style="background:{bg_g}; border-radius:12px; padding:16px; border:1px solid {rgba(col_g,0.2)};">
+                    <div style="font-size:12px; font-weight:800; color:{col_g}; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:14px;">{title}</div>
+                    {''.join([f'<div style="margin-bottom:12px;"><b style="font-size:13px; color:#0f172a;">{ccy}</b><div style="font-size:11px; color:#475569; margin-top:3px;">{reason}</div></div>' for ccy, reason in items])}
+                </div>
+                ''',
                 unsafe_allow_html=True
             )
 
@@ -910,7 +970,7 @@ elif page == "Risk Sentiment":
 # COMPARISON
 # ═════════════════════════════════════════════════════════════════
 elif page == "Comparison":
-    st.markdown('<div style="font-size:20px;font-weight:700;color:#e2e8f0;margin-bottom:18px;">Fundamental Comparison</div>', unsafe_allow_html=True)
+    st.markdown('<div style="font-size:20px;font-weight:700;color:#334155;margin-bottom:18px;">Fundamental Comparison</div>', unsafe_allow_html=True)
 
     tab1, tab2, tab3, tab4 = st.tabs([
         "Data Table",
@@ -921,39 +981,66 @@ elif page == "Comparison":
 
     # ── Tab 1 — Data table ────────────────────────────────────────
     with tab1:
+        def arr(val, prev, reverse=False):
+            if prev is None or val == prev:
+                return f"{val}"
+            up = val > prev
+            if reverse: up = not up
+            arrow = " ↑" if up else " ↓"
+            return f"{val}{arrow}"
+
         rows = []
         for c in codes:
             d = MACRO[c]; e = RATE_EXP[c]
             col, _, lbl = score_meta(d["score"])
+            eoy_arr = "↑" if e["end_year"] > d["rate"] else "↓" if e["end_year"] < d["rate"] else "→"
             rows.append({
-                "Currency":   c,
-                "CB Rate %":  d["rate"],
-                "End-2026 %": e["end_year"],
-                "Hikes":      e["hikes"],
-                "Cuts":       e["cuts"],
-                "GDP %":      d["gdp"],
-                "CPI %":      d["cpi"],
-                "Core %":     d["core_cpi"],
-                "Unem %":     d["unem"],
-                "Wages %":    d["wages"],
-                "PMI":        d["pmi"],
-                "Bias":       lbl,
-                "_score":     d["score"],
+                "Currency":    c,
+                "CB Rate %":   d["rate"],
+                "EOY 2026":    f"{e['end_year']}% {eoy_arr}",
+                "Hikes":       f"↑ {e['hikes']}" if e["hikes"] > 0 else str(e["hikes"]),
+                "Cuts":        f"↓ {e['cuts']}"  if e["cuts"]  > 0 else str(e["cuts"]),
+                "GDP %":       arr(d["gdp"],  d["gdp_prev"]),
+                "CPI %":       arr(d["cpi"],  d["cpi_prev"],  reverse=True),
+                "Core %":      d["core_cpi"],
+                "Unem %":      arr(d["unem"], d["unem_prev"], reverse=True),
+                "Wages %":     d["wages"],
+                "PMI":         d["pmi"],
+                "Bias":        lbl,
+                "_score":      d["score"],
             })
         df = pd.DataFrame(rows).sort_values("_score", ascending=False)
+
+        def _num(val):
+            try:
+                return float(str(val).replace("↑","").replace("↓","").replace("→","").replace("%","").strip())
+            except:
+                return 0.0
 
         def style_df(row):
             styles = []
             for col_name in row.index:
-                if   col_name == "CPI %":    v=row[col_name]; styles.append("color:#f43f5e" if v>3 else "color:#f59e0b" if v>2 else "color:#10b981")
-                elif col_name == "GDP %":    v=row[col_name]; styles.append("color:#10b981" if v>2 else "color:#f59e0b" if v>1 else "color:#f43f5e")
-                elif col_name == "Unem %":   v=row[col_name]; styles.append("color:#f43f5e" if v>6 else "color:#f59e0b" if v>4 else "color:#10b981")
-                elif col_name == "End-2026 %":
-                    curr = row["CB Rate %"]; v=row[col_name]
-                    styles.append("color:#10b981" if v>curr else "color:#f43f5e" if v<curr else "color:#64748b")
-                elif col_name == "Hikes":    v=row[col_name]; styles.append("color:#f43f5e" if v>0 else "color:#64748b")
-                elif col_name == "Cuts":     v=row[col_name]; styles.append("color:#10b981" if v>0 else "color:#64748b")
-                else: styles.append("color:#e2e8f0")
+                if col_name == "CPI %":
+                    v = _num(row[col_name])
+                    styles.append("color:#dc2626;font-weight:600" if v>3 else "color:#b45309" if v>2 else "color:#15803d")
+                elif col_name == "GDP %":
+                    v = _num(row[col_name])
+                    styles.append("color:#15803d;font-weight:600" if v>2 else "color:#b45309" if v>1 else "color:#dc2626")
+                elif col_name == "Unem %":
+                    v = _num(row[col_name])
+                    styles.append("color:#dc2626" if v>6 else "color:#b45309" if v>4 else "color:#15803d")
+                elif col_name == "EOY 2026":
+                    s = str(row[col_name])
+                    styles.append("color:#15803d;font-weight:600" if "↑" in s else "color:#dc2626;font-weight:600" if "↓" in s else "color:#64748b")
+                elif col_name == "Hikes":
+                    styles.append("color:#dc2626;font-weight:600" if "↑" in str(row[col_name]) else "color:#64748b")
+                elif col_name == "Cuts":
+                    styles.append("color:#15803d;font-weight:600" if "↓" in str(row[col_name]) else "color:#64748b")
+                elif col_name == "Bias":
+                    b = str(row[col_name])
+                    styles.append("color:#15803d;font-weight:700" if "BULL" in b else "color:#dc2626;font-weight:700" if "BEAR" in b else "color:#64748b")
+                else:
+                    styles.append("color:#334155")
             return styles
 
         disp = [c for c in df.columns if not c.startswith("_")]
@@ -962,10 +1049,10 @@ elif page == "Comparison":
             .apply(style_df, axis=1)
             .set_properties(**{
                 "background-color":"#ffffff","border":"1px solid #e2e8f0",
-                "font-size":"12px","font-family":"Inter","padding":"8px 12px",
+                "font-size":"12px","font-family":"Inter","padding":"8px 12px", "color":"#334155",
             })
             .set_table_styles([{"selector":"th","props":[
-                ("background-color","#06080f"),("color","#334155"),
+                ("background-color","#f8fafc"),("color","#334155"),
                 ("font-size","9.5px"),("text-transform","uppercase"),
                 ("letter-spacing","0.1em"),("border","1px solid #e2e8f0"),
                 ("padding","8px 12px"),
@@ -985,7 +1072,6 @@ elif page == "Comparison":
         </div>
         """, unsafe_allow_html=True)
 
-        # ── 1. 2Y Yield Spread vs USD ─────────────────────────────────
         section("2-Year Government Bond Yield Spread vs USD (bps)")
         spreads_2y = [round(RATE_EXP[c]["spread_2y_vs_usd"]*100) for c in codes]
         sc2 = [COLOR_POSITIVE if s > -50 else COLOR_NEGATIVE if s < -200 else "#f59e0b" for s in spreads_2y]
@@ -1005,7 +1091,6 @@ elif page == "Comparison":
         fig_sp2.update_layout(**lo2)
         st.plotly_chart(fig_sp2, use_container_width=True, config={"displayModeBar":False})
 
-        # ── 2. Yield Levels + Curve Slope ────────────────────────────
         ca, cb = st.columns(2)
         with ca:
             section("2Y vs 10Y Government Bond Yields (%)")
@@ -1044,7 +1129,6 @@ elif page == "Comparison":
             fig_slope.update_layout(**lo_sl)
             st.plotly_chart(fig_slope, use_container_width=True, config={"displayModeBar":False})
 
-        # ── 3. 2Y Yield Historical ─────────────────────────────────────
         section("2-Year Yield Trend — Last 6 Months")
         YIELD_MONTHS = ["Oct 25","Nov 25","Dec 25","Jan 26","Feb 26","Mar 26"]
         sel_hist_y = st.multiselect("Currencies", codes, default=codes[:5], key="yhist_sel")
@@ -1063,7 +1147,6 @@ elif page == "Comparison":
         fig_yh.update_layout(**lo_yh)
         st.plotly_chart(fig_yh, use_container_width=True, config={"displayModeBar":False})
 
-        # ── 4. Spread Summary Table ───────────────────────────────────
         section("Yield Spread Summary vs USD")
         spread_rows = []
         for c in codes:
@@ -1071,7 +1154,6 @@ elif page == "Comparison":
             sp2 = e["spread_2y_vs_usd"]
             sp10= e["spread_10y_vs_usd"]
             slp = e["curve_slope"]
-            # Trend: compare last vs first in hist
             trend_2y = round(e["yield_2y_hist"][-1] - e["yield_2y_hist"][0], 2)
             spread_rows.append({
                 "Currency":      c,
@@ -1101,7 +1183,7 @@ elif page == "Comparison":
                     v = row[col_name]
                     styles.append("color:#15803d" if v > 30 else "color:#dc2626" if v < 0 else "color:#b45309")
                 else:
-                    styles.append("color:#0f172a")
+                    styles.append("color:#334155")
             return styles
 
         styled_sp = (
@@ -1109,7 +1191,7 @@ elif page == "Comparison":
             .apply(color_spread, axis=1)
             .set_properties(**{
                 "background-color":"#ffffff","border":"1px solid #e2e8f0",
-                "font-size":"12px","font-family":"Inter","padding":"8px 12px",
+                "font-size":"12px","font-family":"Inter","padding":"8px 12px", "color":"#334155",
             })
             .set_table_styles([{"selector":"th","props":[
                 ("background-color","#eef2ff"),("color","#4f46e5"),
@@ -1120,7 +1202,6 @@ elif page == "Comparison":
         )
         st.dataframe(styled_sp, use_container_width=True, hide_index=True, height=290)
 
-        # ── 5. CB Meeting Probabilities ───────────────────────────────
         section("CB Meeting Probabilities — derived from yield pricing")
         sel_prob = st.selectbox("Currency", codes, key="prob_sel",
                                 format_func=lambda c: f"{c}  —  {MACRO[c]['name']}")
@@ -1169,19 +1250,18 @@ elif page == "Comparison":
                 f'<span style="font-size:12.5px;font-weight:700;color:#0f172a;">{m["rate"]:.2f}%</span>'
                 f'&nbsp;&nbsp;'
                 f'<span style="background:{rgba(chg_c,0.1)};color:{chg_c};border:1px solid {rgba(chg_c,0.2)};'
-                f'font-size:9.5px;font-weight:700;padding:2px 9px;border-radius:4px;">{chg_str}</span>'
+                f'font-size:11px;font-weight:700;padding:2px 9px;border-radius:4px;">{chg_str}</span>'
                 f'</div></div>'
                 f'<div style="display:flex;gap:4px;">'
-                f'<div style="flex:1;text-align:center;"><div style="font-size:9px;color:#475569;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;">Hike</div>'
+                f'<div style="flex:1;text-align:center;"><div style="font-size:10.5px;color:#475569;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;">Hike</div>'
                 + prob_bar(m["hike"], hike_c) +
-                f'</div><div style="flex:1;text-align:center;"><div style="font-size:9px;color:#475569;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;">Hold</div>'
+                f'</div><div style="flex:1;text-align:center;"><div style="font-size:10.5px;color:#475569;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;">Hold</div>'
                 + prob_bar(m["hold"], hold_c) +
-                f'</div><div style="flex:1;text-align:center;"><div style="font-size:9px;color:#475569;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;">Cut</div>'
+                f'</div><div style="flex:1;text-align:center;"><div style="font-size:10.5px;color:#475569;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;">Cut</div>'
                 + prob_bar(m["cut"], cut_c) +
                 f'</div></div></div>',
                 unsafe_allow_html=True
             )
-
 
     # ── Tab 3 — Radar ─────────────────────────────────────────────
     with tab3:
@@ -1231,7 +1311,6 @@ elif page == "Comparison":
         hist_map = {"cpi": HIST_CPI, "rate": HIST_RATE, "unem": HIST_UNEM}
         hist_sel = hist_map[h_met]
 
-        # Try DB first, fall back to static
         db_labels, db_data = load_history_from_db(8)
         if len(db_labels) >= 2:
             x_vals    = db_labels
@@ -1260,15 +1339,15 @@ elif page == "Comparison":
         st.plotly_chart(fig_h, use_container_width=True, config={"displayModeBar":False})
 
         src = "Live DB snapshots" if len(db_labels)>=2 else "Static data (no DB snapshots yet)"
-        st.markdown(f'<div style="font-size:9.5px;color:#0f172a;margin-top:4px;">Source: {src}</div>', unsafe_allow_html=True)
+        st.markdown(f'<div style="font-size:11px;color:#334155;margin-top:4px;">Source: {src}</div>', unsafe_allow_html=True)
 
 
 # ═════════════════════════════════════════════════════════════════
 # TRADE SIMULATOR
 # ═════════════════════════════════════════════════════════════════
 elif page == "Trade Simulator":
-    st.markdown('<div style="font-size:20px;font-weight:700;color:#e2e8f0;margin-bottom:6px;">Trade Simulator</div>', unsafe_allow_html=True)
-    st.markdown('<div style="font-size:11px;color:#0f172a;margin-bottom:16px;">Fundamental score · Risk management · Entry timing advice</div>', unsafe_allow_html=True)
+    st.markdown('<div style="font-size:20px;font-weight:700;color:#334155;margin-bottom:6px;">Trade Simulator</div>', unsafe_allow_html=True)
+    st.markdown('<div style="font-size:11px;color:#334155;margin-bottom:16px;">Fundamental score · Risk management · Entry timing advice</div>', unsafe_allow_html=True)
     st.markdown("""
     <div style="background:#fffbeb;border:1px solid #fde68a;border-left:3px solid #d97706;
     border-radius:7px;padding:9px 14px;margin-bottom:18px;font-size:11px;color:#78350f;font-weight:500;">
@@ -1328,7 +1407,7 @@ elif page == "Trade Simulator":
         st.markdown(
             f'<div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:7px;'
             f'padding:9px 14px;margin:8px 0;display:flex;justify-content:space-between;">'
-            f'<span style="font-size:11px;color:#0f172a;">Current {pair}</span>'
+            f'<span style="font-size:11px;color:#334155;">Current {pair}</span>'
             f'<span style="font-size:13px;font-weight:700;color:#0f172a;">{curr_px}</span>'
             f'</div>',
             unsafe_allow_html=True
@@ -1350,7 +1429,6 @@ elif page == "Trade Simulator":
         sl = st.number_input("Stop Loss", value=float(sl_def), format="%.5f", step=0.0001)
         tp = st.number_input("Take Profit", value=float(tp_def), format="%.5f", step=0.0001)
 
-    # ── Calculations ─────────────────────────────────────────────
     pv       = pip_val(pair, lots)
     pip_sz   = 0.01 if is_jpy else 0.0001
     sl_pips  = round(abs(entry-sl)/pip_sz, 1)
@@ -1367,7 +1445,6 @@ elif page == "Trade Simulator":
     _, fs_bg, _ = score_meta(2 if fscore>=70 else 0 if fscore>=50 else -2)
 
     with cr:
-        # Score header
         b_info = MACRO.get(base,{}); q_info = MACRO.get(quote,{})
         b_sc   = MACRO.get(base,{}).get("score",0)
         q_sc   = MACRO.get(quote,{}).get("score",0)
@@ -1378,14 +1455,14 @@ elif page == "Trade Simulator":
             f'<div>'
             f'<div style="font-size:16px;font-weight:700;color:#0f172a;margin-bottom:4px;">'
             f'{direction}  {pair}</div>'
-            f'<div style="font-size:10.5px;color:#0f172a;">'
+            f'<div style="font-size:10.5px;color:#334155;">'
             f'{base} fundamental score <b style="color:{b_info.get("color","#0f172a")}">{b_sc:+d}</b>'
             f'  vs  {quote} <b style="color:{q_info.get("color","#0f172a")}">{q_sc:+d}</b>'
             f'</div>'
             f'</div>'
             f'<div style="text-align:center;">'
             f'<div style="font-size:36px;font-weight:900;color:{fs_c};line-height:1;">{fscore}%</div>'
-            f'<div style="font-size:9px;color:{fs_c};text-transform:uppercase;letter-spacing:.08em;margin-top:3px;">'
+            f'<div style="font-size:10.5px;color:{fs_c};text-transform:uppercase;letter-spacing:.08em;margin-top:3px;">'
             f'Fundamental alignment</div>'
             f'</div></div>'
             f'<div style="background:#f3f4f6;border-radius:3px;height:4px;margin-top:14px;overflow:hidden;">'
@@ -1394,7 +1471,6 @@ elif page == "Trade Simulator":
             unsafe_allow_html=True
         )
 
-        # KPI cards
         k1,k2,k3,k4 = st.columns(4)
         for col_w, lbl, val, sub, sub_c in [
             (k1,"Stop Loss (pips)",f"{sl_pips}",f"-${sl_usd}",COLOR_NEGATIVE),
@@ -1406,14 +1482,13 @@ elif page == "Trade Simulator":
                 st.markdown(
                     f'<div style="background:#ffffff;border:1px solid {rgba(sub_c,0.2)};'
                     f'border-radius:8px;padding:13px 14px;text-align:center;">'
-                    f'<div style="font-size:9px;color:#0f172a;text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px;">{lbl}</div>'
+                    f'<div style="font-size:10.5px;color:#334155;text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px;">{lbl}</div>'
                     f'<div style="font-size:17px;font-weight:700;color:#0f172a;">{val}</div>'
                     f'<div style="font-size:10px;color:{sub_c};margin-top:3px;">{sub}</div>'
                     f'</div>',
                     unsafe_allow_html=True
                 )
 
-        # Best days
         st.markdown("<br>", unsafe_allow_html=True)
         section("Recommended Entry Days")
         all_days = ["Mon","Tue","Wed","Thu","Fri"]
@@ -1433,7 +1508,6 @@ elif page == "Trade Simulator":
         day_html += '</div>'
         st.markdown(day_html, unsafe_allow_html=True)
 
-        # Meeting warning
         st.markdown("""
         <div style="background:#fefce8;border:1px solid #fde047;border-left:3px solid #eab308;border-radius:12px;padding:10px 16px;margin-bottom:22px;font-size:11px;color:#854d0e;line-height:1.7;font-weight:500;">
           CB meetings this week: BoJ Apr 28  ·  BoE Apr 30  ·  FOMC Apr 30
@@ -1441,7 +1515,6 @@ elif page == "Trade Simulator":
         </div>
         """, unsafe_allow_html=True)
 
-        # Advice cards
         section("Fundamental Advice")
         def advice(icon_c, title, body, brd):
             st.markdown(
@@ -1470,7 +1543,6 @@ elif page == "Trade Simulator":
         if "CAD" in pair: advice("","CAD — Oil shock",f"WTI -12% this week. CAD loses primary support. Bearish CAD positions have fundamental backing.","#f97316")
         if "CHF" in pair: advice("","CHF — Safe haven demand",f"Geopolitical tensions sustaining CHF demand. SNB limited in its ability to weaken CHF.","#a855f7")
 
-    # ── Trade chart ───────────────────────────────────────────────
     st.markdown("<br>", unsafe_allow_html=True)
     section("Trade Setup Visualisation")
     vc1, vc2 = st.columns([3,1])
@@ -1535,7 +1607,6 @@ elif page == "Trade Simulator":
         )
         st.plotly_chart(fig_p, use_container_width=True, config={"displayModeBar":False})
 
-    # Verdict
     good = fscore>=65 and rr>=1.5
     warn = fscore>=45
     vc   = COLOR_POSITIVE if good else "#f59e0b" if warn else COLOR_NEGATIVE
@@ -1550,20 +1621,20 @@ elif page == "Trade Simulator":
         f'<div style="font-size:18px;font-weight:800;color:{vc};letter-spacing:.04em;">{vl}</div>'
         f'<div style="font-size:11.5px;color:#64748b;margin-top:7px;max-width:600px;margin-left:auto;margin-right:auto;">{vd}</div>'
         f'<div style="display:flex;justify-content:center;gap:24px;margin-top:14px;flex-wrap:wrap;">'
-        f'<span style="font-size:10.5px;color:#0f172a;">Fundamental score <b style="color:{vc};">{fscore}%</b></span>'
-        f'<span style="font-size:10.5px;color:#0f172a;">R:R <b style="color:{vc};">1:{rr}</b></span>'
-        f'<span style="font-size:10.5px;color:#0f172a;">Advised lots <b style="color:#4f46e5;">{rec_lots}</b></span>'
-        f'<span style="font-size:10.5px;color:#0f172a;">Max risk <b style="color:#f43f5e;">${risk_usd}</b></span>'
+        f'<span style="font-size:10.5px;color:#334155;">Fundamental score <b style="color:{vc};">{fscore}%</b></span>'
+        f'<span style="font-size:10.5px;color:#334155;">R:R <b style="color:{vc};">1:{rr}</b></span>'
+        f'<span style="font-size:10.5px;color:#334155;">Advised lots <b style="color:#4f46e5;">{rec_lots}</b></span>'
+        f'<span style="font-size:10.5px;color:#334155;">Max risk <b style="color:#f43f5e;">${risk_usd}</b></span>'
         f'</div></div>',
         unsafe_allow_html=True
     )
 
 
 # ═════════════════════════════════════════════════════════════════
-# SYSTEM
+# SYSTEM (hidden from nav, accessible via ?page=system)
 # ═════════════════════════════════════════════════════════════════
 elif page == "System":
-    st.markdown('<div style="font-size:20px;font-weight:700;color:#e2e8f0;margin-bottom:18px;">System Status</div>', unsafe_allow_html=True)
+    st.markdown('<div style="font-size:20px;font-weight:700;color:#334155;margin-bottom:18px;">System Status</div>', unsafe_allow_html=True)
 
     last = get_last_update()
     now_utc = datetime.now(timezone.utc)
@@ -1578,21 +1649,21 @@ elif page == "System":
     <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;padding:16px 18px;">
       <div style="display:flex;gap:24px;flex-wrap:wrap;">
         <div>
-          <div style="font-size:9.5px;color:#0f172a;text-transform:uppercase;letter-spacing:.1em;">London Close</div>
+          <div style="font-size:11px;color:#334155;text-transform:uppercase;letter-spacing:.1em;">London Close</div>
           <div style="font-size:14px;font-weight:700;color:#0f172a;margin-top:4px;">17:00 UTC  Mon-Fri</div>
-          <div style="font-size:10px;color:#0f172a;margin-top:2px;">Session key: YYYY-MM-DD-LDN</div>
+          <div style="font-size:10px;color:#334155;margin-top:2px;">Session key: YYYY-MM-DD-LDN</div>
         </div>
         <div style="width:1px;background:#e2e8f0;"></div>
         <div>
-          <div style="font-size:9.5px;color:#0f172a;text-transform:uppercase;letter-spacing:.1em;">New York Close</div>
+          <div style="font-size:11px;color:#334155;text-transform:uppercase;letter-spacing:.1em;">New York Close</div>
           <div style="font-size:14px;font-weight:700;color:#0f172a;margin-top:4px;">22:00 UTC  Mon-Fri</div>
-          <div style="font-size:10px;color:#0f172a;margin-top:2px;">Session key: YYYY-MM-DD-NY</div>
+          <div style="font-size:10px;color:#334155;margin-top:2px;">Session key: YYYY-MM-DD-NY</div>
         </div>
         <div style="width:1px;background:#e2e8f0;"></div>
         <div>
-          <div style="font-size:9.5px;color:#0f172a;text-transform:uppercase;letter-spacing:.1em;">Storage</div>
+          <div style="font-size:11px;color:#334155;text-transform:uppercase;letter-spacing:.1em;">Storage</div>
           <div style="font-size:14px;font-weight:700;color:#0f172a;margin-top:4px;">SQLite  fx_data.db</div>
-          <div style="font-size:10px;color:#0f172a;margin-top:2px;">Tables: snapshots · fx_snapshots · update_log</div>
+          <div style="font-size:10px;color:#334155;margin-top:2px;">Tables: snapshots · fx_snapshots · update_log</div>
         </div>
       </div>
     </div>
@@ -1607,7 +1678,7 @@ elif page == "System":
                 f'<div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:7px;'
                 f'padding:9px 14px;margin-bottom:5px;display:flex;gap:14px;align-items:center;">'
                 f'<div style="width:6px;height:6px;border-radius:50%;background:{sc};flex-shrink:0;"></div>'
-                f'<span style="font-size:10px;color:#0f172a;min-width:160px;">{log.get("ts","")}</span>'
+                f'<span style="font-size:10px;color:#334155;min-width:160px;">{log.get("ts","")}</span>'
                 f'<span style="font-size:10.5px;font-weight:600;color:#475569;">{log.get("session","")}</span>'
                 f'<span style="font-size:10px;color:#475569;">{log.get("trigger","")}</span>'
                 f'<span style="font-size:10px;color:{sc};margin-left:auto;">{log.get("status","")}</span>'
@@ -1615,7 +1686,7 @@ elif page == "System":
                 unsafe_allow_html=True
             )
     else:
-        st.markdown('<div style="font-size:11px;color:#0f172a;padding:12px;">No snapshots recorded yet. Run the app and wait for 17:00 or 22:00 UTC, or click "Force snapshot now" in the sidebar.</div>', unsafe_allow_html=True)
+        st.markdown('<div style="font-size:11px;color:#334155;padding:12px;">No snapshots recorded yet. Run the app and wait for 17:00 or 22:00 UTC, or click "Force snapshot now" in the sidebar.</div>', unsafe_allow_html=True)
 
     section("How Data Updates Work")
     st.markdown("""

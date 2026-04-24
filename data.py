@@ -14,9 +14,9 @@ MACRO = {
     "USD": {
         "name": "United States", "cb": "Federal Reserve",
         "rate": 4.00, "rate_prev": 4.25,
-        "gdp": 2.2,   "gdp_prev": 2.8,
-        "cpi": 3.2,   "cpi_prev": 2.9,   "core_cpi": 2.8,
-        "unem": 4.4,  "unem_prev": 4.1,
+        "gdp": 2.79,   "gdp_prev": 2.8,
+        "cpi": 2.95,   "cpi_prev": 2.9,   "core_cpi": 2.8,
+        "unem": 4.2,  "unem_prev": 4.1,
         "wages": 4.1, "retail": 0.6,
         "conf": 97.2, "ca": -3.2, "pmi": 51.4,
         "next_mtg": "30 Apr 2026",
@@ -34,9 +34,9 @@ MACRO = {
     "EUR": {
         "name": "Euro Area", "cb": "European Central Bank",
         "rate": 2.00, "rate_prev": 2.25,
-        "gdp": 1.5,   "gdp_prev": 1.2,
+        "gdp": 0.91,   "gdp_prev": 1.2,
         "cpi": 2.5,   "cpi_prev": 2.3,   "core_cpi": 2.3,
-        "unem": 6.4,  "unem_prev": 6.5,
+        "unem": 6.33,  "unem_prev": 6.5,
         "wages": 3.2, "retail": 0.3,
         "conf": -14.2, "ca": 1.8, "pmi": 50.9,
         "next_mtg": "5 Jun 2026",
@@ -54,9 +54,9 @@ MACRO = {
     "GBP": {
         "name": "United Kingdom", "cb": "Bank of England",
         "rate": 3.75, "rate_prev": 4.00,
-        "gdp": 1.3,   "gdp_prev": 0.9,
-        "cpi": 3.3,   "cpi_prev": 3.0,   "core_cpi": 3.1,
-        "unem": 4.9,  "unem_prev": 5.1,
+        "gdp": 1.13,   "gdp_prev": 0.9,
+        "cpi": 3.27,   "cpi_prev": 3.0,   "core_cpi": 3.1,
+        "unem": 4.75,  "unem_prev": 5.1,
         "wages": 5.6, "retail": 0.4,
         "conf": -19.0, "ca": -3.8, "pmi": 50.8,
         "next_mtg": "30 Apr 2026",
@@ -74,9 +74,9 @@ MACRO = {
     "JPY": {
         "name": "Japan", "cb": "Bank of Japan",
         "rate": 0.75, "rate_prev": 0.50,
-        "gdp": 1.0,   "gdp_prev": 0.8,
-        "cpi": 1.3,   "cpi_prev": 2.1,   "core_cpi": 1.6,
-        "unem": 2.6,  "unem_prev": 2.7,
+        "gdp": 0.1,   "gdp_prev": 0.8,
+        "cpi": 2.74,   "cpi_prev": 2.1,   "core_cpi": 1.6,
+        "unem": 2.45,  "unem_prev": 2.7,
         "wages": 3.8, "retail": -0.2,
         "conf": 35.0, "ca": 3.2, "pmi": 49.8,
         "next_mtg": "28 Apr 2026",
@@ -94,9 +94,9 @@ MACRO = {
     "CAD": {
         "name": "Canada", "cb": "Bank of Canada",
         "rate": 2.75, "rate_prev": 3.00,
-        "gdp": 1.5,   "gdp_prev": 1.3,
-        "cpi": 2.0,   "cpi_prev": 1.9,   "core_cpi": 2.2,
-        "unem": 6.5,  "unem_prev": 6.3,
+        "gdp": 1.55,   "gdp_prev": 1.3,
+        "cpi": 2.38,   "cpi_prev": 1.9,   "core_cpi": 2.2,
+        "unem": 6.91,  "unem_prev": 6.3,
         "wages": 4.2, "retail": -0.1,
         "conf": 47.0, "ca": -1.2, "pmi": 48.9,
         "next_mtg": "4 Jun 2026",
@@ -114,9 +114,9 @@ MACRO = {
     "AUD": {
         "name": "Australia", "cb": "Reserve Bank of Australia",
         "rate": 3.60, "rate_prev": 3.85,
-        "gdp": 2.0,   "gdp_prev": 1.8,
-        "cpi": 3.8,   "cpi_prev": 3.6,   "core_cpi": 3.2,
-        "unem": 4.1,  "unem_prev": 4.2,
+        "gdp": 1.37,   "gdp_prev": 1.8,
+        "cpi": 3.17,   "cpi_prev": 3.6,   "core_cpi": 3.2,
+        "unem": 4.09,  "unem_prev": 4.2,
         "wages": 4.5, "retail": 0.5,
         "conf": 85.0, "ca": 1.5, "pmi": 51.2,
         "next_mtg": "6 May 2026",
@@ -134,9 +134,9 @@ MACRO = {
     "NZD": {
         "name": "New Zealand", "cb": "Reserve Bank of New Zealand",
         "rate": 3.50, "rate_prev": 3.75,
-        "gdp": 2.1,   "gdp_prev": -1.1,
-        "cpi": 3.1,   "cpi_prev": 3.0,   "core_cpi": 3.0,
-        "unem": 5.3,  "unem_prev": 5.5,
+        "gdp": 1.29,   "gdp_prev": -1.1,
+        "cpi": 2.92,   "cpi_prev": 3.0,   "core_cpi": 3.0,
+        "unem": 5.08,  "unem_prev": 5.5,
         "wages": 3.5, "retail": 0.2,
         "conf": 102.0, "ca": -6.5, "pmi": 50.1,
         "next_mtg": "27 May 2026",
@@ -154,9 +154,9 @@ MACRO = {
     "CHF": {
         "name": "Switzerland", "cb": "Swiss National Bank",
         "rate": 0.25, "rate_prev": 0.50,
-        "gdp": 1.5,   "gdp_prev": 1.3,
-        "cpi": 1.0,   "cpi_prev": 1.1,   "core_cpi": 1.1,
-        "unem": 2.4,  "unem_prev": 2.5,
+        "gdp": 1.3,   "gdp_prev": 1.3,
+        "cpi": 1.06,   "cpi_prev": 1.1,   "core_cpi": 1.1,
+        "unem": 4.87,  "unem_prev": 2.5,
         "wages": 2.0, "retail": 0.1,
         "conf": -8.0, "ca": 8.5, "pmi": 50.5,
         "next_mtg": "19 Jun 2026",
@@ -175,18 +175,6 @@ MACRO = {
 
 # ─────────────────────────────────────────────────────────────────
 # RATE EXPECTATIONS — based on government bond yield spreads vs USD
-# ─────────────────────────────────────────────────────────────────
-# Methodology :
-#   2Y government bond yield spread vs US 2Y Treasury (4.52%)
-#   → predicts 6-12m CB rate path  (short end = policy sensitive)
-#   10Y spread vs US 10Y Treasury (4.72%)
-#   → signals long-term growth/inflation expectations
-#   Curve slope (10Y - 2Y)
-#   → positive/steepening = growth expected, CB likely to hike
-#   → negative/flat = recession risk, CB likely to cut
-#   Rising spread (less negative) = currency support
-#   Falling spread (more negative) = currency pressure
-#   Source: Bloomberg, Apr 22 2026
 # ─────────────────────────────────────────────────────────────────
 RATE_EXP = {
     "USD": {
@@ -335,20 +323,20 @@ def get_yield_months(): return YIELD_MONTHS
 # FX RATES
 # ─────────────────────────────────────────────────────────────────
 FX_RATES = {
-    "EUR/USD": {"rate": 1.1793, "chg": -0.12, "hi": 1.1820, "lo": 1.1750, "wchg": -1.2},
-    "GBP/USD": {"rate": 1.3515, "chg":  0.18, "hi": 1.3560, "lo": 1.3480, "wchg":  0.8},
-    "USD/JPY": {"rate": 159.36, "chg":  0.22, "hi": 159.80, "lo": 158.90, "wchg":  2.1},
-    "USD/CAD": {"rate": 1.3663, "chg":  0.15, "hi": 1.3710, "lo": 1.3620, "wchg":  0.9},
-    "AUD/USD": {"rate": 0.7127, "chg":  0.45, "hi": 0.7150, "lo": 0.7090, "wchg":  3.2},
-    "NZD/USD": {"rate": 0.5903, "chg":  0.57, "hi": 0.5930, "lo": 0.5870, "wchg":  2.8},
-    "USD/CHF": {"rate": 0.8012, "chg": -0.08, "hi": 0.8040, "lo": 0.7990, "wchg": -0.5},
-    "EUR/GBP": {"rate": 0.8731, "chg": -0.13, "hi": 0.8760, "lo": 0.8710, "wchg": -0.6},
-    "GBP/JPY": {"rate": 215.43, "chg":  0.12, "hi": 216.10, "lo": 214.80, "wchg":  1.4},
-    "EUR/CAD": {"rate": 1.6101, "chg": -0.05, "hi": 1.6180, "lo": 1.6060, "wchg": -0.3},
-    "GBP/CAD": {"rate": 1.8491, "chg":  0.09, "hi": 1.8560, "lo": 1.8420, "wchg":  0.7},
-    "CAD/CHF": {"rate": 0.5714, "chg": -0.08, "hi": 0.5750, "lo": 0.5690, "wchg": -1.1},
-    "EUR/CHF": {"rate": 0.9210, "chg": -0.01, "hi": 0.9240, "lo": 0.9190, "wchg": -0.8},
-    "AUD/NZD": {"rate": 1.2075, "chg": -0.12, "hi": 1.2110, "lo": 1.2040, "wchg":  0.4},
+    "EUR/USD": {"rate": 1.1694, "chg": -0.0, "hi": 1.1820, "lo": 1.1750, "wchg": -0.0},
+    "GBP/USD": {"rate": 1.3507, "chg":  -0.0, "hi": 1.3560, "lo": 1.3480, "wchg":  -0.0},
+    "USD/JPY": {"rate": 159.48, "chg":  0.0, "hi": 159.80, "lo": 158.90, "wchg":  0.0},
+    "USD/CAD": {"rate": 1.367, "chg":  0.0, "hi": 1.3710, "lo": 1.3620, "wchg":  0.0},
+    "AUD/USD": {"rate": 0.7154, "chg":  -0.0, "hi": 0.7150, "lo": 0.7090, "wchg":  -0.0},
+    "NZD/USD": {"rate": 0.5888, "chg":  -0.0, "hi": 0.5930, "lo": 0.5870, "wchg":  -0.0},
+    "USD/CHF": {"rate": 0.7848, "chg": 0.0, "hi": 0.8040, "lo": 0.7990, "wchg": 0.0},
+    "EUR/GBP": {"rate": 0.8658, "chg": 0.0, "hi": 0.8760, "lo": 0.8710, "wchg": 0.0},
+    "GBP/JPY": {"rate": 215.4144, "chg":  0.0, "hi": 216.10, "lo": 214.80, "wchg":  0.0},
+    "EUR/CAD": {"rate": 1.5986, "chg": 0.0, "hi": 1.6180, "lo": 1.6060, "wchg": 0.0},
+    "GBP/CAD": {"rate": 1.8464, "chg":  0.0, "hi": 1.8560, "lo": 1.8420, "wchg":  0.0},
+    "CAD/CHF": {"rate": 0.5741, "chg": 0.0, "hi": 0.5750, "lo": 0.5690, "wchg": 0.0},
+    "EUR/CHF": {"rate": 0.9177, "chg": 0.0, "hi": 0.9240, "lo": 0.9190, "wchg": 0.0},
+    "AUD/NZD": {"rate": 1.215, "chg": 0.0, "hi": 1.2110, "lo": 1.2040, "wchg":  0.0},
 }
 
 # ─────────────────────────────────────────────────────────────────
@@ -370,27 +358,49 @@ CALENDAR = [
 ]
 
 # ─────────────────────────────────────────────────────────────────
-# NEWS
+# NEWS  — sera écrasé par scraper.py
 # ─────────────────────────────────────────────────────────────────
 NEWS = [
-    {"ts": "23 Apr 10:30", "title": "Germany Flash PMI surprises at 50.3 — first expansion in 8 months",
-     "body": "Manufacturing PMI beat 49.8 consensus, returning to expansion territory. Positive read for EUR short-term.",
-     "cat": "PMI", "ccys": ["EUR"], "dir": "positive"},
-    {"ts": "22 Apr 12:00", "title": "UK CPI March 3.3% — services at 4.5% : persistent domestic inflation",
-     "body": "Headline CPI rose to 3.3% from 3.0%, with services the key driver. BoE unlikely to cut before Q4 2026.",
-     "cat": "Inflation", "ccys": ["GBP"], "dir": "positive"},
-    {"ts": "22 Apr 09:00", "title": "ZEW Germany collapsed to -17.2 — investors fleeing euro assets",
-     "body": "Investor confidence plunged from -0.5 to -17.2. Iran war and energy prices weigh on German outlook.",
-     "cat": "Sentiment", "ccys": ["EUR"], "dir": "negative"},
-    {"ts": "21 Apr 22:45", "title": "NZD CPI Q1 3.1% — hawkish surprise drives kiwi rally",
-     "body": "CPI printed 3.1% vs 2.9% expected. Electricity +12.5% the main driver. Markets now price 62% probability of May hike.",
-     "cat": "Inflation", "ccys": ["NZD"], "dir": "positive"},
-    {"ts": "21 Apr 19:00", "title": "US-Iran talks collapse — Vance cancels Islamabad trip",
-     "body": "VP Vance cancelled Pakistan trip after Iran refused to attend. Strait of Hormuz remains partially blocked. USD safe-haven bid.",
-     "cat": "Geopolitics", "ccys": ["USD", "CAD"], "dir": "mixed"},
-    {"ts": "21 Apr 08:00", "title": "BoJ rate hike expected Apr 28 — Ueda prepares markets",
-     "body": "MUFG and RBC both forecast +25bp on April 28. Ueda explicitly cited yen weakness and inflation. USD/JPY vulnerable.",
-     "cat": "Central Bank", "ccys": ["JPY"], "dir": "positive"},
+    {
+        "ts": "24 Apr 20:11",
+        "title": "Trump : « Les navires américains sont armés et prêts à partir »",
+        "body": "Donald Trump a déclaré que les tensions avec l'Iran restent élevées et que la flotte américaine est prête. Le pétrole pourrait grimper.",
+        "cat": "Geopolitics",
+        "ccys": ["USD", "CAD"],
+        "dir": "negative"
+    },
+    {
+        "ts": "24 Apr 18:30",
+        "title": "Powell (Fed) : « Pas de baisse de taux avant septembre »",
+        "body": "Le président de la Fed maintient une position hawkish, les marchés repoussent les prévisions de baisse.",
+        "cat": "Central Bank",
+        "ccys": ["USD"],
+        "dir": "positive"
+    },
+    {
+        "ts": "24 Apr 12:00",
+        "title": "BoJ : Ueda confirme une possible hausse le 28 avril",
+        "body": "Le gouverneur de la BoJ indique que l'inflation et la faiblesse du yen justifient un resserrement monétaire.",
+        "cat": "Central Bank",
+        "ccys": ["JPY"],
+        "dir": "positive"
+    },
+    {
+        "ts": "23 Apr 15:20",
+        "title": "BoE : Bailey souligne la persistance de l'inflation des services",
+        "body": "Le gouverneur de la Banque d'Angleterre exclut une baisse des taux dans l'immédiat.",
+        "cat": "Central Bank",
+        "ccys": ["GBP"],
+        "dir": "positive"
+    },
+    {
+        "ts": "23 Apr 09:45",
+        "title": "ECB : Lagarde met en garde contre les chocs énergétiques",
+        "body": "La présidente de la BCE craint un impact sur l'inflation en zone euro si le canal d'Ormuz reste bloqué.",
+        "cat": "Central Bank",
+        "ccys": ["EUR"],
+        "dir": "negative"
+    }
 ]
 
 # ─────────────────────────────────────────────────────────────────
