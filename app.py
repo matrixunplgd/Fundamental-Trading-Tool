@@ -39,7 +39,7 @@ st.set_page_config(
     page_title="FX Dashboard",
     page_icon="",
     layout="wide",
-    initial_sidebar_state="expanded",
+    initial_sidebar_state="collapsed",
 )
 
 # ─────────────────────────────────────────────────────────────────
@@ -56,14 +56,14 @@ html, body, [class*="css"], .stApp {
 .stApp { background: #f8fafc; }
 .block-container { padding: 1.8rem 2.8rem 3rem !important; max-width: 1600px !important; }
 
-section[data-testid="stSidebar"] {
-    background: #f1f5f9 !important;
-    border-right: 1px solid #e2e8f0 !important;
+/* Sidebar complètement cachée */
+section[data-testid="stSidebar"],
+[data-testid="collapsedControl"],
+button[data-testid="baseButton-headerNoPadding"] {
+    display: none !important;
 }
-section[data-testid="stSidebar"] > div { padding: 1.2rem 1rem !important; }
 
-#MainMenu, footer, header, .stDeployButton,
-[data-testid="collapsedControl"] { display: none !important; }
+#MainMenu, footer, header, .stDeployButton { display: none !important; }
 
 div[data-testid="metric-container"] {
     background: #ffffff;
