@@ -18,7 +18,8 @@ log = logging.getLogger("fx_scraper")
 DATA_FILE = Path(__file__).parent / "data.py"
 FRED_KEY  = os.getenv("FRED_API_KEY", "")
 AV_KEY    = os.getenv("ALPHAVANTAGE_KEY", "")
-GNEWS_KEY = os.getenv("GNEWS_API_KEY", "a2530359ee05f25e94ec6ebc10eff403")
+GNEWS_KEY  = os.getenv("GNEWS_API_KEY", "a2530359ee05f25e94ec6ebc10eff403")
+GEMINI_KEY = os.getenv("GEMINI_API_KEY", "")
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
@@ -325,13 +326,61 @@ def patch_yield_history(yield_updates):
     except Exception as e: log.error(f"✗ Yield history: {e}")
 
 
+
+# ── AI Insights via Google Gemini ─────────────────────────────────
+def generate_ai_insights(news_list, macro_data):
+    if not GEMINI_KEY: log.info("[AI] No Gemini key"); return None
+    if not news_list: return None
+    log.info("[AI] Generating insights via Gemini...")
+    news_text = "".join(f"- [{n.get('cat','')}] {n.get('title','')}\n" for n in news_list[:12])
+    macro_text = "".join(f"{c}: rate={d.get('rate')}% CPI={d.get('cpi')}% GDP={d.get('gdp')}%\n" for c,d in macro_data.items())
+    prompt = (
+        "FX analyst. Respond ONLY with valid JSON no markdown:\n"
+        "{\"market_alert\": \"max 120 chars summary\","
+        "\"risk_sentiment\": {\"score\": 0, \"label\": \"NEUTRAL\","
+        "\"factors\": [{\"name\":\"str\",\"score\":0,\"desc\":\"str\"}]},"
+        "\"currency_views\": {\"USD\":{\"view\":\"str\",\"bias\":\"Neutral\",\"score\":0},"
+        "\"EUR\":{\"view\":\"str\",\"bias\":\"Neutral\",\"score\":0},"
+        "\"GBP\":{\"view\":\"str\",\"bias\":\"Neutral\",\"score\":0},"
+        "\"JPY\":{\"view\":\"str\",\"bias\":\"Neutral\",\"score\":0},"
+        "\"CAD\":{\"view\":\"str\",\"bias\":\"Neutral\",\"score\":0},"
+        "\"AUD\":{\"view\":\"str\",\"bias\":\"Neutral\",\"score\":0},"
+        "\"NZD\":{\"view\":\"str\",\"bias\":\"Neutral\",\"score\":0},"
+        "\"CHF\":{\"view\":\"str\",\"bias\":\"Neutral\",\"score\":0}}}\n"
+        f"NEWS:\n{news_text}\nMACRO:\n{macro_text}"
+    )
+    try:
+        import urllib.request
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GEMINI_KEY}"
+        payload = json.dumps({"contents":[{"parts":[{"text":prompt}]}],"generationConfig":{"temperature":0.3,"maxOutputTokens":1500}}).encode()
+        req = urllib.request.Request(url,data=payload,headers={"Content-Type":"application/json"},method="POST")
+        with urllib.request.urlopen(req,timeout=30) as resp:
+            data   = json.loads(resp.read().decode())
+            text   = data["candidates"][0]["content"]["parts"][0]["text"].strip()
+            text   = text.replace("```json","").replace("```","").strip()
+            result = json.loads(text)
+            log.info(f"[AI] Gemini risk: {result.get('risk_sentiment',{}).get('label','?')}")
+            return result
+    except Exception as e: log.error(f"[AI] Gemini: {e}"); return None
+
+
+def save_ai_insights(insights):
+    if not insights: return
+    try:
+        with open(DATA_FILE.parent/"ai_insights.json","w",encoding="utf-8") as f:
+            json.dump(insights,f,ensure_ascii=False,indent=2)
+        log.info("✓ ai_insights.json saved")
+    except Exception as e: log.error(f"✗ ai_insights: {e}")
+
+
 # ── Full scrape ───────────────────────────────────────────────────
 def run_full_scrape(currencies=None):
     start = datetime.now(timezone.utc)
     log.info(f"\n{'='*55}")
     log.info(f"FX Scraper — {start.strftime('%Y-%m-%d %H:%M UTC')}")
     log.info(f"FRED key:  {'SET' if FRED_KEY  else 'MISSING'}")
-    log.info(f"GNews key: {'SET' if GNEWS_KEY else 'not set'}")
+    log.info(f"GNews key:  {'SET' if GNEWS_KEY else 'not set'}")
+    log.info(f"Gemini key: {'SET' if GEMINI_KEY else 'not set (no AI insights)'}")
     log.info(f"{'='*55}")
 
     fx_data = scrape_fx_frankfurter()
@@ -356,8 +405,7 @@ def run_full_scrape(currencies=None):
     save_news_cache(news)
 
     log.info(f"\n── AI Insights ──")
-    insights = generate_ai_insights(news, all_macro)
-    save_ai_insights(insights)
+    save_ai_insights(generate_ai_insights(news, all_macro))
 
     try:
         spec = importlib.util.spec_from_file_location("data",DATA_FILE)
