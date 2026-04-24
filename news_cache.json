@@ -1,5 +1,15 @@
 [
   {
+    "ts": "24 Apr 22:56",
+    "title": "PHP: BSP starts new hiking cycle – Commerzbank",
+    "body": "Commerzbank highlights that BSP raised its policy rate by 25bp to 4.50%, signalling the start of a new tightening cycle to anchor inflation expectations.",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
     "ts": "24 Apr 22:12",
     "title": "USD/TWD: Rebound seen as fadeable – OCBC",
     "body": "OCBC strategists Sim Moh Siong and Christopher Wong describe a technical rebound in USD/TWD driven by broader US Dollar (USD) strength and risk aversion linked to the US‑Iran ceasefire stalemate.",
@@ -25,8 +35,8 @@
     "body": "USD/CHF dropped on Friday but finished the week with gains of over 0.35%, trading at 0.7841 as market participants grew confident that US-Iran talks could resume over the weekend to resolve the conflict.",
     "cat": "Geopolitics",
     "ccys": [
-      "USD",
-      "CHF"
+      "CHF",
+      "USD"
     ],
     "dir": "positive"
   },
@@ -106,20 +116,10 @@
     "body": "The New Zealand Dollar (NZD) gains traction against the US Dollar (USD) on Friday as the Greenback weakens amid renewed hopes for US–Iran talks after stalled negotiations.",
     "cat": "Geopolitics",
     "ccys": [
-      "USD",
-      "NZD"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "24 Apr 18:37",
-    "title": "Germany: Growth hit by energy shock – Commerzbank",
-    "body": "Commerzbank’s Chief Economist Dr. Jörg Krämer argues that the sharp fall in the Ifo Business Climate Index underlines how severely the energy price shock is weighing on the German economy.",
-    "cat": "Macro",
-    "ccys": [
+      "NZD",
       "USD"
     ],
-    "dir": "negative"
+    "dir": "positive"
   },
   {
     "ts": "24 Apr 14:59",
@@ -147,9 +147,9 @@
     "body": "The GBP/USD pair edges higher during the first half of the European session on Friday and recovers a part of the previous day's losses to levels just below mid-1.3400s, or a nearly two-week trough.",
     "cat": "Central Bank",
     "ccys": [
+      "GBP",
       "EUR",
-      "USD",
-      "GBP"
+      "USD"
     ],
     "dir": "mixed"
   },
