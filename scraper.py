@@ -201,18 +201,25 @@ def _classify(title, body):
                  else "negative" if any(k in text for k in ["cut","dovish","miss","collapse","fall","war","recession","sanction"])
                  else "mixed")
     cat = ("Central Bank" if any(k in text for k in ["fed","ecb","boj","boe","rba","rbnz","boc","snb","interest rate","rate hike","rate cut","monetary"])
-           else "Geopolitics" if any(k in text for k in ["iran","trump","war","sanction","opec","middle east","ukraine","tariff","china"])
+           else "Geopolitics" if any(k in text for k in ["iran","trump","israel","war","sanction","opec","middle east","ukraine","tariff","china","hormuz","gaza","hamas","hezbollah"])
            else "Macro")
     return list(set(ccys)), direction, cat
 
 def scrape_news():
     log.info("\n[News] Fetching from RSS + GNews...")
     RSS_SOURCES = [
+        # FX specific
         ("FXStreet News",      "https://www.fxstreet.com/rss/news",                    12),
         ("FXStreet Analysis",  "https://www.fxstreet.com/rss/analysis",                 8),
+        # Reuters
         ("Reuters Markets",    "https://feeds.reuters.com/reuters/marketsNews",         10),
         ("Reuters Business",   "https://feeds.reuters.com/reuters/businessNews",        10),
         ("Reuters Economy",    "https://feeds.reuters.com/news/economy",                 8),
+        # Sky News — geopolitics + world news (Iran, Israel, Trump)
+        ("Sky News World",     "https://feeds.skynews.com/feeds/rss/world.xml",         10),
+        ("Sky News Business",  "https://feeds.skynews.com/feeds/rss/business.xml",       8),
+        ("Sky News US",        "https://feeds.skynews.com/feeds/rss/us.xml",             8),
+        # Markets
         ("Investing.com FX",   "https://www.investing.com/rss/news_285.rss",            8),
         ("Investing.com News", "https://www.investing.com/rss/news.rss",                8),
         ("CNBC Economy",       "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258", 8),
@@ -226,7 +233,7 @@ def scrape_news():
     if GNEWS_KEY:
         try:
             r = _get("https://gnews.io/api/v4/search", params={
-                "q": "Trump OR Fed OR ECB OR BoJ OR BoE OR Iran OR Powell OR Lagarde OR inflation OR interest rate",
+                "q": "Iran OR Israel OR Trump OR Middle East OR Hormuz OR Fed OR ECB OR BoJ OR inflation OR interest rate",
                 "lang":"en","max":10,"apikey":GNEWS_KEY,"sortby":"publishedAt"
             })
             if r:
@@ -345,7 +352,12 @@ def run_full_scrape(currencies=None):
     patch_dict("FX_RATES", fx_data,     f"({len(fx_data)} pairs)")
 
     log.info(f"\n── News ──")
-    save_news_cache(scrape_news())
+    news = scrape_news()
+    save_news_cache(news)
+
+    log.info(f"\n── AI Insights ──")
+    insights = generate_ai_insights(news, all_macro)
+    save_ai_insights(insights)
 
     try:
         spec = importlib.util.spec_from_file_location("data",DATA_FILE)
