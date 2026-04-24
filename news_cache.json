@@ -148,8 +148,8 @@
     "cat": "Central Bank",
     "ccys": [
       "EUR",
-      "GBP",
-      "USD"
+      "USD",
+      "GBP"
     ],
     "dir": "mixed"
   },
