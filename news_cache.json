@@ -1,0 +1,102 @@
+[
+  {
+    "ts": "24 Apr 09:19",
+    "title": "Financial Markets Brace for High-Stakes Week Amid Global Tensions",
+    "body": "The coming week is pivotal for financial markets with attention focused on the Iran conflict, interest rate decisions, and the AI-driven earnings reports from tech giants. Central banks and major corporations will make critical announcements amidst geopolitical uncertainties and market volatility aggravated by high energy prices.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "24 Apr 09:04",
+    "title": "BOE Survey Finds Inflation Expectations Rise, But Wage Outlook Cools",
+    "body": "By Paul Hannon\nU.K. businesses polled in April expected to raise their prices at a faster rate than they did prior to the conflict in the Middle East, but wage increases were seen slowing,...\n-April 24, 2026 at 05:04 am EDT\n- MarketScreener",
+    "cat": "Central Bank",
+    "ccys": [
+      "GBP"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "24 Apr 08:30",
+    "title": "India growth expected to be around 6.5% this year: Gita Gopinath",
+    "body": "India's economy is projected to grow at 6.5% this year, says Former IMF Deputy Managing Director Gita Gopinath to ET NOW. Global risks, particularly from West Asia, are impacting growth. Inflation is currently managed as companies absorb costs, but this may not last. Food prices could rise if disruptions continue. Central banks might delay interest rate cuts. Oil shocks will affect many economic s",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "negative"
+  },
+  {
+    "ts": "24 Apr 07:21",
+    "title": "War and rising prices test Bank of England’s nerve",
+    "body": "Markets expect caution from interest rate-setters at their April 30 meeting but forecasts are shifting as the Iran conflict clouds the outlook",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "24 Apr 05:10",
+    "title": "Global Market: BOJ faces policy dilemma as inflation eases but energy risks persist",
+    "body": "Japans core inflation slipped below the Bank of Japans 2% target for a second straight month in March, as subsidies and easing food prices offset energy pressures. While underlying inflation remains resilient, rising oil costs and geopolitical risks may push prices higher, keeping policymakers cautious on future interest rate decisions.",
+    "cat": "Central Bank",
+    "ccys": [
+      "JPY"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "24 Apr 04:57",
+    "title": "US housing market faces volatility despite decline in mortgage rates",
+    "body": "US mortgage rates fell for a third straight week, with the 30-year fixed rate easing to 6.23%, its lowest since mid-March. Declining Treasury yields supported the trend, though volatility from inflation and geopolitical risks persists. Despite easing borrowing costs, housing activity remains subdued amid affordability and demand pressures.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "24 Apr 04:00",
+    "title": "Silver dips Rs 2,300, gold at Rs 1.51 lakh as oil surge, Iran war uncertainty raise inflation worries. What’s next?",
+    "body": "Gold and silver opened lower on MCX amid rising crude oil prices near $110 per barrel, fuelling inflation concerns and rate outlook uncertainty. Geopolitical tensions in the Strait of Hormuz added to volatility. Analysts expect range-bound trading with key support and resistance levels guiding near-term strategy across bullion markets.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "24 Apr 03:57",
+    "title": "Best corporate bond mutual funds to invest in April 2026",
+    "body": "For investors seeking relatively safe debt options for near-term or medium-term goals, corporate bond funds are recommended for April 2026. These funds invest primarily in highly-rated corporate papers, offering a safer alternative to credit risk and interest-rate sensitive funds. Investors should prioritize safety and consider the current interest rate environment.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "24 Apr 03:34",
+    "title": "Silver rate today in India drops over ₹2,300 per kg on rising crude oil prices, firm dollar",
+    "body": "Silver prices in India dropped 1% to ₹2,39,200 per kg on April 24, influenced by rising crude oil prices, bond yields, and a stronger U.S. dollar. Global silver also fell to $75.22 per ounce, while gold prices declined amid inflation concerns and geopolitical tensions.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "24 Apr 02:37",
+    "title": "India’s inflation, external debt well within target levels: RBI Governor",
+    "body": "RBI Governor Sanjay Malhotra assures India’s stable inflation and external debt despite global shocks, highlighting strong fundamentals, resilient financial sector, and global economic engagement. However, rising energy prices and conflicts pose risks to inflation. Policy rate unchanged, but GDP growth projected to decline and retail inflation to increase due to supply chain disruptions.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  }
+]
