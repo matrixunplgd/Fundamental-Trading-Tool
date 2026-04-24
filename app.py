@@ -12,7 +12,7 @@ from datetime import datetime, timezone
 from data import (
     MACRO, RATE_EXP, FX_RATES, CALENDAR, NEWS,
     MONTHS, HIST_CPI, HIST_RATE, HIST_UNEM,
-    start_scheduler, save_snapshot, get_news, get_ai_insights, get_risk_sentiment,
+    start_scheduler, save_snapshot, get_news, get_risk_sentiment,
     load_history_from_db, load_update_log, get_last_update,
     init_db, score_meta,
 )
@@ -32,7 +32,6 @@ COLOR_BG_ACCENT     = "#eef2ff"   # indigo-50
 init_db()
 start_scheduler()
 news_list   = get_news()         # loads from news_cache.json
-ai_insights    = get_ai_insights()    # loads from ai_insights.json
 risk_sentiment = get_risk_sentiment()  # loads from risk_sentiment.json (VIX-based)
 
 # ─────────────────────────────────────────────────────────────────
@@ -357,7 +356,7 @@ if page == "Overview":
     </div>
     """, unsafe_allow_html=True)
 
-    _alert = (ai_insights.get("market_alert") if ai_insights
+    _alert = ((None or {}).get("market_alert") if ai_insights
               else "US-Iran talks collapsed · BoJ Apr 28 hike expected · UK CPI 3.3% · NZD CPI 3.1% beat · WTI -12%")
     st.markdown(
         f'<div style="background:#fefce8;border:1px solid #fde047;border-left:3px solid #eab308;'
