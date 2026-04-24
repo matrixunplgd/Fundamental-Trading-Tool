@@ -351,7 +351,7 @@ def generate_ai_insights(news_list, macro_data):
     )
     try:
         import urllib.request
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GEMINI_KEY}"
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_KEY}"
         payload = json.dumps({"contents":[{"parts":[{"text":prompt}]}],"generationConfig":{"temperature":0.3,"maxOutputTokens":1500}}).encode()
         req = urllib.request.Request(url,data=payload,headers={"Content-Type":"application/json"},method="POST")
         with urllib.request.urlopen(req,timeout=30) as resp:
