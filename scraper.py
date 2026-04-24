@@ -474,3 +474,4 @@ if __name__ == "__main__":
         patch_dict("FX_RATES", scrape_fx_frankfurter())
     else:
         run_full_scrape()
+#
