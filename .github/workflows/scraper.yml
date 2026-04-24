@@ -2,9 +2,9 @@ name: FX Data Scraper
 
 on:
   schedule:
-    - cron: '5 17 * * 1-5'   # London close 17:05 UTC Mon-Fri
-    - cron: '5 22 * * 1-5'   # NY close 22:05 UTC Mon-Fri
-  workflow_dispatch:           # manual trigger from GitHub UI
+    - cron: '5 17 * * 1-5'
+    - cron: '5 22 * * 1-5'
+  workflow_dispatch:
 
 jobs:
   scrape:
@@ -27,16 +27,17 @@ jobs:
         run: pip install requests beautifulsoup4 lxml apscheduler
 
       - name: Run scraper
-        run: python scraper.py --fx-only
+        run: python scraper.py
         env:
           FRED_API_KEY:     ${{ secrets.FRED_API_KEY }}
           ALPHAVANTAGE_KEY: ${{ secrets.ALPHAVANTAGE_KEY }}
+          GNEWS_API_KEY:    ${{ secrets.GNEWS_API_KEY }}
 
       - name: Commit updated data.py if changed
         run: |
           git config --global user.name  "FX Scraper Bot"
           git config --global user.email "bot@fxdashboard.local"
-          git add data.py
+          git add data.py news_cache.json
           git diff --staged --quiet || git commit -m "auto: data update $(date -u '+%Y-%m-%d %H:%M UTC')"
           git push
         env:
