@@ -25,7 +25,7 @@ Usage local :
 import os, re, sys, time, json, logging, argparse, types, importlib.util
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
-from news_scraper import fetch_financial_juice
+
 import requests
 
 # ── Logging ───────────────────────────────────────────────────────
