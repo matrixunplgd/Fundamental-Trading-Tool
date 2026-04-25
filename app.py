@@ -12,7 +12,7 @@ from datetime import datetime, timezone
 from data import (
     MACRO, RATE_EXP, FX_RATES, CALENDAR, NEWS,
     MONTHS, HIST_CPI, HIST_RATE, HIST_UNEM,
-    start_scheduler, save_snapshot,
+    start_scheduler, save_snapshot, get_news,
     load_history_from_db, load_update_log, get_last_update,
     init_db, score_meta,
 )
@@ -31,6 +31,7 @@ COLOR_BG_ACCENT     = "#eef2ff"   # indigo-50
 # ── Start background scheduler once ──────────────────────────────
 init_db()
 start_scheduler()
+news_list = get_news()  # loads from news_cache.json if available
 
 # ─────────────────────────────────────────────────────────────────
 # PAGE CONFIG
@@ -727,7 +728,7 @@ elif page == "News":
 
     cats = ["All","Inflation","PMI","Sentiment","Central Bank","Geopolitics"]
     f_cat = st.radio("Category", cats, horizontal=True)
-    filtered = [n for n in NEWS if f_cat=="All" or n["cat"]==f_cat]
+    filtered = [n for n in news_list if f_cat=="All" or n["cat"]==f_cat]
 
     cat_colors = {
         "Inflation":    COLOR_NEGATIVE,

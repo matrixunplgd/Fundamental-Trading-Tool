@@ -14,11 +14,11 @@ MACRO = {
     "USD": {
         "name": "United States", "cb": "Federal Reserve",
         "rate": 4.00, "rate_prev": 4.25,
-        "gdp": 0.5,   "gdp_prev": 2.8,
-        "cpi": 330.293,   "cpi_prev": 2.9,   "core_cpi": 2.8,
-        "unem": 4.3,  "unem_prev": 4.1,
-        "wages": 37.38, "retail": 752063.0,
-        "conf": 56.6, "ca": -3.2, "pmi": 51.4,
+        "gdp": 2.79,   "gdp_prev": 2.8,
+        "cpi": 2.95,   "cpi_prev": 2.9,   "core_cpi": 2.8,
+        "unem": 4.2,  "unem_prev": 4.1,
+        "wages": 4.1, "retail": 0.6,
+        "conf": 97.2, "ca": -3.2, "pmi": 51.4,
         "next_mtg": "30 Apr 2026",
         "bias": "Neutral / Hawkish", "score": 0,
         "color": "#3b82f6",
@@ -180,11 +180,11 @@ RATE_EXP = {
     "USD": {
         "current": 4.00, "end_year": 3.50,
         "cuts": 2, "hikes": 0, "bias": "dovish",
-        "yield_2y": 3.79, "yield_10y": 4.3,
+        "yield_2y": 4.52, "yield_10y": 4.72,
         "spread_2y_vs_usd":  0.00, "spread_10y_vs_usd": 0.00,
-        "curve_slope": 0.51,
-        "yield_2y_hist":  [4.78, 4.65, 4.6, 4.55, 4.52, 3.79],
-        "yield_10y_hist": [4.85, 4.8, 4.78, 4.75, 4.72, 4.3],
+        "curve_slope": 0.20,
+        "yield_2y_hist":  [4.85, 4.78, 4.65, 4.60, 4.55, 4.52],
+        "yield_10y_hist": [4.90, 4.85, 4.80, 4.78, 4.75, 4.72],
         "ois": {"1m": 4.05, "3m": 3.95, "6m": 3.78, "12m": 3.52},
         "comment": "Benchmark currency. 2Y UST 4.52%, curve +20bps. Markets price 2 cuts H2 2026. USD yield advantage vs peers is narrowing — key risk to dollar strength.",
         "meetings": [
@@ -197,11 +197,11 @@ RATE_EXP = {
     "EUR": {
         "current": 2.00, "end_year": 2.25,
         "cuts": 0, "hikes": 1, "bias": "hawkish_risk",
-        "yield_2y": 2.38, "yield_10y": 3.221,
-        "spread_2y_vs_usd":  -2.14, "spread_10y_vs_usd": -1.08,
+        "yield_2y": 2.38, "yield_10y": 2.72,
+        "spread_2y_vs_usd":  -2.14, "spread_10y_vs_usd": -2.00,
         "curve_slope": 0.34,
         "yield_2y_hist":  [2.10, 2.15, 2.20, 2.25, 2.32, 2.38],
-        "yield_10y_hist": [2.38, 2.45, 2.52, 2.62, 2.72, 3.22],
+        "yield_10y_hist": [2.30, 2.38, 2.45, 2.52, 2.62, 2.72],
         "ois": {"1m": 2.02, "3m": 2.10, "6m": 2.18, "12m": 2.24},
         "comment": "2Y Bund -214bps vs UST — large negative spread keeps EUR structurally weak vs USD. Rising 2Y yields (+28bps in 6m) signal ECB hike risk from energy shock. Steepening curve (+34bps) = growth expectations intact.",
         "meetings": [
@@ -214,11 +214,11 @@ RATE_EXP = {
     "GBP": {
         "current": 3.75, "end_year": 3.25,
         "cuts": 2, "hikes": 0, "bias": "neutral_hawkish",
-        "yield_2y": 4.28, "yield_10y": 4.701,
-        "spread_2y_vs_usd":  -0.24, "spread_10y_vs_usd": 0.4,
+        "yield_2y": 4.28, "yield_10y": 4.48,
+        "spread_2y_vs_usd":  -0.24, "spread_10y_vs_usd": -0.24,
         "curve_slope": 0.20,
         "yield_2y_hist":  [4.55, 4.48, 4.38, 4.32, 4.30, 4.28],
-        "yield_10y_hist": [4.58, 4.52, 4.5, 4.48, 4.48, 4.7],
+        "yield_10y_hist": [4.62, 4.58, 4.52, 4.50, 4.48, 4.48],
         "ois": {"1m": 3.76, "3m": 3.72, "6m": 3.58, "12m": 3.30},
         "comment": "2Y Gilt only -24bps vs UST — tightest spread in G8. Near parity with US yields provides GBP strong relative support. Services CPI 4.5% keeping 2Y sticky. BoE cannot ease aggressively without widening the spread.",
         "meetings": [
@@ -231,11 +231,11 @@ RATE_EXP = {
     "JPY": {
         "current": 0.75, "end_year": 1.25,
         "cuts": 0, "hikes": 2, "bias": "hawkish",
-        "yield_2y": 0.98, "yield_10y": 2.345,
-        "spread_2y_vs_usd":  -3.54, "spread_10y_vs_usd": -1.95,
+        "yield_2y": 0.98, "yield_10y": 1.55,
+        "spread_2y_vs_usd":  -3.54, "spread_10y_vs_usd": -3.17,
         "curve_slope": 0.57,
         "yield_2y_hist":  [0.38, 0.45, 0.55, 0.68, 0.82, 0.98],
-        "yield_10y_hist": [0.95, 1.08, 1.22, 1.38, 1.55, 2.35],
+        "yield_10y_hist": [0.85, 0.95, 1.08, 1.22, 1.38, 1.55],
         "ois": {"1m": 0.92, "3m": 1.05, "6m": 1.15, "12m": 1.28},
         "comment": "2Y JGB -354bps vs UST — explains USD/JPY 159. BUT: 2Y JGB up +60bps in 6m = fastest rise in G8. Spread narrowing rapidly. BoJ hike Apr 28 will accelerate convergence. Steepest curve (+57bps) = most aggressive normalisation priced in G8.",
         "meetings": [
@@ -248,11 +248,11 @@ RATE_EXP = {
     "CAD": {
         "current": 2.75, "end_year": 2.25,
         "cuts": 2, "hikes": 0, "bias": "dovish",
-        "yield_2y": 3.05, "yield_10y": 3.44,
-        "spread_2y_vs_usd":  -1.47, "spread_10y_vs_usd": -0.86,
+        "yield_2y": 3.05, "yield_10y": 3.38,
+        "spread_2y_vs_usd":  -1.47, "spread_10y_vs_usd": -1.34,
         "curve_slope": 0.33,
         "yield_2y_hist":  [3.55, 3.40, 3.28, 3.20, 3.12, 3.05],
-        "yield_10y_hist": [3.68, 3.58, 3.5, 3.44, 3.38, 3.44],
+        "yield_10y_hist": [3.80, 3.68, 3.58, 3.50, 3.44, 3.38],
         "ois": {"1m": 2.72, "3m": 2.58, "6m": 2.38, "12m": 2.22},
         "comment": "2Y Canada -147bps vs UST, widening (was -120bps 3m ago). Falling 2Y yields as oil collapse reduces BoC hawkish bias. Widening negative spread = persistent CAD weakness. Momentum clearly bearish.",
         "meetings": [
@@ -265,11 +265,11 @@ RATE_EXP = {
     "AUD": {
         "current": 3.60, "end_year": 3.85,
         "cuts": 0, "hikes": 1, "bias": "hawkish",
-        "yield_2y": 3.95, "yield_10y": 4.9,
-        "spread_2y_vs_usd":  -0.57, "spread_10y_vs_usd": 0.6,
+        "yield_2y": 3.95, "yield_10y": 4.35,
+        "spread_2y_vs_usd":  -0.57, "spread_10y_vs_usd": -0.37,
         "curve_slope": 0.40,
         "yield_2y_hist":  [3.65, 3.70, 3.78, 3.82, 3.88, 3.95],
-        "yield_10y_hist": [4.1, 4.18, 4.25, 4.3, 4.35, 4.9],
+        "yield_10y_hist": [4.05, 4.10, 4.18, 4.25, 4.30, 4.35],
         "ois": {"1m": 3.62, "3m": 3.72, "6m": 3.80, "12m": 3.75},
         "comment": "2Y ACGB -57bps vs UST, narrowing (was -85bps 6m ago). Rising 2Y yields reflect RBA hawkish bias. Spread convergence = AUD positive. Steepening curve (+40bps) signals durable growth expectations supported by commodities.",
         "meetings": [
@@ -299,11 +299,11 @@ RATE_EXP = {
     "CHF": {
         "current": 0.25, "end_year": 0.00,
         "cuts": 1, "hikes": 0, "bias": "neutral_dovish",
-        "yield_2y": 0.38, "yield_10y": 0.4,
-        "spread_2y_vs_usd":  -4.14, "spread_10y_vs_usd": -3.9,
+        "yield_2y": 0.38, "yield_10y": 0.72,
+        "spread_2y_vs_usd":  -4.14, "spread_10y_vs_usd": -4.00,
         "curve_slope": 0.34,
         "yield_2y_hist":  [0.62, 0.55, 0.50, 0.45, 0.42, 0.38],
-        "yield_10y_hist": [0.88, 0.82, 0.78, 0.75, 0.72, 0.4],
+        "yield_10y_hist": [0.92, 0.88, 0.82, 0.78, 0.75, 0.72],
         "ois": {"1m": 0.23, "3m": 0.18, "6m": 0.10, "12m": 0.02},
         "comment": "2Y Swiss -414bps vs UST — widest negative spread in G8. CHF strength is NOT yield-driven: it is pure safe-haven flow and current account surplus (+8.5% GDP). Falling 2Y yields (-24bps in 6m) confirm SNB dovish path.",
         "meetings": [
@@ -318,18 +318,32 @@ RATE_EXP = {
 YIELD_MONTHS = ["Oct 25", "Nov 25", "Dec 25", "Jan 26", "Feb 26", "Mar 26"]
 
 def get_rate_expectations(): return RATE_EXP
+
+def get_news():
+    """Load news from cache file if available, else return static NEWS."""
+    import json, os
+    cache = os.path.join(os.path.dirname(__file__), "news_cache.json")
+    if os.path.exists(cache):
+        try:
+            with open(cache, encoding="utf-8") as f:
+                data = json.load(f)
+            if data:
+                return data
+        except:
+            pass
+    return NEWS
 def get_yield_months(): return YIELD_MONTHS
 
 # FX RATES
 # ─────────────────────────────────────────────────────────────────
 FX_RATES = {
-    "EUR/USD": {"rate": 1.1694, "chg": -0.33, "hi": 1.1820, "lo": 1.1750, "wchg": -1.3},
-    "GBP/USD": {"rate": 1.3507, "chg":  0.04, "hi": 1.3560, "lo": 1.3480, "wchg":  0.2},
-    "USD/JPY": {"rate": 159.48, "chg":  0.16, "hi": 159.80, "lo": 158.90, "wchg":  0.7},
-    "USD/CAD": {"rate": 1.367, "chg":  0.03, "hi": 1.3710, "lo": 1.3620, "wchg":  0.1},
-    "AUD/USD": {"rate": 0.7154, "chg":  0.01, "hi": 0.7150, "lo": 0.7090, "wchg":  0.1},
-    "NZD/USD": {"rate": 0.5888, "chg":  -0.31, "hi": 0.5930, "lo": 0.5870, "wchg":  -1.2},
-    "USD/CHF": {"rate": 0.7848, "chg": 0.36, "hi": 0.8040, "lo": 0.7990, "wchg": 1.4},
+    "EUR/USD": {"rate": 1.1694, "chg": -0.0, "hi": 1.1820, "lo": 1.1750, "wchg": -0.0},
+    "GBP/USD": {"rate": 1.3507, "chg":  -0.0, "hi": 1.3560, "lo": 1.3480, "wchg":  -0.0},
+    "USD/JPY": {"rate": 159.48, "chg":  0.0, "hi": 159.80, "lo": 158.90, "wchg":  0.0},
+    "USD/CAD": {"rate": 1.367, "chg":  0.0, "hi": 1.3710, "lo": 1.3620, "wchg":  0.0},
+    "AUD/USD": {"rate": 0.7154, "chg":  -0.0, "hi": 0.7150, "lo": 0.7090, "wchg":  -0.0},
+    "NZD/USD": {"rate": 0.5888, "chg":  -0.0, "hi": 0.5930, "lo": 0.5870, "wchg":  -0.0},
+    "USD/CHF": {"rate": 0.7848, "chg": 0.0, "hi": 0.8040, "lo": 0.7990, "wchg": 0.0},
     "EUR/GBP": {"rate": 0.8658, "chg": 0.0, "hi": 0.8760, "lo": 0.8710, "wchg": 0.0},
     "GBP/JPY": {"rate": 215.4144, "chg":  0.0, "hi": 216.10, "lo": 214.80, "wchg":  0.0},
     "EUR/CAD": {"rate": 1.5986, "chg": 0.0, "hi": 1.6180, "lo": 1.6060, "wchg": 0.0},
@@ -360,7 +374,13 @@ CALENDAR = [
 # ─────────────────────────────────────────────────────────────────
 # NEWS  — sera écrasé par scraper.py
 # ─────────────────────────────────────────────────────────────────
-NEWS = [{'ts': '23 Apr 09:39', 'title': 'Inflation First, Reforms Ahead: Breaking Down Kevin Warsh’s Fed Chair Hearing', 'body': "Market Analysis by covering: . Read 's Market Analysis on Investing.com", 'cat': 'Central Bank', 'ccys': ['USD'], 'dir': 'mixed'}, {'ts': '23 Apr 07:20', 'title': 'COLUMNIST: Inflation squeezes President Trump, too', 'body': 'President Donald Trump is the new Gerald Ford.', 'cat': 'Geopolitics', 'ccys': ['USD'], 'dir': 'mixed'}, {'ts': '23 Apr 06:05', 'title': "A Warsh-led Fed's 2% inflation goal might be a different 2%", 'body': "Central bankers have always sliced and diced inflation statistics to burnish their record of hitting targets over time. But there's growing speculation that the incoming Federal Reserve boss may try to shift the goalposts.", 'cat': 'Central Bank', 'ccys': ['USD'], 'dir': 'mixed'}, {'ts': '22 Apr 19:55', 'title': 'Warsh Advocates For Regime Change And Narrows The Definition Of Fed Independence', 'body': 'Kevin Warsh’s Fed plan: sharpen monetary tools, shift inflation gauge, cut balance sheet and guidance. Click for thoughts on the current confirmation battle.', 'cat': 'Central Bank', 'ccys': ['USD'], 'dir': 'negative'}, {'ts': '22 Apr 18:00', 'title': 'Kevin Warsh gave his preferred way for measuring inflation. It could come back to bite him', 'body': 'But Bank of America economist Aditya Bhave warned Wednesday that such a recalculation might not pan out as the former Fed governor hopes.', 'cat': 'Central Bank', 'ccys': ['USD'], 'dir': 'mixed'}, {'ts': '22 Apr 14:10', 'title': 'This Tax-Free Dividend Has Upside From AI', 'body': 'Fed drama is the least of my reasons for expecting lower rates. A far bigger one is AI, which is cutting headcount, slowing wage growth and grinding on inflation.', 'cat': 'Central Bank', 'ccys': ['USD'], 'dir': 'negative'}, {'ts': '22 Apr 12:46', 'title': 'Fed rate cut pushed back to late 2026 on war-related inflation risks', 'body': 'The U.S. Federal Reserve will wait at least six months before cutting interest rates this year, according to a Reuters poll of economists, as war-driven energy shocks reignite already-elevated inflation.', 'cat': 'Central Bank', 'ccys': ['USD'], 'dir': 'negative'}, {'ts': '22 Apr 12:34', 'title': 'Warsh says he got no pressure from Trump to cut rates even as president publicly pushes for them', 'body': 'Kevin Warsh, Donald Trump’s nominee to lead the Federal Reserve, pledges to fight inflation even as the president underscored his demands for interest rate cuts.', 'cat': 'Central Bank', 'ccys': ['USD'], 'dir': 'negative'}, {'ts': '22 Apr 12:00', 'title': 'Warsh Will Change The Fed Forever', 'body': 'Kevin Warsh signals a Fed regime shift on inflation, AI-driven deflation, and rate messaging. See what it could mean for markets, policy, and investors now.', 'cat': 'Central Bank', 'ccys': ['USD'], 'dir': 'mixed'}, {'ts': '22 Apr 08:55', 'title': 'Bitcoin price surges to $78k even as oil rises again creating new setup - what you need to know', 'body': 'Bitcoin is entering a fresh macro test as higher oil prices feed inflation fears, lift yields, and push Fed cuts further out.', 'cat': 'Central Bank', 'ccys': ['USD'], 'dir': 'positive'}],
+NEWS = [
+    {
+        "ts": "24 Apr 20:11",
+        "title": "Trump : « Les navires américains sont armés et prêts à partir »",
+        "body": "Donald Trump a déclaré que les tensions avec l'Iran restent élevées et que la flotte américaine est prête. Le pétrole pourrait grimper.",
+        "cat": "Geopolitics",
+        "ccys": ["USD", "CAD"],
         "dir": "negative"
     },
     {
