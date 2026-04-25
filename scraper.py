@@ -465,10 +465,17 @@ def run_full_scrape(currencies=None):
     patch_dict("FX_RATES", {p: d for p, d in fx_data.items()}, f"({len(fx_data)} pairs)")
     log.info(f"\n── Global Indicators ──")
     save_global_indicators(global_ind, fx_data)
-
+    
     log.info(f"\n── Risk Sentiment ──")
     vix_val = global_ind.get("vix")
-    save_risk_sentiment(compute_vix_sentiment(vix_val, all_macro, []))
+    rs_label = "RISK-OFF" if vix_val and vix_val > 25 else "MILD RISK-OFF" if vix_val and vix_val > 20 else "NEUTRAL" if vix_val and vix_val > 17 else "MILD RISK-ON" if vix_val else "NEUTRAL"
+    rs_data = {"vix": vix_val, "score": 0, "label": rs_label, "factors": [{"name": "VIX", "score": 0, "desc": f"VIX {vix_val}"}], "updated": datetime.now(timezone.utc).strftime("%d %b %Y %H:%M UTC")}
+    try:
+        with open(DATA_FILE.parent / "risk_sentiment.json", "w", encoding="utf-8") as _f:
+            json.dump(rs_data, _f, indent=2)
+        log.info(f"✓ risk_sentiment.json — {rs_label}")
+    except Exception as e: log.error(f"risk_sentiment: {e}")
+      
         # 6. Récupérer les actualités
     log.info("\n── Actualités ──")
     news = []
