@@ -124,8 +124,14 @@ def scrape_fred_all():
             entry = {"yield_10y":v}
             if y10: entry["spread_10y_vs_usd"] = round(v-y10,2)
             yields[ccy] = entry
+    # VIX — CBOE Volatility Index (fear gauge)
+    vix = fred("VIXCLS")
+    if vix:
+        yields["_VIX"] = {"vix": vix}
+        log.info(f"  VIX = {vix}")
+
     log.info(f"[FRED] macro:{sum(len(v) for v in macro.values())} | yields:{len(yields)} ccys")
-    return macro,yields
+    return macro, yields
 
 
 # ── World Bank ───────────────────────────────────────────────────
@@ -327,6 +333,101 @@ def patch_yield_history(yield_updates):
 
 
 
+# ── VIX-based Risk Sentiment ──────────────────────────────────────
+def compute_vix_sentiment(vix, macro_data, news_list):
+    """
+    Compute risk sentiment score based on VIX + macro context.
+    
+    VIX interpretation:
+      < 12  : extreme complacency (risk-on)
+      12-17 : low fear (mild risk-on)
+      17-20 : neutral
+      20-25 : elevated fear (mild risk-off)
+      25-30 : high fear (risk-off)
+      > 30  : extreme fear (strong risk-off)
+    """
+    factors = []
+    total   = 0
+
+    # ── 1. VIX score (primary driver) ─────────────────────────────
+    if vix:
+        if   vix < 12:  vix_score,vix_label = +3, f"VIX {vix:.1f} — Extreme complacency, strong risk-on"
+        elif vix < 15:  vix_score,vix_label = +2, f"VIX {vix:.1f} — Low volatility, risk-on environment"
+        elif vix < 18:  vix_score,vix_label = +1, f"VIX {vix:.1f} — Below average, mild risk-on"
+        elif vix < 22:  vix_score,vix_label =  0, f"VIX {vix:.1f} — Neutral volatility"
+        elif vix < 26:  vix_score,vix_label = -1, f"VIX {vix:.1f} — Elevated fear, mild risk-off"
+        elif vix < 30:  vix_score,vix_label = -2, f"VIX {vix:.1f} — High fear, risk-off"
+        else:           vix_score,vix_label = -3, f"VIX {vix:.1f} — Extreme fear, strong risk-off"
+        factors.append({"name": "VIX Volatility Index", "score": vix_score, "desc": vix_label})
+        total += vix_score
+    else:
+        factors.append({"name": "VIX", "score": 0, "desc": "VIX unavailable — using neutral"})
+
+    # ── 2. Geopolitical risk from news ────────────────────────────
+    geo_keywords_neg = ["war","strike","attack","missile","sanction","escalat","iran","israel","conflict","explosion","hostage","invasion"]
+    geo_keywords_pos = ["ceasefire","peace","deal","truce","agreement","negotiat","diplomacy","withdraw","de-escalat"]
+    news_text = " ".join(n.get("title","").lower() + " " + n.get("body","").lower() for n in (news_list or [])[:20])
+    geo_neg = sum(1 for k in geo_keywords_neg if k in news_text)
+    geo_pos = sum(1 for k in geo_keywords_pos if k in news_text)
+    geo_score = min(2, max(-3, geo_pos - geo_neg))
+    if geo_neg > 3:
+        geo_desc = f"High geopolitical tension ({geo_neg} negative signals) — risk-off pressure"
+    elif geo_pos > geo_neg:
+        geo_desc = f"Easing tensions ({geo_pos} positive signals) — risk-on relief"
+    else:
+        geo_desc = "Moderate geopolitical risk — watching Iran/Israel/Trump developments"
+    factors.append({"name": "Geopolitical Risk", "score": geo_score, "desc": geo_desc})
+    total += geo_score
+
+    # ── 3. CB policy divergence ───────────────────────────────────
+    hawkish = sum(1 for c,d in macro_data.items() if d.get("cpi",0) > 3)
+    dovish  = sum(1 for c,d in macro_data.items() if d.get("cpi",0) < 2)
+    if hawkish >= 4:
+        cb_score, cb_desc = -1, f"{hawkish} currencies with CPI>3% — CB tightening limits growth"
+    elif dovish >= 4:
+        cb_score, cb_desc = +1, f"{dovish} currencies with CPI<2% — easing room available"
+    else:
+        cb_score, cb_desc = 0, "Mixed CB policy — no dominant direction"
+    factors.append({"name": "Central Bank Policy", "score": cb_score, "desc": cb_desc})
+    total += cb_score
+
+    # ── 4. Global growth (avg GDP) ────────────────────────────────
+    gdp_vals = [d.get("gdp",0) for d in macro_data.values() if d.get("gdp") is not None]
+    avg_gdp  = sum(gdp_vals)/len(gdp_vals) if gdp_vals else 0
+    if   avg_gdp > 2.5: gdp_score,gdp_desc = +2, f"Global growth strong (avg GDP {avg_gdp:.1f}%) — risk-on"
+    elif avg_gdp > 1.5: gdp_score,gdp_desc = +1, f"Global growth solid (avg GDP {avg_gdp:.1f}%)"
+    elif avg_gdp > 0.5: gdp_score,gdp_desc =  0, f"Global growth moderate (avg GDP {avg_gdp:.1f}%)"
+    else:               gdp_score,gdp_desc = -1, f"Global growth weak (avg GDP {avg_gdp:.1f}%) — risk-off"
+    factors.append({"name": "Global Growth", "score": gdp_score, "desc": gdp_desc})
+    total += gdp_score
+
+    # ── Determine label ───────────────────────────────────────────
+    if   total >= 5:  label = "RISK-ON"
+    elif total >= 2:  label = "MILD RISK-ON"
+    elif total >= -1: label = "NEUTRAL"
+    elif total >= -4: label = "MILD RISK-OFF"
+    else:             label = "RISK-OFF"
+
+    result = {
+        "vix":     vix,
+        "score":   total,
+        "label":   label,
+        "factors": factors,
+        "updated": datetime.now(timezone.utc).strftime("%d %b %Y %H:%M UTC"),
+    }
+    log.info(f"[Risk] VIX={vix} Score={total} → {label}")
+    return result
+
+
+def save_risk_sentiment(risk_data):
+    if not risk_data: return
+    try:
+        with open(DATA_FILE.parent/"risk_sentiment.json","w",encoding="utf-8") as f:
+            json.dump(risk_data, f, ensure_ascii=False, indent=2)
+        log.info("✓ risk_sentiment.json saved")
+    except Exception as e: log.error(f"✗ risk_sentiment: {e}")
+
+
 # ── AI Insights via Google Gemini ─────────────────────────────────
 def generate_ai_insights(news_list, macro_data):
     if not GEMINI_KEY: log.info("[AI] No Gemini key"); return None
@@ -373,6 +474,25 @@ def save_ai_insights(insights):
     except Exception as e: log.error(f"✗ ai_insights: {e}")
 
 
+
+def save_global_indicators(ind, fx):
+    """Save VIX, WTI, Gold, DXY, US10Y, EUR/USD to JSON."""
+    data = {
+        "vix":        ind.get("vix"),
+        "wti":        ind.get("wti"),
+        "gold":       ind.get("gold"),
+        "dxy":        ind.get("dxy"),
+        "us10y":      ind.get("us10y"),
+        "eurusd":     fx.get("EUR/USD",{}).get("rate"),
+        "eurusd_chg": fx.get("EUR/USD",{}).get("chg",0),
+        "updated":    datetime.now(timezone.utc).strftime("%d %b %Y %H:%M UTC"),
+    }
+    try:
+        with open(DATA_FILE.parent/"global_indicators.json","w",encoding="utf-8") as f:
+            json.dump(data,f,ensure_ascii=False,indent=2)
+        log.info(f"[Global] VIX:{data['vix']} WTI:{data['wti']} Gold:{data['gold']} DXY:{data['dxy']}")
+    except Exception as e: log.error(f"global_indicators: {e}")
+
 # ── Full scrape ───────────────────────────────────────────────────
 def run_full_scrape(currencies=None):
     start = datetime.now(timezone.utc)
@@ -403,6 +523,15 @@ def run_full_scrape(currencies=None):
     log.info(f"\n── News ──")
     news = scrape_news()
     save_news_cache(news)
+
+    # ── VIX-based Risk Sentiment ──────────────────────────────────
+    log.info(f"\n── Global Indicators ──")
+    save_global_indicators(global_ind, fx_data)
+
+    log.info(f"\n── Risk Sentiment (VIX-based) ──")
+    vix_val = global_ind.get("vix")
+    risk_data = compute_vix_sentiment(vix_val, all_macro, news)
+    save_risk_sentiment(risk_data)
 
     log.info(f"\n── AI Insights ──")
     save_ai_insights(generate_ai_insights(news, all_macro))
