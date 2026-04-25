@@ -468,7 +468,7 @@ def run_full_scrape(currencies=None):
     log.info("\n── Actualités ──")
     news = []
     log.info("[News] skipped — scrape_news not available in this version")
-    save_news_cache(news)
+    
     if news:
         patch_news(news)
     else:
