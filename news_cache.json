@@ -1,5 +1,15 @@
 [
   {
+    "ts": "24 Apr 23:39",
+    "title": "USD/SGD: Upside risks as Hormuz crisis persists – OCBC",
+    "body": "OCBC strategists Sim Moh Siong and Christopher Wong flag slight upside risks for USD/SGD as the Hormuz standoff weighs on risk appetite and imported cost pressures.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
     "ts": "24 Apr 22:56",
     "title": "PHP: BSP starts new hiking cycle – Commerzbank",
     "body": "Commerzbank highlights that BSP raised its policy rate by 25bp to 4.50%, signalling the start of a new tightening cycle to anchor inflation expectations.",
@@ -35,8 +45,8 @@
     "body": "USD/CHF dropped on Friday but finished the week with gains of over 0.35%, trading at 0.7841 as market participants grew confident that US-Iran talks could resume over the weekend to resolve the conflict.",
     "cat": "Geopolitics",
     "ccys": [
-      "CHF",
-      "USD"
+      "USD",
+      "CHF"
     ],
     "dir": "positive"
   },
@@ -111,17 +121,6 @@
     "dir": "positive"
   },
   {
-    "ts": "24 Apr 18:37",
-    "title": "NZD/USD rises as US Dollar weakens on renewed US-Iran talks hopes",
-    "body": "The New Zealand Dollar (NZD) gains traction against the US Dollar (USD) on Friday as the Greenback weakens amid renewed hopes for US–Iran talks after stalled negotiations.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "NZD",
-      "USD"
-    ],
-    "dir": "positive"
-  },
-  {
     "ts": "24 Apr 14:59",
     "title": "EUR/USD Weekly Forecast: War and central banks in the limelight",
     "body": "The EUR/USD pair ended a three-week winning streak and settled below the 1.1700 mark as the US Dollar (USD) strengthened amid Middle East uncertainty.",
@@ -147,9 +146,9 @@
     "body": "The GBP/USD pair edges higher during the first half of the European session on Friday and recovers a part of the previous day's losses to levels just below mid-1.3400s, or a nearly two-week trough.",
     "cat": "Central Bank",
     "ccys": [
-      "EUR",
       "USD",
-      "GBP"
+      "GBP",
+      "EUR"
     ],
     "dir": "mixed"
   },
