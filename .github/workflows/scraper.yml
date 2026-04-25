@@ -37,7 +37,7 @@ jobs:
         run: |
           git config --global user.name  "FX Scraper Bot"
           git config --global user.email "bot@fxdashboard.local"
-          git add data.py news_cache.json
+          git add data.py news_cache.json global_indicators.json risk_sentiment.json
           git diff --staged --quiet || git commit -m "auto: data update $(date -u '+%Y-%m-%d %H:%M UTC')"
           git push
         env:
