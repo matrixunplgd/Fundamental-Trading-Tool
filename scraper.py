@@ -101,7 +101,7 @@ def fred(series_id):
     return None
 
 def scrape_fred_all():
-    if not FRED_KEY: log.warning("[FRED] No API key."); return {},{}
+    if not FRED_KEY: log.warning("[FRED] No API key."); return {}, {}, {}
     log.info("\n[FRED] Scraping macro + yields...")
     macro = {}
     usd = {}
