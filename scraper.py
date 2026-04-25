@@ -25,7 +25,6 @@ Usage local :
 import os, re, sys, time, json, logging, argparse, types, importlib.util
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
-from news_scraper import fetch_financial_juice
 import requests
 
 # ── Logging ───────────────────────────────────────────────────────
@@ -161,20 +160,6 @@ def scrape_fx_frankfurter():
     return result
 
 
-# ══════════════════════════════════════════════════════════════════
-
-#def patch_news(news_list):
- #   """Save news to a separate JSON file."""
- #   import json
- #   news_file = DATA_FILE.parent / "news_cache.json"
- #   try:
- #       with open(news_file, "w", encoding="utf-8") as f:
- #           json.dump(news_list, f, ensure_ascii=False, indent=2)
- #       log.info(f"✓ NEWS saved to news_cache.json — {len(news_list)} articles")
- #       return True
- #   except Exception as e:
- #       log.error(f"✗ NEWS save error: {e}")
- #       return False
 # ══════════════════════════════════════════════════════════════════
 # SOURCE 2 — FRED (St Louis Fed, free key, best quality)
 # https://fred.stlouisfed.org/docs/api/api_key.html
@@ -321,7 +306,7 @@ def scrape_worldbank_all():
 def _patch_value(content, dict_name, ccy, key, new_val):
     """Replace a numeric value inside dict_name["ccy"]["key"]."""
     val_str = str(round(new_val, 4)) if isinstance(new_val, float) else str(new_val)
-
+    # Pattern scoped to the currency block
     pattern = re.compile(
         rf'({re.escape(dict_name)}\s*=\s*\{{.*?"{re.escape(ccy)}"\s*:\s*\{{)(.*?)(\n    \}},)',
         re.DOTALL
@@ -331,18 +316,7 @@ def _patch_value(content, dict_name, ccy, key, new_val):
         return content, False
     block = m.group(2)
     kpat  = re.compile(rf'("{re.escape(key)}"\s*:\s*)(-?[\d.]+)')
-
-    # Use lambda to avoid re.sub treating val_str as a replacement template
-    # (fixes bad escape \u error when val_str contains backslashes)
-    replaced = [False]
-    def replacer(km):
-        if replaced[0]:
-            return km.group(0)
-        replaced[0] = True
-        return km.group(1) + val_str
-
-    new_block = kpat.sub(replacer, block, count=1)
-    n = 1 if replaced[0] else 0
+    new_block, n = kpat.subn(rf'\g<1>{val_str}', block, count=1)
     if n:
         new_content = content[:m.start()] + m.group(1) + new_block + m.group(3) + content[m.end():]
         return new_content, True
@@ -391,9 +365,10 @@ def patch_yield_history(yield_updates):
                 if m:
                     old  = [float(x.strip()) for x in m.group(2).split(",") if x.strip()]
                     new  = old[1:] + [new_val]
-                    # Build replacement safely avoiding re.sub template interpretation
-                    repl_str  = m.group(1) + ", ".join(str(v) for v in new) + m.group(3)
-                    content   = content[:m.start()] + repl_str + content[m.end():]
+                    content = pat.sub(
+                        m.group(1) + ", ".join(str(v) for v in new) + m.group(3),
+                        content, count=1
+                    )
                     count += 1
         if content != original:
             DATA_FILE.write_text(content, encoding="utf-8")
@@ -439,13 +414,6 @@ def run_full_scrape(currencies=None):
     patch_yield_history(fred_yields)
     patch_dict("FX_RATES", {p: d for p, d in fx_data.items()}, f"({len(fx_data)} pairs)")
 
-        # 6. Récupérer les actualités
-    log.info("\n── Actualités ──")
-    news = fetch_financial_juice()
-    if news:
-        patch_news(news)
-    else:
-        log.warning("Aucune actualité récupérée")
     # 6. Save DB snapshot
     try:
         spec = importlib.util.spec_from_file_location("data", DATA_FILE)
