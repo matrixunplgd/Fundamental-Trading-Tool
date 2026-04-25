@@ -466,7 +466,7 @@ def run_full_scrape(currencies=None):
 
         # 6. Récupérer les actualités
     log.info("\n── Actualités ──")
-    news = fetch_financial_juice()
+    news = scrape_news()
     if news:
         patch_news(news)
     else:
