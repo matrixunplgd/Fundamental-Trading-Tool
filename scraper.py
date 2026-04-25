@@ -466,7 +466,9 @@ def run_full_scrape(currencies=None):
 
         # 6. Récupérer les actualités
     log.info("\n── Actualités ──")
-    news = scrape_news()
+    news = []
+    log.info("[News] skipped — scrape_news not available in this version")
+    save_news_cache(news)
     if news:
         patch_news(news)
     else:
