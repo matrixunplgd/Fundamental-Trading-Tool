@@ -266,7 +266,7 @@ def scrape_fred_all():
     # Global market indicators via FRED
     vix  = fred("VIXCLS")
     wti  = fred("DCOILWTICO")
-    gold = fred("GOLDAMGBD228NLBM")
+    gold = fred("GOLDPMGBD228NLBM")
     dxy  = fred("DTWEXBGS")
     for name,val in [("VIX",vix),("WTI",wti),("Gold",gold),("DXY",dxy)]:
         if val: log.info(f"  {name} = {val}")
