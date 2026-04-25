@@ -1,0 +1,13 @@
+{
+  "vix": 19.31,
+  "score": 0,
+  "label": "NEUTRAL",
+  "factors": [
+    {
+      "name": "VIX",
+      "score": 0,
+      "desc": "VIX 19.31"
+    }
+  ],
+  "updated": "25 Apr 2026 20:33 UTC"
+}
