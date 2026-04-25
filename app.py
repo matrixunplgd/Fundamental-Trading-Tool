@@ -12,7 +12,7 @@ from datetime import datetime, timezone
 from data import (
     MACRO, RATE_EXP, FX_RATES, CALENDAR, NEWS,
     MONTHS, HIST_CPI, HIST_RATE, HIST_UNEM,
-    start_scheduler, save_snapshot, get_news, get_risk_sentiment,
+    start_scheduler, save_snapshot, get_news, get_risk_sentiment, get_global_indicators,
     load_history_from_db, load_update_log, get_last_update,
     init_db, score_meta,
 )
@@ -32,7 +32,8 @@ COLOR_BG_ACCENT     = "#eef2ff"   # indigo-50
 init_db()
 start_scheduler()
 news_list   = get_news()         # loads from news_cache.json
-risk_sentiment = get_risk_sentiment()  # loads from risk_sentiment.json (VIX-based)
+risk_sentiment     = get_risk_sentiment()      # VIX-based from risk_sentiment.json
+global_indicators  = get_global_indicators()   # VIX, WTI, Gold, DXY from global_indicators.json
 
 # ─────────────────────────────────────────────────────────────────
 # PAGE CONFIG
@@ -449,12 +450,24 @@ if page == "Overview":
     # ── Key metrics ───────────────────────────────────────────────
     section("Global Indicators")
     m1,m2,m3,m4,m5,m6 = st.columns(6)
-    with m1: st.metric("DXY Index",   "98.5",   "+0.18%")
-    with m2: st.metric("WTI Crude",   "$82.3",  "-11.5% wk")
-    with m3: st.metric("Gold XAU",    "$3,320", "+0.8%")
-    with m4: st.metric("VIX",         "18.4",   "-2.1")
-    with m5: st.metric("US 10Y",      "4.52%",  "+3bps")
-    with m6: st.metric("EUR/USD",     "1.1793", "-0.12%")
+    # Live global indicators from global_indicators.json
+    _gi = global_indicators
+    _dxy   = f"{_gi['dxy']:.1f}"    if _gi.get("dxy")   else "98.5"
+    _wti   = f"${_gi['wti']:.1f}"   if _gi.get("wti")   else "$82.3"
+    _gold  = f"${_gi['gold']:,.0f}" if _gi.get("gold")  else "$3,320"
+    _vix   = f"{_gi['vix']:.1f}"    if _gi.get("vix")   else "18.4"
+    _us10y = f"{_gi['us10y']:.2f}%" if _gi.get("us10y") else "4.52%"
+    _eurusd = f"{FX_RATES['EUR/USD']['rate']:.4f}"
+    _eurusd_chg = f"{FX_RATES['EUR/USD']['chg']:+.2f}%"
+    _upd   = _gi.get("updated","static")
+
+    with m1: st.metric("DXY Index",  _dxy,    None)
+    with m2: st.metric("WTI Crude",  _wti,    None)
+    with m3: st.metric("Gold XAU",   _gold,   None)
+    with m4: st.metric("VIX",        _vix,    None)
+    with m5: st.metric("US 10Y",     _us10y,  None)
+    with m6: st.metric("EUR/USD",    _eurusd, _eurusd_chg)
+    st.markdown(f'<div style="font-size:10px;color:#64748b;margin-top:-8px;">Updated: {_upd}</div>', unsafe_allow_html=True)
 
     # ── Charts ────────────────────────────────────────────────────
     section("Central Bank Rates  &  CPI Inflation")
@@ -511,27 +524,38 @@ if page == "Overview":
                 unsafe_allow_html=True
             )
 
-    # ── Key Events ────────────────────────────────────────────────
-    section("Key Events This Week")
-    high_ev = [e for e in CALENDAR if e["imp"]=="high"][:4]
-    ev_cols = st.columns(4)
-    for i, e in enumerate(high_ev):
-        ccy_col = MACRO.get(e["ccy"],{}).get("color","#1e293b")
-        is_cb   = any(x in e["event"] for x in ["BoJ","BoE","FOMC","Fed","ECB","RBA","RBNZ","BoC"])
-        bg_ev   = "#fff7ed" if is_cb else "#ffffff"
-        brd_ev  = "#78350f" if is_cb else "#e2e8f0"
+    # ── Next CB Meetings (live from RATE_EXP) ─────────────────────
+    section("Next CB Meetings")
+    cb_events = []
+    for ccy in codes:
+        mtgs = RATE_EXP.get(ccy, {}).get("meetings", [])
+        if mtgs:
+            m = mtgs[0]
+            cb_events.append({
+                "ccy": ccy, "label": m["label"],
+                "rate": m["rate"], "hike": m["hike"],
+                "hold": m["hold"], "cut": m["cut"],
+                "color": MACRO[ccy]["color"],
+            })
+    ev_cols = st.columns(min(4, max(1, len(cb_events[:4]))))
+    for i, e in enumerate(cb_events[:4]):
+        dom = ("HIKE" if e["hike"] >= e["hold"] and e["hike"] >= e["cut"]
+               else "CUT" if e["cut"] >= e["hold"] else "HOLD")
+        dc = COLOR_NEGATIVE if dom=="HIKE" else COLOR_POSITIVE if dom=="CUT" else COLOR_PRIMARY
         with ev_cols[i]:
             st.markdown(
-                f'<div style="background:{bg_ev};border:1px solid {brd_ev};'
-                f'border-radius:8px;padding:13px;">'
-                f'<div style="font-size:10.5px;color:#0f172a;margin-bottom:5px;">'
-                f'{e["date"]}  ·  {e["time"]} UTC</div>'
-                f'<div style="font-size:11.5px;font-weight:600;color:#e2e8f0;'
-                f'line-height:1.4;margin-bottom:7px;">{e["event"]}</div>'
-                f'<div style="display:flex;justify-content:space-between;">'
-                f'<span style="font-size:11px;color:#0f172a;">Prev: {e["prev"]}</span>'
-                f'<span style="font-size:11px;color:{ccy_col};font-weight:600;">'
-                f'Fcst: {e["fore"]}</span></div></div>',
+                f'<div style="background:#ffffff;border:1px solid #e2e8f0;'
+                f'border-top:3px solid {dc};border-radius:8px;padding:12px;">'
+                f'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">'
+                f'<span style="font-size:13px;font-weight:700;color:#0f172a;">{e["ccy"]}</span>'
+                f'<span style="background:{rgba(dc,0.1)};color:{dc};font-size:10px;'
+                f'font-weight:700;padding:2px 8px;border-radius:4px;">{dom}</span></div>'
+                f'<div style="font-size:11px;color:#64748b;margin-bottom:8px;">{e["label"]}</div>'
+                f'<div style="display:flex;justify-content:space-between;font-size:11px;">'
+                f'<span>Hike <b style="color:{COLOR_NEGATIVE};">{e["hike"]}%</b></span>'
+                f'<span>Hold <b style="color:{COLOR_PRIMARY};">{e["hold"]}%</b></span>'
+                f'<span>Cut <b style="color:{COLOR_POSITIVE};">{e["cut"]}%</b></span>'
+                f'</div></div>',
                 unsafe_allow_html=True
             )
 
