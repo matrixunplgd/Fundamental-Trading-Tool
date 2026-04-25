@@ -3,7 +3,7 @@
     "ts": "24 Apr 23:39",
     "title": "USD/SGD: Upside risks as Hormuz crisis persists – OCBC",
     "body": "OCBC strategists Sim Moh Siong and Christopher Wong flag slight upside risks for USD/SGD as the Hormuz standoff weighs on risk appetite and imported cost pressures.",
-    "cat": "Geopolitics",
+    "cat": "Central Bank",
     "ccys": [
       "USD"
     ],
@@ -13,7 +13,7 @@
     "ts": "24 Apr 22:56",
     "title": "PHP: BSP starts new hiking cycle – Commerzbank",
     "body": "Commerzbank highlights that BSP raised its policy rate by 25bp to 4.50%, signalling the start of a new tightening cycle to anchor inflation expectations.",
-    "cat": "Macro",
+    "cat": "Central Bank",
     "ccys": [
       "USD"
     ],
@@ -23,7 +23,7 @@
     "ts": "24 Apr 22:12",
     "title": "USD/TWD: Rebound seen as fadeable – OCBC",
     "body": "OCBC strategists Sim Moh Siong and Christopher Wong describe a technical rebound in USD/TWD driven by broader US Dollar (USD) strength and risk aversion linked to the US‑Iran ceasefire stalemate.",
-    "cat": "Geopolitics",
+    "cat": "Central Bank",
     "ccys": [
       "USD"
     ],
@@ -45,10 +45,10 @@
     "body": "USD/CHF dropped on Friday but finished the week with gains of over 0.35%, trading at 0.7841 as market participants grew confident that US-Iran talks could resume over the weekend to resolve the conflict.",
     "cat": "Geopolitics",
     "ccys": [
-      "USD",
-      "CHF"
+      "CHF",
+      "USD"
     ],
-    "dir": "positive"
+    "dir": "mixed"
   },
   {
     "ts": "24 Apr 20:58",
@@ -74,7 +74,7 @@
     "ts": "24 Apr 20:22",
     "title": "PHP: BSP tightening supports Peso but risks linger – OCBC",
     "body": "OCBC strategists Sim Moh Siong and Christopher Wong note the central bank of Philippines Bangko Sentral ng Pilipinas' (BSP) 25bp hike to 4.5% and guidance that further increases are possible as inflation forecasts are revised higher and second-round effects emerge.",
-    "cat": "Macro",
+    "cat": "Central Bank",
     "ccys": [
       "USD"
     ],
@@ -108,7 +108,7 @@
     "ccys": [
       "USD"
     ],
-    "dir": "positive"
+    "dir": "mixed"
   },
   {
     "ts": "24 Apr 18:43",
@@ -146,8 +146,8 @@
     "body": "The GBP/USD pair edges higher during the first half of the European session on Friday and recovers a part of the previous day's losses to levels just below mid-1.3400s, or a nearly two-week trough.",
     "cat": "Central Bank",
     "ccys": [
-      "USD",
       "GBP",
+      "USD",
       "EUR"
     ],
     "dir": "mixed"
@@ -180,7 +180,7 @@
     "ccys": [
       "USD"
     ],
-    "dir": "positive"
+    "dir": "negative"
   },
   {
     "ts": "23 Apr 08:57",
@@ -203,19 +203,9 @@
     "dir": "mixed"
   },
   {
-    "ts": "24 Apr 17:16",
-    "title": "Putin's approval rating falls to lowest since Ukraine invasion, as Kremlin says he may attend G20 after Trump invite",
-    "body": "President Vladimir Putin's approval rating has fallen to its lowest level since the invasion of Ukraine in February 2022, state polling figures show.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "negative"
-  },
-  {
-    "ts": "24 Apr 14:46",
-    "title": "Netanyahu successfully treated for prostate cancer",
-    "body": "Israeli Prime Minister Benjamin Netanyahu said he's been successfully treated for prostate cancer.",
+    "ts": "25 Apr 08:42",
+    "title": "Ten killed in Ukraine after major Russia drone attack, as RAF deploys Typhoon jets",
+    "body": "Russia has launched a major drone attack overnight on Ukraine, killing 10 people and injuring more &#8204;than 30 others, as RAF Typhoon fighter jets were deployed over Romania.",
     "cat": "Geopolitics",
     "ccys": [
       "USD"
@@ -223,24 +213,35 @@
     "dir": "mixed"
   },
   {
-    "ts": "23 Apr 21:37",
-    "title": "Why is Cuba a US target again? | Sky News Explains",
-    "body": "It's no secret that Donald Trump's focus is turning to Cuba.",
-    "cat": "Geopolitics",
+    "ts": "25 Apr 11:12",
+    "title": "Terrorists launch simultaneous attacks in Mali, authorities say",
+    "body": "Terrorists have carried out attacks in various locations across Mali, according to the country's army.",
+    "cat": "Macro",
     "ccys": [
       "USD"
     ],
-    "dir": "positive"
+    "dir": "mixed"
   },
   {
-    "ts": "24 Apr 13:51",
-    "title": "Benfica player handed six-game ban for homophobic conduct towards Real star Vinicius Junior",
-    "body": "Benfica's Gianluca Prestianni has been banned for six matches by UEFA for homophobic conduct towards Real Madrid's Vinicius Junior during a Champions League match.",
+    "ts": "25 Apr 06:14",
+    "title": "Princess of Wales lays wreath at Cenotaph to mark Anzac Day",
+    "body": "The Princess of Wales has laid a wreath at the Cenotaph to mark Anzac Day, which commemorates all Australians and New Zealanders who died in conflict.",
+    "cat": "Central Bank",
+    "ccys": [
+      "AUD",
+      "NZD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "24 Apr 17:16",
+    "title": "Putin's approval rating falls to lowest since Ukraine invasion, as Kremlin says he may attend G20 after Trump invite",
+    "body": "President Vladimir Putin's approval rating has fallen to its lowest level since the invasion of Ukraine in February 2022, state polling figures show.",
     "cat": "Geopolitics",
     "ccys": [
       "USD"
     ],
-    "dir": "negative"
+    "dir": "mixed"
   },
   {
     "ts": "24 Apr 11:33",
