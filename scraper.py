@@ -463,7 +463,12 @@ def run_full_scrape(currencies=None):
     patch_dict("RATE_EXP", fred_yields, f"({len(fred_yields)} currencies)")
     patch_yield_history(fred_yields)
     patch_dict("FX_RATES", {p: d for p, d in fx_data.items()}, f"({len(fx_data)} pairs)")
+    log.info(f"\n── Global Indicators ──")
+    save_global_indicators(global_ind, fx_data)
 
+    log.info(f"\n── Risk Sentiment ──")
+    vix_val = global_ind.get("vix")
+    save_risk_sentiment(compute_vix_sentiment(vix_val, all_macro, []))
         # 6. Récupérer les actualités
     log.info("\n── Actualités ──")
     news = []
