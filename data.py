@@ -183,8 +183,8 @@ RATE_EXP = {
         "yield_2y": 3.83, "yield_10y": 4.34,
         "spread_2y_vs_usd":  0.00, "spread_10y_vs_usd": 0.00,
         "curve_slope": 0.51,
-        "yield_2y_hist":  [4.55, 4.52, 3.83, 3.83, 3.83, 3.83],
-        "yield_10y_hist": [4.75, 4.72, 4.34, 4.34, 4.34, 4.34],
+        "yield_2y_hist":  [4.52, 3.83, 3.83, 3.83, 3.83, 3.83],
+        "yield_10y_hist": [4.72, 4.34, 4.34, 4.34, 4.34, 4.34],
         "ois": {"1m": 4.05, "3m": 3.95, "6m": 3.78, "12m": 3.52},
         "comment": "Benchmark currency. 2Y UST 4.52%, curve +20bps. Markets price 2 cuts H2 2026. USD yield advantage vs peers is narrowing — key risk to dollar strength.",
         "meetings": [
@@ -201,7 +201,7 @@ RATE_EXP = {
         "spread_2y_vs_usd":  -2.14, "spread_10y_vs_usd": -1.12,
         "curve_slope": 0.34,
         "yield_2y_hist":  [2.10, 2.15, 2.20, 2.25, 2.32, 2.38],
-        "yield_10y_hist": [2.62, 2.72, 3.22, 3.22, 3.22, 3.22],
+        "yield_10y_hist": [2.72, 3.22, 3.22, 3.22, 3.22, 3.22],
         "ois": {"1m": 2.02, "3m": 2.10, "6m": 2.18, "12m": 2.24},
         "comment": "2Y Bund -214bps vs UST — large negative spread keeps EUR structurally weak vs USD. Rising 2Y yields (+28bps in 6m) signal ECB hike risk from energy shock. Steepening curve (+34bps) = growth expectations intact.",
         "meetings": [
@@ -218,7 +218,7 @@ RATE_EXP = {
         "spread_2y_vs_usd":  -0.24, "spread_10y_vs_usd": 0.36,
         "curve_slope": 0.20,
         "yield_2y_hist":  [4.55, 4.48, 4.38, 4.32, 4.30, 4.28],
-        "yield_10y_hist": [4.48, 4.48, 4.7, 4.7, 4.7, 4.7],
+        "yield_10y_hist": [4.48, 4.7, 4.7, 4.7, 4.7, 4.7],
         "ois": {"1m": 3.76, "3m": 3.72, "6m": 3.58, "12m": 3.30},
         "comment": "2Y Gilt only -24bps vs UST — tightest spread in G8. Near parity with US yields provides GBP strong relative support. Services CPI 4.5% keeping 2Y sticky. BoE cannot ease aggressively without widening the spread.",
         "meetings": [
@@ -235,7 +235,7 @@ RATE_EXP = {
         "spread_2y_vs_usd":  -3.54, "spread_10y_vs_usd": -1.99,
         "curve_slope": 0.57,
         "yield_2y_hist":  [0.38, 0.45, 0.55, 0.68, 0.82, 0.98],
-        "yield_10y_hist": [1.38, 1.55, 2.35, 2.35, 2.35, 2.35],
+        "yield_10y_hist": [1.55, 2.35, 2.35, 2.35, 2.35, 2.35],
         "ois": {"1m": 0.92, "3m": 1.05, "6m": 1.15, "12m": 1.28},
         "comment": "2Y JGB -354bps vs UST — explains USD/JPY 159. BUT: 2Y JGB up +60bps in 6m = fastest rise in G8. Spread narrowing rapidly. BoJ hike Apr 28 will accelerate convergence. Steepest curve (+57bps) = most aggressive normalisation priced in G8.",
         "meetings": [
@@ -252,7 +252,7 @@ RATE_EXP = {
         "spread_2y_vs_usd":  -1.47, "spread_10y_vs_usd": -0.9,
         "curve_slope": 0.33,
         "yield_2y_hist":  [3.55, 3.40, 3.28, 3.20, 3.12, 3.05],
-        "yield_10y_hist": [3.44, 3.38, 3.44, 3.44, 3.44, 3.44],
+        "yield_10y_hist": [3.38, 3.44, 3.44, 3.44, 3.44, 3.44],
         "ois": {"1m": 2.72, "3m": 2.58, "6m": 2.38, "12m": 2.22},
         "comment": "2Y Canada -147bps vs UST, widening (was -120bps 3m ago). Falling 2Y yields as oil collapse reduces BoC hawkish bias. Widening negative spread = persistent CAD weakness. Momentum clearly bearish.",
         "meetings": [
@@ -269,7 +269,7 @@ RATE_EXP = {
         "spread_2y_vs_usd":  -0.57, "spread_10y_vs_usd": 0.56,
         "curve_slope": 0.40,
         "yield_2y_hist":  [3.65, 3.70, 3.78, 3.82, 3.88, 3.95],
-        "yield_10y_hist": [4.3, 4.35, 4.9, 4.9, 4.9, 4.9],
+        "yield_10y_hist": [4.35, 4.9, 4.9, 4.9, 4.9, 4.9],
         "ois": {"1m": 3.62, "3m": 3.72, "6m": 3.80, "12m": 3.75},
         "comment": "2Y ACGB -57bps vs UST, narrowing (was -85bps 6m ago). Rising 2Y yields reflect RBA hawkish bias. Spread convergence = AUD positive. Steepening curve (+40bps) signals durable growth expectations supported by commodities.",
         "meetings": [
@@ -303,7 +303,7 @@ RATE_EXP = {
         "spread_2y_vs_usd":  -4.14, "spread_10y_vs_usd": -3.94,
         "curve_slope": 0.34,
         "yield_2y_hist":  [0.62, 0.55, 0.50, 0.45, 0.42, 0.38],
-        "yield_10y_hist": [0.75, 0.72, 0.4, 0.4, 0.4, 0.4],
+        "yield_10y_hist": [0.72, 0.4, 0.4, 0.4, 0.4, 0.4],
         "ois": {"1m": 0.23, "3m": 0.18, "6m": 0.10, "12m": 0.02},
         "comment": "2Y Swiss -414bps vs UST — widest negative spread in G8. CHF strength is NOT yield-driven: it is pure safe-haven flow and current account surplus (+8.5% GDP). Falling 2Y yields (-24bps in 6m) confirm SNB dovish path.",
         "meetings": [
@@ -377,20 +377,20 @@ def get_yield_months(): return YIELD_MONTHS
 # FX RATES
 # ─────────────────────────────────────────────────────────────────
 FX_RATES = {
-    "EUR/USD": {"rate": 1.1712, "chg": -0.0, "hi": 1.1820, "lo": 1.1750, "wchg": -0.0},
-    "GBP/USD": {"rate": 1.3493, "chg":  -0.0, "hi": 1.3560, "lo": 1.3480, "wchg":  -0.0},
-    "USD/JPY": {"rate": 159.42, "chg":  0.0, "hi": 159.80, "lo": 158.90, "wchg":  0.0},
-    "USD/CAD": {"rate": 1.3681, "chg":  0.0, "hi": 1.3710, "lo": 1.3620, "wchg":  0.0},
-    "AUD/USD": {"rate": 0.7144, "chg":  -0.0, "hi": 0.7150, "lo": 0.7090, "wchg":  -0.0},
-    "NZD/USD": {"rate": 0.5874, "chg":  -0.0, "hi": 0.5930, "lo": 0.5870, "wchg":  -0.0},
-    "USD/CHF": {"rate": 0.7854, "chg": 0.0, "hi": 0.8040, "lo": 0.7990, "wchg": 0.0},
-    "EUR/GBP": {"rate": 0.868, "chg": 0.0, "hi": 0.8760, "lo": 0.8710, "wchg": 0.0},
-    "GBP/JPY": {"rate": 215.0974, "chg":  0.0, "hi": 216.10, "lo": 214.80, "wchg":  0.0},
-    "EUR/CAD": {"rate": 1.6023, "chg": 0.0, "hi": 1.6180, "lo": 1.6060, "wchg": 0.0},
-    "GBP/CAD": {"rate": 1.8459, "chg":  0.0, "hi": 1.8560, "lo": 1.8420, "wchg":  0.0},
-    "CAD/CHF": {"rate": 0.5741, "chg": 0.0, "hi": 0.5750, "lo": 0.5690, "wchg": 0.0},
-    "EUR/CHF": {"rate": 0.9199, "chg": 0.0, "hi": 0.9240, "lo": 0.9190, "wchg": 0.0},
-    "AUD/NZD": {"rate": 1.2163, "chg": 0.0, "hi": 1.2110, "lo": 1.2040, "wchg":  0.0},
+    "EUR/USD": {"rate": 1.1749, "chg": 0.32, "hi": 1.1820, "lo": 1.1750, "wchg": 1.3},
+    "GBP/USD": {"rate": 1.357, "chg":  0.57, "hi": 1.3560, "lo": 1.3480, "wchg":  2.3},
+    "USD/JPY": {"rate": 159.21, "chg":  -0.13, "hi": 159.80, "lo": 158.90, "wchg":  -0.5},
+    "USD/CAD": {"rate": 1.36, "chg":  -0.59, "hi": 1.3710, "lo": 1.3620, "wchg":  -2.4},
+    "AUD/USD": {"rate": 0.7192, "chg":  0.66, "hi": 0.7150, "lo": 0.7090, "wchg":  2.6},
+    "NZD/USD": {"rate": 0.5919, "chg":  0.75, "hi": 0.5930, "lo": 0.5870, "wchg":  3.0},
+    "USD/CHF": {"rate": 0.7839, "chg": -0.19, "hi": 0.8040, "lo": 0.7990, "wchg": -0.8},
+    "EUR/GBP": {"rate": 0.8658, "chg": 0.0, "hi": 0.8760, "lo": 0.8710, "wchg": 0.0},
+    "GBP/JPY": {"rate": 216.0512, "chg":  0.0, "hi": 216.10, "lo": 214.80, "wchg":  0.0},
+    "EUR/CAD": {"rate": 1.5978, "chg": 0.0, "hi": 1.6180, "lo": 1.6060, "wchg": 0.0},
+    "GBP/CAD": {"rate": 1.8456, "chg":  0.0, "hi": 1.8560, "lo": 1.8420, "wchg":  0.0},
+    "CAD/CHF": {"rate": 0.5764, "chg": 0.0, "hi": 0.5750, "lo": 0.5690, "wchg": 0.0},
+    "EUR/CHF": {"rate": 0.921, "chg": 0.0, "hi": 0.9240, "lo": 0.9190, "wchg": 0.0},
+    "AUD/NZD": {"rate": 1.2151, "chg": 0.0, "hi": 1.2110, "lo": 1.2040, "wchg":  0.0},
 }
 
 # ─────────────────────────────────────────────────────────────────
