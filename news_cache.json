@@ -1,5 +1,78 @@
 [
   {
+    "ts": "27 Apr 17:11",
+    "title": "EUR/USD struggles for traction as markets remain cautious on US-Iran talks",
+    "body": "The Euro (EUR) trims part of its earlier gains against the US Dollar (USD) on Monday, as stalled US-Iran peace talks keep market sentiment fragile and limit downside in the Greenback.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD",
+      "EUR"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "27 Apr 16:39",
+    "title": "USD/JPY retreats as Yen firms ahead of BoJ decision",
+    "body": "The USD/JPY pair is trading near the 159.30 price zone as markets are increasingly positioning for a hawkish hold from the BoJ, with policymakers expected to keep the benchmark rate unchanged at 0.75% while signaling a willingness to tighten further.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD",
+      "JPY"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "27 Apr 16:17",
+    "title": "Dow Jones Industrial Average futures slip as Iran tensions simmer, Fed week looms",
+    "body": "Dow Jones Industrial Average (DJIA) futures trade around 0.4% lower on Monday, slipping to near 49,100 after dipping briefly below 49,050 earlier in the session.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "27 Apr 16:13",
+    "title": "Silver price slips in cautious trade ahead of Fed meeting, Powell succession risks",
+    "body": "Silver (XAG/USD) declines and is trading around $74.90 on Monday, down 1.06% on the day. The white metal struggles to find a clear direction in an environment marked by investor caution.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "27 Apr 16:00",
+    "title": "Gold struggles despite softer USD as higher-for-longer interest rate bets weigh",
+    "body": "Gold (XAU/USD) trades with a mild downside bias on Monday despite a weaker US Dollar (USD), as macro headwinds stemming from the ongoing US-Iran war keep gains in check. At the time of writing, XAU/USD is trading around $4,669, down about 0.84% on the day after hitting an intraday peak of $4,730.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "negative"
+  },
+  {
+    "ts": "27 Apr 15:52",
+    "title": "GBP/USD edges up as stalled Iran talks keep markets on edge",
+    "body": "GBP/USD registers modest gains during the North American session on Monday, up by 0.19%, as US-Iran talks stalled, while market mood remains fragile, as reflected in US equity markets trading lower. The pair trades at 1.3548, after bouncing off daily lows of 1.3506.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "27 Apr 15:36",
+    "title": "EUR/GBP dips as Pound shrugs off UK political noise, ECB and BoE meetings in focus",
+    "body": "EUR/GBP edges lower on Monday after brief volatility triggered by political jitters in the United Kingdom (UK). At the time of writing, the cross is trading around 0.8658, easing from an intraday high of 0.8676.",
+    "cat": "Central Bank",
+    "ccys": [
+      "GBP",
+      "EUR"
+    ],
+    "dir": "mixed"
+  },
+  {
     "ts": "27 Apr 15:15",
     "title": "Iran's Araghchi: US requesting negotiations because they have not achieved any objectives",
     "body": "In a post on published on his Telegram account, Iran's Foreign Minister Abbas Araghchi said that United States (US) President Donald Trump is requesting negotiations because the US has not achieved any of its objectives.",
@@ -15,8 +88,8 @@
     "body": "MUFG’s FX team highlights that Bank of Japan (BoJ) rate-hike expectations for April have collapsed, even as Japanese inflation data surprise to the upside.",
     "cat": "Central Bank",
     "ccys": [
-      "JPY",
-      "USD"
+      "USD",
+      "JPY"
     ],
     "dir": "positive"
   },
@@ -52,72 +125,10 @@
     "dir": "negative"
   },
   {
-    "ts": "27 Apr 14:44",
-    "title": "ECB: June hike risk grows on energy shock – Standard Chartered",
-    "body": "Standard Chartered strategists Christopher Graham and John Davies expect the European Central Bank (ECB) to keep the deposit rate at 2.00% on 30 April, citing a wait‑for‑data stance as the Middle East conflict evolves.",
-    "cat": "Central Bank",
-    "ccys": [
-      "EUR"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "27 Apr 14:29",
-    "title": "Oil: Hormuz risk and higher price path – BNY",
-    "body": "BNY’s Bob Savage reports that Iran has proposed a U.S. deal prioritizing reopening the Strait of Hormuz and ending the war, with nuclear talks delayed.",
+    "ts": "27 Apr 17:48",
+    "title": "Gold Price Forecast: XAU/USD under modest pressure ahead of central banks, war clarity",
+    "body": "Spot Gold trades with a soft tone on Monday, still stuck to familiar levels. The precious metal changes hands in the $4,680 price zone in the American session, after peaking at around $4,730 earlier in the day.",
     "cat": "Geopolitics",
-    "ccys": [
-      "CAD"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "27 Apr 14:17",
-    "title": "EUR/GBP: Loses momentum as BoE turns hawkish – MUFG",
-    "body": "MUFG analysts note that EUR/GBP has drifted lower within a 0.8600–0.8800 range as the Pound (GBP) outperforms the Euro (EUR). The euro-zone faces weaker PMIs and rising stagflation risks, while stronger United Kingdom (UK) data and sticky inflation have markets pricing more BoE tightening.",
-    "cat": "Central Bank",
-    "ccys": [
-      "GBP",
-      "EUR"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "27 Apr 14:14",
-    "title": "Gold struggles despite softer USD as higher-for-longer interest rate bets weigh",
-    "body": "Gold (XAU/USD) holds firm at the start of the week as fresh US-Iran headlines improve market sentiment, even after talks over the weekend failed to materialize. At the time of writing, XAU/USD is trading around $4,690, down 0.40% the day after hitting an intraday peak of $4,730.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "27 Apr 14:07",
-    "title": "USD: Data-heavy week shapes macro narrative – TD Securities",
-    "body": "TD Securities strategists Oscar Munoz and Eli Nir outline a busy United States (US) data calendar that will guide US Dollar (USD) traders, including Gross Domestic Product (GDP), Personal Consumption Expenditures (PCE) Price Index inflation, ISM manufacturing and consumer confidence.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "27 Apr 13:56",
-    "title": "GBP/JPY slips as UK political risk pressures Pound, Yen weakness limits losses",
-    "body": "GBP/JPY gives back part of its earlier gains on Monday as the British Pound (GBP) comes under pressure following reports that UK Prime Minister Keir Starmer will face a parliamentary vote on a possible probe into whether he misled lawmakers over the appointment of Peter Mandelson as ambassador to th",
-    "cat": "Macro",
-    "ccys": [
-      "JPY",
-      "GBP"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "27 Apr 13:45",
-    "title": "Fed: One more cut still expected – Rabobank",
-    "body": "Rabobank strategists reiterate its view that the Federal Reserve (Fed) is likely to cut rates again this year, even as United States (US) Treasury yields edge higher on persistent inflation concerns.",
-    "cat": "Central Bank",
     "ccys": [
       "USD"
     ],
@@ -180,9 +191,9 @@
     "body": "The GBP/USD pair edges higher during the first half of the European session on Friday and recovers a part of the previous day's losses to levels just below mid-1.3400s, or a nearly two-week trough.",
     "cat": "Central Bank",
     "ccys": [
+      "USD",
       "GBP",
-      "EUR",
-      "USD"
+      "EUR"
     ],
     "dir": "mixed"
   },
@@ -190,16 +201,6 @@
     "ts": "24 Apr 02:56",
     "title": "Gold Price Forecast: XAU/USD eyes weekly loss as bears tighten grip",
     "body": "Gold is testing the $4,700 level early Friday, holding at its weakest level in over a week and eyeing the first weekly drop in five weeks.",
-    "cat": "Macro",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "23 Apr 18:11",
-    "title": "Silver Price Forecast: XAG/USD could retest recent lows at $61",
-    "body": "Silver came under selling pressure in the second half of Thursday, as risk aversion fueled US Dollar (USD) demand.",
     "cat": "Macro",
     "ccys": [
       "USD"
@@ -247,10 +248,10 @@
     "dir": "mixed"
   },
   {
-    "ts": "26 Apr 23:05",
-    "title": "Benjamin Netanyahu's biggest rivals merge in bid to oust his government",
-    "body": "Two of Israeli Prime Minister Benjamin Netanyahu's biggest rivals have announced they are joining forces to attempt to oust his coalition government.",
-    "cat": "Geopolitics",
+    "ts": "27 Apr 11:17",
+    "title": "From super shoes to bread with honey - the man who made London Marathon history",
+    "body": "Kenyan runner Sabastian Sawe became the first person to break the two-hour barrier in an official marathon on Sunday, smashing the men's world record by 65 seconds.",
+    "cat": "Macro",
     "ccys": [
       "USD"
     ],
