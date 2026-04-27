@@ -1,60 +1,92 @@
 [
   {
-    "ts": "27 Apr 17:11",
-    "title": "EUR/USD struggles for traction as markets remain cautious on US-Iran talks",
-    "body": "The Euro (EUR) trims part of its earlier gains against the US Dollar (USD) on Monday, as stalled US-Iran peace talks keep market sentiment fragile and limit downside in the Greenback.",
-    "cat": "Geopolitics",
+    "ts": "27 Apr 21:52",
+    "title": "NZD/USD climbs above 0.59 as hot CPI fuels RBNZ hike bets ahead of Fed",
+    "body": "NZD/USD posted limited gains of around 0.4% on Monday, settling close to 0.5905 but stalling just below the 0.5925 area that capped last week's recovery.",
+    "cat": "Central Bank",
     "ccys": [
       "USD",
-      "EUR"
+      "NZD"
     ],
     "dir": "positive"
   },
   {
-    "ts": "27 Apr 16:39",
-    "title": "USD/JPY retreats as Yen firms ahead of BoJ decision",
-    "body": "The USD/JPY pair is trading near the 159.30 price zone as markets are increasingly positioning for a hawkish hold from the BoJ, with policymakers expected to keep the benchmark rate unchanged at 0.75% while signaling a willingness to tighten further.",
+    "ts": "27 Apr 21:51",
+    "title": "USD/JPY adrift ahead of BoJ and Fed twin policy week",
+    "body": "USD/JPY ended Monday largely unchanged from Friday's closing bids near 159.40, oscillating in a tight 75-pip range between 159.10 and 159.85. The session produced a cluster of small-bodied candles reflecting indecision ahead of Tuesday's Bank of Japan (BoJ) decision.",
     "cat": "Central Bank",
     "ccys": [
       "USD",
       "JPY"
     ],
-    "dir": "positive"
-  },
-  {
-    "ts": "27 Apr 16:17",
-    "title": "Dow Jones Industrial Average futures slip as Iran tensions simmer, Fed week looms",
-    "body": "Dow Jones Industrial Average (DJIA) futures trade around 0.4% lower on Monday, slipping to near 49,100 after dipping briefly below 49,050 earlier in the session.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD"
-    ],
     "dir": "mixed"
   },
   {
-    "ts": "27 Apr 16:13",
-    "title": "Silver price slips in cautious trade ahead of Fed meeting, Powell succession risks",
-    "body": "Silver (XAG/USD) declines and is trading around $74.90 on Monday, down 1.06% on the day. The white metal struggles to find a clear direction in an environment marked by investor caution.",
-    "cat": "Central Bank",
+    "ts": "27 Apr 21:38",
+    "title": "AUD/USD rallies toward 0.7200 as Aussie gains on easing war fears",
+    "body": "The Australian Dollar soars some 0.53% on Monday, with the Greenback staying firm amid uncertainty regarding the outcome of the US-Iran conflict as Washington reviews Tehran’s last proposal to end the war. At the time of writing, the AUD/USD trades at 0.7185 after bouncing off daily lows of 0.7125.",
+    "cat": "Geopolitics",
     "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "27 Apr 16:00",
-    "title": "Gold struggles despite softer USD as higher-for-longer interest rate bets weigh",
-    "body": "Gold (XAU/USD) trades with a mild downside bias on Monday despite a weaker US Dollar (USD), as macro headwinds stemming from the ongoing US-Iran war keep gains in check. At the time of writing, XAU/USD is trading around $4,669, down about 0.84% on the day after hitting an intraday peak of $4,730.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD"
+      "USD",
+      "AUD"
     ],
     "dir": "negative"
   },
   {
-    "ts": "27 Apr 15:52",
-    "title": "GBP/USD edges up as stalled Iran talks keep markets on edge",
-    "body": "GBP/USD registers modest gains during the North American session on Monday, up by 0.19%, as US-Iran talks stalled, while market mood remains fragile, as reflected in US equity markets trading lower. The pair trades at 1.3548, after bouncing off daily lows of 1.3506.",
+    "ts": "27 Apr 21:31",
+    "title": "USD/PHP: Political rift hits BSP – BNY",
+    "body": "BNY's Bob Savage reports that the central bank of the Philippines, Bangko Sentral ng Pilipinas (BSP) Governor Eli Remolona faces a legal complaint tied to disclosures in an impeachment probe involving the vice president.",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "27 Apr 20:51",
+    "title": "US: Growth normalizes as Iran shock fades – TD Securities",
+    "body": "TD Securities strategists Oscar Munoz and Eli Nir project output growth gradually slowing to potential by late 2026 as Iran-related stagflationary risks keep the Federal Reserve (Fed) cautious.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "27 Apr 20:07",
+    "title": "India: IGB view stays neutral – Standard Chartered",
+    "body": "Standard Chartered Bank economists Anubhuti Sahay, Saurav Anand and Nagaraj Kulkarni assess Indian states’ finances, projecting the aggregate FY27 fiscal deficit at 2.9% of GDP, similar to FY26.",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "27 Apr 19:35",
+    "title": "USD/CHF Price Forecast: US Dollar approaches 100-day SMA as momentum firms near resistance",
+    "body": "USD/CHF edges modestly higher on Monday, up some 0.15% as the US Dollar (USD) bounces from its daily lows as risk appetite improves during the North American session. At the time of writing, the pair exchanges hands at 0.7854.",
+    "cat": "Macro",
+    "ccys": [
+      "USD",
+      "CHF"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "27 Apr 19:34",
+    "title": "Germany: Reform push shapes macro outlook – Deutsche Bank",
+    "body": "Deutsche Bank economists Marion Muehlberger and Ursula Walther argue that Germany’s new reform drive under Finance Minister Klingbeil could gradually improve growth prospects and sentiment.",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "27 Apr 19:00",
+    "title": "FX Today: US Dollar falls as markets brace for central bank week and Iran headlines",
+    "body": "The US Dollar Index (DXY) is trading cautiously near the 98.50 level as markets prepare for a busy week of central bank meetings.",
     "cat": "Geopolitics",
     "ccys": [
       "USD"
@@ -62,20 +94,19 @@
     "dir": "mixed"
   },
   {
-    "ts": "27 Apr 15:36",
-    "title": "EUR/GBP dips as Pound shrugs off UK political noise, ECB and BoE meetings in focus",
-    "body": "EUR/GBP edges lower on Monday after brief volatility triggered by political jitters in the United Kingdom (UK). At the time of writing, the cross is trading around 0.8658, easing from an intraday high of 0.8676.",
+    "ts": "27 Apr 18:58",
+    "title": "CEE FX: Stable ranges as data cluster looms – ING",
+    "body": "ING strategist Frantisek Taborsky expects Central and Eastern European (CEE) FX to stay broadly stable this week despite volatile rates and global headlines.",
     "cat": "Central Bank",
     "ccys": [
-      "GBP",
       "EUR"
     ],
     "dir": "mixed"
   },
   {
-    "ts": "27 Apr 15:15",
-    "title": "Iran's Araghchi: US requesting negotiations because they have not achieved any objectives",
-    "body": "In a post on published on his Telegram account, Iran's Foreign Minister Abbas Araghchi said that United States (US) President Donald Trump is requesting negotiations because the US has not achieved any of its objectives.",
+    "ts": "27 Apr 18:49",
+    "title": "Gold slides below $4,700 as Iran impasse lifts yields, Dollar bid",
+    "body": "Gold (XAU/USD) price drops during the North American session on Monday as the Greenback trims some of its earlier losses amid a mild deterioration in risk appetite, driven by the lack of progress in US-Iran negotiations. The XAU/USD pair trades at $4,673, down 0.75%.",
     "cat": "Geopolitics",
     "ccys": [
       "USD"
@@ -83,46 +114,14 @@
     "dir": "mixed"
   },
   {
-    "ts": "27 Apr 15:13",
-    "title": "USD/JPY: BoJ caution and intervention risk shape outlook – MUFG",
-    "body": "MUFG’s FX team highlights that Bank of Japan (BoJ) rate-hike expectations for April have collapsed, even as Japanese inflation data surprise to the upside.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD",
-      "JPY"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "27 Apr 15:03",
-    "title": "BoC: Policy hold view after turnover – Rabobank",
-    "body": "Rabobank strategists Molly Schwartz and Christian Lawrence expect the Bank of Canada (BoC) to keep its overnight policy rate at 2.25% through year-end, with no change anticipated at the April 29 meeting.",
-    "cat": "Central Bank",
-    "ccys": [
-      "CAD"
-    ],
-    "dir": "negative"
-  },
-  {
-    "ts": "27 Apr 14:57",
-    "title": "USD/CAD: Bearish momentum targets March lows – Scotiabank",
-    "body": "Scotiabank strategists Shaun Osborne and Eric Theoret observe the Canadian Dollar (CAD) strengthening decisively versus the Dollar, extending its typical April outperformance even as risk sentiment remains uncertain.",
+    "ts": "27 Apr 18:23",
+    "title": "Fed: Policy on hold as Iran shock lingers – TD Securities",
+    "body": "TD Securities strategists Oscar Munoz and Eli Nir expect the Federal Reserve (Fed) to keep the Fed funds rate at 3.50–3.75% at the April Federal Open Market Committee (FOMC), with Chair Powell maintaining a neutral stance on future policy.",
     "cat": "Central Bank",
     "ccys": [
       "USD"
     ],
     "dir": "mixed"
-  },
-  {
-    "ts": "27 Apr 14:45",
-    "title": "USD/CAD falls toward six-week lows as US Dollar dips,  Oil lifts CAD",
-    "body": "USD/CAD declines for a second consecutive day on Monday, trading around 1.3610 at the time of writing, down 0.44% on the day and testing its lowest levels in six weeks.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD",
-      "CAD"
-    ],
-    "dir": "negative"
   },
   {
     "ts": "27 Apr 17:48",
@@ -218,6 +217,26 @@
     "dir": "mixed"
   },
   {
+    "ts": "27 Apr 20:57",
+    "title": "Pompeii archaeologists use AI to reconstruct face of man who died during volcano eruption",
+    "body": "Archaeologists and researchers have used artificial intelligence for the first time to digitally reconstruct the face of a man killed in the eruption of Mount Vesuvius that engulfed the ancient Roman city of Pompeii in 79AD.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "27 Apr 20:50",
+    "title": "More than 100 migrants rescued in Channel less than week after &#163;650m France deal",
+    "body": "More than 100 migrants have been rescued from the English Channel, less than a week after the UK signed a new deal with the French government to curb crossings.",
+    "cat": "Macro",
+    "ccys": [
+      "CHF"
+    ],
+    "dir": "positive"
+  },
+  {
     "ts": "27 Apr 11:01",
     "title": "Kim Jong Un speaks at memorial for North Korean soldiers killed fighting for Russia",
     "body": "Kim Jong Un threw dirt over the remains of one dead soldier at the opening of a memorial museum for his compatriots who died fighting alongside Russia in the Ukraine war.",
@@ -231,26 +250,6 @@
     "ts": "27 Apr 11:26",
     "title": "Worker killed at Zaporizhzhia nuclear plant after drone strike, says Russia",
     "body": "A worker at the Zaporizhzhia nuclear power &#8203;station has been killed in a &#8203;Ukrainian drone attack, according to Russian &#8203;forces, which control the plant.",
-    "cat": "Macro",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "26 Apr 04:14",
-    "title": "What we know about suspected gunman at Trump dinner",
-    "body": "The suspect who stormed through a security checkpoint and shot a Secret Service agent at the White House correspondents' dinner in Washington DC was armed with multiple weapons and knives, police say.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "27 Apr 11:17",
-    "title": "From super shoes to bread with honey - the man who made London Marathon history",
-    "body": "Kenyan runner Sabastian Sawe became the first person to break the two-hour barrier in an official marathon on Sunday, smashing the men's world record by 65 seconds.",
     "cat": "Macro",
     "ccys": [
       "USD"
