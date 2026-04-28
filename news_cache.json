@@ -1,20 +1,73 @@
 [
   {
-    "ts": "27 Apr 21:52",
-    "title": "NZD/USD climbs above 0.59 as hot CPI fuels RBNZ hike bets ahead of Fed",
-    "body": "NZD/USD posted limited gains of around 0.4% on Monday, settling close to 0.5905 but stalling just below the 0.5925 area that capped last week's recovery.",
+    "ts": "28 Apr 17:43",
+    "title": "NZD/USD weakens as US-Iran tensions spur risk aversion, support Dollar",
+    "body": "NZD/USD trades around 0.5890 on Tuesday, down 0.35% on the day, after failing to hold above the 0.5900 level. The pair moves lower as the US Dollar (USD) strengthens, supported by increased demand for safe-haven assets.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "28 Apr 16:36",
+    "title": "EUR/USD rebounds as Fed decision nears and US-Iran tensions cap Dollar downside",
+    "body": "The Euro (EUR) trims a part of its intraday losses against the US Dollar (USD) on Tuesday as the Greenback loses momentum, with traders repositioning ahead of the Federal Reserve’s (Fed) interest rate decision due on Wednesday, while continuing to monitor developments in the Middle East.",
     "cat": "Central Bank",
     "ccys": [
       "USD",
-      "NZD"
+      "EUR"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "28 Apr 16:26",
+    "title": "USD/JPY steadies after hawkish BoJ shift as Middle East tensions support Dollar",
+    "body": "USD/JPY trades around 159.50 on Tuesday, up modestly by 0.07% on the day, after briefly falling below the 159.00 level following the Bank of Japan’s (BoJ) policy decision.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD",
+      "JPY"
     ],
     "dir": "positive"
   },
   {
-    "ts": "27 Apr 21:51",
-    "title": "USD/JPY adrift ahead of BoJ and Fed twin policy week",
-    "body": "USD/JPY ended Monday largely unchanged from Friday's closing bids near 159.40, oscillating in a tight 75-pip range between 159.10 and 159.85. The session produced a cluster of small-bodied candles reflecting indecision ahead of Tuesday's Bank of Japan (BoJ) decision.",
+    "ts": "28 Apr 16:22",
+    "title": "USD/CAD nudges higher before Fed-BoC double-header",
+    "body": "USD/CAD climbs 0.33% on Tuesday, settling close to 1.3670 after a steady grind higher off Monday's intraday low near 1.3600.",
     "cat": "Central Bank",
+    "ccys": [
+      "USD",
+      "CAD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "28 Apr 16:08",
+    "title": "Dow Jones Industrial Average futures wobble as Iran talks stall, Crude Oil jumps",
+    "body": "The Dow Jones Industrial Average (DJIA) sees marginal gains on Tuesday's session, with futures holding near 49,200 and the underlying cash index adding roughly 0.1%, propped up by a 5% jump in Coca-Cola (KO) after a stronger-than-expected earnings print.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "CAD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "28 Apr 15:27",
+    "title": "Gold drops to four-week low on firm dollar, Oil-driven inflation concerns",
+    "body": "Gold (XAU/USD) slips to a near one-month low, pressured by a firmer US Dollar (USD) and mounting Oil-driven inflation concerns, as investors await clearer signals on stalled diplomatic efforts between the United States (US) and Iran to end the war.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD",
+      "CAD"
+    ],
+    "dir": "negative"
+  },
+  {
+    "ts": "28 Apr 15:14",
+    "title": "USD/JPY: Yen rebound seen short-lived – MUFG",
+    "body": "MUFG’s Lee Hardman argues that the recent Japanese Yen (JPY) rebound against the US Dollar (USD) is unlikely to last, as USD/JPY remains in a broader bearish Yen trend since the Middle East conflict began.",
+    "cat": "Geopolitics",
     "ccys": [
       "USD",
       "JPY"
@@ -22,61 +75,51 @@
     "dir": "mixed"
   },
   {
-    "ts": "27 Apr 21:38",
-    "title": "AUD/USD rallies toward 0.7200 as Aussie gains on easing war fears",
-    "body": "The Australian Dollar soars some 0.53% on Monday, with the Greenback staying firm amid uncertainty regarding the outcome of the US-Iran conflict as Washington reviews Tehran’s last proposal to end the war. At the time of writing, the AUD/USD trades at 0.7185 after bouncing off daily lows of 0.7125.",
-    "cat": "Geopolitics",
+    "ts": "28 Apr 15:10",
+    "title": "USD/CHF gains as US-Iran stalemate keeps Dollar supported, Fed in focus",
+    "body": "USD/CHF edges higher on Tuesday as uncertainty around US-Iran efforts to end the war keeps risk sentiment fragile, supporting demand for the US Dollar (USD) while the Swiss Franc (CHF) struggles to gain despite its safe-haven appeal, amid Swiss National Bank (SNB) warnings of readiness to act agains",
+    "cat": "Central Bank",
     "ccys": [
-      "USD",
-      "AUD"
+      "CHF",
+      "USD"
     ],
     "dir": "negative"
   },
   {
-    "ts": "27 Apr 21:31",
-    "title": "USD/PHP: Political rift hits BSP – BNY",
-    "body": "BNY's Bob Savage reports that the central bank of the Philippines, Bangko Sentral ng Pilipinas (BSP) Governor Eli Remolona faces a legal complaint tied to disclosures in an impeachment probe involving the vice president.",
-    "cat": "Macro",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "27 Apr 20:51",
-    "title": "US: Growth normalizes as Iran shock fades – TD Securities",
-    "body": "TD Securities strategists Oscar Munoz and Eli Nir project output growth gradually slowing to potential by late 2026 as Iran-related stagflationary risks keep the Federal Reserve (Fed) cautious.",
+    "ts": "28 Apr 15:01",
+    "title": "GBP/USD: Sentiment tempers fundamentally supported Pound – Scotiabank",
+    "body": "Scotiabank strategists Shaun Osborne and Eric Theoret highlight that the Pound (GBP) is underperforming as political uncertainty around PM [Prime Minister] Starmer and fiscal policy weighs on sentiment, even as widening United Kingdom (UK) - United States (US) spreads support GBP fundamentals.",
     "cat": "Central Bank",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "27 Apr 20:07",
-    "title": "India: IGB view stays neutral – Standard Chartered",
-    "body": "Standard Chartered Bank economists Anubhuti Sahay, Saurav Anand and Nagaraj Kulkarni assess Indian states’ finances, projecting the aggregate FY27 fiscal deficit at 2.9% of GDP, similar to FY26.",
-    "cat": "Macro",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "27 Apr 19:35",
-    "title": "USD/CHF Price Forecast: US Dollar approaches 100-day SMA as momentum firms near resistance",
-    "body": "USD/CHF edges modestly higher on Monday, up some 0.15% as the US Dollar (USD) bounces from its daily lows as risk appetite improves during the North American session. At the time of writing, the pair exchanges hands at 0.7854.",
-    "cat": "Macro",
     "ccys": [
       "USD",
-      "CHF"
+      "GBP"
     ],
     "dir": "mixed"
   },
   {
-    "ts": "27 Apr 19:34",
-    "title": "Germany: Reform push shapes macro outlook – Deutsche Bank",
-    "body": "Deutsche Bank economists Marion Muehlberger and Ursula Walther argue that Germany’s new reform drive under Finance Minister Klingbeil could gradually improve growth prospects and sentiment.",
+    "ts": "28 Apr 14:49",
+    "title": "BOJ: Gradual tightening with higher inflation risks – UOB",
+    "body": "United Overseas Bank’s Alvin Liew reports the Bank of Japan (BoJ) left its policy rate at 0.75% but signalled that the next move will be a hike as underlying inflation nears target and real rates stay very low.",
+    "cat": "Central Bank",
+    "ccys": [
+      "JPY"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "28 Apr 14:28",
+    "title": "Fed: Data-dependent path toward neutral – TD Securities",
+    "body": "TD Securities strategists Oscar Munoz and Eli Nir argue that new inflation tools championed by incoming Fed Chair Kevin Warsh, including trimmed mean measures and a potential big-data price project, will not materially alter the policy outlook.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "negative"
+  },
+  {
+    "ts": "28 Apr 14:10",
+    "title": "US CB Consumer Confidence edges higher to 92.8 in April",
+    "body": "Consumer sentiment in the United States (US) improved slightly in April, with the Conference Board's (CB) Consumer Confidence Index rising to 92.8 in April from 92.2 in March.",
     "cat": "Macro",
     "ccys": [
       "USD"
@@ -84,44 +127,25 @@
     "dir": "mixed"
   },
   {
-    "ts": "27 Apr 19:00",
-    "title": "FX Today: US Dollar falls as markets brace for central bank week and Iran headlines",
-    "body": "The US Dollar Index (DXY) is trading cautiously near the 98.50 level as markets prepare for a busy week of central bank meetings.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "27 Apr 18:58",
-    "title": "CEE FX: Stable ranges as data cluster looms – ING",
-    "body": "ING strategist Frantisek Taborsky expects Central and Eastern European (CEE) FX to stay broadly stable this week despite volatile rates and global headlines.",
+    "ts": "28 Apr 08:55",
+    "title": "GBP/USD Price Forecast: Bullish potential intact as traders await Fed/BoE policy meetings",
+    "body": "The GBP/USD pair extends the previous day's retracement slide from the 1.3575 area, or over a one-week top, and attracts some follow-through selling on Tuesday.",
     "cat": "Central Bank",
     "ccys": [
-      "EUR"
+      "USD",
+      "GBP"
     ],
     "dir": "mixed"
   },
   {
-    "ts": "27 Apr 18:49",
-    "title": "Gold slides below $4,700 as Iran impasse lifts yields, Dollar bid",
-    "body": "Gold (XAU/USD) price drops during the North American session on Monday as the Greenback trims some of its earlier losses amid a mild deterioration in risk appetite, driven by the lack of progress in US-Iran negotiations. The XAU/USD pair trades at $4,673, down 0.75%.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "27 Apr 18:23",
-    "title": "Fed: Policy on hold as Iran shock lingers – TD Securities",
-    "body": "TD Securities strategists Oscar Munoz and Eli Nir expect the Federal Reserve (Fed) to keep the Fed funds rate at 3.50–3.75% at the April Federal Open Market Committee (FOMC), with Chair Powell maintaining a neutral stance on future policy.",
+    "ts": "28 Apr 02:05",
+    "title": "Gold Price Forecast: XAU/USD looks to Fed verdict for next big break amid stalled US-Iran talks",
+    "body": "Gold is trading listlessly near the $4,700 level in Asian trading on Tuesday, maintaining its familiar range, as focus now shifts toward the two-day Federal Reserve (Fed) monetary policy meeting starting later in the day.",
     "cat": "Central Bank",
     "ccys": [
       "USD"
     ],
-    "dir": "mixed"
+    "dir": "negative"
   },
   {
     "ts": "27 Apr 17:48",
@@ -185,21 +209,19 @@
     "dir": "negative"
   },
   {
-    "ts": "24 Apr 09:02",
-    "title": "GBP/USD Price Forecast: Bulls seem hesitant as US-Iran tensions counter Fed-BoE divergence",
-    "body": "The GBP/USD pair edges higher during the first half of the European session on Friday and recovers a part of the previous day's losses to levels just below mid-1.3400s, or a nearly two-week trough.",
+    "ts": "28 Apr 14:21",
+    "title": "Fresh oil shock as UAE exits Saudi-controlled cartels",
+    "body": "The United Arab Emirates (UAE) has said it is to leave the OPEC and OPEC+ cartels of oil-producing nations, potentially threatening greater turbulence for global energy markets ahead.",
     "cat": "Central Bank",
     "ccys": [
-      "USD",
-      "GBP",
-      "EUR"
+      "CAD"
     ],
     "dir": "mixed"
   },
   {
-    "ts": "24 Apr 02:56",
-    "title": "Gold Price Forecast: XAU/USD eyes weekly loss as bears tighten grip",
-    "body": "Gold is testing the $4,700 level early Friday, holding at its weakest level in over a week and eyeing the first weekly drop in five weeks.",
+    "ts": "28 Apr 10:13",
+    "title": "Man, 89, arrested after shootings leave several wounded in Athens",
+    "body": "An 89-year-old man has been arrested after shootings in Athens left several people wounded.",
     "cat": "Macro",
     "ccys": [
       "USD"
@@ -207,9 +229,9 @@
     "dir": "mixed"
   },
   {
-    "ts": "27 Apr 09:42",
-    "title": "Lightning strikes in Bangladesh kill 14 - including 10-year-old boy",
-    "body": "A 10-year-old boy is reported to have been killed in lightning strikes which left at least 14 people dead in Bangladesh.",
+    "ts": "28 Apr 04:07",
+    "title": "Cartel leader tipped to succeed 'El Mencho' captured",
+    "body": "Mexico's army has captured a cartel leader tipped to succeed notorious drug lord \"El Mencho\".",
     "cat": "Macro",
     "ccys": [
       "USD"
@@ -217,39 +239,19 @@
     "dir": "mixed"
   },
   {
-    "ts": "27 Apr 20:57",
-    "title": "Pompeii archaeologists use AI to reconstruct face of man who died during volcano eruption",
-    "body": "Archaeologists and researchers have used artificial intelligence for the first time to digitally reconstruct the face of a man killed in the eruption of Mount Vesuvius that engulfed the ancient Roman city of Pompeii in 79AD.",
-    "cat": "Central Bank",
+    "ts": "28 Apr 04:25",
+    "title": "At least 14 dead in Indonesia train crash",
+    "body": "At least 14 people have been killed in a train collision in western Indonesia, with another 84 injured, according to the country's train operator.",
+    "cat": "Macro",
     "ccys": [
       "USD"
     ],
     "dir": "mixed"
   },
   {
-    "ts": "27 Apr 20:50",
-    "title": "More than 100 migrants rescued in Channel less than week after &#163;650m France deal",
-    "body": "More than 100 migrants have been rescued from the English Channel, less than a week after the UK signed a new deal with the French government to curb crossings.",
-    "cat": "Macro",
-    "ccys": [
-      "CHF"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "27 Apr 11:01",
-    "title": "Kim Jong Un speaks at memorial for North Korean soldiers killed fighting for Russia",
-    "body": "Kim Jong Un threw dirt over the remains of one dead soldier at the opening of a memorial museum for his compatriots who died fighting alongside Russia in the Ukraine war.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "negative"
-  },
-  {
-    "ts": "27 Apr 11:26",
-    "title": "Worker killed at Zaporizhzhia nuclear plant after drone strike, says Russia",
-    "body": "A worker at the Zaporizhzhia nuclear power &#8203;station has been killed in a &#8203;Ukrainian drone attack, according to Russian &#8203;forces, which control the plant.",
+    "ts": "28 Apr 10:49",
+    "title": "Man pleads guilty over terror plot to attack Taylor Swift concert",
+    "body": "A man accused of plotting to attack Taylor Swift concerts in Vienna has pleaded guilty on the opening day of his trial.",
     "cat": "Macro",
     "ccys": [
       "USD"
