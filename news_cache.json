@@ -1,126 +1,119 @@
 [
   {
+    "ts": "28 Apr 22:04",
+    "title": "USD/JPY pinned below 160.00 into Fed decision and Tokyo CPI release",
+    "body": "USD/JPY traded in a tight 80-pip range on Tuesday, closing near 159.62 after the session touched a low of 158.96 in early Asia and a high of 159.79 late in the New York session.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "28 Apr 21:59",
+    "title": "NZD/USD slips below 0.59 as US Dollar firms into Fed week",
+    "body": "NZD/USD slipped 0.4% on Tuesday, closing near 0.5885 after a session high close to 0.5925 and a fresh rejection from the 0.5900 handle.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "28 Apr 21:57",
+    "title": "AUD/USD holds steady ahead of CPI and the Fed",
+    "body": "AUD/USD posted a near-flat close on Tuesday, settling around 0.7180 after a session that traded within a roughly 70-pip range between 0.7130 and 0.7200.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "28 Apr 20:55",
+    "title": "USD/IDR: Recovery potential after geopolitical de-escalation – OCBC",
+    "body": "OCBC strategists Sim Moh Siong and Christopher Wong notes USD/IDR has turned lower with the broader US Dollar (USD) pullback, but says recent Indonesian Rupiah (IDR) softness reflects external uncertainty from a potential prolonged United States (US)–Iran conflict and vulnerability to energy shocks.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "28 Apr 20:40",
+    "title": "China: Growth projected to moderate – DBS",
+    "body": "DBS Group Research economists Byron Lam and Daisy Sharma highlight that China’s 1Q 2026 real Gross Domestic Product (GDP) rose to 5.0% year-on-year from 4.5% in Q4 2025, supported by strong external demand but uneven domestic momentum.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "28 Apr 20:26",
+    "title": "Gold: Inflation shock weighs on haven metal – TD Securities",
+    "body": "TD Securities’ Head of Commodity Strategy, Bart Melek, argues that Gold is under pressure as Oil-driven inflation keeps real rates elevated and raises the opportunity cost of holding the metal.",
+    "cat": "Central Bank",
+    "ccys": [
+      "CAD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "28 Apr 19:34",
+    "title": "USD/SGD: Range trade with defensive profile – OCBC",
+    "body": "OCBC strategists Sim Moh Siong and Christopher Wong describe USD/SGD as slipping on broad USD weakness and expects two‑way, range‑bound trading in the near term, with resistance around 1.2780–1.2850 and support near 1.2720–1.2670.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "28 Apr 19:13",
+    "title": "WTI Oil extends gains as prolonged Hormuz closure reinforces supply shock",
+    "body": "West Texas Intermediate (WTI) US Oil trades around $98.00 on Tuesday at the time of writing, up 3.21% on the day, reaching its highest level since mid-April.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "CAD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "28 Apr 18:56",
+    "title": "Canada: Fiscal update seen modestly improving deficit – TD Securities",
+    "body": "TD Securities analysts expect Canada’s Spring Economic Update to show a CAD 60 billion deficit over 2026–27, slightly better than the prior budget shortfall.",
+    "cat": "Macro",
+    "ccys": [
+      "CAD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "28 Apr 18:22",
+    "title": "Silver Price Forecast: Bearish momentum builds as XAG/USD struggles below SMAs",
+    "body": "Silver (XAG/USD) trades with a downside bias on Tuesday, down over 2.5%, as a higher-for-longer interest rate outlook continues to weigh on price action.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "28 Apr 18:14",
+    "title": "UK: Labour slack seen containing inflation – Standard Chartered",
+    "body": "Standard Chartered strategists Christopher Graham and John Davies highlight that growing labour market slack and fragile domestic demand should limit second-round inflation effects in the United Kingdom (UK).",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
     "ts": "28 Apr 17:43",
     "title": "NZD/USD weakens as US-Iran tensions spur risk aversion, support Dollar",
     "body": "NZD/USD trades around 0.5890 on Tuesday, down 0.35% on the day, after failing to hold above the 0.5900 level. The pair moves lower as the US Dollar (USD) strengthens, supported by increased demand for safe-haven assets.",
     "cat": "Geopolitics",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "28 Apr 16:36",
-    "title": "EUR/USD rebounds as Fed decision nears and US-Iran tensions cap Dollar downside",
-    "body": "The Euro (EUR) trims a part of its intraday losses against the US Dollar (USD) on Tuesday as the Greenback loses momentum, with traders repositioning ahead of the Federal Reserve’s (Fed) interest rate decision due on Wednesday, while continuing to monitor developments in the Middle East.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD",
-      "EUR"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "28 Apr 16:26",
-    "title": "USD/JPY steadies after hawkish BoJ shift as Middle East tensions support Dollar",
-    "body": "USD/JPY trades around 159.50 on Tuesday, up modestly by 0.07% on the day, after briefly falling below the 159.00 level following the Bank of Japan’s (BoJ) policy decision.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD",
-      "JPY"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "28 Apr 16:22",
-    "title": "USD/CAD nudges higher before Fed-BoC double-header",
-    "body": "USD/CAD climbs 0.33% on Tuesday, settling close to 1.3670 after a steady grind higher off Monday's intraday low near 1.3600.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD",
-      "CAD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "28 Apr 16:08",
-    "title": "Dow Jones Industrial Average futures wobble as Iran talks stall, Crude Oil jumps",
-    "body": "The Dow Jones Industrial Average (DJIA) sees marginal gains on Tuesday's session, with futures holding near 49,200 and the underlying cash index adding roughly 0.1%, propped up by a 5% jump in Coca-Cola (KO) after a stronger-than-expected earnings print.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "CAD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "28 Apr 15:27",
-    "title": "Gold drops to four-week low on firm dollar, Oil-driven inflation concerns",
-    "body": "Gold (XAU/USD) slips to a near one-month low, pressured by a firmer US Dollar (USD) and mounting Oil-driven inflation concerns, as investors await clearer signals on stalled diplomatic efforts between the United States (US) and Iran to end the war.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD",
-      "CAD"
-    ],
-    "dir": "negative"
-  },
-  {
-    "ts": "28 Apr 15:14",
-    "title": "USD/JPY: Yen rebound seen short-lived – MUFG",
-    "body": "MUFG’s Lee Hardman argues that the recent Japanese Yen (JPY) rebound against the US Dollar (USD) is unlikely to last, as USD/JPY remains in a broader bearish Yen trend since the Middle East conflict began.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD",
-      "JPY"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "28 Apr 15:10",
-    "title": "USD/CHF gains as US-Iran stalemate keeps Dollar supported, Fed in focus",
-    "body": "USD/CHF edges higher on Tuesday as uncertainty around US-Iran efforts to end the war keeps risk sentiment fragile, supporting demand for the US Dollar (USD) while the Swiss Franc (CHF) struggles to gain despite its safe-haven appeal, amid Swiss National Bank (SNB) warnings of readiness to act agains",
-    "cat": "Central Bank",
-    "ccys": [
-      "CHF",
-      "USD"
-    ],
-    "dir": "negative"
-  },
-  {
-    "ts": "28 Apr 15:01",
-    "title": "GBP/USD: Sentiment tempers fundamentally supported Pound – Scotiabank",
-    "body": "Scotiabank strategists Shaun Osborne and Eric Theoret highlight that the Pound (GBP) is underperforming as political uncertainty around PM [Prime Minister] Starmer and fiscal policy weighs on sentiment, even as widening United Kingdom (UK) - United States (US) spreads support GBP fundamentals.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD",
-      "GBP"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "28 Apr 14:49",
-    "title": "BOJ: Gradual tightening with higher inflation risks – UOB",
-    "body": "United Overseas Bank’s Alvin Liew reports the Bank of Japan (BoJ) left its policy rate at 0.75% but signalled that the next move will be a hike as underlying inflation nears target and real rates stay very low.",
-    "cat": "Central Bank",
-    "ccys": [
-      "JPY"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "28 Apr 14:28",
-    "title": "Fed: Data-dependent path toward neutral – TD Securities",
-    "body": "TD Securities strategists Oscar Munoz and Eli Nir argue that new inflation tools championed by incoming Fed Chair Kevin Warsh, including trimmed mean measures and a potential big-data price project, will not materially alter the policy outlook.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "negative"
-  },
-  {
-    "ts": "28 Apr 14:10",
-    "title": "US CB Consumer Confidence edges higher to 92.8 in April",
-    "body": "Consumer sentiment in the United States (US) improved slightly in April, with the Conference Board's (CB) Consumer Confidence Index rising to 92.8 in April from 92.2 in March.",
-    "cat": "Macro",
     "ccys": [
       "USD"
     ],
@@ -239,9 +232,9 @@
     "dir": "mixed"
   },
   {
-    "ts": "28 Apr 04:25",
-    "title": "At least 14 dead in Indonesia train crash",
-    "body": "At least 14 people have been killed in a train collision in western Indonesia, with another 84 injured, according to the country's train operator.",
+    "ts": "28 Apr 21:23",
+    "title": "Players who cover mouths in confrontations to be sent off at World Cup",
+    "body": "Players who cover their mouths in confrontations with opponents to conceal discriminatory conduct face being sent off at the World Cup - after football's rule-makers voted through plans first revealed by Sky News.",
     "cat": "Macro",
     "ccys": [
       "USD"
@@ -249,9 +242,9 @@
     "dir": "mixed"
   },
   {
-    "ts": "28 Apr 10:49",
-    "title": "Man pleads guilty over terror plot to attack Taylor Swift concert",
-    "body": "A man accused of plotting to attack Taylor Swift concerts in Vienna has pleaded guilty on the opening day of his trial.",
+    "ts": "28 Apr 04:25",
+    "title": "At least 14 dead in Indonesia train crash",
+    "body": "At least 14 people have been killed in a train collision in western Indonesia, with another 84 injured, according to the country's train operator.",
     "cat": "Macro",
     "ccys": [
       "USD"
