@@ -1,8 +1,30 @@
 [
   {
-    "ts": "28 Apr 22:04",
-    "title": "USD/JPY pinned below 160.00 into Fed decision and Tokyo CPI release",
-    "body": "USD/JPY traded in a tight 80-pip range on Tuesday, closing near 159.62 after the session touched a low of 158.96 in early Asia and a high of 159.79 late in the New York session.",
+    "ts": "29 Apr 17:45",
+    "title": "Gold tumbles as Oil surge lifts yields, USD ahead of the Fed",
+    "body": "Gold (XAU/USD) price retreats over 1% on Wednesday as high energy prices are driving US Treasury yields soaring, signaling that investors are not expecting any rate cuts by the Federal Reserve (Fed), which is expected to hold rates unchanged late at around 18:00 GMT.",
+    "cat": "Central Bank",
+    "ccys": [
+      "CAD",
+      "USD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "29 Apr 17:30",
+    "title": "EUR/CAD slides as steady BoC and rising Oil prices lift Loonie",
+    "body": "EUR/CAD trades on the back foot on Wednesday as the Canadian Dollar (CAD) strengthens broadly following the Bank of Canada monetary policy announcement, while rising Oil prices add further support to the commodity-linked Loonie.",
+    "cat": "Central Bank",
+    "ccys": [
+      "CAD",
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "29 Apr 17:30",
+    "title": "Federal Reserve set to hold interest rates again in Powell’s last meeting as chair",
+    "body": "The United States (US) Federal Reserve (Fed) announces its interest rate decision on Wednesday, another pivotal meeting for markets to gauge the stance of policymakers as energy prices remain uncomfortably high amid ongoing uncertainty in the Middle East, putting the Fed’s dual mandate under strain.",
     "cat": "Central Bank",
     "ccys": [
       "USD"
@@ -10,9 +32,9 @@
     "dir": "mixed"
   },
   {
-    "ts": "28 Apr 21:59",
-    "title": "NZD/USD slips below 0.59 as US Dollar firms into Fed week",
-    "body": "NZD/USD slipped 0.4% on Tuesday, closing near 0.5885 after a session high close to 0.5925 and a fresh rejection from the 0.5900 handle.",
+    "ts": "29 Apr 16:31",
+    "title": "USD/JPY climbs to one-month high above 160 as Fed decision nears",
+    "body": "USD/JPY trades higher on Wednesday around 160.25, up 0.40% on the day and reaching a one-month high, close to the March 30 peak at 160.46.",
     "cat": "Central Bank",
     "ccys": [
       "USD"
@@ -20,9 +42,9 @@
     "dir": "mixed"
   },
   {
-    "ts": "28 Apr 21:57",
-    "title": "AUD/USD holds steady ahead of CPI and the Fed",
-    "body": "AUD/USD posted a near-flat close on Tuesday, settling around 0.7180 after a session that traded within a roughly 70-pip range between 0.7130 and 0.7200.",
+    "ts": "29 Apr 15:53",
+    "title": "Dow Jones Industrial Average slips below 49K ahead of Powell's final Fed rate call",
+    "body": "Dow Jones Industrial Average (DJIA) futures drifted lower through Wednesday's session, trading close to 48.8K at the time of writing after rejecting levels above 49.3K during the prior day.",
     "cat": "Central Bank",
     "ccys": [
       "USD"
@@ -30,9 +52,20 @@
     "dir": "mixed"
   },
   {
-    "ts": "28 Apr 20:55",
-    "title": "USD/IDR: Recovery potential after geopolitical de-escalation – OCBC",
-    "body": "OCBC strategists Sim Moh Siong and Christopher Wong notes USD/IDR has turned lower with the broader US Dollar (USD) pullback, but says recent Indonesian Rupiah (IDR) softness reflects external uncertainty from a potential prolonged United States (US)–Iran conflict and vulnerability to energy shocks.",
+    "ts": "29 Apr 15:47",
+    "title": "USD/CAD steadies as the BoC holds and Iran threat sparks whipsaw",
+    "body": "USD/CAD trades essentially flat on Wednesday, last seen near 1.3680 after a brief whipsaw spike to about 1.3710 was quickly retraced.",
+    "cat": "Central Bank",
+    "ccys": [
+      "CAD",
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "29 Apr 15:35",
+    "title": "NZD/USD weakens as Fed policy caution, Iran tensions support US Dollar",
+    "body": "NZD/USD trades lower around 0.5840 on Wednesday at the time of writing, down 0.76% on the day, as markets adopt a wait-and-see stance ahead of the Federal Reserve (Fed) monetary policy decision later in the day.",
     "cat": "Central Bank",
     "ccys": [
       "USD"
@@ -40,19 +73,9 @@
     "dir": "mixed"
   },
   {
-    "ts": "28 Apr 20:40",
-    "title": "China: Growth projected to moderate – DBS",
-    "body": "DBS Group Research economists Byron Lam and Daisy Sharma highlight that China’s 1Q 2026 real Gross Domestic Product (GDP) rose to 5.0% year-on-year from 4.5% in Q4 2025, supported by strong external demand but uneven domestic momentum.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "28 Apr 20:26",
-    "title": "Gold: Inflation shock weighs on haven metal – TD Securities",
-    "body": "TD Securities’ Head of Commodity Strategy, Bart Melek, argues that Gold is under pressure as Oil-driven inflation keeps real rates elevated and raises the opportunity cost of holding the metal.",
+    "ts": "29 Apr 15:29",
+    "title": "Bank of Canada: patient for now, but options still open",
+    "body": "As widely expected, the Bank of Canada (BoC) delivered an expected hold at 2.25%, but the details suggested a more nuanced backdrop.",
     "cat": "Central Bank",
     "ccys": [
       "CAD"
@@ -60,39 +83,52 @@
     "dir": "mixed"
   },
   {
-    "ts": "28 Apr 19:34",
-    "title": "USD/SGD: Range trade with defensive profile – OCBC",
-    "body": "OCBC strategists Sim Moh Siong and Christopher Wong describe USD/SGD as slipping on broad USD weakness and expects two‑way, range‑bound trading in the near term, with resistance around 1.2780–1.2850 and support near 1.2720–1.2670.",
+    "ts": "29 Apr 15:14",
+    "title": "BoC's Macklem: Inflation expectations are not as well anchored as they were before Covid",
+    "body": "Tiff Macklem faced the press shortly after the decision, offering markets a clearer sense of the central bank’s thinking. The appearance followed the widely expected move by the Bank of Canada to hold the policy rate steady at 2.25%.",
     "cat": "Central Bank",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "28 Apr 19:13",
-    "title": "WTI Oil extends gains as prolonged Hormuz closure reinforces supply shock",
-    "body": "West Texas Intermediate (WTI) US Oil trades around $98.00 on Tuesday at the time of writing, up 3.21% on the day, reaching its highest level since mid-April.",
-    "cat": "Geopolitics",
     "ccys": [
       "CAD"
     ],
     "dir": "mixed"
   },
   {
-    "ts": "28 Apr 18:56",
-    "title": "Canada: Fiscal update seen modestly improving deficit – TD Securities",
-    "body": "TD Securities analysts expect Canada’s Spring Economic Update to show a CAD 60 billion deficit over 2026–27, slightly better than the prior budget shortfall.",
-    "cat": "Macro",
+    "ts": "29 Apr 15:07",
+    "title": "Gold holds near one-month lows as Oil-driven inflation and US-Iran tensions weigh",
+    "body": "Gold (XAU/USD) trades on the back foot on Wednesday, hovering near one-month lows ahead of the Federal Reserve’s (Fed) monetary policy announcement due later in the American session at 18:00 GMT.",
+    "cat": "Central Bank",
     "ccys": [
-      "CAD"
+      "CAD",
+      "USD"
     ],
     "dir": "mixed"
   },
   {
-    "ts": "28 Apr 18:22",
-    "title": "Silver Price Forecast: Bearish momentum builds as XAG/USD struggles below SMAs",
-    "body": "Silver (XAG/USD) trades with a downside bias on Tuesday, down over 2.5%, as a higher-for-longer interest rate outlook continues to weigh on price action.",
+    "ts": "29 Apr 15:05",
+    "title": "AUD/USD slides as US Dollar gains on geopolitical tensions ahead of Fed decision",
+    "body": "The Australian Dollar (AUD) edges lower against the US Dollar (USD) on Wednesday, weighed by softer-than-expected Australian inflation data, while fading hopes that the US-Iran war will end anytime soon support the Greenback.",
+    "cat": "Central Bank",
+    "ccys": [
+      "AUD",
+      "USD"
+    ],
+    "dir": "negative"
+  },
+  {
+    "ts": "29 Apr 14:59",
+    "title": "USD: Firm tone with Fed on hold – Scotiabank",
+    "body": "Scotiabank strategists Shaun Osborne and Eric Theoret observe that the US Dollar (USD) is firm but rangebound as higher Oil and mixed US-Iran headlines drive risk sentiment.",
+    "cat": "Central Bank",
+    "ccys": [
+      "CAD",
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "29 Apr 14:03",
+    "title": "Why Gold price faces critical positioning trap ahead of the Fed decision",
+    "body": "The Federal Reserve’s upcoming interest-rate decision is key for Gold’s price.",
     "cat": "Central Bank",
     "ccys": [
       "USD"
@@ -100,20 +136,21 @@
     "dir": "mixed"
   },
   {
-    "ts": "28 Apr 18:14",
-    "title": "UK: Labour slack seen containing inflation – Standard Chartered",
-    "body": "Standard Chartered strategists Christopher Graham and John Davies highlight that growing labour market slack and fragile domestic demand should limit second-round inflation effects in the United Kingdom (UK).",
+    "ts": "29 Apr 09:02",
+    "title": "USD/JPY Price Forecast: Eyes 160.00 intervention level amid US-Iran tensions, ahead of Fed",
+    "body": "The USD/JPY pair looks to build on the previous day's bounce from sub-159.00 levels, or a one-week low, and climbs back closer to the overnight swing high during the first half of the European session on Wednesday.",
     "cat": "Central Bank",
     "ccys": [
+      "EUR",
       "USD"
     ],
     "dir": "mixed"
   },
   {
-    "ts": "28 Apr 17:43",
-    "title": "NZD/USD weakens as US-Iran tensions spur risk aversion, support Dollar",
-    "body": "NZD/USD trades around 0.5890 on Tuesday, down 0.35% on the day, after failing to hold above the 0.5900 level. The pair moves lower as the US Dollar (USD) strengthens, supported by increased demand for safe-haven assets.",
-    "cat": "Geopolitics",
+    "ts": "29 Apr 03:07",
+    "title": "Gold Price Forecast: Can Fed Chair Powell rescue XAU/USD buyers?",
+    "body": "Gold is consolidating the previous sell-off to monthly lows of $4,555 set on Tuesday, as traders turn to the sidelines and refrain from placing fresh bets ahead of the Federal Reserve (Fed) monetary policy decision due later on Wednesday.",
+    "cat": "Central Bank",
     "ccys": [
       "USD"
     ],
@@ -125,8 +162,8 @@
     "body": "The GBP/USD pair extends the previous day's retracement slide from the 1.3575 area, or over a one-week top, and attracts some follow-through selling on Tuesday.",
     "cat": "Central Bank",
     "ccys": [
-      "USD",
-      "GBP"
+      "GBP",
+      "USD"
     ],
     "dir": "mixed"
   },
@@ -156,8 +193,8 @@
     "body": "The USD/CAD pair is seen extending its retracement from the 1.3715 resistance, or over a one-week set on Friday, and drifting lower for the second consecutive day.",
     "cat": "Central Bank",
     "ccys": [
-      "USD",
-      "CAD"
+      "CAD",
+      "USD"
     ],
     "dir": "negative"
   },
@@ -172,30 +209,20 @@
     "dir": "negative"
   },
   {
-    "ts": "27 Apr 03:05",
-    "title": "Gold Price Forecast: XAU/USD extends range play around $4,700, kicking off a Big week",
-    "body": "Gold finds fresh demand to retake the $4,700 level in Asia on Monday, as the US Dollar pauses its advance amid a recovery in risk sentiment and ahead of the key Federal Reserve (Fed) monetary policy decision due later this week.",
-    "cat": "Central Bank",
+    "ts": "28 Apr 16:14",
+    "title": "Solar power soars to new heights but fears over 'dangerously high' temperatures",
+    "body": "Almost the entirety of Europe saw above-average temperatures last year, while wildfires burnt a record area and heatwaves struck from north to south, according to an extensive new climate study.",
+    "cat": "Macro",
     "ccys": [
-      "USD"
+      "EUR"
     ],
     "dir": "mixed"
   },
   {
-    "ts": "24 Apr 14:59",
-    "title": "EUR/USD Weekly Forecast: War and central banks in the limelight",
-    "body": "The EUR/USD pair ended a three-week winning streak and settled below the 1.1700 mark as the US Dollar (USD) strengthened amid Middle East uncertainty.",
+    "ts": "29 Apr 15:40",
+    "title": "<a href='https://news.sky.com/story/ukraine-war-latest-eu-formally-approves-ukraine-loan-teenagers-hired-for-school-terr",
+    "body": "",
     "cat": "Geopolitics",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "negative"
-  },
-  {
-    "ts": "24 Apr 14:30",
-    "title": "US Dollar Weekly: Will Kevin Warsh please President Trump?",
-    "body": "United States President Donald Trump’s nominee to succeed Jerome Powell as Federal Reserve Chair, Kevin Warsh, faced senators, and there was no subtlety.",
-    "cat": "Central Bank",
     "ccys": [
       "USD"
     ],
@@ -212,16 +239,6 @@
     "dir": "mixed"
   },
   {
-    "ts": "28 Apr 10:13",
-    "title": "Man, 89, arrested after shootings leave several wounded in Athens",
-    "body": "An 89-year-old man has been arrested after shootings in Athens left several people wounded.",
-    "cat": "Macro",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
     "ts": "28 Apr 04:07",
     "title": "Cartel leader tipped to succeed 'El Mencho' captured",
     "body": "Mexico's army has captured a cartel leader tipped to succeed notorious drug lord \"El Mencho\".",
@@ -232,19 +249,9 @@
     "dir": "mixed"
   },
   {
-    "ts": "28 Apr 21:23",
-    "title": "Players who cover mouths in confrontations to be sent off at World Cup",
-    "body": "Players who cover their mouths in confrontations with opponents to conceal discriminatory conduct face being sent off at the World Cup - after football's rule-makers voted through plans first revealed by Sky News.",
-    "cat": "Macro",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "28 Apr 04:25",
-    "title": "At least 14 dead in Indonesia train crash",
-    "body": "At least 14 people have been killed in a train collision in western Indonesia, with another 84 injured, according to the country's train operator.",
+    "ts": "28 Apr 10:13",
+    "title": "Man, 89, arrested after shootings leave several wounded in Athens",
+    "body": "An 89-year-old man has been arrested after shootings in Athens left several people wounded.",
     "cat": "Macro",
     "ccys": [
       "USD"

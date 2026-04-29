@@ -183,8 +183,8 @@ RATE_EXP = {
         "yield_2y": 3.78, "yield_10y": 4.35,
         "spread_2y_vs_usd":  0.00, "spread_10y_vs_usd": 0.00,
         "curve_slope": 0.57,
-        "yield_2y_hist":  [3.83, 3.83, 3.83, 3.78, 3.78, 3.78],
-        "yield_10y_hist": [4.34, 4.34, 4.34, 4.31, 4.31, 4.35],
+        "yield_2y_hist":  [3.83, 3.83, 3.78, 3.78, 3.78, 3.78],
+        "yield_10y_hist": [4.34, 4.34, 4.31, 4.31, 4.35, 4.35],
         "ois": {"1m": 4.05, "3m": 3.95, "6m": 3.78, "12m": 3.52},
         "comment": "Benchmark currency. 2Y UST 4.52%, curve +20bps. Markets price 2 cuts H2 2026. USD yield advantage vs peers is narrowing — key risk to dollar strength.",
         "meetings": [
@@ -377,20 +377,20 @@ def get_yield_months(): return YIELD_MONTHS
 # FX RATES
 # ─────────────────────────────────────────────────────────────────
 FX_RATES = {
-    "EUR/USD": {"rate": 1.168, "chg": -0.59, "hi": 1.1820, "lo": 1.1750, "wchg": -2.4},
-    "GBP/USD": {"rate": 1.347, "chg":  -0.75, "hi": 1.3560, "lo": 1.3480, "wchg":  -3.0},
-    "USD/JPY": {"rate": 159.74, "chg":  0.33, "hi": 159.80, "lo": 158.90, "wchg":  1.3},
-    "USD/CAD": {"rate": 1.3676, "chg":  0.56, "hi": 1.3710, "lo": 1.3620, "wchg":  2.2},
-    "AUD/USD": {"rate": 0.7154, "chg":  -0.53, "hi": 0.7150, "lo": 0.7090, "wchg":  -2.1},
-    "NZD/USD": {"rate": 0.5868, "chg":  -0.86, "hi": 0.5930, "lo": 0.5870, "wchg":  -3.5},
-    "USD/CHF": {"rate": 0.7909, "chg": 0.9, "hi": 0.8040, "lo": 0.7990, "wchg": 3.6},
-    "EUR/GBP": {"rate": 0.8671, "chg": 0.0, "hi": 0.8760, "lo": 0.8710, "wchg": 0.0},
-    "GBP/JPY": {"rate": 215.1618, "chg":  0.0, "hi": 216.10, "lo": 214.80, "wchg":  0.0},
-    "EUR/CAD": {"rate": 1.5974, "chg": 0.0, "hi": 1.6180, "lo": 1.6060, "wchg": 0.0},
-    "GBP/CAD": {"rate": 1.8421, "chg":  0.0, "hi": 1.8560, "lo": 1.8420, "wchg":  0.0},
-    "CAD/CHF": {"rate": 0.5783, "chg": 0.0, "hi": 0.5750, "lo": 0.5690, "wchg": 0.0},
-    "EUR/CHF": {"rate": 0.9238, "chg": 0.0, "hi": 0.9240, "lo": 0.9190, "wchg": 0.0},
-    "AUD/NZD": {"rate": 1.2191, "chg": 0.0, "hi": 1.2110, "lo": 1.2040, "wchg":  0.0},
+    "EUR/USD": {"rate": 1.1706, "chg": 0.22, "hi": 1.1820, "lo": 1.1750, "wchg": 0.9},
+    "GBP/USD": {"rate": 1.3511, "chg":  0.3, "hi": 1.3560, "lo": 1.3480, "wchg":  1.2},
+    "USD/JPY": {"rate": 159.79, "chg":  0.03, "hi": 159.80, "lo": 158.90, "wchg":  0.1},
+    "USD/CAD": {"rate": 1.3674, "chg":  -0.01, "hi": 1.3710, "lo": 1.3620, "wchg":  -0.1},
+    "AUD/USD": {"rate": 0.7162, "chg":  0.12, "hi": 0.7150, "lo": 0.7090, "wchg":  0.5},
+    "NZD/USD": {"rate": 0.5859, "chg":  -0.16, "hi": 0.5930, "lo": 0.5870, "wchg":  -0.6},
+    "USD/CHF": {"rate": 0.789, "chg": -0.24, "hi": 0.8040, "lo": 0.7990, "wchg": -1.0},
+    "EUR/GBP": {"rate": 0.8664, "chg": 0.0, "hi": 0.8760, "lo": 0.8710, "wchg": 0.0},
+    "GBP/JPY": {"rate": 215.8859, "chg":  0.0, "hi": 216.10, "lo": 214.80, "wchg":  0.0},
+    "EUR/CAD": {"rate": 1.6007, "chg": 0.0, "hi": 1.6180, "lo": 1.6060, "wchg": 0.0},
+    "GBP/CAD": {"rate": 1.8474, "chg":  0.0, "hi": 1.8560, "lo": 1.8420, "wchg":  0.0},
+    "CAD/CHF": {"rate": 0.577, "chg": 0.0, "hi": 0.5750, "lo": 0.5690, "wchg": 0.0},
+    "EUR/CHF": {"rate": 0.9236, "chg": 0.0, "hi": 0.9240, "lo": 0.9190, "wchg": 0.0},
+    "AUD/NZD": {"rate": 1.2225, "chg": 0.0, "hi": 1.2110, "lo": 1.2040, "wchg":  0.0},
 }
 
 # ─────────────────────────────────────────────────────────────────
