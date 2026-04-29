@@ -1,30 +1,38 @@
 [
   {
-    "ts": "29 Apr 17:45",
-    "title": "Gold tumbles as Oil surge lifts yields, USD ahead of the Fed",
-    "body": "Gold (XAU/USD) price retreats over 1% on Wednesday as high energy prices are driving US Treasury yields soaring, signaling that investors are not expecting any rate cuts by the Federal Reserve (Fed), which is expected to hold rates unchanged late at around 18:00 GMT.",
+    "ts": "29 Apr 22:12",
+    "title": "Dow Jones Industrial Average drops as Powell signs off: is $650B in AI capex the next risk?",
+    "body": "Wednesday's session had every excuse to rally. The Federal Reserve (Fed) decision was telegraphed. Big Tech earnings were teed up. The Dow Jones Industrial Average (DJIA) had reclaimed 49,000 just two days earlier.",
     "cat": "Central Bank",
     "ccys": [
-      "CAD",
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "29 Apr 21:11",
+    "title": "Gold extends slide as Powell stays, Fed split lifts yields higher",
+    "body": "Gold (XAU/USD) price extends its losses over 1% as the Federal Reserve (Fed) held rates unchanged and its Chair Jerome Powell hinted that he would remain on the board until the criminal investigation against him is definitively dropped.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "29 Apr 20:59",
+    "title": "Forex Today: US Dollar surges amid Fed's hawkish hold in Powell’s last meeting",
+    "body": "The US Dollar Index (DXY) is trading near the 99.00 price zone on Wednesday after the Federal Reserve (Fed) decided to keep interest rates on hold. This was Chairman Jerome Powell's last meeting as head of the Fed.",
+    "cat": "Central Bank",
+    "ccys": [
       "USD"
     ],
     "dir": "positive"
   },
   {
-    "ts": "29 Apr 17:30",
-    "title": "EUR/CAD slides as steady BoC and rising Oil prices lift Loonie",
-    "body": "EUR/CAD trades on the back foot on Wednesday as the Canadian Dollar (CAD) strengthens broadly following the Bank of Canada monetary policy announcement, while rising Oil prices add further support to the commodity-linked Loonie.",
-    "cat": "Central Bank",
-    "ccys": [
-      "CAD",
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "29 Apr 17:30",
-    "title": "Federal Reserve set to hold interest rates again in Powell’s last meeting as chair",
-    "body": "The United States (US) Federal Reserve (Fed) announces its interest rate decision on Wednesday, another pivotal meeting for markets to gauge the stance of policymakers as energy prices remain uncomfortably high amid ongoing uncertainty in the Middle East, putting the Fed’s dual mandate under strain.",
+    "ts": "29 Apr 19:40",
+    "title": "Dow Jones Industrial Average bounces from 48,700 lows as post-Fed markets recover",
+    "body": "Dow Jones Industrial Average (DJIA) futures dropped close to 0.70% on Wednesday, falling from a session high near 49,250 to a fresh session low around 48,700 during Powell's press conference before staging a sharp final-hour recovery that returned price to trade close to 48,790.",
     "cat": "Central Bank",
     "ccys": [
       "USD"
@@ -32,95 +40,91 @@
     "dir": "mixed"
   },
   {
-    "ts": "29 Apr 16:31",
-    "title": "USD/JPY climbs to one-month high above 160 as Fed decision nears",
-    "body": "USD/JPY trades higher on Wednesday around 160.25, up 0.40% on the day and reaching a one-month high, close to the March 30 peak at 160.46.",
-    "cat": "Central Bank",
+    "ts": "29 Apr 19:38",
+    "title": "USD/CAD's post-FOMC spike fades during Powell's presser",
+    "body": "USD/CAD finished broadly unchanged on Wednesday, slipping less than 0.1% to trade close to 1.3688 after a volatile post-FOMC session.",
+    "cat": "Macro",
     "ccys": [
       "USD"
     ],
     "dir": "mixed"
   },
   {
-    "ts": "29 Apr 15:53",
-    "title": "Dow Jones Industrial Average slips below 49K ahead of Powell's final Fed rate call",
-    "body": "Dow Jones Industrial Average (DJIA) futures drifted lower through Wednesday's session, trading close to 48.8K at the time of writing after rejecting levels above 49.3K during the prior day.",
-    "cat": "Central Bank",
+    "ts": "29 Apr 19:36",
+    "title": "XAU/USD slips back as the post-Powell bounce fades",
+    "body": "XAU/USD declined around 1.6% on Wednesday, falling from a session high near $4,610 to a session low of about $4,510 around the FOMC decision, then recovering to roughly $4,565 during Jerome Powell's press conference before slipping back to retest the $4,520 area and currently trading close to $4,534",
+    "cat": "Macro",
     "ccys": [
       "USD"
     ],
     "dir": "mixed"
   },
   {
-    "ts": "29 Apr 15:47",
-    "title": "USD/CAD steadies as the BoC holds and Iran threat sparks whipsaw",
-    "body": "USD/CAD trades essentially flat on Wednesday, last seen near 1.3680 after a brief whipsaw spike to about 1.3710 was quickly retraced.",
-    "cat": "Central Bank",
-    "ccys": [
-      "CAD",
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "29 Apr 15:35",
-    "title": "NZD/USD weakens as Fed policy caution, Iran tensions support US Dollar",
-    "body": "NZD/USD trades lower around 0.5840 on Wednesday at the time of writing, down 0.76% on the day, as markets adopt a wait-and-see stance ahead of the Federal Reserve (Fed) monetary policy decision later in the day.",
-    "cat": "Central Bank",
+    "ts": "29 Apr 19:33",
+    "title": "DXY tops 99.00 on hawkish Powell before easing into the close",
+    "body": "The US Dollar Index (DXY) climbed about 0.40% on Wednesday, rising from a session low near 98.57 to push above 99.00 intraday and peak close to 99.05 during Chair Jerome Powell's press conference before drifting back to trade about 98.98 in the closing hour.",
+    "cat": "Macro",
     "ccys": [
       "USD"
     ],
-    "dir": "mixed"
+    "dir": "positive"
   },
   {
-    "ts": "29 Apr 15:29",
-    "title": "Bank of Canada: patient for now, but options still open",
-    "body": "As widely expected, the Bank of Canada (BoC) delivered an expected hold at 2.25%, but the details suggested a more nuanced backdrop.",
+    "ts": "29 Apr 19:33",
+    "title": "Fed recap: Holding steady, but the debate is getting louder",
+    "body": "The Federal Reserve (Fed) left its policy rate unchanged at 3.50% to 3.75%, a widely expected move, but the underlying message was far from straightforward.",
     "cat": "Central Bank",
     "ccys": [
-      "CAD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "29 Apr 15:14",
-    "title": "BoC's Macklem: Inflation expectations are not as well anchored as they were before Covid",
-    "body": "Tiff Macklem faced the press shortly after the decision, offering markets a clearer sense of the central bank’s thinking. The appearance followed the widely expected move by the Bank of Canada to hold the policy rate steady at 2.25%.",
-    "cat": "Central Bank",
-    "ccys": [
-      "CAD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "29 Apr 15:07",
-    "title": "Gold holds near one-month lows as Oil-driven inflation and US-Iran tensions weigh",
-    "body": "Gold (XAU/USD) trades on the back foot on Wednesday, hovering near one-month lows ahead of the Federal Reserve’s (Fed) monetary policy announcement due later in the American session at 18:00 GMT.",
-    "cat": "Central Bank",
-    "ccys": [
-      "CAD",
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "29 Apr 15:05",
-    "title": "AUD/USD slides as US Dollar gains on geopolitical tensions ahead of Fed decision",
-    "body": "The Australian Dollar (AUD) edges lower against the US Dollar (USD) on Wednesday, weighed by softer-than-expected Australian inflation data, while fading hopes that the US-Iran war will end anytime soon support the Greenback.",
-    "cat": "Central Bank",
-    "ccys": [
-      "AUD",
       "USD"
     ],
     "dir": "negative"
   },
   {
-    "ts": "29 Apr 14:59",
-    "title": "USD: Firm tone with Fed on hold – Scotiabank",
-    "body": "Scotiabank strategists Shaun Osborne and Eric Theoret observe that the US Dollar (USD) is firm but rangebound as higher Oil and mixed US-Iran headlines drive risk sentiment.",
+    "ts": "29 Apr 19:16",
+    "title": "Fed's Powell: We are in a good place to move in any direction",
+    "body": "At the post-meeting press conference, Jerome Powell outlined the reasoning behind the decision to leave interest rates unchanged after the March meeting and fielded questions from reporters on the outcome.",
     "cat": "Central Bank",
     "ccys": [
-      "CAD",
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "29 Apr 18:56",
+    "title": "AUD/USD tumbles toward 0.7100 as Powell lifts US Dollar demand",
+    "body": "AUD/USD drops towards 0.7100 on Wednesday, down some 1%, as the Federal Reserve (Fed) held rates unchanged and Fed Chair Jerome Powell hints that, once his term as chief ends, he will remain on the Fed’s board.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "negative"
+  },
+  {
+    "ts": "29 Apr 18:54",
+    "title": "GBP/USD falls as Fed holds rates steady, Powell to stay at Fed",
+    "body": "GBP/USD maintains its negative intraday trend on Wednesday, remaining steady following the Federal Reserve’s (Fed) decision to keep interest rates unchanged at Jerome Powell’s final meeting as Fed Chair.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "29 Apr 18:37",
+    "title": "US President Trump: Talked about Ukraine, Iran with Putin",
+    "body": "United States (US) President Donald Trump is hitting the wires amid the Federal Reserve (Fed) monetary policy announcement. President Trump spoke with his Russian counterpart, Vladimir Putin, about the ongoing situation between Russia and Ukraine and that of the United States with Iran.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "29 Apr 19:10",
+    "title": "Thanks for your service, Mr. Chair Powell",
+    "body": "Powell’s departure is probably the most troublesome end of a Federal Reserve (Fed) Chair, despite being the most resolute leader a central bank could have. Indeed, Powell could be labeled as conservative.",
+    "cat": "Central Bank",
+    "ccys": [
       "USD"
     ],
     "dir": "mixed"
@@ -162,8 +166,8 @@
     "body": "The GBP/USD pair extends the previous day's retracement slide from the 1.3575 area, or over a one-week top, and attracts some follow-through selling on Tuesday.",
     "cat": "Central Bank",
     "ccys": [
-      "GBP",
-      "USD"
+      "USD",
+      "GBP"
     ],
     "dir": "mixed"
   },
@@ -199,14 +203,14 @@
     "dir": "negative"
   },
   {
-    "ts": "27 Apr 06:00",
-    "title": "AI could quickly become the Fed’s new problem",
-    "body": "A strong economy and a flimsy labor market don’t typically go hand in hand. For the Fed and other central banks, the playbook has long been straightforward: weak hiring calls for lower interest rates, while an overheating economy and inflation above target justify tighter policy.",
-    "cat": "Central Bank",
+    "ts": "29 Apr 21:54",
+    "title": "US accuses Mexican governor of working with drug lord's sons",
+    "body": "The US has charged the governor of Mexico's Sinaloa state and nine other current or former officials with drug trafficking and weapons offences.",
+    "cat": "Macro",
     "ccys": [
       "USD"
     ],
-    "dir": "negative"
+    "dir": "mixed"
   },
   {
     "ts": "28 Apr 16:14",
@@ -242,16 +246,6 @@
     "ts": "28 Apr 04:07",
     "title": "Cartel leader tipped to succeed 'El Mencho' captured",
     "body": "Mexico's army has captured a cartel leader tipped to succeed notorious drug lord \"El Mencho\".",
-    "cat": "Macro",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "28 Apr 10:13",
-    "title": "Man, 89, arrested after shootings leave several wounded in Athens",
-    "body": "An 89-year-old man has been arrested after shootings in Athens left several people wounded.",
     "cat": "Macro",
     "ccys": [
       "USD"
