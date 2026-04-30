@@ -1,5 +1,122 @@
 [
   {
+    "ts": "30 Apr 21:37",
+    "title": "Taiwan: Growth strength and CBC stance – UOB",
+    "body": "UOB’s Ho Woei Chen highlights Taiwan’s strong 1Q26 Gross Domestic Product (GDP) performance, driven by exports and improving domestic demand, and expects full-year 2026 growth to exceed 9%.",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "30 Apr 21:28",
+    "title": "AUD/USD jumps near 0.7200 as Japan’s intervention sinks the USD",
+    "body": "The Australian Dollar reclaimed the 0.7200 level on Thursday, surging more than 1% as the Greenback dropped to seven-day lows amid Japanese authorities’ intervention in the FX markets, pushing aside solid US economic data. The AUD/USD trades past 0.7200 after hitting a daily low of 0.7110.",
+    "cat": "Macro",
+    "ccys": [
+      "JPY",
+      "AUD",
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "30 Apr 20:58",
+    "title": "Forex Today: US Dollar weakens in eventful \"Yentervention\" day",
+    "body": "The US Dollar Index (DXY) declined sharply to around 98.10 on Thursday after data showed the United States (US) economy grew at a lower-than-expected pace in the first quarter and amid Japanese authorities' first intervention in the foreign exchange market in almost two years.",
+    "cat": "Macro",
+    "ccys": [
+      "JPY",
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "30 Apr 20:52",
+    "title": "Thailand: BoT pause extended as stagflation risks build – DBS",
+    "body": "DBS Group Research economist Chua Han Teng expects the Bank of Thailand (BoT) to keep its policy rate at 1.00% through end-2026 as stagflationary pressures from Iran-related supply shocks hit growth and inflation.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "30 Apr 20:11",
+    "title": "China: Manufacturing outlook bright, demand softens – UOB",
+    "body": "UOB economist Ho Woei Chen assesses China’s latest PMIs, noting a positive outlook for manufacturing supported by strong AI-related export demand and robust industrial profits, while domestic demand and services weaken.",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "30 Apr 19:37",
+    "title": "Romania: Reform risks rise – Standard Chartered",
+    "body": "Standard Chartered Bank analysts Pietro Righi and Christopher Graham warn that renewed political turmoil in Romania could undermine fiscal consolidation and delay key reforms.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "CAD"
+    ],
+    "dir": "negative"
+  },
+  {
+    "ts": "30 Apr 19:02",
+    "title": "Asian FX: Oil shock and Fed stance pressure – OCBC",
+    "body": "OCBC strategists Sim Moh Siong and Christopher Wong highlight that most Asian FX traded softer as Brent’s rise toward USD120/bbl, inflation risks and hawkish Fed repricing weighed on sentiment.",
+    "cat": "Central Bank",
+    "ccys": [
+      "CAD",
+      "USD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "30 Apr 18:35",
+    "title": "India: Growth resilient but risks building – Commerzbank",
+    "body": "Commerzbank analysts describe India’s growth backdrop as solid, with GDP expected around 6.5% in fiscal 2026–2027, supported by domestic demand, GST 2.0 reforms, and investment-friendly budgets.",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "30 Apr 18:22",
+    "title": "EUR/USD Price Forecast: Consolidates below key Fibonacci level as bulls defend 200-day SMA",
+    "body": "The Euro (EUR) edges higher against the US Dollar (USD) on Thursday as the Greenback softens broadly following possible intervention from Tokyo, with authorities seen selling Dollars to support the Japanese Yen (JPY), while the Euro also draws some support from the latest monetary policy decision by",
+    "cat": "Macro",
+    "ccys": [
+      "JPY",
+      "USD",
+      "EUR"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "30 Apr 17:57",
+    "title": "GBP/USD Price Forecast: Bullish-engulfing pattern looms, traders eye 1.3600",
+    "body": "The GBP/USD pair advances by some 0.78% on Thursday as market participants continue to price in further tightening by the Bank of England (BoE), even though it kept rates steady earlier in the day.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD",
+      "GBP"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "30 Apr 17:52",
+    "title": "UK: Local vote risks and Gilt focus – Standard Chartered",
+    "body": "Standard Chartered strategists discuss how United Kingdom (UK) local elections on 7 May could intensify political pressure on Prime Minister Starmer and potentially trigger a Labour leadership challenge.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
     "ts": "30 Apr 17:06",
     "title": "WTI Oil eases after three-day advance as Hormuz tensions keep supply risks in focus",
     "body": "West Texas Intermediate (WTI) declines on Thursday, trading around $101.45 at the time of writing, down 3.70% on the day after three consecutive days of gains. Despite this technical pullback, US Crude remains above the psychological $100 level, reflecting a market that is still under strain.",
@@ -10,114 +127,22 @@
     "dir": "negative"
   },
   {
-    "ts": "30 Apr 16:59",
-    "title": "Dow Jones Industrial Average rallies above 49,500 on Caterpillar earnings boost",
-    "body": "The Dow Jones Industrial Average climbed sharply on Thursday, adding about 730 points, or 1.5%, after rallying from an overnight low below 48,500 to a session high just above 49,600.",
+    "ts": "30 Apr 21:24",
+    "title": "Yentervention: Will it stick this time?",
+    "body": "Japan’s first intervention in the Forex market in almost two years shows that authorities are serious about preventing the sharp depreciation of the Yen.",
     "cat": "Macro",
     "ccys": [
-      "USD"
+      "JPY"
     ],
     "dir": "mixed"
   },
   {
-    "ts": "30 Apr 16:16",
-    "title": "USD/CAD falls as Dollar weakens on possible Japan FX intervention",
-    "body": "USD/CAD trades on the back foot on Thursday as renewed weakness in the US Dollar (USD) supports the Canadian Dollar (CAD), while the latest US economic data fails to provide support to the Greenback. At the time of writing, the pair is trading around 1.3612, down nearly 0.53% on the day.",
-    "cat": "Macro",
-    "ccys": [
-      "JPY",
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "30 Apr 16:07",
-    "title": "BoE recap: An “active hold” as inflation risks re-emerge",
-    "body": "The Bank of England (BoE) kept rates unchanged at 3.75%, but unlike a passive pause, this was framed as a deliberate and active policy choice.",
+    "ts": "30 Apr 21:11",
+    "title": "Rising inflation and slowing growth put ECB and BoE in a bind",
+    "body": "The European Central Bank (ECB) and the Bank of England (BoE) may operate in different economies, but this week’s meetings delivered a strikingly similar message: inflation risks are creeping back just as growth is losing momentum, giving some belief to the idea that a stagflationary scenario could",
     "cat": "Central Bank",
     "ccys": [
-      "GBP"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "30 Apr 16:03",
-    "title": "EUR/GBP slips as ECB and BoE hold rates, but hawks stay alert now",
-    "body": "The EUR/GBP falls some 0.16% during the day as the central bank bonanza ends with the ECB and the BoE keeping interest rates unchanged as expected. The cross-pair trades at around 0.8644 after reaching a daily high of 0.8667.",
-    "cat": "Central Bank",
-    "ccys": [
-      "EUR",
-      "GBP"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "30 Apr 16:01",
-    "title": "AUD/USD rises amid robust Chinese business activity, weaker US Dollar",
-    "body": "The AUD/USD recovers toward the 0.7190 price region on Thursday, erasing Wednesday's losses, as the Australian Dollar (AUD) benefits from data showing a resilient Chinese economy and a weaker US Dollar (USD).",
-    "cat": "Geopolitics",
-    "ccys": [
-      "AUD",
-      "USD"
-    ],
-    "dir": "negative"
-  },
-  {
-    "ts": "30 Apr 15:46",
-    "title": "Silver Price Analysis: XAG/USD rebound loses momentum amid restrictive policy risks",
-    "body": "Silver (XAG/USD) moves higher on Thursday, trading around $73.40 at the time of writing, up 2.81% on the day, after undergoing a marked pullback in recent weeks. This technical rebound comes as the white metal attempts to stabilize following the rejection near the $80 threshold in mid-April.",
-    "cat": "Macro",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "30 Apr 15:08",
-    "title": "Gold firms as USD weakens, higher-for-longer rates limit upside",
-    "body": "Gold (XAU/USD) edges higher on Thursday, recovering from the one-month low of $4,510 seen the previous day. The modest rebound comes as the US Dollar (USD) weakens after Tokyo ramps up FX intervention warnings.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "negative"
-  },
-  {
-    "ts": "30 Apr 15:07",
-    "title": "ECB sees two rate hikes if Brent stays above $100 – Reuters",
-    "body": "Sources speaking with Reuters revealed that the European Central Bank (ECB) policymakers are likely to hike rates “at least” twice this year, beginning in June if there’s no resolution to the Iran conflict.",
-    "cat": "Central Bank",
-    "ccys": [
-      "EUR"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "30 Apr 15:02",
-    "title": "ECB: Stagflation risks complicate policy path – ING",
-    "body": "ING’s Global Head of Macro, Carsten Brzeski, notes that the European Central Bank (ECB) kept interest rates on hold as stagflationary pressures in the Eurozone rise. The bank highlights weaker Gross Domestic Product (GDP) growth, mixed inflation dynamics and tighter credit conditions.",
-    "cat": "Central Bank",
-    "ccys": [
-      "EUR"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "30 Apr 14:53",
-    "title": "Fed: Dots and easing path steady – ABN AMRO",
-    "body": "ABN AMRO’s US Senior Economist Rogier Quaedvlieg reviews the latest Federal Open Market Committee (FOMC) decision, noting that the Federal Reserve (Fed) kept rates unchanged and maintained an easing bias in its statement.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "30 Apr 14:53",
-    "title": "ECB Recap: Between rising inflation risks and a slowing economy",
-    "body": "As widely telegraphed, the European Central Bank (ECB) kept its policy rates unchanged on Thursday, but the tone of the meeting reflected a far more complicated backdrop.",
-    "cat": "Central Bank",
-    "ccys": [
+      "GBP",
       "EUR"
     ],
     "dir": "mixed"
@@ -168,8 +193,8 @@
     "body": "The USD/JPY pair looks to build on the previous day's bounce from sub-159.00 levels, or a one-week low, and climbs back closer to the overnight swing high during the first half of the European session on Wednesday.",
     "cat": "Central Bank",
     "ccys": [
-      "EUR",
-      "USD"
+      "USD",
+      "EUR"
     ],
     "dir": "mixed"
   },
@@ -184,40 +209,9 @@
     "dir": "mixed"
   },
   {
-    "ts": "28 Apr 08:55",
-    "title": "GBP/USD Price Forecast: Bullish potential intact as traders await Fed/BoE policy meetings",
-    "body": "The GBP/USD pair extends the previous day's retracement slide from the 1.3575 area, or over a one-week top, and attracts some follow-through selling on Tuesday.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD",
-      "GBP"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "28 Apr 02:05",
-    "title": "Gold Price Forecast: XAU/USD looks to Fed verdict for next big break amid stalled US-Iran talks",
-    "body": "Gold is trading listlessly near the $4,700 level in Asian trading on Tuesday, maintaining its familiar range, as focus now shifts toward the two-day Federal Reserve (Fed) monetary policy meeting starting later in the day.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "negative"
-  },
-  {
-    "ts": "29 Apr 15:29",
-    "title": "RAF troops shot down more than 100 Iranian drones and missiles fired at Middle East base",
-    "body": "A coalition base in Iraq that British forces are helping to defend was targeted by around 28 Iranian-linked drones and missiles a day as the US and Israel attacked Iran, it has emerged.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "negative"
-  },
-  {
-    "ts": "30 Apr 07:56",
-    "title": "Saudi Arabia pulls LIV Golf funding - full statement",
-    "body": "Saudi Arabia's sovereign wealth fund is withdrawing investment from LIV Golf after the 2026 season, Sky News has been told.",
+    "ts": "30 Apr 21:06",
+    "title": "Bayesian superyacht sinking didn't happen due to storm, investigators find",
+    "body": "An ongoing investigation into the sinking of the Bayesian superyacht has found bad weather was not severe enough to cause its deadly capsizing, Sky News understands.",
     "cat": "Macro",
     "ccys": [
       "USD"
@@ -235,9 +229,19 @@
     "dir": "mixed"
   },
   {
-    "ts": "30 Apr 03:38",
-    "title": "Trump threatens to withdraw troops from Germany",
-    "body": "Donald Trump has threatened to remove US troops from Germany after the country's chancellor said America was being \"humiliated\" by Iran.",
+    "ts": "30 Apr 21:38",
+    "title": "Passengers pulled from water after learner driver crashes bus into major European river",
+    "body": "Four people have been rescued from the River Seine in Paris after a trainee bus driver crashed through a barrier and into the water.",
+    "cat": "Macro",
+    "ccys": [
+      "EUR"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "30 Apr 21:25",
+    "title": "Iran won't be booted out of World Cup and will play in US, says FIFA boss",
+    "body": "The head of FIFA has said Iran will still compete at the World Cup and play matches in the US because \"we have to unite\".",
     "cat": "Geopolitics",
     "ccys": [
       "USD"
@@ -245,13 +249,13 @@
     "dir": "mixed"
   },
   {
-    "ts": "30 Apr 08:52",
-    "title": "White supremacist jailed for deadly mosque shooting fails to overturn guilty plea",
-    "body": "The man jailed for life after murdering 51 people at two mosques in New Zealand has lost an attempt to withdraw his guilty pleas.",
-    "cat": "Macro",
+    "ts": "29 Apr 15:29",
+    "title": "RAF troops shot down more than 100 Iranian drones and missiles fired at Middle East base",
+    "body": "A coalition base in Iraq that British forces are helping to defend was targeted by around 28 Iranian-linked drones and missiles a day as the US and Israel attacked Iran, it has emerged.",
+    "cat": "Geopolitics",
     "ccys": [
-      "NZD"
+      "USD"
     ],
-    "dir": "mixed"
+    "dir": "negative"
   }
 ]
