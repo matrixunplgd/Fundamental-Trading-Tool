@@ -1,48 +1,18 @@
 [
   {
-    "ts": "29 Apr 22:12",
-    "title": "Dow Jones Industrial Average drops as Powell signs off: is $650B in AI capex the next risk?",
-    "body": "Wednesday's session had every excuse to rally. The Federal Reserve (Fed) decision was telegraphed. Big Tech earnings were teed up. The Dow Jones Industrial Average (DJIA) had reclaimed 49,000 just two days earlier.",
-    "cat": "Central Bank",
+    "ts": "30 Apr 17:06",
+    "title": "WTI Oil eases after three-day advance as Hormuz tensions keep supply risks in focus",
+    "body": "West Texas Intermediate (WTI) declines on Thursday, trading around $101.45 at the time of writing, down 3.70% on the day after three consecutive days of gains. Despite this technical pullback, US Crude remains above the psychological $100 level, reflecting a market that is still under strain.",
+    "cat": "Geopolitics",
     "ccys": [
-      "USD"
+      "CAD"
     ],
-    "dir": "mixed"
+    "dir": "negative"
   },
   {
-    "ts": "29 Apr 21:11",
-    "title": "Gold extends slide as Powell stays, Fed split lifts yields higher",
-    "body": "Gold (XAU/USD) price extends its losses over 1% as the Federal Reserve (Fed) held rates unchanged and its Chair Jerome Powell hinted that he would remain on the board until the criminal investigation against him is definitively dropped.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "29 Apr 20:59",
-    "title": "Forex Today: US Dollar surges amid Fed's hawkish hold in Powell’s last meeting",
-    "body": "The US Dollar Index (DXY) is trading near the 99.00 price zone on Wednesday after the Federal Reserve (Fed) decided to keep interest rates on hold. This was Chairman Jerome Powell's last meeting as head of the Fed.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "29 Apr 19:40",
-    "title": "Dow Jones Industrial Average bounces from 48,700 lows as post-Fed markets recover",
-    "body": "Dow Jones Industrial Average (DJIA) futures dropped close to 0.70% on Wednesday, falling from a session high near 49,250 to a fresh session low around 48,700 during Powell's press conference before staging a sharp final-hour recovery that returned price to trade close to 48,790.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "29 Apr 19:38",
-    "title": "USD/CAD's post-FOMC spike fades during Powell's presser",
-    "body": "USD/CAD finished broadly unchanged on Wednesday, slipping less than 0.1% to trade close to 1.3688 after a volatile post-FOMC session.",
+    "ts": "30 Apr 16:59",
+    "title": "Dow Jones Industrial Average rallies above 49,500 on Caterpillar earnings boost",
+    "body": "The Dow Jones Industrial Average climbed sharply on Thursday, adding about 730 points, or 1.5%, after rallying from an overnight low below 48,500 to a session high just above 49,600.",
     "cat": "Macro",
     "ccys": [
       "USD"
@@ -50,9 +20,52 @@
     "dir": "mixed"
   },
   {
-    "ts": "29 Apr 19:36",
-    "title": "XAU/USD slips back as the post-Powell bounce fades",
-    "body": "XAU/USD declined around 1.6% on Wednesday, falling from a session high near $4,610 to a session low of about $4,510 around the FOMC decision, then recovering to roughly $4,565 during Jerome Powell's press conference before slipping back to retest the $4,520 area and currently trading close to $4,534",
+    "ts": "30 Apr 16:16",
+    "title": "USD/CAD falls as Dollar weakens on possible Japan FX intervention",
+    "body": "USD/CAD trades on the back foot on Thursday as renewed weakness in the US Dollar (USD) supports the Canadian Dollar (CAD), while the latest US economic data fails to provide support to the Greenback. At the time of writing, the pair is trading around 1.3612, down nearly 0.53% on the day.",
+    "cat": "Macro",
+    "ccys": [
+      "JPY",
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "30 Apr 16:07",
+    "title": "BoE recap: An “active hold” as inflation risks re-emerge",
+    "body": "The Bank of England (BoE) kept rates unchanged at 3.75%, but unlike a passive pause, this was framed as a deliberate and active policy choice.",
+    "cat": "Central Bank",
+    "ccys": [
+      "GBP"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "30 Apr 16:03",
+    "title": "EUR/GBP slips as ECB and BoE hold rates, but hawks stay alert now",
+    "body": "The EUR/GBP falls some 0.16% during the day as the central bank bonanza ends with the ECB and the BoE keeping interest rates unchanged as expected. The cross-pair trades at around 0.8644 after reaching a daily high of 0.8667.",
+    "cat": "Central Bank",
+    "ccys": [
+      "EUR",
+      "GBP"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "30 Apr 16:01",
+    "title": "AUD/USD rises amid robust Chinese business activity, weaker US Dollar",
+    "body": "The AUD/USD recovers toward the 0.7190 price region on Thursday, erasing Wednesday's losses, as the Australian Dollar (AUD) benefits from data showing a resilient Chinese economy and a weaker US Dollar (USD).",
+    "cat": "Geopolitics",
+    "ccys": [
+      "AUD",
+      "USD"
+    ],
+    "dir": "negative"
+  },
+  {
+    "ts": "30 Apr 15:46",
+    "title": "Silver Price Analysis: XAG/USD rebound loses momentum amid restrictive policy risks",
+    "body": "Silver (XAG/USD) moves higher on Thursday, trading around $73.40 at the time of writing, up 2.81% on the day, after undergoing a marked pullback in recent weeks. This technical rebound comes as the white metal attempts to stabilize following the rejection near the $80 threshold in mid-April.",
     "cat": "Macro",
     "ccys": [
       "USD"
@@ -60,19 +73,9 @@
     "dir": "mixed"
   },
   {
-    "ts": "29 Apr 19:33",
-    "title": "DXY tops 99.00 on hawkish Powell before easing into the close",
-    "body": "The US Dollar Index (DXY) climbed about 0.40% on Wednesday, rising from a session low near 98.57 to push above 99.00 intraday and peak close to 99.05 during Chair Jerome Powell's press conference before drifting back to trade about 98.98 in the closing hour.",
-    "cat": "Macro",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "29 Apr 19:33",
-    "title": "Fed recap: Holding steady, but the debate is getting louder",
-    "body": "The Federal Reserve (Fed) left its policy rate unchanged at 3.50% to 3.75%, a widely expected move, but the underlying message was far from straightforward.",
+    "ts": "30 Apr 15:08",
+    "title": "Gold firms as USD weakens, higher-for-longer rates limit upside",
+    "body": "Gold (XAU/USD) edges higher on Thursday, recovering from the one-month low of $4,510 seen the previous day. The modest rebound comes as the US Dollar (USD) weakens after Tokyo ramps up FX intervention warnings.",
     "cat": "Central Bank",
     "ccys": [
       "USD"
@@ -80,9 +83,29 @@
     "dir": "negative"
   },
   {
-    "ts": "29 Apr 19:16",
-    "title": "Fed's Powell: We are in a good place to move in any direction",
-    "body": "At the post-meeting press conference, Jerome Powell outlined the reasoning behind the decision to leave interest rates unchanged after the March meeting and fielded questions from reporters on the outcome.",
+    "ts": "30 Apr 15:07",
+    "title": "ECB sees two rate hikes if Brent stays above $100 – Reuters",
+    "body": "Sources speaking with Reuters revealed that the European Central Bank (ECB) policymakers are likely to hike rates “at least” twice this year, beginning in June if there’s no resolution to the Iran conflict.",
+    "cat": "Central Bank",
+    "ccys": [
+      "EUR"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "30 Apr 15:02",
+    "title": "ECB: Stagflation risks complicate policy path – ING",
+    "body": "ING’s Global Head of Macro, Carsten Brzeski, notes that the European Central Bank (ECB) kept interest rates on hold as stagflationary pressures in the Eurozone rise. The bank highlights weaker Gross Domestic Product (GDP) growth, mixed inflation dynamics and tighter credit conditions.",
+    "cat": "Central Bank",
+    "ccys": [
+      "EUR"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "30 Apr 14:53",
+    "title": "Fed: Dots and easing path steady – ABN AMRO",
+    "body": "ABN AMRO’s US Senior Economist Rogier Quaedvlieg reviews the latest Federal Open Market Committee (FOMC) decision, noting that the Federal Reserve (Fed) kept rates unchanged and maintained an easing bias in its statement.",
     "cat": "Central Bank",
     "ccys": [
       "USD"
@@ -90,34 +113,34 @@
     "dir": "mixed"
   },
   {
-    "ts": "29 Apr 18:56",
-    "title": "AUD/USD tumbles toward 0.7100 as Powell lifts US Dollar demand",
-    "body": "AUD/USD drops towards 0.7100 on Wednesday, down some 1%, as the Federal Reserve (Fed) held rates unchanged and Fed Chair Jerome Powell hints that, once his term as chief ends, he will remain on the Fed’s board.",
+    "ts": "30 Apr 14:53",
+    "title": "ECB Recap: Between rising inflation risks and a slowing economy",
+    "body": "As widely telegraphed, the European Central Bank (ECB) kept its policy rates unchanged on Thursday, but the tone of the meeting reflected a far more complicated backdrop.",
     "cat": "Central Bank",
+    "ccys": [
+      "EUR"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "30 Apr 09:04",
+    "title": "USD/JPY Price Forecast: Profit-taking kicks in after fresh intervention warnings",
+    "body": "The USD/JPY pair builds on the previous day's breakout momentum beyond the 160.00 psychological mark, hitting a fresh high since July 2024 on Thursday.",
+    "cat": "Geopolitics",
     "ccys": [
       "USD"
     ],
     "dir": "negative"
   },
   {
-    "ts": "29 Apr 18:54",
-    "title": "GBP/USD falls as Fed holds rates steady, Powell to stay at Fed",
-    "body": "GBP/USD maintains its negative intraday trend on Wednesday, remaining steady following the Federal Reserve’s (Fed) decision to keep interest rates unchanged at Jerome Powell’s final meeting as Fed Chair.",
+    "ts": "30 Apr 05:12",
+    "title": "Gold Price Forecast: XAU/USD looks vulnerable amid inflation fears, hawkish Fed hold",
+    "body": "Gold is fading its bounce from monthly lows of $4,510 set on Wednesday, as buyers lack conviction amid renewed haven demand for the US Dollar (USD)",
     "cat": "Central Bank",
     "ccys": [
       "USD"
     ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "29 Apr 18:37",
-    "title": "US President Trump: Talked about Ukraine, Iran with Putin",
-    "body": "United States (US) President Donald Trump is hitting the wires amid the Federal Reserve (Fed) monetary policy announcement. President Trump spoke with his Russian counterpart, Vladimir Putin, about the ongoing situation between Russia and Ukraine and that of the United States with Iran.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
+    "dir": "positive"
   },
   {
     "ts": "29 Apr 19:10",
@@ -182,9 +205,9 @@
     "dir": "negative"
   },
   {
-    "ts": "27 Apr 17:48",
-    "title": "Gold Price Forecast: XAU/USD under modest pressure ahead of central banks, war clarity",
-    "body": "Spot Gold trades with a soft tone on Monday, still stuck to familiar levels. The precious metal changes hands in the $4,680 price zone in the American session, after peaking at around $4,730 earlier in the day.",
+    "ts": "29 Apr 15:29",
+    "title": "RAF troops shot down more than 100 Iranian drones and missiles fired at Middle East base",
+    "body": "A coalition base in Iraq that British forces are helping to defend was targeted by around 28 Iranian-linked drones and missiles a day as the US and Israel attacked Iran, it has emerged.",
     "cat": "Geopolitics",
     "ccys": [
       "USD"
@@ -192,63 +215,42 @@
     "dir": "negative"
   },
   {
-    "ts": "27 Apr 08:59",
-    "title": "USD/CAD Price Forecast: Bears retain control amid Iran jitters, ahead of BoC/Fed",
-    "body": "The USD/CAD pair is seen extending its retracement from the 1.3715 resistance, or over a one-week set on Friday, and drifting lower for the second consecutive day.",
+    "ts": "30 Apr 07:56",
+    "title": "Saudi Arabia pulls LIV Golf funding - full statement",
+    "body": "Saudi Arabia's sovereign wealth fund is withdrawing investment from LIV Golf after the 2026 season, Sky News has been told.",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "30 Apr 12:06",
+    "title": "Drug kingpin jailed after extradition from Dubai",
+    "body": "A gangster who played a \"key\" role in a multi-million-pound drugs operation has been jailed for six years after being extradited to Scotland from the United Arab Emirates.",
     "cat": "Central Bank",
     "ccys": [
-      "CAD",
-      "USD"
-    ],
-    "dir": "negative"
-  },
-  {
-    "ts": "29 Apr 21:54",
-    "title": "US accuses Mexican governor of working with drug lord's sons",
-    "body": "The US has charged the governor of Mexico's Sinaloa state and nine other current or former officials with drug trafficking and weapons offences.",
-    "cat": "Macro",
-    "ccys": [
-      "USD"
+      "GBP"
     ],
     "dir": "mixed"
   },
   {
-    "ts": "28 Apr 16:14",
-    "title": "Solar power soars to new heights but fears over 'dangerously high' temperatures",
-    "body": "Almost the entirety of Europe saw above-average temperatures last year, while wildfires burnt a record area and heatwaves struck from north to south, according to an extensive new climate study.",
-    "cat": "Macro",
-    "ccys": [
-      "EUR"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "29 Apr 15:40",
-    "title": "<a href='https://news.sky.com/story/ukraine-war-latest-eu-formally-approves-ukraine-loan-teenagers-hired-for-school-terr",
-    "body": "",
+    "ts": "30 Apr 03:38",
+    "title": "Trump threatens to withdraw troops from Germany",
+    "body": "Donald Trump has threatened to remove US troops from Germany after the country's chancellor said America was being \"humiliated\" by Iran.",
     "cat": "Geopolitics",
     "ccys": [
       "USD"
     ],
-    "dir": "negative"
-  },
-  {
-    "ts": "28 Apr 14:21",
-    "title": "Fresh oil shock as UAE exits Saudi-controlled cartels",
-    "body": "The United Arab Emirates (UAE) has said it is to leave the OPEC and OPEC+ cartels of oil-producing nations, potentially threatening greater turbulence for global energy markets ahead.",
-    "cat": "Central Bank",
-    "ccys": [
-      "CAD"
-    ],
     "dir": "mixed"
   },
   {
-    "ts": "28 Apr 04:07",
-    "title": "Cartel leader tipped to succeed 'El Mencho' captured",
-    "body": "Mexico's army has captured a cartel leader tipped to succeed notorious drug lord \"El Mencho\".",
+    "ts": "30 Apr 08:52",
+    "title": "White supremacist jailed for deadly mosque shooting fails to overturn guilty plea",
+    "body": "The man jailed for life after murdering 51 people at two mosques in New Zealand has lost an attempt to withdraw his guilty pleas.",
     "cat": "Macro",
     "ccys": [
-      "USD"
+      "NZD"
     ],
     "dir": "mixed"
   }
