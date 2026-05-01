@@ -1,115 +1,72 @@
 [
   {
-    "ts": "30 Apr 21:37",
-    "title": "Taiwan: Growth strength and CBC stance – UOB",
-    "body": "UOB’s Ho Woei Chen highlights Taiwan’s strong 1Q26 Gross Domestic Product (GDP) performance, driven by exports and improving domestic demand, and expects full-year 2026 growth to exceed 9%.",
-    "cat": "Macro",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "30 Apr 21:28",
-    "title": "AUD/USD jumps near 0.7200 as Japan’s intervention sinks the USD",
-    "body": "The Australian Dollar reclaimed the 0.7200 level on Thursday, surging more than 1% as the Greenback dropped to seven-day lows amid Japanese authorities’ intervention in the FX markets, pushing aside solid US economic data. The AUD/USD trades past 0.7200 after hitting a daily low of 0.7110.",
-    "cat": "Macro",
-    "ccys": [
-      "JPY",
-      "AUD",
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "30 Apr 20:58",
-    "title": "Forex Today: US Dollar weakens in eventful \"Yentervention\" day",
-    "body": "The US Dollar Index (DXY) declined sharply to around 98.10 on Thursday after data showed the United States (US) economy grew at a lower-than-expected pace in the first quarter and amid Japanese authorities' first intervention in the foreign exchange market in almost two years.",
-    "cat": "Macro",
-    "ccys": [
-      "JPY",
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "30 Apr 20:52",
-    "title": "Thailand: BoT pause extended as stagflation risks build – DBS",
-    "body": "DBS Group Research economist Chua Han Teng expects the Bank of Thailand (BoT) to keep its policy rate at 1.00% through end-2026 as stagflationary pressures from Iran-related supply shocks hit growth and inflation.",
+    "ts": "01 May 18:01",
+    "title": "EUR/USD trims gains as fresh Trump tariff threats, Iran woes lift USD",
+    "body": "The EUR/USD pair is trading near the 1.1730 level on Friday's late American session, trimming almost all its intraday gains, after United States (US) President Donald Trump threatened to raise the tariff rate on European Union (EU) cars and trucks from 15% to 25% and said he isn't happy with the lat",
     "cat": "Central Bank",
     "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "30 Apr 20:11",
-    "title": "China: Manufacturing outlook bright, demand softens – UOB",
-    "body": "UOB economist Ho Woei Chen assesses China’s latest PMIs, noting a positive outlook for manufacturing supported by strong AI-related export demand and robust industrial profits, while domestic demand and services weaken.",
-    "cat": "Macro",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "30 Apr 19:37",
-    "title": "Romania: Reform risks rise – Standard Chartered",
-    "body": "Standard Chartered Bank analysts Pietro Righi and Christopher Graham warn that renewed political turmoil in Romania could undermine fiscal consolidation and delay key reforms.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "CAD"
-    ],
-    "dir": "negative"
-  },
-  {
-    "ts": "30 Apr 19:02",
-    "title": "Asian FX: Oil shock and Fed stance pressure – OCBC",
-    "body": "OCBC strategists Sim Moh Siong and Christopher Wong highlight that most Asian FX traded softer as Brent’s rise toward USD120/bbl, inflation risks and hawkish Fed repricing weighed on sentiment.",
-    "cat": "Central Bank",
-    "ccys": [
-      "CAD",
-      "USD"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "30 Apr 18:35",
-    "title": "India: Growth resilient but risks building – Commerzbank",
-    "body": "Commerzbank analysts describe India’s growth backdrop as solid, with GDP expected around 6.5% in fiscal 2026–2027, supported by domestic demand, GST 2.0 reforms, and investment-friendly budgets.",
-    "cat": "Macro",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "30 Apr 18:22",
-    "title": "EUR/USD Price Forecast: Consolidates below key Fibonacci level as bulls defend 200-day SMA",
-    "body": "The Euro (EUR) edges higher against the US Dollar (USD) on Thursday as the Greenback softens broadly following possible intervention from Tokyo, with authorities seen selling Dollars to support the Japanese Yen (JPY), while the Euro also draws some support from the latest monetary policy decision by",
-    "cat": "Macro",
-    "ccys": [
-      "JPY",
       "USD",
       "EUR"
     ],
     "dir": "mixed"
   },
   {
-    "ts": "30 Apr 17:57",
-    "title": "GBP/USD Price Forecast: Bullish-engulfing pattern looms, traders eye 1.3600",
-    "body": "The GBP/USD pair advances by some 0.78% on Thursday as market participants continue to price in further tightening by the Bank of England (BoE), even though it kept rates steady earlier in the day.",
-    "cat": "Central Bank",
+    "ts": "01 May 17:43",
+    "title": "Gold extends rally as Japan intervention hammers US Dollar",
+    "body": "Gold (XAU/USD) prints back-to-back days of gains, up over 0.50% as the US Dollar extends its losses amid Japan’s intervention in the market, while news that Iran submitted a new proposal drove oil prices lower.",
+    "cat": "Geopolitics",
     "ccys": [
       "USD",
-      "GBP"
+      "CAD",
+      "JPY"
     ],
     "dir": "mixed"
   },
   {
-    "ts": "30 Apr 17:52",
-    "title": "UK: Local vote risks and Gilt focus – Standard Chartered",
-    "body": "Standard Chartered strategists discuss how United Kingdom (UK) local elections on 7 May could intensify political pressure on Prime Minister Starmer and potentially trigger a Labour leadership challenge.",
+    "ts": "01 May 16:56",
+    "title": "Dow Jones Industrial Average futures hold near 50K as Iran offer offsets tariff noise",
+    "body": "Dow Jones Industrial Average (DJIA) futures traded above 49,800 in overnight and pre-market action, building on a near 1,500-point rally from Thursday morning's lows around 48,500 and pressing toward the 50,000 mark for the first time.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "negative"
+  },
+  {
+    "ts": "01 May 16:53",
+    "title": "Forecasting the upcoming week: Nonfarm Payrolls, US-Iran peace talks on focus as DXY hits two-week lows",
+    "body": "The US Dollar Index (DXY) fell to a two-week low near the 98.00 price zone on Friday, extending the losses seen the previous day and ending a week in which the world's most important central banks confirmed a hawkish shift due to rising inflation pressures.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "01 May 16:32",
+    "title": "US President Trump:  I will be increasing tariffs on vehicles imported from the European Union",
+    "body": "Donald Trump, United States President, announced on Friday through Truth Social a new round of tariffs on the European Union (EU) for cars and trucks.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD",
+      "EUR"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "01 May 16:28",
+    "title": "WTI Crude falls as Iranian proposal raises hopes for renewed US-Iran negotiations",
+    "body": "West Texas Intermediate (WTI) crude Oil eases on Friday, trimming part of the strong gains registered earlier this week as renewed diplomatic efforts to end the US-Iran war lift market sentiment.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "CAD"
+    ],
+    "dir": "negative"
+  },
+  {
+    "ts": "01 May 16:24",
+    "title": "Silver price advances despite restrictive Fed stance, persistent inflation risks",
+    "body": "Silver (XAG/USD) trades around $76.00 on Friday at the time of writing, up 3.05% on the day, supported by renewed demand despite a macroeconomic backdrop that remains challenging for non-yielding assets.",
     "cat": "Central Bank",
     "ccys": [
       "USD"
@@ -117,14 +74,78 @@
     "dir": "mixed"
   },
   {
-    "ts": "30 Apr 17:06",
-    "title": "WTI Oil eases after three-day advance as Hormuz tensions keep supply risks in focus",
-    "body": "West Texas Intermediate (WTI) declines on Thursday, trading around $101.45 at the time of writing, down 3.70% on the day after three consecutive days of gains. Despite this technical pullback, US Crude remains above the psychological $100 level, reflecting a market that is still under strain.",
+    "ts": "01 May 15:43",
+    "title": "USD/JPY steadies after Japan’s intervention checks Yen slide",
+    "body": "USD/JPY turns flat in the day after diving to a daily low of 155.48 during Friday’s session, in the aftermath of two straight days of Japanese authorities intervening in the FX markets to strengthen the Yen, which had weakened past the 160.00 figure. The pair trades at 156.67, flattish.",
+    "cat": "Macro",
+    "ccys": [
+      "USD",
+      "JPY"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "01 May 15:18",
+    "title": "EUR/USD edges higher as US-Iran headlines weigh on the US Dollar",
+    "body": "EUR/USD edges higher on Friday as fresh geopolitical developments surrounding the US-Iran war weigh on the US Dollar (USD) and support the Euro (EUR). At the time of writing, the pair is trading around 1.1768, hovering near its highest level in over a week.",
     "cat": "Geopolitics",
     "ccys": [
-      "CAD"
+      "USD",
+      "EUR"
     ],
     "dir": "negative"
+  },
+  {
+    "ts": "01 May 15:16",
+    "title": "NZD/USD firms slightly near recent highs as mixed US data limits Dollar upside",
+    "body": "NZD/USD trades around 0.5915 on Friday at the time of writing, up 0.10% on the day, near recent highs around the 0.5930 area.",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "01 May 15:15",
+    "title": "GBP/USD surges past 1.3600 as Yen intervention batters Dollar",
+    "body": "GBP/USD clears the 1.3600 barrier, up over 0.50%, as the Greenback gets battered for the second straight day amid speculation that Japanese authorities continued an intervention in the FX space to prop up the Yen. At the time of writing, the pair trades at 1.3650, up 0.38% near a ten-week high.",
+    "cat": "Macro",
+    "ccys": [
+      "USD",
+      "JPY"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "01 May 15:05",
+    "title": "Twilio stock spikes as company reports highest revenue growth in three years",
+    "body": "Twilio (TWLO) stock rose as much as 21% on Friday morning as the market digested the cloud communications platform's first-quarter results, released afterhours on Thursday.",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "01 May 14:47",
+    "title": "Gold Weekly Forecast: Major central banks’ hawkish tone scares buyers",
+    "body": "Gold (XAU/USD) registered weekly losses, pressured by persistent uncertainty surrounding the Middle East conflict and hawkish guidance from major central banks.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "01 May 08:11",
+    "title": "Gold Price Forecast: XAU/USD seems vulnerable amid bets for more hawkish central banks",
+    "body": "Gold (XAU/USD) meets with a fresh supply on Friday and slides back below the $4,600 mark during the early European session, eroding a part of the previous day's modest recovery gains.",
+    "cat": "Macro",
+    "ccys": [
+      "USD",
+      "EUR"
+    ],
+    "dir": "positive"
   },
   {
     "ts": "30 Apr 21:24",
@@ -142,8 +163,8 @@
     "body": "The European Central Bank (ECB) and the Bank of England (BoE) may operate in different economies, but this week’s meetings delivered a strikingly similar message: inflation risks are creeping back just as growth is losing momentum, giving some belief to the idea that a stagflationary scenario could",
     "cat": "Central Bank",
     "ccys": [
-      "GBP",
-      "EUR"
+      "EUR",
+      "GBP"
     ],
     "dir": "mixed"
   },
@@ -188,25 +209,14 @@
     "dir": "mixed"
   },
   {
-    "ts": "29 Apr 09:02",
-    "title": "USD/JPY Price Forecast: Eyes 160.00 intervention level amid US-Iran tensions, ahead of Fed",
-    "body": "The USD/JPY pair looks to build on the previous day's bounce from sub-159.00 levels, or a one-week low, and climbs back closer to the overnight swing high during the first half of the European session on Wednesday.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD",
-      "EUR"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "29 Apr 03:07",
-    "title": "Gold Price Forecast: Can Fed Chair Powell rescue XAU/USD buyers?",
-    "body": "Gold is consolidating the previous sell-off to monthly lows of $4,555 set on Tuesday, as traders turn to the sidelines and refrain from placing fresh bets ahead of the Federal Reserve (Fed) monetary policy decision due later on Wednesday.",
-    "cat": "Central Bank",
+    "ts": "01 May 07:53",
+    "title": "Fears for British couple detained in Iranian prison after inmates are executed",
+    "body": "A British couple detained in Iran fear for their lives following the routine executions of fellow inmates and brutal fights regularly breaking out in the prison where they are being held.",
+    "cat": "Geopolitics",
     "ccys": [
       "USD"
     ],
-    "dir": "mixed"
+    "dir": "negative"
   },
   {
     "ts": "30 Apr 21:06",
@@ -247,15 +257,5 @@
       "USD"
     ],
     "dir": "mixed"
-  },
-  {
-    "ts": "29 Apr 15:29",
-    "title": "RAF troops shot down more than 100 Iranian drones and missiles fired at Middle East base",
-    "body": "A coalition base in Iraq that British forces are helping to defend was targeted by around 28 Iranian-linked drones and missiles a day as the US and Israel attacked Iran, it has emerged.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "negative"
   }
 ]

@@ -1,13 +1,13 @@
 {
-  "vix": 18.81,
-  "score": 0,
-  "label": "NEUTRAL",
+  "vix": 16.89,
+  "score": 1,
+  "label": "MILD RISK-ON",
   "factors": [
     {
       "name": "VIX Volatility Index",
-      "score": 0,
-      "desc": "VIX 18.81 \u2014 NEUTRAL"
+      "score": 1,
+      "desc": "VIX 16.89 \u2014 MILD RISK-ON"
     }
   ],
-  "updated": "30 Apr 2026 22:58 UTC"
+  "updated": "01 May 2026 18:05 UTC"
 }
