@@ -1,23 +1,55 @@
 [
   {
+    "ts": "01 May 19:49",
+    "title": "AUD/USD Price Forecast: Remains bullish despite hovering around 0.7200",
+    "body": "AUD/USD holds to minimal gains of 0.10% late in the North American session, yet poised to finish the week up 0.84%. At the time of writing, the pair trades above 0.7200 as the ‘bullish engulfing’ chart pattern caps the Aussie on the downside.",
+    "cat": "Macro",
+    "ccys": [
+      "USD",
+      "AUD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "01 May 18:36",
+    "title": "US Dollar Index rebounds from two-week lows as as tariff tensions resurface",
+    "body": "The US Dollar Index (DXY), which tracks the Greenback’s value against a basket of six major currencies, turns higher on Friday, recovering from earlier weakness, though it remains on track to close the week in negative territory.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "01 May 18:07",
+    "title": "USD/CAD steadies as weekly slide extends on Loonie strength",
+    "body": "USD/CAD edged higher by less than 0.1% on Friday, recovering from an early-session low near 1.3560 to trade around 1.3590.",
+    "cat": "Macro",
+    "ccys": [
+      "CAD",
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
     "ts": "01 May 18:01",
     "title": "EUR/USD trims gains as fresh Trump tariff threats, Iran woes lift USD",
     "body": "The EUR/USD pair is trading near the 1.1730 level on Friday's late American session, trimming almost all its intraday gains, after United States (US) President Donald Trump threatened to raise the tariff rate on European Union (EU) cars and trucks from 15% to 25% and said he isn't happy with the lat",
     "cat": "Central Bank",
     "ccys": [
-      "USD",
-      "EUR"
+      "EUR",
+      "USD"
     ],
     "dir": "mixed"
   },
   {
     "ts": "01 May 17:43",
     "title": "Gold extends rally as Japan intervention hammers US Dollar",
-    "body": "Gold (XAU/USD) prints back-to-back days of gains, up over 0.50% as the US Dollar extends its losses amid Japan’s intervention in the market, while news that Iran submitted a new proposal drove oil prices lower.",
+    "body": "Gold (XAU/USD) prints back-to-back days of gains, up over 0.50% as the US Dollar extends its losses amid Japan’s intervention in the market and amid news that Iran submitted a new proposal drove Oil prices lower.",
     "cat": "Geopolitics",
     "ccys": [
-      "USD",
       "CAD",
+      "USD",
       "JPY"
     ],
     "dir": "mixed"
@@ -48,8 +80,8 @@
     "body": "Donald Trump, United States President, announced on Friday through Truth Social a new round of tariffs on the European Union (EU) for cars and trucks.",
     "cat": "Geopolitics",
     "ccys": [
-      "USD",
-      "EUR"
+      "EUR",
+      "USD"
     ],
     "dir": "mixed"
   },
@@ -90,41 +122,10 @@
     "body": "EUR/USD edges higher on Friday as fresh geopolitical developments surrounding the US-Iran war weigh on the US Dollar (USD) and support the Euro (EUR). At the time of writing, the pair is trading around 1.1768, hovering near its highest level in over a week.",
     "cat": "Geopolitics",
     "ccys": [
-      "USD",
-      "EUR"
+      "EUR",
+      "USD"
     ],
     "dir": "negative"
-  },
-  {
-    "ts": "01 May 15:16",
-    "title": "NZD/USD firms slightly near recent highs as mixed US data limits Dollar upside",
-    "body": "NZD/USD trades around 0.5915 on Friday at the time of writing, up 0.10% on the day, near recent highs around the 0.5930 area.",
-    "cat": "Macro",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "01 May 15:15",
-    "title": "GBP/USD surges past 1.3600 as Yen intervention batters Dollar",
-    "body": "GBP/USD clears the 1.3600 barrier, up over 0.50%, as the Greenback gets battered for the second straight day amid speculation that Japanese authorities continued an intervention in the FX space to prop up the Yen. At the time of writing, the pair trades at 1.3650, up 0.38% near a ten-week high.",
-    "cat": "Macro",
-    "ccys": [
-      "USD",
-      "JPY"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "01 May 15:05",
-    "title": "Twilio stock spikes as company reports highest revenue growth in three years",
-    "body": "Twilio (TWLO) stock rose as much as 21% on Friday morning as the market digested the cloud communications platform's first-quarter results, released afterhours on Thursday.",
-    "cat": "Macro",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
   },
   {
     "ts": "01 May 14:47",
@@ -142,8 +143,8 @@
     "body": "Gold (XAU/USD) meets with a fresh supply on Friday and slides back below the $4,600 mark during the early European session, eroding a part of the previous day's modest recovery gains.",
     "cat": "Macro",
     "ccys": [
-      "USD",
-      "EUR"
+      "EUR",
+      "USD"
     ],
     "dir": "positive"
   },
@@ -163,8 +164,8 @@
     "body": "The European Central Bank (ECB) and the Bank of England (BoE) may operate in different economies, but this week’s meetings delivered a strikingly similar message: inflation risks are creeping back just as growth is losing momentum, giving some belief to the idea that a stagflationary scenario could",
     "cat": "Central Bank",
     "ccys": [
-      "EUR",
-      "GBP"
+      "GBP",
+      "EUR"
     ],
     "dir": "mixed"
   },
@@ -209,6 +210,17 @@
     "dir": "mixed"
   },
   {
+    "ts": "01 May 19:00",
+    "title": "EU hits back at 'unacceptable' Donald Trump over plans to increase tariffs",
+    "body": "The European Union's trade chair has hit back at Donald Trump after he announced plans to increase tariffs on vehicles exported to the US.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "EUR",
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
     "ts": "01 May 07:53",
     "title": "Fears for British couple detained in Iranian prison after inmates are executed",
     "body": "A British couple detained in Iran fear for their lives following the routine executions of fellow inmates and brutal fights regularly breaking out in the prison where they are being held.",
@@ -245,16 +257,6 @@
     "cat": "Macro",
     "ccys": [
       "EUR"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "30 Apr 21:25",
-    "title": "Iran won't be booted out of World Cup and will play in US, says FIFA boss",
-    "body": "The head of FIFA has said Iran will still compete at the World Cup and play matches in the US because \"we have to unite\".",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD"
     ],
     "dir": "mixed"
   }
