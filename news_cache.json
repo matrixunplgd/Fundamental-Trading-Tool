@@ -1,5 +1,119 @@
 [
   {
+    "ts": "04 May 22:00",
+    "title": "USD/JPY churns near 157.00 after the BoJ's FX intervention shock",
+    "body": "USD/JPY traded essentially flat on Monday, settling close to 157.20 after a choppy session that opened with an early-Asia gap lower toward 156.20 before staging a steady recovery through European and US trade.",
+    "cat": "Central Bank",
+    "ccys": [
+      "JPY",
+      "USD",
+      "EUR"
+    ],
+    "dir": "negative"
+  },
+  {
+    "ts": "04 May 21:59",
+    "title": "GBP/USD pulls back as risk-off mood drives Monday decline",
+    "body": "GBP/USD declined around 0.35% on Monday, settling near 1.3530 after a sharp rejection from the 1.3600 handle dragged the pair lower through choppy afternoon trade.",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "04 May 21:58",
+    "title": "AUD/USD slips below 0.72 as RBA decision looms",
+    "body": "AUD/USD declined around 0.5% on Monday, settling close to 0.7170 after dipping as low as 0.7150 during the session. The pullback followed Friday's four-year high above 0.7225, with bullish momentum waning through the new week as price drifted lower beneath the 0.7200 handle.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD",
+      "AUD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "04 May 21:02",
+    "title": "China: Blocking rule reshapes risk calculus – MUFG",
+    "body": "MUFG’s Michael Wan flags a significant shift as China formally invokes its 2021 Blocking Statute for the first time, targeting recent US sanctions on five Chinese refineries linked to Iranian Oil.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "CAD"
+    ],
+    "dir": "negative"
+  },
+  {
+    "ts": "04 May 20:14",
+    "title": "USD/SGD: Two-way trade with sell-on-rally bias – OCBC",
+    "body": "OCBC strategists Sim Moh Siong and Christopher Wong report that USD/SGD fell into the New York close, helped by a sharp Brent decline and a pullback in USD/JPY, easing immediate inflation and yield concerns.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "04 May 19:57",
+    "title": "Forex Today: US Dollar holds firm on Middle East flare-up ahead of RBA, US data",
+    "body": "The US Dollar Index (DXY) holds a firm tone near the 98.40 price zone, supported by safe-haven demand amid ongoing Middle East hostilities that keep markets cautious, with headlines suggesting that Iran allegedly attacked a United States (US) military ship despite US denials.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD",
+      "AUD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "04 May 19:55",
+    "title": "Silver Price Analysis: Bearish engulfing pattern forms, eyes on $70",
+    "body": "Silver (XAG/USD) tumbles over 3% on Monday as the US Dollar rises on safe-haven demand amid escalating US-Iran tensions in the Strait of Hormuz, as the US Navy embarks on Donald Trump’s 'Operation Freedom'. At the time of writing, XAG/USD trades at $72.74 after reaching a high of $76.00.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "04 May 19:38",
+    "title": "Indonesia: Stable inflation outlook with oil risks – UOB",
+    "body": "UOB’s Enrico Tanuwidjaja and Vincentius Ming Shen note Indonesia’s April inflation slowed to 2.42% year-on-year, below expectations but within Bank Indonesia’s (BI) target. They highlight post-holiday normalization, contained energy inflation thanks to subsidized fuel, and steady core inflation.",
+    "cat": "Macro",
+    "ccys": [
+      "CAD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "04 May 18:59",
+    "title": "ECB’s Nagel: June rate hike may be warranted if the inflation outlook does not improve",
+    "body": "Joachim Nagel, member of the European Central Bank (ECB) and President of the Bundesbank, spoke in Frankfurt am Main, Germany, on Monday. He said that the longer the Middle East conflict lasts, the greater the risk of high inflation will reimain without ECB intervention.",
+    "cat": "Central Bank",
+    "ccys": [
+      "EUR"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "04 May 18:52",
+    "title": "Taiwan: Growth momentum and LNG risks – DBS",
+    "body": "DBS Group Research economist Ma Tieying upgrades Taiwan’s 2026 GDP growth forecast to 9.4% from 7.0%, citing stronger-than-expected AI-driven exports and resilient ICT demand. The report notes robust first-quarter GDP and expects quarterly growth to moderate later in 2026.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "04 May 18:43",
+    "title": "Fed’s Williams: Inflation likely to be 3% this year",
+    "body": "John Williams, President of the Federal Reserve (Fed) Bank of New York, said in a prepared speech at the Cynosure Group Spring Symposium in New York, United States (US) on Monday, that there is no way to know yet how the Iran war impact will play out for the United States economy.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "negative"
+  },
+  {
     "ts": "04 May 18:23",
     "title": "EUR/USD slides as Middle East tensions and Fed hike bets boost US Dollar",
     "body": "The Euro (EUR) trades on the back foot against the US Dollar (USD) on Monday as reports of renewed attacks in the Middle East lift the Greenback.",
@@ -11,114 +125,13 @@
     "dir": "positive"
   },
   {
-    "ts": "04 May 18:11",
-    "title": "China: Oil shock seen contained – Standard Chartered",
-    "body": "Standard Chartered’s Hunter Chan and Shuang Ding expect robust external demand to support China’s April industrial production and trade, even as services and construction soften. They see higher Oil prices lifting PPI and energy CPI, while headline CPI stays at 1% year-on-year.",
-    "cat": "Macro",
-    "ccys": [
-      "CAD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "04 May 17:40",
-    "title": "Oil surges as Iran strikes UAE and Hormuz risks fuel supply fears",
-    "body": "Western Texas Intermediate (WTI), the US crude Oil benchmark, soars sharply by more than 3% on Monday amid an ongoing escalation in the Middle East, as Iran launched attacks on the United Arab Emirates (UAE), while sources cited by CNN in Dubai said that they expect attacks on Iran by the US and Isr",
+    "ts": "04 May 17:50",
+    "title": "Australian Dollar Price Forecast: All the attention is now on the RBA",
+    "body": "The Aussie Dollar seems to have embarked on a consolidative phase, lifting AUD/USD to the vicinity of its yearly peaks well north of 0.7100 the figure. For now, the pair’s constructive tone should remain unchanged, reinforced by elevated domestic inflation and the RBA’s cautious bias",
     "cat": "Central Bank",
     "ccys": [
-      "CAD"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "04 May 17:39",
-    "title": "Netherlands: Stockpiling supports manufacturing growth – ABN Amro",
-    "body": "ABN Amro's Albert Jan Swart notes that Dutch manufacturing is expanding strongly, with the Nevi Dutch Manufacturing PMI jumping to its highest level since 2022 as companies stockpile due to Middle East supply disruptions.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "negative"
-  },
-  {
-    "ts": "04 May 17:03",
-    "title": "Canada: Trade and jobs seen subdued – TD Securities",
-    "body": "TD Securities economists Robert Both and Emma Lawrence project a sharp narrowing in Canada’s March international merchandise trade deficit to CAD 1.5 billion, driven by stronger exports on higher West Texas Intermediate (WTI) and autos.",
-    "cat": "Macro",
-    "ccys": [
-      "CAD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "04 May 16:50",
-    "title": "Dow Jones Industrial Average sheds 1K points from peak as Iran fears reignite",
-    "body": "US equities slumped on Monday as a series of escalating reports out of the Persian Gulf revived concerns that the fragile US-Iran ceasefire is fraying. The Dow Jones Industrial Average (DJIA) shed roughly 0.9%, slipping back toward 49,000 after an intraday low below that level.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "04 May 16:49",
-    "title": "NZD/USD declines as Middle East tensions bolster US Dollar, RBNZ stays cautious",
-    "body": "NZD/USD trades around 0.5868 on Monday at the time of writing, down 0.52% on the day. The pair remains under pressure amid heightened geopolitical uncertainty, which typically supports safe-haven assets and the US Dollar (USD).",
-    "cat": "Central Bank",
-    "ccys": [
-      "NZD",
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "04 May 16:23",
-    "title": "Eurozone: Higher inflation and ECB hikes support Euro – BNP Paribas",
-    "body": "BNP Paribas economists project Eurozone Gross Domestic Product (GDP) growth to slow from 1.5% in 2025 to 1.0% in 2026, with inflation rebounding to 3.0% in 2026 and 3.3% in 2027.",
-    "cat": "Central Bank",
-    "ccys": [
-      "EUR"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "04 May 16:11",
-    "title": "Japan's Katayama says Japan will take \"decisive action\" against speculative FX moves",
-    "body": "Japan's Finance Minister Satsuki Katayama returned to the verbal channel on Monday, signaling Tokyo's readiness to take decisive action against speculative foreign exchange moves under last September's bilateral agreement with the US, just two trading days after the Ministry of Finance (MoF) and Ban",
-    "cat": "Central Bank",
-    "ccys": [
-      "AUD",
-      "JPY"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "04 May 16:05",
-    "title": "Gold extends declines as escalating Middle East tensions lift the US Dollar.",
-    "body": "Gold (XAU/USDS) kicks off the week under pressure, hovering near one-month lows as hawkish interest rate expectations continue to weigh on the non-yielding metal amid ongoing tensions in the Middle East.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "04 May 15:57",
-    "title": "EUR/GBP edges higher as Middle East tensions lift volatility, UK politics in focus",
-    "body": "EUR/GBP edges higher on Monday as ongoing tensions in the Middle East keep market volatility elevated, while political uncertainty in the UK adds modest pressure on the British Pound (GBP). At the time of writing, the cross is trading around 0.8645, recovering from an intraday low of 0.8629.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "GBP"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "04 May 15:48",
-    "title": "Turkey: Disinflation risks rise with energy shock – ING",
-    "body": "ING’s Chief Economist for Turkey, Muhammet Mercan, notes that April inflation rose more than expected, with annual Consumer Price Index (CPI) reaching 32.4%, well above the Central Bank of Turkey’s 16% target.",
-    "cat": "Macro",
-    "ccys": [
-      "USD"
+      "USD",
+      "AUD"
     ],
     "dir": "mixed"
   },
@@ -190,20 +203,20 @@
     "body": "The European Central Bank (ECB) and the Bank of England (BoE) may operate in different economies, but this week’s meetings delivered a strikingly similar message: inflation risks are creeping back just as growth is losing momentum, giving some belief to the idea that a stagflationary scenario could",
     "cat": "Central Bank",
     "ccys": [
-      "EUR",
-      "GBP"
+      "GBP",
+      "EUR"
     ],
     "dir": "mixed"
   },
   {
-    "ts": "30 Apr 09:04",
-    "title": "USD/JPY Price Forecast: Profit-taking kicks in after fresh intervention warnings",
-    "body": "The USD/JPY pair builds on the previous day's breakout momentum beyond the 160.00 psychological mark, hitting a fresh high since July 2024 on Thursday.",
-    "cat": "Geopolitics",
+    "ts": "21 Apr 16:02",
+    "title": "Two killed after car ploughs into city centre crowd in Germany",
+    "body": "Two people were killed after a car ploughed into a crowd in the eastern German city of Leipzig on Monday afternoon.",
+    "cat": "Macro",
     "ccys": [
       "USD"
     ],
-    "dir": "negative"
+    "dir": "mixed"
   },
   {
     "ts": "04 May 14:20",
@@ -242,16 +255,6 @@
     "cat": "Geopolitics",
     "ccys": [
       "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "03 May 07:59",
-    "title": "Man charged with murder of five-year-old girl whose death sparked riot",
-    "body": "A man has been charged with murdering a five-year-old girl in central Australia, days after her killing sparked a riot.",
-    "cat": "Macro",
-    "ccys": [
-      "AUD"
     ],
     "dir": "mixed"
   }
