@@ -1,63 +1,39 @@
 [
   {
-    "ts": "01 May 19:49",
-    "title": "AUD/USD Price Forecast: Remains bullish despite hovering around 0.7200",
-    "body": "AUD/USD holds to minimal gains of 0.10% late in the North American session, yet poised to finish the week up 0.84%. At the time of writing, the pair trades above 0.7200 as the ‘bullish engulfing’ chart pattern caps the Aussie on the downside.",
-    "cat": "Macro",
-    "ccys": [
-      "USD",
-      "AUD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "01 May 18:36",
-    "title": "US Dollar Index rebounds from two-week lows as as tariff tensions resurface",
-    "body": "The US Dollar Index (DXY), which tracks the Greenback’s value against a basket of six major currencies, turns higher on Friday, recovering from earlier weakness, though it remains on track to close the week in negative territory.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "01 May 18:07",
-    "title": "USD/CAD steadies as weekly slide extends on Loonie strength",
-    "body": "USD/CAD edged higher by less than 0.1% on Friday, recovering from an early-session low near 1.3560 to trade around 1.3590.",
-    "cat": "Macro",
-    "ccys": [
-      "CAD",
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "01 May 18:01",
-    "title": "EUR/USD trims gains as fresh Trump tariff threats, Iran woes lift USD",
-    "body": "The EUR/USD pair is trading near the 1.1730 level on Friday's late American session, trimming almost all its intraday gains, after United States (US) President Donald Trump threatened to raise the tariff rate on European Union (EU) cars and trucks from 15% to 25% and said he isn't happy with the lat",
+    "ts": "04 May 18:23",
+    "title": "EUR/USD slides as Middle East tensions and Fed hike bets boost US Dollar",
+    "body": "The Euro (EUR) trades on the back foot against the US Dollar (USD) on Monday as reports of renewed attacks in the Middle East lift the Greenback.",
     "cat": "Central Bank",
     "ccys": [
-      "EUR",
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "01 May 17:43",
-    "title": "Gold extends rally as Japan intervention hammers US Dollar",
-    "body": "Gold (XAU/USD) prints back-to-back days of gains, up over 0.50% as the US Dollar extends its losses amid Japan’s intervention in the market and amid news that Iran submitted a new proposal drove Oil prices lower.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "CAD",
       "USD",
-      "JPY"
+      "EUR"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "04 May 18:11",
+    "title": "China: Oil shock seen contained – Standard Chartered",
+    "body": "Standard Chartered’s Hunter Chan and Shuang Ding expect robust external demand to support China’s April industrial production and trade, even as services and construction soften. They see higher Oil prices lifting PPI and energy CPI, while headline CPI stays at 1% year-on-year.",
+    "cat": "Macro",
+    "ccys": [
+      "CAD"
     ],
     "dir": "mixed"
   },
   {
-    "ts": "01 May 16:56",
-    "title": "Dow Jones Industrial Average futures hold near 50K as Iran offer offsets tariff noise",
-    "body": "Dow Jones Industrial Average (DJIA) futures traded above 49,800 in overnight and pre-market action, building on a near 1,500-point rally from Thursday morning's lows around 48,500 and pressing toward the 50,000 mark for the first time.",
+    "ts": "04 May 17:40",
+    "title": "Oil surges as Iran strikes UAE and Hormuz risks fuel supply fears",
+    "body": "Western Texas Intermediate (WTI), the US crude Oil benchmark, soars sharply by more than 3% on Monday amid an ongoing escalation in the Middle East, as Iran launched attacks on the United Arab Emirates (UAE), while sources cited by CNN in Dubai said that they expect attacks on Iran by the US and Isr",
+    "cat": "Central Bank",
+    "ccys": [
+      "CAD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "04 May 17:39",
+    "title": "Netherlands: Stockpiling supports manufacturing growth – ABN Amro",
+    "body": "ABN Amro's Albert Jan Swart notes that Dutch manufacturing is expanding strongly, with the Nevi Dutch Manufacturing PMI jumping to its highest level since 2022 as companies stockpile due to Middle East supply disruptions.",
     "cat": "Geopolitics",
     "ccys": [
       "USD"
@@ -65,9 +41,19 @@
     "dir": "negative"
   },
   {
-    "ts": "01 May 16:53",
-    "title": "Forecasting the upcoming week: Nonfarm Payrolls, US-Iran peace talks on focus as DXY hits two-week lows",
-    "body": "The US Dollar Index (DXY) fell to a two-week low near the 98.00 price zone on Friday, extending the losses seen the previous day and ending a week in which the world's most important central banks confirmed a hawkish shift due to rising inflation pressures.",
+    "ts": "04 May 17:03",
+    "title": "Canada: Trade and jobs seen subdued – TD Securities",
+    "body": "TD Securities economists Robert Both and Emma Lawrence project a sharp narrowing in Canada’s March international merchandise trade deficit to CAD 1.5 billion, driven by stronger exports on higher West Texas Intermediate (WTI) and autos.",
+    "cat": "Macro",
+    "ccys": [
+      "CAD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "04 May 16:50",
+    "title": "Dow Jones Industrial Average sheds 1K points from peak as Iran fears reignite",
+    "body": "US equities slumped on Monday as a series of escalating reports out of the Persian Gulf revived concerns that the fragile US-Iran ceasefire is fraying. The Dow Jones Industrial Average (DJIA) shed roughly 0.9%, slipping back toward 49,000 after an intraday low below that level.",
     "cat": "Geopolitics",
     "ccys": [
       "USD"
@@ -75,57 +61,97 @@
     "dir": "positive"
   },
   {
-    "ts": "01 May 16:32",
-    "title": "US President Trump:  I will be increasing tariffs on vehicles imported from the European Union",
-    "body": "Donald Trump, United States President, announced on Friday through Truth Social a new round of tariffs on the European Union (EU) for cars and trucks.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "EUR",
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "01 May 16:28",
-    "title": "WTI Crude falls as Iranian proposal raises hopes for renewed US-Iran negotiations",
-    "body": "West Texas Intermediate (WTI) crude Oil eases on Friday, trimming part of the strong gains registered earlier this week as renewed diplomatic efforts to end the US-Iran war lift market sentiment.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "CAD"
-    ],
-    "dir": "negative"
-  },
-  {
-    "ts": "01 May 16:24",
-    "title": "Silver price advances despite restrictive Fed stance, persistent inflation risks",
-    "body": "Silver (XAG/USD) trades around $76.00 on Friday at the time of writing, up 3.05% on the day, supported by renewed demand despite a macroeconomic backdrop that remains challenging for non-yielding assets.",
+    "ts": "04 May 16:49",
+    "title": "NZD/USD declines as Middle East tensions bolster US Dollar, RBNZ stays cautious",
+    "body": "NZD/USD trades around 0.5868 on Monday at the time of writing, down 0.52% on the day. The pair remains under pressure amid heightened geopolitical uncertainty, which typically supports safe-haven assets and the US Dollar (USD).",
     "cat": "Central Bank",
     "ccys": [
+      "NZD",
       "USD"
     ],
     "dir": "mixed"
   },
   {
-    "ts": "01 May 15:43",
-    "title": "USD/JPY steadies after Japan’s intervention checks Yen slide",
-    "body": "USD/JPY turns flat in the day after diving to a daily low of 155.48 during Friday’s session, in the aftermath of two straight days of Japanese authorities intervening in the FX markets to strengthen the Yen, which had weakened past the 160.00 figure. The pair trades at 156.67, flattish.",
-    "cat": "Macro",
+    "ts": "04 May 16:23",
+    "title": "Eurozone: Higher inflation and ECB hikes support Euro – BNP Paribas",
+    "body": "BNP Paribas economists project Eurozone Gross Domestic Product (GDP) growth to slow from 1.5% in 2025 to 1.0% in 2026, with inflation rebounding to 3.0% in 2026 and 3.3% in 2027.",
+    "cat": "Central Bank",
     "ccys": [
-      "USD",
+      "EUR"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "04 May 16:11",
+    "title": "Japan's Katayama says Japan will take \"decisive action\" against speculative FX moves",
+    "body": "Japan's Finance Minister Satsuki Katayama returned to the verbal channel on Monday, signaling Tokyo's readiness to take decisive action against speculative foreign exchange moves under last September's bilateral agreement with the US, just two trading days after the Ministry of Finance (MoF) and Ban",
+    "cat": "Central Bank",
+    "ccys": [
+      "AUD",
       "JPY"
     ],
     "dir": "mixed"
   },
   {
-    "ts": "01 May 15:18",
-    "title": "EUR/USD edges higher as US-Iran headlines weigh on the US Dollar",
-    "body": "EUR/USD edges higher on Friday as fresh geopolitical developments surrounding the US-Iran war weigh on the US Dollar (USD) and support the Euro (EUR). At the time of writing, the pair is trading around 1.1768, hovering near its highest level in over a week.",
+    "ts": "04 May 16:05",
+    "title": "Gold extends declines as escalating Middle East tensions lift the US Dollar.",
+    "body": "Gold (XAU/USDS) kicks off the week under pressure, hovering near one-month lows as hawkish interest rate expectations continue to weigh on the non-yielding metal amid ongoing tensions in the Middle East.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "04 May 15:57",
+    "title": "EUR/GBP edges higher as Middle East tensions lift volatility, UK politics in focus",
+    "body": "EUR/GBP edges higher on Monday as ongoing tensions in the Middle East keep market volatility elevated, while political uncertainty in the UK adds modest pressure on the British Pound (GBP). At the time of writing, the cross is trading around 0.8645, recovering from an intraday low of 0.8629.",
     "cat": "Geopolitics",
     "ccys": [
-      "EUR",
+      "GBP"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "04 May 15:48",
+    "title": "Turkey: Disinflation risks rise with energy shock – ING",
+    "body": "ING’s Chief Economist for Turkey, Muhammet Mercan, notes that April inflation rose more than expected, with annual Consumer Price Index (CPI) reaching 32.4%, well above the Central Bank of Turkey’s 16% target.",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "04 May 13:00",
+    "title": "UAE quits OPEC: The cartel’s grip on Oil just weakened",
+    "body": "The UAE’s decision to leave OPEC is more than a policy shift. It is a signal that one of the cartel’s most ambitious producers no longer sees quotas as compatible with its long-term strategy, and this could have important implications for Oil.",
+    "cat": "Central Bank",
+    "ccys": [
+      "CAD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "04 May 09:38",
+    "title": "Prediction markets: The holy grail of insider trading",
+    "body": "Prediction markets, such as Polymarket or Kalshi, are becoming difficult for traders to ignore. These platforms can provide potentially useful signals to read the market, but beware: what may seem an opportunity can easily become a speculative trap.",
+    "cat": "Geopolitics",
+    "ccys": [
       "USD"
     ],
     "dir": "negative"
+  },
+  {
+    "ts": "04 May 08:07",
+    "title": "Gold Price Forecast: Bears have the upper hand amid inflation-driven hawkish central banks",
+    "body": "Gold (XAU/USD) meets with a fresh supply at the start of a new week and weakens further below the $4,600 mark, back closer to Friday's swing low, during the early part of the European session.",
+    "cat": "Macro",
+    "ccys": [
+      "USD",
+      "EUR"
+    ],
+    "dir": "positive"
   },
   {
     "ts": "01 May 14:47",
@@ -143,8 +169,8 @@
     "body": "Gold (XAU/USD) meets with a fresh supply on Friday and slides back below the $4,600 mark during the early European session, eroding a part of the previous day's modest recovery gains.",
     "cat": "Macro",
     "ccys": [
-      "EUR",
-      "USD"
+      "USD",
+      "EUR"
     ],
     "dir": "positive"
   },
@@ -164,8 +190,8 @@
     "body": "The European Central Bank (ECB) and the Bank of England (BoE) may operate in different economies, but this week’s meetings delivered a strikingly similar message: inflation risks are creeping back just as growth is losing momentum, giving some belief to the idea that a stagflationary scenario could",
     "cat": "Central Bank",
     "ccys": [
-      "GBP",
-      "EUR"
+      "EUR",
+      "GBP"
     ],
     "dir": "mixed"
   },
@@ -180,60 +206,9 @@
     "dir": "negative"
   },
   {
-    "ts": "30 Apr 05:12",
-    "title": "Gold Price Forecast: XAU/USD looks vulnerable amid inflation fears, hawkish Fed hold",
-    "body": "Gold is fading its bounce from monthly lows of $4,510 set on Wednesday, as buyers lack conviction amid renewed haven demand for the US Dollar (USD)",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "29 Apr 19:10",
-    "title": "Thanks for your service, Mr. Chair Powell",
-    "body": "Powell’s departure is probably the most troublesome end of a Federal Reserve (Fed) Chair, despite being the most resolute leader a central bank could have. Indeed, Powell could be labeled as conservative.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "29 Apr 14:03",
-    "title": "Why Gold price faces critical positioning trap ahead of the Fed decision",
-    "body": "The Federal Reserve’s upcoming interest-rate decision is key for Gold’s price.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "01 May 19:00",
-    "title": "EU hits back at 'unacceptable' Donald Trump over plans to increase tariffs",
-    "body": "The European Union's trade chair has hit back at Donald Trump after he announced plans to increase tariffs on vehicles exported to the US.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "EUR",
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "01 May 07:53",
-    "title": "Fears for British couple detained in Iranian prison after inmates are executed",
-    "body": "A British couple detained in Iran fear for their lives following the routine executions of fellow inmates and brutal fights regularly breaking out in the prison where they are being held.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "negative"
-  },
-  {
-    "ts": "30 Apr 21:06",
-    "title": "Bayesian superyacht sinking didn't happen due to storm, investigators find",
-    "body": "An ongoing investigation into the sinking of the Bayesian superyacht has found bad weather was not severe enough to cause its deadly capsizing, Sky News understands.",
+    "ts": "04 May 14:20",
+    "title": "Why the United Nations is no longer fit for purpose",
+    "body": "👉 Listen to This Is Why on your podcast app 👈",
     "cat": "Macro",
     "ccys": [
       "USD"
@@ -241,22 +216,42 @@
     "dir": "mixed"
   },
   {
-    "ts": "30 Apr 12:06",
-    "title": "Drug kingpin jailed after extradition from Dubai",
-    "body": "A gangster who played a \"key\" role in a multi-million-pound drugs operation has been jailed for six years after being extradited to Scotland from the United Arab Emirates.",
-    "cat": "Central Bank",
+    "ts": "04 May 13:07",
+    "title": "Record cocaine seizure made by Spanish police",
+    "body": "Police in Spain have made what they have said is a \"record-breaking cocaine seizure in the Atlantic\", as part of an ongoing crackdown on international drug trafficking.",
+    "cat": "Macro",
     "ccys": [
-      "GBP"
+      "USD"
     ],
     "dir": "mixed"
   },
   {
-    "ts": "30 Apr 21:38",
-    "title": "Passengers pulled from water after learner driver crashes bus into major European river",
-    "body": "Four people have been rescued from the River Seine in Paris after a trainee bus driver crashed through a barrier and into the water.",
+    "ts": "04 May 09:14",
+    "title": "Soldiers prepare for NATO deployment near Russian border with urban combat drills",
+    "body": "Troops from the Royal Regiment of Scotland have been taking part in urban combat drills as they prepare to deploy to the Baltic states for a major NATO exercise.",
+    "cat": "Central Bank",
+    "ccys": [
+      "AUD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "04 May 03:33",
+    "title": "UK on verge of joining EU's &#163;78bn loan for Ukraine as Starmer seeks reset with Brussels",
+    "body": "The UK is on the verge of joining the EU's &#8364;90bn (&#163;78bn) loan scheme for Ukraine, as the government seeks to shore up support for Kyiv and deepen defence ties with the bloc.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "03 May 07:59",
+    "title": "Man charged with murder of five-year-old girl whose death sparked riot",
+    "body": "A man has been charged with murdering a five-year-old girl in central Australia, days after her killing sparked a riot.",
     "cat": "Macro",
     "ccys": [
-      "EUR"
+      "AUD"
     ],
     "dir": "mixed"
   }
