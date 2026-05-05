@@ -1,102 +1,125 @@
 [
   {
-    "ts": "04 May 22:00",
-    "title": "USD/JPY churns near 157.00 after the BoJ's FX intervention shock",
-    "body": "USD/JPY traded essentially flat on Monday, settling close to 157.20 after a choppy session that opened with an early-Asia gap lower toward 156.20 before staging a steady recovery through European and US trade.",
+    "ts": "05 May 17:27",
+    "title": "Asian FX: Oil shock keeps currencies on back foot – OCBC",
+    "body": "OCBC strategists Sim Moh Siong and Christopher Wong report that Asian FX has softened again as Oil prices jump on renewed Middle East tensions and concerns over the Strait of Hormuz.",
+    "cat": "Central Bank",
+    "ccys": [
+      "CAD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "05 May 17:04",
+    "title": "USD/JPY: Upside risks grow with intervention threat – Scotiabank",
+    "body": "Scotiabank strategists Shaun Osborne and Eric Theoret note the Japanese Yen (JPY) is underperforming, with USD/JPY modestly higher and clearing the low 157s in thin holiday trade. Wider yield spreads and lingering intervention risk keep price action erratic.",
     "cat": "Central Bank",
     "ccys": [
       "JPY",
-      "USD",
-      "EUR"
-    ],
-    "dir": "negative"
-  },
-  {
-    "ts": "04 May 21:59",
-    "title": "GBP/USD pulls back as risk-off mood drives Monday decline",
-    "body": "GBP/USD declined around 0.35% on Monday, settling near 1.3530 after a sharp rejection from the 1.3600 handle dragged the pair lower through choppy afternoon trade.",
-    "cat": "Macro",
-    "ccys": [
       "USD"
     ],
     "dir": "mixed"
   },
   {
-    "ts": "04 May 21:58",
-    "title": "AUD/USD slips below 0.72 as RBA decision looms",
-    "body": "AUD/USD declined around 0.5% on Monday, settling close to 0.7170 after dipping as low as 0.7150 during the session. The pullback followed Friday's four-year high above 0.7225, with bullish momentum waning through the new week as price drifted lower beneath the 0.7200 handle.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD",
-      "AUD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "04 May 21:02",
-    "title": "China: Blocking rule reshapes risk calculus – MUFG",
-    "body": "MUFG’s Michael Wan flags a significant shift as China formally invokes its 2021 Blocking Statute for the first time, targeting recent US sanctions on five Chinese refineries linked to Iranian Oil.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "CAD"
-    ],
-    "dir": "negative"
-  },
-  {
-    "ts": "04 May 20:14",
-    "title": "USD/SGD: Two-way trade with sell-on-rally bias – OCBC",
-    "body": "OCBC strategists Sim Moh Siong and Christopher Wong report that USD/SGD fell into the New York close, helped by a sharp Brent decline and a pullback in USD/JPY, easing immediate inflation and yield concerns.",
+    "ts": "05 May 16:53",
+    "title": "Silver price weakens as fragile momentum, hawkish rate outlook cap upside",
+    "body": "Silver (XAG/USD) trades lower on Tuesday, hovering around $73.05 at the time of writing, down 0.65% on the day, as the white metal struggles to gain traction despite a modest pullback in the US Dollar (USD).",
     "cat": "Central Bank",
     "ccys": [
       "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "04 May 19:57",
-    "title": "Forex Today: US Dollar holds firm on Middle East flare-up ahead of RBA, US data",
-    "body": "The US Dollar Index (DXY) holds a firm tone near the 98.40 price zone, supported by safe-haven demand amid ongoing Middle East hostilities that keep markets cautious, with headlines suggesting that Iran allegedly attacked a United States (US) military ship despite US denials.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD",
-      "AUD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "04 May 19:55",
-    "title": "Silver Price Analysis: Bearish engulfing pattern forms, eyes on $70",
-    "body": "Silver (XAG/USD) tumbles over 3% on Monday as the US Dollar rises on safe-haven demand amid escalating US-Iran tensions in the Strait of Hormuz, as the US Navy embarks on Donald Trump’s 'Operation Freedom'. At the time of writing, XAG/USD trades at $72.74 after reaching a high of $76.00.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "04 May 19:38",
-    "title": "Indonesia: Stable inflation outlook with oil risks – UOB",
-    "body": "UOB’s Enrico Tanuwidjaja and Vincentius Ming Shen note Indonesia’s April inflation slowed to 2.42% year-on-year, below expectations but within Bank Indonesia’s (BI) target. They highlight post-holiday normalization, contained energy inflation thanks to subsidized fuel, and steady core inflation.",
-    "cat": "Macro",
-    "ccys": [
-      "CAD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "04 May 18:59",
-    "title": "ECB’s Nagel: June rate hike may be warranted if the inflation outlook does not improve",
-    "body": "Joachim Nagel, member of the European Central Bank (ECB) and President of the Bundesbank, spoke in Frankfurt am Main, Germany, on Monday. He said that the longer the Middle East conflict lasts, the greater the risk of high inflation will reimain without ECB intervention.",
-    "cat": "Central Bank",
-    "ccys": [
-      "EUR"
     ],
     "dir": "positive"
   },
   {
-    "ts": "04 May 18:52",
-    "title": "Taiwan: Growth momentum and LNG risks – DBS",
-    "body": "DBS Group Research economist Ma Tieying upgrades Taiwan’s 2026 GDP growth forecast to 9.4% from 7.0%, citing stronger-than-expected AI-driven exports and resilient ICT demand. The report notes robust first-quarter GDP and expects quarterly growth to moderate later in 2026.",
+    "ts": "05 May 16:42",
+    "title": "Canada: Trade outlook stabilizes with energy boost – RBC",
+    "body": "Royal Bank of Canada (RBC) economist Nathan Janzen notes that higher Oil and Gold exports pushed Canada’s trade balance back into surplus in March, even as non-energy exports remain under pressure from U.S. tariffs.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "CAD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "05 May 16:24",
+    "title": "EUR/USD holds firm as weaker US economic data and yields weigh on USD",
+    "body": "The Euro (EUR) trades on the front foot against the US Dollar (USD) on Tuesday as a mild pullback in Oil prices pushes US Treasury yields lower, adding pressure on the Greenback. At the time of writing, EUR/USD is trading around 1.1701, rebounding from an intraday low of 1.1676.",
+    "cat": "Macro",
+    "ccys": [
+      "EUR",
+      "CAD",
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "05 May 16:03",
+    "title": "Dow Jones Industrial Average climbs back above 49,000 as Oil eases, earnings beat",
+    "body": "US equities are trading higher on Tuesday as crude prices ease and a wave of stronger-than-expected first-quarter earnings reinforces the thesis that profits, not policy, are doing the heavy lifting in this market.",
+    "cat": "Macro",
+    "ccys": [
+      "CAD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "05 May 16:00",
+    "title": "AUD/USD surges near 0.7197 after RBA hike, weakened US Dollar",
+    "body": "The AUD/USD pair is surging near the 0.7190 price zone, building upside momentum after the Reserve Bank of Australia (RBA) delivered a fresh rate hike. Markets now shift their focus toward what comes next in the policy path.",
+    "cat": "Central Bank",
+    "ccys": [
+      "AUD",
+      "USD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "05 May 15:37",
+    "title": "GBP/USD rises as fragile ceasefire lifts risk appetite, trims USD",
+    "body": "The Pound Sterling (GBP) rises by over 0.20% against the US Dollar (USD) as risk appetite improves. The ceasefire between the US and Iran, although fragile, is holding, pushing Oil prices and the USD lower and US equities higher.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "CAD",
+      "GBP",
+      "USD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "05 May 15:16",
+    "title": "AUD: RBA steady but risk of further hike – Standard Chartered",
+    "body": "Standard Chartered’s Nicholas Chia notes the Reserve Bank of Australia (RBA) lifted the cash rate to 4.35% in an 8-1 decision, but Governor Bullock later softened the hawkish tone. The bank’s baseline is for no further hikes, though risks lean toward another move in H2 if growth stays above trend.",
+    "cat": "Central Bank",
+    "ccys": [
+      "AUD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "05 May 15:07",
+    "title": "TTF: Gas market seen underpricing risks – ING",
+    "body": "ING’s Warren Patterson and Ewa Manthey report that European gas benchmark TTF has climbed to its highest level since early April following renewed tensions in the Persian Gulf.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "EUR"
+    ],
+    "dir": "negative"
+  },
+  {
+    "ts": "05 May 14:53",
+    "title": "EUR/USD: Range trade persists with hawkish ECB – Scotiabank",
+    "body": "Scotiabank strategists Shaun Osborne and Eric Theoret highlight that the Euro (EUR) is flat versus the US Dollar (USD), with EUR/USD stuck in a range as markets weigh conflict-related inflation risks and a hawkish European Central Bank (ECB) stance.",
+    "cat": "Central Bank",
+    "ccys": [
+      "EUR",
+      "USD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "05 May 14:45",
+    "title": "Gold holds modest gains as higher-for-longer rate outlook limits upside",
+    "body": "Gold (XAU/USD) edges higher on Tuesday, but upside remains capped as higher-for-longer interest rate expectations rise following renewed escalation in the Middle East, which continues to fuel energy-driven inflation concerns.",
     "cat": "Central Bank",
     "ccys": [
       "USD"
@@ -104,9 +127,9 @@
     "dir": "mixed"
   },
   {
-    "ts": "04 May 18:43",
-    "title": "Fed’s Williams: Inflation likely to be 3% this year",
-    "body": "John Williams, President of the Federal Reserve (Fed) Bank of New York, said in a prepared speech at the Cynosure Group Spring Symposium in New York, United States (US) on Monday, that there is no way to know yet how the Iran war impact will play out for the United States economy.",
+    "ts": "05 May 14:18",
+    "title": "What a Warsh Fed means for markets",
+    "body": "When Kevin Warsh takes over the Federal Reserve, the shift will go well beyond personalities. The new Fed chair will likely redefine how policy is delivered and communicated and, crucially, how markets are expected to respond.",
     "cat": "Central Bank",
     "ccys": [
       "USD"
@@ -114,15 +137,24 @@
     "dir": "negative"
   },
   {
-    "ts": "04 May 18:23",
-    "title": "EUR/USD slides as Middle East tensions and Fed hike bets boost US Dollar",
-    "body": "The Euro (EUR) trades on the back foot against the US Dollar (USD) on Monday as reports of renewed attacks in the Middle East lift the Greenback.",
-    "cat": "Central Bank",
+    "ts": "05 May 07:37",
+    "title": "ING and OCBC predictions for Gold: Why yields are winning the battle against the precious metal",
+    "body": "Gold is currently facing significant downward pressure as it flirts with one-month lows near the $4,500/oz mark. The precious metal is caught between rising US Treasury yields and a strengthening US Dollar, which are diminishing the appeal of non-yielding assets.",
+    "cat": "Geopolitics",
     "ccys": [
-      "USD",
-      "EUR"
+      "USD"
     ],
-    "dir": "positive"
+    "dir": "negative"
+  },
+  {
+    "ts": "05 May 02:59",
+    "title": "Gold Price Forecast: XAU/USD set for more pain amid Hormuz tensions, inflation fears",
+    "body": "Gold is seeing a dead cat bounce from over one-month lows of $4,501 early Tuesday, but sellers are likely to jump back in amid sustained haven demand for the US Dollar (USD) and renewed tensions around the Strait of Hormuz.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
   },
   {
     "ts": "04 May 17:50",
@@ -130,8 +162,8 @@
     "body": "The Aussie Dollar seems to have embarked on a consolidative phase, lifting AUD/USD to the vicinity of its yearly peaks well north of 0.7100 the figure. For now, the pair’s constructive tone should remain unchanged, reinforced by elevated domestic inflation and the RBA’s cautious bias",
     "cat": "Central Bank",
     "ccys": [
-      "USD",
-      "AUD"
+      "AUD",
+      "USD"
     ],
     "dir": "mixed"
   },
@@ -161,8 +193,8 @@
     "body": "Gold (XAU/USD) meets with a fresh supply at the start of a new week and weakens further below the $4,600 mark, back closer to Friday's swing low, during the early part of the European session.",
     "cat": "Macro",
     "ccys": [
-      "USD",
-      "EUR"
+      "EUR",
+      "USD"
     ],
     "dir": "positive"
   },
@@ -177,34 +209,33 @@
     "dir": "positive"
   },
   {
-    "ts": "01 May 08:11",
-    "title": "Gold Price Forecast: XAU/USD seems vulnerable amid bets for more hawkish central banks",
-    "body": "Gold (XAU/USD) meets with a fresh supply on Friday and slides back below the $4,600 mark during the early European session, eroding a part of the previous day's modest recovery gains.",
+    "ts": "05 May 09:28",
+    "title": "Separatist group tries to trigger referendum on province leaving Canada",
+    "body": "A separatist group says it has formally submitted more than 300,000 signatures to try to trigger a referendum on the province of Alberta leaving Canada.",
     "cat": "Macro",
     "ccys": [
-      "USD",
-      "EUR"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "30 Apr 21:24",
-    "title": "Yentervention: Will it stick this time?",
-    "body": "Japan’s first intervention in the Forex market in almost two years shows that authorities are serious about preventing the sharp depreciation of the Yen.",
-    "cat": "Macro",
-    "ccys": [
-      "JPY"
+      "CAD"
     ],
     "dir": "mixed"
   },
   {
-    "ts": "30 Apr 21:11",
-    "title": "Rising inflation and slowing growth put ECB and BoE in a bind",
-    "body": "The European Central Bank (ECB) and the Bank of England (BoE) may operate in different economies, but this week’s meetings delivered a strikingly similar message: inflation risks are creeping back just as growth is losing momentum, giving some belief to the idea that a stagflationary scenario could",
-    "cat": "Central Bank",
+    "ts": "05 May 14:59",
+    "title": "Romania's pro-Europe government collapses after PM loses no-confidence vote",
+    "body": "Romania's pro-European coalition government has collapsed, after MPs voted against Prime Minister Ilie Bolojan, plunging the country into further political turmoil.",
+    "cat": "Macro",
     "ccys": [
-      "GBP",
-      "EUR"
+      "EUR",
+      "CAD"
+    ],
+    "dir": "negative"
+  },
+  {
+    "ts": "05 May 10:24",
+    "title": "Indian prime minister's party wins controversial and contentious state election",
+    "body": "In a resounding victory Indian Prime Minister Narendra Modi's nationalist Hindu party has wrested control of the key state of West Bengal.",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
     ],
     "dir": "mixed"
   },
@@ -219,40 +250,10 @@
     "dir": "mixed"
   },
   {
-    "ts": "04 May 14:20",
-    "title": "Why the United Nations is no longer fit for purpose",
-    "body": "👉 Listen to This Is Why on your podcast app 👈",
+    "ts": "05 May 12:41",
+    "title": "New 'Mini-Pluto' discovered with atmosphere beyond Neptune",
+    "body": "A new tiny ice world has been discovered beyond Pluto surrounded by a thin atmosphere, scientists revealed.",
     "cat": "Macro",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "04 May 13:07",
-    "title": "Record cocaine seizure made by Spanish police",
-    "body": "Police in Spain have made what they have said is a \"record-breaking cocaine seizure in the Atlantic\", as part of an ongoing crackdown on international drug trafficking.",
-    "cat": "Macro",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "04 May 09:14",
-    "title": "Soldiers prepare for NATO deployment near Russian border with urban combat drills",
-    "body": "Troops from the Royal Regiment of Scotland have been taking part in urban combat drills as they prepare to deploy to the Baltic states for a major NATO exercise.",
-    "cat": "Central Bank",
-    "ccys": [
-      "AUD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "04 May 03:33",
-    "title": "UK on verge of joining EU's &#163;78bn loan for Ukraine as Starmer seeks reset with Brussels",
-    "body": "The UK is on the verge of joining the EU's &#8364;90bn (&#163;78bn) loan scheme for Ukraine, as the government seeks to shore up support for Kyiv and deepen defence ties with the bloc.",
-    "cat": "Geopolitics",
     "ccys": [
       "USD"
     ],
