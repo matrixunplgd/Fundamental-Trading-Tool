@@ -1,126 +1,153 @@
 [
   {
-    "ts": "05 May 17:27",
-    "title": "Asian FX: Oil shock keeps currencies on back foot – OCBC",
-    "body": "OCBC strategists Sim Moh Siong and Christopher Wong report that Asian FX has softened again as Oil prices jump on renewed Middle East tensions and concerns over the Strait of Hormuz.",
-    "cat": "Central Bank",
+    "ts": "05 May 22:00",
+    "title": "GBP/USD stalls as US Dollar drivers dominate a quiet UK week",
+    "body": "GBP/USD ended Tuesday near where it started, settling close to 1.3545 after a narrow session capped by resistance around 1.3550. Price has held a roughly 60-pip range across the past two sessions, with overlapping wicks pointing to a market lacking conviction in either direction.",
+    "cat": "Macro",
     "ccys": [
-      "CAD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "05 May 17:04",
-    "title": "USD/JPY: Upside risks grow with intervention threat – Scotiabank",
-    "body": "Scotiabank strategists Shaun Osborne and Eric Theoret note the Japanese Yen (JPY) is underperforming, with USD/JPY modestly higher and clearing the low 157s in thin holiday trade. Wider yield spreads and lingering intervention risk keep price action erratic.",
-    "cat": "Central Bank",
-    "ccys": [
-      "JPY",
       "USD"
     ],
     "dir": "mixed"
   },
   {
-    "ts": "05 May 16:53",
-    "title": "Silver price weakens as fragile momentum, hawkish rate outlook cap upside",
-    "body": "Silver (XAG/USD) trades lower on Tuesday, hovering around $73.05 at the time of writing, down 0.65% on the day, as the white metal struggles to gain traction despite a modest pullback in the US Dollar (USD).",
-    "cat": "Central Bank",
+    "ts": "05 May 21:58",
+    "title": "PHP: Inflation shock drives hawkish BSP path – UOB",
+    "body": "UOB economists Julia Goh and Loke Siew Ting highlight that Philippine inflation has surged to a 37‑month high, forcing a sharp upward revision to the 2026 forecast.",
+    "cat": "Geopolitics",
     "ccys": [
       "USD"
     ],
     "dir": "positive"
   },
   {
-    "ts": "05 May 16:42",
-    "title": "Canada: Trade outlook stabilizes with energy boost – RBC",
-    "body": "Royal Bank of Canada (RBC) economist Nathan Janzen notes that higher Oil and Gold exports pushed Canada’s trade balance back into surplus in March, even as non-energy exports remain under pressure from U.S. tariffs.",
-    "cat": "Geopolitics",
+    "ts": "05 May 21:17",
+    "title": "USD/SGD: Two-way trade with upside risk on escalation – OCBC",
+    "body": "OCBC strategists Sim Moh Siong and Christopher Wong see USD/SGD rebounding after what he characterizes as a relief, not reversal, move lower.",
+    "cat": "Central Bank",
     "ccys": [
-      "CAD"
+      "USD"
     ],
     "dir": "mixed"
   },
   {
-    "ts": "05 May 16:24",
-    "title": "EUR/USD holds firm as weaker US economic data and yields weigh on USD",
-    "body": "The Euro (EUR) trades on the front foot against the US Dollar (USD) on Tuesday as a mild pullback in Oil prices pushes US Treasury yields lower, adding pressure on the Greenback. At the time of writing, EUR/USD is trading around 1.1701, rebounding from an intraday low of 1.1676.",
+    "ts": "05 May 21:16",
+    "title": "NZD/USD recovers near 0.5890, but upside remains limited as USD stays supported",
+    "body": "The NZD/USD pair is trading with a modest positive tone near the 0.5890 area on Tuesday, recovering some ground but still struggling to build sustained upside momentum as the US Dollar (USD) remains broadly supported.",
     "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "05 May 21:00",
+    "title": "AUD/USD edges higher as the RBA hikes, but gains stay limited",
+    "body": "AUD/USD edges higher by 0.25% on Tuesday, settling close to 0.7185 after finding support around 0.7150 during the European session.",
+    "cat": "Central Bank",
     "ccys": [
       "EUR",
-      "CAD",
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "05 May 16:03",
-    "title": "Dow Jones Industrial Average climbs back above 49,000 as Oil eases, earnings beat",
-    "body": "US equities are trading higher on Tuesday as crude prices ease and a wave of stronger-than-expected first-quarter earnings reinforces the thesis that profits, not policy, are doing the heavy lifting in this market.",
-    "cat": "Macro",
-    "ccys": [
-      "CAD"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "05 May 16:00",
-    "title": "AUD/USD surges near 0.7197 after RBA hike, weakened US Dollar",
-    "body": "The AUD/USD pair is surging near the 0.7190 price zone, building upside momentum after the Reserve Bank of Australia (RBA) delivered a fresh rate hike. Markets now shift their focus toward what comes next in the policy path.",
-    "cat": "Central Bank",
-    "ccys": [
-      "AUD",
-      "USD"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "05 May 15:37",
-    "title": "GBP/USD rises as fragile ceasefire lifts risk appetite, trims USD",
-    "body": "The Pound Sterling (GBP) rises by over 0.20% against the US Dollar (USD) as risk appetite improves. The ceasefire between the US and Iran, although fragile, is holding, pushing Oil prices and the USD lower and US equities higher.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "CAD",
-      "GBP",
-      "USD"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "05 May 15:16",
-    "title": "AUD: RBA steady but risk of further hike – Standard Chartered",
-    "body": "Standard Chartered’s Nicholas Chia notes the Reserve Bank of Australia (RBA) lifted the cash rate to 4.35% in an 8-1 decision, but Governor Bullock later softened the hawkish tone. The bank’s baseline is for no further hikes, though risks lean toward another move in H2 if growth stays above trend.",
-    "cat": "Central Bank",
-    "ccys": [
+      "USD",
       "AUD"
     ],
     "dir": "positive"
   },
   {
-    "ts": "05 May 15:07",
-    "title": "TTF: Gas market seen underpricing risks – ING",
-    "body": "ING’s Warren Patterson and Ewa Manthey report that European gas benchmark TTF has climbed to its highest level since early April following renewed tensions in the Persian Gulf.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "EUR"
-    ],
-    "dir": "negative"
-  },
-  {
-    "ts": "05 May 14:53",
-    "title": "EUR/USD: Range trade persists with hawkish ECB – Scotiabank",
-    "body": "Scotiabank strategists Shaun Osborne and Eric Theoret highlight that the Euro (EUR) is flat versus the US Dollar (USD), with EUR/USD stuck in a range as markets weigh conflict-related inflation risks and a hawkish European Central Bank (ECB) stance.",
+    "ts": "05 May 20:39",
+    "title": "Vietnam: Inflation surge raises SBV hike odds – DBS",
+    "body": "DBS Group Research economist Chua Han Teng expects the State Bank of Vietnam (SBV) to turn more hawkish as Vietnam’s inflation accelerates and stays above target.",
     "cat": "Central Bank",
     "ccys": [
-      "EUR",
       "USD"
     ],
     "dir": "positive"
   },
   {
-    "ts": "05 May 14:45",
-    "title": "Gold holds modest gains as higher-for-longer rate outlook limits upside",
-    "body": "Gold (XAU/USD) edges higher on Tuesday, but upside remains capped as higher-for-longer interest rate expectations rise following renewed escalation in the Middle East, which continues to fuel energy-driven inflation concerns.",
+    "ts": "05 May 19:54",
+    "title": "Forex Today: DXY steadies as resilient US data keep FX markets on edge",
+    "body": "The US Dollar Index (DXY) is trading with a neutral tone near the 98.50 area, supported by safe-haven demand and elevated US yields even after upbeat US data. Price action remains choppy amid shifting Middle East headlines.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "05 May 19:54",
+    "title": "Indonesia: Growth outlook steady with fiscal constraints – UOB",
+    "body": "UOB economists Enrico Tanuwidjaja and Vincentius Ming Shen highlight that Indonesia’s 1Q26 Gross Domestic Product (GDP) beat expectations at 5.61% year-on-year, driven by government spending, household consumption and investment.",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "05 May 19:50",
+    "title": "USD/CHF Price Forecast: Rejected at SMA cluster, bears target 0.78",
+    "body": "USD/CHF retreats during the North American session, yet extends edges lower 0.12% as the pair clashes with the confluence of a key resistance area comprised by the 20-, 100- and 50-day Simple Moving Averages (SMAs) at around 0.7842-57. At the time of writing, the pair trades at 0.7830.",
+    "cat": "Macro",
+    "ccys": [
+      "CHF",
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "05 May 19:07",
+    "title": "Philippines: Inflation surge raises BSP hike risks – ING",
+    "body": "ING’s Deepali Bhargava highlights that Philippine Consumer Price Index (CPI) has jumped to a three‑year high, driven mainly by broad‑based food and fuel‑related pressures, and now looks set to average above 8% in 2Q.",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "05 May 18:43",
+    "title": "Silver Price Analysis: Capped below $75 as momentum remains bearish",
+    "body": "Silver (XAG/USD) price trims some of its Monday losses, recovering ground on Tuesday, up 0.69% in the day, trading at $73.22 after bouncing off a daily low of $72.41. An improvement in risk appetite is underpinning the precious metals segment.",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "05 May 18:40",
+    "title": "Gold rebounds from one-month lows as ceasefire lifts buying interest",
+    "body": "Gold (XAU/USD) advances nearly 1% on Tuesday as a fragile ceasefire between the US and Iran improves risk appetite, with Wall Street trading higher. At the time of writing, XAU/USD trades at $4,560 after bouncing off one-month lows of $4,500.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "05 May 19:37",
+    "title": "UK 30-year gilts hit 5.78%, the highest since 1998: what is being priced in?",
+    "body": "UK 30-year gilts traded as high as 5.78% on Tuesday, the highest level since 1998, while 10-year yields topped 5.10% with markets pricing in nearly three-quarter-point Bank of England (BoE) rate hikes this year.",
     "cat": "Central Bank",
+    "ccys": [
+      "GBP"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "05 May 17:46",
+    "title": "Australian Dollar Price Forecast: Extra consolidation on the cards",
+    "body": "The Aussie Dollar seems to have embarked on a consolidative phase, with AUD/USD finding support around the 0.7100 neighbourhood while the upside appears capped by the YTD tops just below 0.7200 the figure.",
+    "cat": "Macro",
+    "ccys": [
+      "USD",
+      "AUD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "05 May 17:22",
+    "title": "Gold Price Forecast: XAU/USD bounces from critical threshold, risk skews to the downside",
+    "body": "Spot Gold posts modest intraday gains on Tuesday, changing hands at around $4,550 per troy ounce. The precious metal quickly started the week with a weak tone, as tensions in the Middle East escalated.",
+    "cat": "Geopolitics",
     "ccys": [
       "USD"
     ],
@@ -162,8 +189,8 @@
     "body": "The Aussie Dollar seems to have embarked on a consolidative phase, lifting AUD/USD to the vicinity of its yearly peaks well north of 0.7100 the figure. For now, the pair’s constructive tone should remain unchanged, reinforced by elevated domestic inflation and the RBA’s cautious bias",
     "cat": "Central Bank",
     "ccys": [
-      "AUD",
-      "USD"
+      "USD",
+      "AUD"
     ],
     "dir": "mixed"
   },
@@ -176,37 +203,6 @@
       "CAD"
     ],
     "dir": "mixed"
-  },
-  {
-    "ts": "04 May 09:38",
-    "title": "Prediction markets: The holy grail of insider trading",
-    "body": "Prediction markets, such as Polymarket or Kalshi, are becoming difficult for traders to ignore. These platforms can provide potentially useful signals to read the market, but beware: what may seem an opportunity can easily become a speculative trap.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "negative"
-  },
-  {
-    "ts": "04 May 08:07",
-    "title": "Gold Price Forecast: Bears have the upper hand amid inflation-driven hawkish central banks",
-    "body": "Gold (XAU/USD) meets with a fresh supply at the start of a new week and weakens further below the $4,600 mark, back closer to Friday's swing low, during the early part of the European session.",
-    "cat": "Macro",
-    "ccys": [
-      "EUR",
-      "USD"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "01 May 14:47",
-    "title": "Gold Weekly Forecast: Major central banks’ hawkish tone scares buyers",
-    "body": "Gold (XAU/USD) registered weekly losses, pressured by persistent uncertainty surrounding the Middle East conflict and hawkish guidance from major central banks.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "positive"
   },
   {
     "ts": "05 May 09:28",
