@@ -1,5 +1,97 @@
 [
   {
+    "ts": "06 May 22:44",
+    "title": "AUD/USD pushes near four-year highs as Iran deal hopes weigh on US Dollar",
+    "body": "AUD/USD gained roughly 0.8% on Wednesday, settling close to 0.7240 after testing 0.7280 intraday and failing to hold above the 0.7250 handle.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "06 May 21:14",
+    "title": "GBP/JPY Price Forecast: Breaks below 213.00 eyes on 212.00",
+    "body": "GBP/JPY retreats over 0.55% on Wednesday as the Japanese Yen strengthened in the aftermath of last week’s intervention in the FX markets by Japanese authorities. At the time of writing, the cross-pair trades at 212.60 after reaching a daily peak of 214.23.",
+    "cat": "Macro",
+    "ccys": [
+      "JPY"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "06 May 19:51",
+    "title": "Indonesia: Fiscal slippage keeps bearish bias – Societe Generale",
+    "body": "Societe Generale analysts Kunal Kundu and Galvin Chia say Indonesia’s early‑2026 fiscal deterioration is driven by front‑loaded expenditure, with the primary balance already in deficit and raising financing needs.",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "06 May 19:40",
+    "title": "Forex Today: DXY falls after Middle East tensions ease, markets eye US NFP",
+    "body": "The US Dollar Index (DXY) slides near the 98.00 area,  with limited losses supported by resilient United States (US) data but capped by improving risk sentiment after Axios reported that the US and Iran are moving closer to a deal aimed at ending the conflict.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "06 May 19:40",
+    "title": "USD/CHF Price Forecast: Drops below 0.7800, bears target 0.7750",
+    "body": "USD/CHF edges lower on Wednesday, breaching a key support trendline at around 0.7800 as the pair extends its downtrend, falling over 0.50% at the time of writing. The pair trades at 0.7789, as traders target the March 10 swing low at 0.7748.",
+    "cat": "Macro",
+    "ccys": [
+      "CHF",
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "06 May 19:12",
+    "title": "USD/PHP: Inflation shock drives underperformance risk – MUFG",
+    "body": "MUFG’s Michael Wan highlights that the Philippines faces heightened vulnerability to Middle East supply disruptions, with April Consumer Price Index (CPI) surging to 7.2% year-on-year, far above expectations.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "06 May 18:55",
+    "title": "Gold surges as Iran deal hopes crush the US Dollar, yields",
+    "body": "Gold (XAU/USD) price rallies nearly 3% on Wednesday amid growing speculation of an end to the Iran war, weighing on the Greenback and pushing US Treasury yields lower. At the time of writing, XAU/USD trades at $4,681 after bouncing off daily highs of $4,723.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "06 May 18:26",
+    "title": "Carry trade: Profit-taking risk builds into H2 – BNY",
+    "body": "BNY’s Geoff Yu notes that the iFlow Carry index briefly turned negatively significant as investors sold nine of fifteen high-yield currencies, suggesting growing profit-taking after a resilient run.",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "06 May 18:05",
+    "title": "USD/JPY falls on suspected intervention, US-Iran deal hopes weigh on USD",
+    "body": "USD/JPY stages a modest rebound on Wednesday after coming under pressure earlier in the day amid another suspected intervention by Japanese authorities. At the time of writing, the pair is trading around 156.42 after recovering from an intraday low near 155.00.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD",
+      "JPY"
+    ],
+    "dir": "positive"
+  },
+  {
     "ts": "06 May 17:36",
     "title": "South Korea: Gradual CPI rise keeps BoK cautious – ING",
     "body": "ING’s Senior Economist Min Joo Kang notes that South Korean inflation accelerated in April on higher energy prices, but government measures such as food vouchers, a gasoline price cap and frozen utility tariffs helped limit the increase.",
@@ -30,97 +122,15 @@
     "dir": "mixed"
   },
   {
-    "ts": "06 May 16:36",
-    "title": "WTI Oil slumps on US-Iran diplomatic progress, EIA inventory drawdown",
-    "body": "West Texas Intermediate (WTI) US Oil tumbles on Wednesday, trading around $92.30 at the time of writing, down 7.62% on the day as investors rapidly unwind geopolitical risk premiums following reports of a potential agreement between Washington and Tehran.",
-    "cat": "Geopolitics",
+    "ts": "06 May 19:08",
+    "title": "Australian Dollar Price Forecast: The 0.7300 hurdle comes next",
+    "body": "The Aussie Dollar is attempting to break above the ongoing multi-day consolidative phase, with AUD/USD reaching fresh yearly peaks near the 0.7300 barrier. For now, the pair’s positive outlook remains unchanged, propped up by elevated inflation in Oz and the RBA’s cautious stance.",
+    "cat": "Central Bank",
     "ccys": [
-      "CAD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "06 May 16:19",
-    "title": "Dow Jones Industrial Average rallies over 1% on Iran deal hopes",
-    "body": "US equities pushed higher on Wednesday as risk appetite returned on signs that the US-Iran conflict could be heading toward a broader resolution. The Dow Jones Industrial Average (DJIA) added roughly 540 points to close above 49,800 after testing levels near 50,000 intraday.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "06 May 16:12",
-    "title": "LatAm: Hedging demand rises with Banxico in focus – BNY",
-    "body": "BNY’s Geoff Yu argues Latin American FX and equities now represent a single crowded ‘total return’ trade, with all regional currencies still overheld while bond holdings begin to reverse unevenly.",
-    "cat": "Macro",
-    "ccys": [
+      "AUD",
       "USD"
     ],
     "dir": "mixed"
-  },
-  {
-    "ts": "06 May 16:11",
-    "title": "Silver Price Forecast: XAG/USD rally pauses below 50-day SMA after intraday surge",
-    "body": "Silver (XAG/USD) gains traction on Wednesday as renewed optimism surrounding a potential US-Iran peace deal triggers a sharp decline in the US Dollar (USD) and Oil prices. At the time of writing, XAG/USD is trading around 77, up over 5.50% on the day.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD",
-      "CAD"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "06 May 15:56",
-    "title": "GBP/USD surges as US-Iran deal hopes hammer US Dollar",
-    "body": "GBP/USD rises by over 0.59% on Wednesday after an Axios report revealed that the US and Iran are closing in on a deal to end the war. The US Dollar (USD) fell on the news, even though US jobs data crushed estimates, which could prompt the Federal Reserve (Fed) to focus on inflation.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "06 May 15:24",
-    "title": "EUR/USD rallies on US-Iran optimism, upside capped by lingering uncertainty",
-    "body": "EUR/USD trades higher on Wednesday as renewed optimism surrounding a potential US-Iran peace deal pressures the US Dollar (USD) and lifts the Euro (EUR).",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD",
-      "EUR"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "06 May 15:17",
-    "title": "AUD/USD rallies as Iran-US deal hopes outweigh strong ADP jobs data",
-    "body": "AUD/USD surges near the 0.7240 price region, supported by improving risk sentiment after Axios reported that the United States (US) and Iran are moving closer to a deal aimed at ending the conflict.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "06 May 14:57",
-    "title": "USD: Peace progress and Oil slide weigh – MUFG",
-    "body": "MUFG’s Derek Halpenny notes that renewed hopes for a peace deal with Iran and a sharp drop in Brent crude Oil are pressuring the US Dollar (USD), with risk appetite supported by strong global equities and AI-driven gains.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD",
-      "CAD"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "06 May 14:43",
-    "title": "SEK: Positive real rates support currency outlook – BBH",
-    "body": "Brown Brothers Harriman’s (BBH) Elias Haddad highlights that USD/SEK has fallen on broad Dollar weakness while Sweden’s April disinflation surprised to the downside, reducing Riksbank hike expectations.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "positive"
   },
   {
     "ts": "06 May 17:10",
@@ -188,16 +198,16 @@
     "body": "The Aussie Dollar seems to have embarked on a consolidative phase, with AUD/USD finding support around the 0.7100 neighbourhood while the upside appears capped by the YTD tops just below 0.7200 the figure.",
     "cat": "Macro",
     "ccys": [
-      "USD",
-      "AUD"
+      "AUD",
+      "USD"
     ],
     "dir": "mixed"
   },
   {
-    "ts": "05 May 17:22",
-    "title": "Gold Price Forecast: XAU/USD bounces from critical threshold, risk skews to the downside",
-    "body": "Spot Gold posts modest intraday gains on Tuesday, changing hands at around $4,550 per troy ounce. The precious metal quickly started the week with a weak tone, as tensions in the Middle East escalated.",
-    "cat": "Geopolitics",
+    "ts": "06 May 21:00",
+    "title": "Pussy Riot stage protest at Venice art festival over Russian involvement",
+    "body": "Russian punk band Pussy Riot and members of a Ukrainian feminist group stormed the Russian pavilion at an arts festival in protest at Moscow's participation.",
+    "cat": "Macro",
     "ccys": [
       "USD"
     ],
@@ -238,16 +248,6 @@
     "title": "Has Trump just made another mess in the Middle East?",
     "body": "👉 Follow Trump100 on your podcast app 👈&#160; &#160; &#160; &#160; &#160; &#160;",
     "cat": "Geopolitics",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "06 May 09:57",
-    "title": "Student, 13, arrested after two killed in Brazilian school shooting",
-    "body": "A 13-year-old student has been arrested after a shooting at a school in Brazil left two women dead.",
-    "cat": "Macro",
     "ccys": [
       "USD"
     ],
