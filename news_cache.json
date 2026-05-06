@@ -1,18 +1,48 @@
 [
   {
-    "ts": "05 May 22:00",
-    "title": "GBP/USD stalls as US Dollar drivers dominate a quiet UK week",
-    "body": "GBP/USD ended Tuesday near where it started, settling close to 1.3545 after a narrow session capped by resistance around 1.3550. Price has held a roughly 60-pip range across the past two sessions, with overlapping wicks pointing to a market lacking conviction in either direction.",
-    "cat": "Macro",
+    "ts": "06 May 17:36",
+    "title": "South Korea: Gradual CPI rise keeps BoK cautious – ING",
+    "body": "ING’s Senior Economist Min Joo Kang notes that South Korean inflation accelerated in April on higher energy prices, but government measures such as food vouchers, a gasoline price cap and frozen utility tariffs helped limit the increase.",
+    "cat": "Central Bank",
     "ccys": [
       "USD"
     ],
     "dir": "mixed"
   },
   {
-    "ts": "05 May 21:58",
-    "title": "PHP: Inflation shock drives hawkish BSP path – UOB",
-    "body": "UOB economists Julia Goh and Loke Siew Ting highlight that Philippine inflation has surged to a 37‑month high, forcing a sharp upward revision to the 2026 forecast.",
+    "ts": "06 May 17:14",
+    "title": "Fed’s Goolsbee: Productivity's impact on inflation and interest rates could go in either direction",
+    "body": "Austan Goolsbee, President of the Federal Reserve (Fed) Bank of Chicago, spoke at the 2026 Milken Institute Global Conference in California on Wednesday. He stated that the impact of rising productivity on inflation remains an active topic of debate among the Fed.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "06 May 17:02",
+    "title": "China: Managed trade truce prospects – Standard Chartered",
+    "body": "Standard Chartered economists Carol Liao and Shuang Ding argue that both the US and China are incentivised to keep their bilateral relationship stable as President Trump’s 14–15 May visit approaches.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "06 May 16:36",
+    "title": "WTI Oil slumps on US-Iran diplomatic progress, EIA inventory drawdown",
+    "body": "West Texas Intermediate (WTI) US Oil tumbles on Wednesday, trading around $92.30 at the time of writing, down 7.62% on the day as investors rapidly unwind geopolitical risk premiums following reports of a potential agreement between Washington and Tehran.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "CAD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "06 May 16:19",
+    "title": "Dow Jones Industrial Average rallies over 1% on Iran deal hopes",
+    "body": "US equities pushed higher on Wednesday as risk appetite returned on signs that the US-Iran conflict could be heading toward a broader resolution. The Dow Jones Industrial Average (DJIA) added roughly 540 points to close above 49,800 after testing levels near 50,000 intraday.",
     "cat": "Geopolitics",
     "ccys": [
       "USD"
@@ -20,19 +50,9 @@
     "dir": "positive"
   },
   {
-    "ts": "05 May 21:17",
-    "title": "USD/SGD: Two-way trade with upside risk on escalation – OCBC",
-    "body": "OCBC strategists Sim Moh Siong and Christopher Wong see USD/SGD rebounding after what he characterizes as a relief, not reversal, move lower.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "05 May 21:16",
-    "title": "NZD/USD recovers near 0.5890, but upside remains limited as USD stays supported",
-    "body": "The NZD/USD pair is trading with a modest positive tone near the 0.5890 area on Tuesday, recovering some ground but still struggling to build sustained upside momentum as the US Dollar (USD) remains broadly supported.",
+    "ts": "06 May 16:12",
+    "title": "LatAm: Hedging demand rises with Banxico in focus – BNY",
+    "body": "BNY’s Geoff Yu argues Latin American FX and equities now represent a single crowded ‘total return’ trade, with all regional currencies still overheld while bond holdings begin to reverse unevenly.",
     "cat": "Macro",
     "ccys": [
       "USD"
@@ -40,21 +60,20 @@
     "dir": "mixed"
   },
   {
-    "ts": "05 May 21:00",
-    "title": "AUD/USD edges higher as the RBA hikes, but gains stay limited",
-    "body": "AUD/USD edges higher by 0.25% on Tuesday, settling close to 0.7185 after finding support around 0.7150 during the European session.",
-    "cat": "Central Bank",
+    "ts": "06 May 16:11",
+    "title": "Silver Price Forecast: XAG/USD rally pauses below 50-day SMA after intraday surge",
+    "body": "Silver (XAG/USD) gains traction on Wednesday as renewed optimism surrounding a potential US-Iran peace deal triggers a sharp decline in the US Dollar (USD) and Oil prices. At the time of writing, XAG/USD is trading around 77, up over 5.50% on the day.",
+    "cat": "Geopolitics",
     "ccys": [
-      "EUR",
       "USD",
-      "AUD"
+      "CAD"
     ],
     "dir": "positive"
   },
   {
-    "ts": "05 May 20:39",
-    "title": "Vietnam: Inflation surge raises SBV hike odds – DBS",
-    "body": "DBS Group Research economist Chua Han Teng expects the State Bank of Vietnam (SBV) to turn more hawkish as Vietnam’s inflation accelerates and stays above target.",
+    "ts": "06 May 15:56",
+    "title": "GBP/USD surges as US-Iran deal hopes hammer US Dollar",
+    "body": "GBP/USD rises by over 0.59% on Wednesday after an Axios report revealed that the US and Iran are closing in on a deal to end the war. The US Dollar (USD) fell on the news, even though US jobs data crushed estimates, which could prompt the Federal Reserve (Fed) to focus on inflation.",
     "cat": "Central Bank",
     "ccys": [
       "USD"
@@ -62,9 +81,20 @@
     "dir": "positive"
   },
   {
-    "ts": "05 May 19:54",
-    "title": "Forex Today: DXY steadies as resilient US data keep FX markets on edge",
-    "body": "The US Dollar Index (DXY) is trading with a neutral tone near the 98.50 area, supported by safe-haven demand and elevated US yields even after upbeat US data. Price action remains choppy amid shifting Middle East headlines.",
+    "ts": "06 May 15:24",
+    "title": "EUR/USD rallies on US-Iran optimism, upside capped by lingering uncertainty",
+    "body": "EUR/USD trades higher on Wednesday as renewed optimism surrounding a potential US-Iran peace deal pressures the US Dollar (USD) and lifts the Euro (EUR).",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD",
+      "EUR"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "06 May 15:17",
+    "title": "AUD/USD rallies as Iran-US deal hopes outweigh strong ADP jobs data",
+    "body": "AUD/USD surges near the 0.7240 price region, supported by improving risk sentiment after Axios reported that the United States (US) and Iran are moving closer to a deal aimed at ending the conflict.",
     "cat": "Geopolitics",
     "ccys": [
       "USD"
@@ -72,51 +102,71 @@
     "dir": "positive"
   },
   {
-    "ts": "05 May 19:54",
-    "title": "Indonesia: Growth outlook steady with fiscal constraints – UOB",
-    "body": "UOB economists Enrico Tanuwidjaja and Vincentius Ming Shen highlight that Indonesia’s 1Q26 Gross Domestic Product (GDP) beat expectations at 5.61% year-on-year, driven by government spending, household consumption and investment.",
-    "cat": "Macro",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "05 May 19:50",
-    "title": "USD/CHF Price Forecast: Rejected at SMA cluster, bears target 0.78",
-    "body": "USD/CHF retreats during the North American session, yet extends edges lower 0.12% as the pair clashes with the confluence of a key resistance area comprised by the 20-, 100- and 50-day Simple Moving Averages (SMAs) at around 0.7842-57. At the time of writing, the pair trades at 0.7830.",
-    "cat": "Macro",
-    "ccys": [
-      "CHF",
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "05 May 19:07",
-    "title": "Philippines: Inflation surge raises BSP hike risks – ING",
-    "body": "ING’s Deepali Bhargava highlights that Philippine Consumer Price Index (CPI) has jumped to a three‑year high, driven mainly by broad‑based food and fuel‑related pressures, and now looks set to average above 8% in 2Q.",
-    "cat": "Macro",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "05 May 18:43",
-    "title": "Silver Price Analysis: Capped below $75 as momentum remains bearish",
-    "body": "Silver (XAG/USD) price trims some of its Monday losses, recovering ground on Tuesday, up 0.69% in the day, trading at $73.22 after bouncing off a daily low of $72.41. An improvement in risk appetite is underpinning the precious metals segment.",
-    "cat": "Macro",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "05 May 18:40",
-    "title": "Gold rebounds from one-month lows as ceasefire lifts buying interest",
-    "body": "Gold (XAU/USD) advances nearly 1% on Tuesday as a fragile ceasefire between the US and Iran improves risk appetite, with Wall Street trading higher. At the time of writing, XAU/USD trades at $4,560 after bouncing off one-month lows of $4,500.",
+    "ts": "06 May 14:57",
+    "title": "USD: Peace progress and Oil slide weigh – MUFG",
+    "body": "MUFG’s Derek Halpenny notes that renewed hopes for a peace deal with Iran and a sharp drop in Brent crude Oil are pressuring the US Dollar (USD), with risk appetite supported by strong global equities and AI-driven gains.",
     "cat": "Geopolitics",
+    "ccys": [
+      "USD",
+      "CAD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "06 May 14:43",
+    "title": "SEK: Positive real rates support currency outlook – BBH",
+    "body": "Brown Brothers Harriman’s (BBH) Elias Haddad highlights that USD/SEK has fallen on broad Dollar weakness while Sweden’s April disinflation surprised to the downside, reducing Riksbank hike expectations.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "06 May 17:10",
+    "title": "XAG/USD Price analysis: Silver recovers its spark, next hurdle at $80",
+    "body": "Silver edged higher on Wednesday, as optimism put a halt to US Dollar (USD) demand. Market players welcomed headlines indicating that the United States (US) and Iran were closing in on a deal to end the Middle East conflict.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "06 May 15:00",
+    "title": "The Fed Warsh inherits: Divided and with its independence in doubt",
+    "body": "The Federal Reserve is the central bank of the world’s most powerful economy, and prides itself on its independence. But is it? Or, better said, will it continue to be under Kevin Warsh?",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "negative"
+  },
+  {
+    "ts": "06 May 09:08",
+    "title": "USD/JPY Price Forecast: Seems vulnerable amid suspected JPY intervention, weaker USD",
+    "body": "The USD/JPY pair attracts heavy intraday selling on Wednesday and dives to the 155.00 psychological mark, or the lowest level since February 24, though it lacks follow-through.",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "06 May 07:55",
+    "title": "The RBI’s problem with the Indian Rupee has no easy fix",
+    "body": "The Indian Rupee’s drama continues despite the RBI’s recent aggressive interventions and regulatory curbs. While these actions have caused the sharpest single-day gains in years, their effect has been wiped out in a matter of days. So why is every RBI move failing to break the Rupee’s downtrend?",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "06 May 03:54",
+    "title": "Gold Price Forecast: XAU/USD rebounds on Mideast peace hopes, will it last?",
+    "body": "Gold is rallying hard in Asia on Wednesday, reclaiming the $4,600 barrier while extending its recovery from over one-month lows of $4,501 set on Tuesday.",
+    "cat": "Macro",
     "ccys": [
       "USD"
     ],
@@ -154,29 +204,39 @@
     "dir": "mixed"
   },
   {
-    "ts": "05 May 14:18",
-    "title": "What a Warsh Fed means for markets",
-    "body": "When Kevin Warsh takes over the Federal Reserve, the shift will go well beyond personalities. The new Fed chair will likely redefine how policy is delivered and communicated and, crucially, how markets are expected to respond.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "negative"
-  },
-  {
-    "ts": "05 May 07:37",
-    "title": "ING and OCBC predictions for Gold: Why yields are winning the battle against the precious metal",
-    "body": "Gold is currently facing significant downward pressure as it flirts with one-month lows near the $4,500/oz mark. The precious metal is caught between rising US Treasury yields and a strengthening US Dollar, which are diminishing the appeal of non-yielding assets.",
+    "ts": "19 Apr 08:44",
+    "title": "Iran war: Everything you need to know about peace talks",
+    "body": "Donald Trump has refocused his efforts on peace talks after a shock pause to 'Project Freedom' - the US effort to safely shepherd ships through the Strait of Hormuz.",
     "cat": "Geopolitics",
     "ccys": [
       "USD"
     ],
-    "dir": "negative"
+    "dir": "positive"
   },
   {
-    "ts": "05 May 02:59",
-    "title": "Gold Price Forecast: XAU/USD set for more pain amid Hormuz tensions, inflation fears",
-    "body": "Gold is seeing a dead cat bounce from over one-month lows of $4,501 early Tuesday, but sellers are likely to jump back in amid sustained haven demand for the US Dollar (USD) and renewed tensions around the Strait of Hormuz.",
+    "ts": "06 May 15:40",
+    "title": "Megatsunami bigger than Empire State Building triggered by climate change",
+    "body": "A tsunami at a popular tourist spot in Alaska was the second highest ever recorded and it was \"unbelievably lucky\" no one was hurt, researchers have said.",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "06 May 09:17",
+    "title": "Pilot dies after firefighting &#8204;plane tackling major forest blaze crashes",
+    "body": "A pilot has been killed after his firefighting &#8204;plane crashed while battling a major blaze that has destroyed 200 hectares of protected forest in Poland.",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "06 May 05:02",
+    "title": "Has Trump just made another mess in the Middle East?",
+    "body": "👉 Follow Trump100 on your podcast app 👈&#160; &#160; &#160; &#160; &#160; &#160;",
     "cat": "Geopolitics",
     "ccys": [
       "USD"
@@ -184,71 +244,9 @@
     "dir": "mixed"
   },
   {
-    "ts": "04 May 17:50",
-    "title": "Australian Dollar Price Forecast: All the attention is now on the RBA",
-    "body": "The Aussie Dollar seems to have embarked on a consolidative phase, lifting AUD/USD to the vicinity of its yearly peaks well north of 0.7100 the figure. For now, the pair’s constructive tone should remain unchanged, reinforced by elevated domestic inflation and the RBA’s cautious bias",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD",
-      "AUD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "04 May 13:00",
-    "title": "UAE quits OPEC: The cartel’s grip on Oil just weakened",
-    "body": "The UAE’s decision to leave OPEC is more than a policy shift. It is a signal that one of the cartel’s most ambitious producers no longer sees quotas as compatible with its long-term strategy, and this could have important implications for Oil.",
-    "cat": "Central Bank",
-    "ccys": [
-      "CAD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "05 May 09:28",
-    "title": "Separatist group tries to trigger referendum on province leaving Canada",
-    "body": "A separatist group says it has formally submitted more than 300,000 signatures to try to trigger a referendum on the province of Alberta leaving Canada.",
-    "cat": "Macro",
-    "ccys": [
-      "CAD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "05 May 14:59",
-    "title": "Romania's pro-Europe government collapses after PM loses no-confidence vote",
-    "body": "Romania's pro-European coalition government has collapsed, after MPs voted against Prime Minister Ilie Bolojan, plunging the country into further political turmoil.",
-    "cat": "Macro",
-    "ccys": [
-      "EUR",
-      "CAD"
-    ],
-    "dir": "negative"
-  },
-  {
-    "ts": "05 May 10:24",
-    "title": "Indian prime minister's party wins controversial and contentious state election",
-    "body": "In a resounding victory Indian Prime Minister Narendra Modi's nationalist Hindu party has wrested control of the key state of West Bengal.",
-    "cat": "Macro",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "21 Apr 16:02",
-    "title": "Two killed after car ploughs into city centre crowd in Germany",
-    "body": "Two people were killed after a car ploughed into a crowd in the eastern German city of Leipzig on Monday afternoon.",
-    "cat": "Macro",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "05 May 12:41",
-    "title": "New 'Mini-Pluto' discovered with atmosphere beyond Neptune",
-    "body": "A new tiny ice world has been discovered beyond Pluto surrounded by a thin atmosphere, scientists revealed.",
+    "ts": "06 May 09:57",
+    "title": "Student, 13, arrested after two killed in Brazilian school shooting",
+    "body": "A 13-year-old student has been arrested after a shooting at a school in Brazil left two women dead.",
     "cat": "Macro",
     "ccys": [
       "USD"
