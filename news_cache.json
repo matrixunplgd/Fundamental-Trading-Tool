@@ -1,124 +1,121 @@
 [
   {
+    "ts": "07 May 22:32",
+    "title": "GBP/USD slips as Iran hope fades and Dollar firms",
+    "body": "GBP/USD edged slightly lower to around 1.3550 on Thursday, lower around 0.3% after the pair touched a session high near 1.3645 before turning back down.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "07 May 22:31",
+    "title": "AUD/USD slips from multi-year highs as Aussie trade slumps and Dollar bounces",
+    "body": "AUD/USD edged about 0.2% lower on Thursday to around 0.7205, easing back from a multi-year peak just shy of 0.7280 reached earlier in the session.",
+    "cat": "Macro",
+    "ccys": [
+      "AUD",
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "07 May 22:25",
+    "title": "USD/JPY rebounds from lows as Iran ceasefire optimism wavers ahead of NFP",
+    "body": "USD/JPY recovered close to 156.90 on Thursday, edging up roughly 0.4% from Wednesday's slide to 155.04, the lowest level since early February.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "07 May 22:09",
+    "title": "Mexican Peso falls as Banxico cuts rates, Hormuz tensions rise",
+    "body": "The Mexican Peso erases some of its earlier gains and drops some 0.13% as the USD/MXN pair advances after the Bank of Mexico (Banxico) cut rates and warned that the easing cycle has ended. The exotic pair trades at 17.27 after testing a low of 17.19.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "negative"
+  },
+  {
+    "ts": "07 May 21:48",
+    "title": "NZD/USD struggles as fragile US-Iran peace talks keep markets cautious",
+    "body": "The NZD/USD pair is trading with a softer tone near the 0.5940 region on Friday, pressured by cautious market sentiment as investors continue tp react to rapidly changing headlines surrounding the potential peace agreement between the United States (US) and Iran.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "07 May 20:57",
+    "title": "USD/IDR: Overbought conditions and support levels – OCBC",
+    "body": "OCBC strategists Sim Moh Siong and Christopher Wong describe USD/IDR as easing from overbought territory as hopes of a US–Iran deal support sentiment. Bank Indonesia’s (BI) tighter rules on cash FX purchases and comments that the Rupiah (IDR) is undervalued back stabilization efforts.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "07 May 20:01",
+    "title": "South Korea: Modest tightening prospects – DBS",
+    "body": "DBS Group Research economist Ma Tieying expects the Bank of Korea (BoK) to keep its base rate at 2.50% at the May 28 meeting, but now projects a single 25 bps hike in 3Q 2026 to 2.75%.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "07 May 20:00",
+    "title": "Forex Today: US Dollar holds firm amid fragile US-Iran peace talks",
+    "body": "The US Dollar Index (DXY) is trading with a softer tone near the 98.10 area as markets continue reacting to rapidly shifting headlines surrounding the potential peace agreement between the United States (US) and Iran.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "positive"
+  },
+  {
+    "ts": "07 May 19:50",
+    "title": "Gold holds above $4,700 as Hormuz tensions revive USD demand",
+    "body": "Gold (XAU/USD) edges higher on Thursday during the North American session amid heightened tensions in the Middle East due to rumors that the US is looking to restart Project Freedom. At the time of writing, XAU/USD trades at $4,705 after reaching a daily high of $4,764.",
+    "cat": "Geopolitics",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
+    "ts": "07 May 19:18",
+    "title": "Banxico cuts rates 25 bps to 6.50% as expected",
+    "body": "Banco de Mexico (Banxico) reduced borrowing costs by 25 basis points on Thursday, as expected by market participants, from 6.75% to 6.50%, even though the central bank revealed that the “balance of risks for the trajectory of inflation within the forecast horizon remains biased to the upside.”",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "negative"
+  },
+  {
+    "ts": "07 May 19:17",
+    "title": "Thailand: Cost-push spike, steady BoT rate – UOB",
+    "body": "UOB economists Enrico Tanuwidjaja and Sathit Talaengsatya argue that Thailand’s sharp April Consumer Price Index (CPI) jump is driven mainly by energy and selective food pass-through rather than broad demand-led reflation.",
+    "cat": "Central Bank",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
     "ts": "07 May 18:41",
     "title": "Silver Price Forecast: XAG/USD tests upper Bollinger Band while momentum remains subdued",
     "body": "Silver (XAG/USD) trims part of its earlier gains on Thursday as geopolitical headlines from the Middle East continue to stir volatility across financial markets.",
     "cat": "Geopolitics",
     "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "07 May 18:39",
-    "title": "PHP: Hawkish BSP outlook and off-cycle hike – Standard Chartered",
-    "body": "Standard Chartered economists Jonathan Koh and Edward Lee argue that the Bangko Sentral ng Pilipinas (BSP) will stay hawkish despite softer growth in the Philippines.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "07 May 18:20",
-    "title": "DXY rebounds as Iran hope trade unwinds: Is the safe-haven bid back?",
-    "body": "The morning belonged to the deal: Asia had ripped overnight, with the Nikkei 225 clearing 62,000 for the first time on a session that gained north of 5%, and US futures came in primed for another leg of the Iran ceasefire trade.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "07 May 18:04",
-    "title": "EUR/USD retreats from intraday highs as Oil prices rebound on Hormuz tensions",
-    "body": "EUR/USD eases from intraday highs on Thursday as evolving geopolitical developments surrounding tensions in the Middle East help the US Dollar (USD) and Oil prices recover some of their recent losses.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "CAD",
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "07 May 18:03",
-    "title": "IDR: FX curbs and bond support to steady currency – DBS",
-    "body": "DBS Group Research’s Radhika Rao highlights Bank Indonesia’s latest steps to manage FX volatility and support the Indonesian Rupiah. The central bank has tightened documentation thresholds for Dollar purchases, continued bond buying and enabled selected dealers to access offshore NDFs.",
-    "cat": "Macro",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "07 May 18:00",
-    "title": "Crude Oil claws back as Hormuz blockade outlasts deal hopes",
-    "body": "Crude Oil markets staged a sharp intraday reversal on Thursday, with West Texas Intermediate (WTI) futures briefly tagging lows below $90 a barrel before clawing back above $93, while Brent slid toward $95 before recovering to reclaim the $100 handle.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "CAD"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "07 May 17:25",
-    "title": "Fed’s Daly: We have to work on price stability without overreacting",
-    "body": "Mary Daly, President of the Federal Reserve (Fed) Bank of San Francisco, said on Bloomberg TV on Thursday that she doesn’t see evidence that longer-run inflation expectations are up. She also claimed that wage rises are consistent with the overall 2% inflation.",
-    "cat": "Central Bank",
-    "ccys": [
-      "CHF",
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "07 May 17:23",
-    "title": "USD/SGD: Range trading with downside bias – OCBC",
-    "body": "OCBC strategists Sim Moh Siong and Christopher Wong see USD/SGD consolidating as markets await clarity on a potential US–Iran deal. The pair has slipped slightly on tentative optimism, but Iran has yet to respond and a 48‑hour deadline looms, keeping some caution in place.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "07 May 17:02",
-    "title": "NY Fed survey: Households see higher inflation next year",
-    "body": "The New York Federal Reserve (Fed) released its Survey of Consumer Expectations for April on Thursday, which showed that American households expect prices to rise in the short term. For the medium- to long-term horizon, inflation expectations were unchanged.",
-    "cat": "Central Bank",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "07 May 16:38",
-    "title": "Gold eases from two-week highs as Oil rebounds on Hormuz tensions",
-    "body": "Gold (XAU/USD) trims some of its earlier gains on Thursday as the US Dollar and Oil prices rebound amid persistent tensions surrounding the Strait of Hormuz. At the time of writing, XAU/USD is trading around $4,712 after touching a two-week high near $4,764 earlier in the day.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "CAD",
-      "USD"
-    ],
-    "dir": "mixed"
-  },
-  {
-    "ts": "07 May 16:31",
-    "title": "Dow Jones Industrial Average reverses as Iran deal hopes hit hard reality",
-    "body": "The Dow Jones Industrial Average (DJIA) was off around 0.4% in Thursday's early afternoon trade, sliding back below 50,000 after tagging an intraday high near 50,100.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "positive"
-  },
-  {
-    "ts": "07 May 16:08",
-    "title": "Silver price rallies to three-week highs as Oil slump, softer Dollar lift XAG/USD",
-    "body": "Silver (XAG/USD) extends its strong rally on Thursday, trading around $80.60 at the time of writing, up 4.19% on the day. XAG/USD is reaching three-week highs, supported by lower Oil prices, declining US Treasury yields and broad weakness in the US Dollar (USD).",
-    "cat": "Macro",
-    "ccys": [
-      "CAD",
       "USD"
     ],
     "dir": "mixed"
@@ -206,6 +203,16 @@
     "dir": "mixed"
   },
   {
+    "ts": "07 May 19:15",
+    "title": "TOWIE star dies aged 35",
+    "body": "The mother of reality star Jake Hall's daughter has spoken of their \"devastating loss\" after the TV star died at the age of 35.",
+    "cat": "Macro",
+    "ccys": [
+      "USD"
+    ],
+    "dir": "mixed"
+  },
+  {
     "ts": "07 May 15:07",
     "title": "All restrictions on Belarusian athletes lifted by Olympic bosses",
     "body": "The International Olympic Committee has lifted all restrictions on Belarusian athletes.",
@@ -244,15 +251,5 @@
       "USD"
     ],
     "dir": "mixed"
-  },
-  {
-    "ts": "06 May 15:19",
-    "title": "An extraordinary watershed moment passed below the radar - and helped make Trump's war possible",
-    "body": "Load up a satellite map of Texas and find your way to a city called Midland, all the way over in the west of the state.",
-    "cat": "Geopolitics",
-    "ccys": [
-      "USD"
-    ],
-    "dir": "negative"
   }
 ]
