@@ -1,13 +1,13 @@
 {
-  "vix": 17.38,
+  "vix": 17.39,
   "score": 0,
   "label": "NEUTRAL",
   "factors": [
     {
       "name": "VIX Volatility Index",
       "score": 0,
-      "desc": "VIX 17.38 \u2014 NEUTRAL"
+      "desc": "VIX 17.39 \u2014 NEUTRAL"
     }
   ],
-  "updated": "06 May 2026 22:57 UTC"
+  "updated": "07 May 2026 18:52 UTC"
 }
