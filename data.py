@@ -175,6 +175,102 @@ try:
 except Exception:
     pass
 
+import threading
+import time
+from datetime import datetime
+
+_UPDATE_INTERVAL_SECONDS = 60  # intervalle de mise à jour en secondes (ajuste ici)
+
+def _write_json_cache(filename, data):
+    filepath = os.path.join(os.path.dirname(__file__), filename)
+    try:
+        with open(filepath, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=4, ensure_ascii=False)
+        return True
+    except Exception:
+        return False
+
+def _record_update_log(session="auto", trigger="scheduler", status="success", note=""):
+    """
+    Enregistre une ligne dans la table update_log.
+    """
+    try:
+        init_db()
+        con = _db()
+        ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
+        con.execute(
+            "INSERT INTO update_log (session, trigger, status, ts, note) VALUES (?, ?, ?, ?, ?)",
+            (session, trigger, status, ts, note),
+        )
+        con.commit()
+        con.close()
+    except Exception:
+        pass
+
+def refresh_and_persist():
+    """
+    Appelle update_live_fx_rates(), met à jour les caches JSON et MARKET_ASSETS,
+    et enregistre le résultat dans la DB.
+    Retourne True si OK, False sinon.
+    """
+    try:
+        ok = update_live_fx_rates()
+        # sauvegarder caches JSON pour persistance
+        _write_json_cache("macro_cache.json", MACRO)
+        _write_json_cache("market_assets_cache.json", MARKET_ASSETS)
+        if ok:
+            _record_update_log(status="success", note="live update ok")
+        else:
+            _record_update_log(status="failed", note="yfinance returned empty or error")
+        return ok
+    except Exception as e:
+        _record_update_log(status="failed", note=str(e))
+        return False
+
+# Background updater (thread safe minimal)
+_updater_thread = None
+_updater_lock = threading.Lock()
+_stop_event = threading.Event()
+
+def _updater_loop(interval_seconds=_UPDATE_INTERVAL_SECONDS):
+    """
+    Boucle infinie exécutée dans un thread séparé.
+    """
+    while not _stop_event.is_set():
+        try:
+            refresh_and_persist()
+        except Exception:
+            pass
+        # attend en petits pas pour pouvoir stopper rapidement
+        for _ in range(int(interval_seconds)):
+            if _stop_event.is_set():
+                break
+            time.sleep(1)
+
+def start_background_updater(interval_seconds=_UPDATE_INTERVAL_SECONDS):
+    """
+    Démarre le thread d'update si pas déjà démarré.
+    Appeler depuis app.py au démarrage.
+    """
+    global _updater_thread
+    with _updater_lock:
+        if _updater_thread is None or not _updater_thread.is_alive():
+            _stop_event.clear()
+            _updater_thread = threading.Thread(target=_updater_loop, args=(interval_seconds,), daemon=True)
+            _updater_thread.start()
+            return True
+    return False
+
+def stop_background_updater():
+    """
+    Stoppe proprement le thread d'update.
+    """
+    _stop_event.set()
+    global _updater_thread
+    with _updater_lock:
+        _updater_thread = None
+
+
 def detect_market_sentiment():
     """
     Détecte un sentiment de marché simple basé sur SP500, VIX et Gold.
