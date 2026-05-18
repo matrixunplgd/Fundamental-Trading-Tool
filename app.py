@@ -99,3 +99,18 @@ with tab_logs:
             st.text(f"[{entry.get('ts')}] Session: {entry.get('session')} | Trigger: {entry.get('trigger')} -> Status: {entry.get('status')}")
     else:
         st.info("Aucun log disponible.")
+
+<style>
+/* Cards & badges */
+.kpi-card { background: linear-gradient(180deg,#ffffff 0%, #f8fafc 100%); border-radius:12px; padding:12px; box-shadow: 0 8px 24px rgba(15,23,42,0.06); }
+.kpi-title { font-size:12px; color:#6b7280; font-weight:700; }
+.kpi-value { font-size:20px; font-weight:900; color:#0f172a; }
+.badge { display:inline-block; padding:6px 10px; border-radius:999px; font-weight:800; color:white; font-size:12px; }
+.badge-bull { background: linear-gradient(90deg,#10b981,#059669); }
+.badge-bear { background: linear-gradient(90deg,#ef4444,#dc2626); }
+.insight-card { background: linear-gradient(135deg,#ffffff,#f1f5f9); border-left:6px solid #4f46e5; padding:12px; border-radius:10px; box-shadow:0 6px 18px rgba(79,70,229,0.06); }
+.small-muted { color:#6b7280; font-size:12px; }
+.event-high { border-left:6px solid #ef4444; background:#fff7f7; padding:10px; border-radius:6px; }
+.event-med { border-left:6px solid #f59e0b; background:#fffaf0; padding:10px; border-radius:6px; }
+.event-low { border-left:6px solid #10b981; background:#f0fdf4; padding:10px; border-radius:6px; }
+</style>
