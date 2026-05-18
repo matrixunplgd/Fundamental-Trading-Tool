@@ -46,6 +46,18 @@ MARKET_ASSETS = _load_json_cache("market_assets_cache.json", _MARKET_ASSETS_BASE
 MONTHS = ["Oct 25", "Nov 25", "Dec 25", "Jan 26", "Feb 26", "Mar 26", "Apr 26"]
 HIST_RATE = {"USD":[5.0,4.75,4.5,4.25,4.0],"EUR":[2.5,2.25,2.15,2.0,2.0],"GBP":[4.75,4.5,3.75,3.75,3.75],"JPY":[0.25,0.25,0.50,0.50,0.75],"CAD":[3.75,3.5,3.25,3.0,2.75],"AUD":[4.10,3.85,3.60,3.60,3.60],"NZD":[4.75,4.25,3.75,3.50,3.50],"CHF":[1.0,0.75,0.50,0.25,0.25]}
 
+def compute_score(country_data):
+    """Calcule un score fondamental pondéré."""
+    score = (
+        (country_data["rate"] * 0.4) +
+        (country_data["yield_10y"] * 0.3) -
+        (country_data["unem"] * 0.3)
+    )
+    return round(score, 2)
+
+for ccy, info in MACRO.items():
+    info["score"] = compute_score(info)
+
 FX_RATES = {
     "EUR/USD": {"rate": 1.1712, "chg": 0.0}, "GBP/USD": {"rate": 1.3493, "chg": 0.0},
     "USD/JPY": {"rate": 159.42, "chg": 0.0}, "USD/CAD": {"rate": 1.3681, "chg": 0.0},
