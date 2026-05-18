@@ -3,6 +3,10 @@ from .fx_calculations import compute_spreads, normalize_score
 from data import MACRO
 from .commodities_logic import wti_adjustment
 
+# wrapper pour compatibilité si app.py importe rank_all_pairs
+def rank_all_pairs(*args, **kwargs):
+    return rank_unique_pairs(*args, **kwargs)
+
 def score_pair(base_ccy, quote_ccy, regime_weights_tuple, wti_is_bullish):
     b = MACRO.get(base_ccy, {})
     q = MACRO.get(quote_ccy, {})
