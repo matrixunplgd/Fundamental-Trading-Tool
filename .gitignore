@@ -1,0 +1,10 @@
+# Éviter d'envoyer la base de données locale et les caches de données
+fx_data.db
+macro_cache.json
+market_assets_cache.json
+
+# Éviter d'envoyer les dossiers virtuels Python
+__pycache__/
+.pytest_cache/
+.venv/
+venv/
