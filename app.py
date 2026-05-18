@@ -2,7 +2,7 @@ import streamlit as st
 import plotly.graph_objects as go
 from datetime import datetime, timezone
 
-from données import MACRO, FX_RATES, MARKET_ASSETS, detect_market_sentiment, HIST_RATE, load_update_log
+from data import MACRO, FX_RATES, MARKET_ASSETS, detect_market_sentiment, HIST_RATE, load_update_log
 from utils.fx_calculations import compute_spreads, normalize_score, build_comparison_table
 from utils.sentiment_engine import regime_weights
 from utils.commodities_logic import wti_adjustment
