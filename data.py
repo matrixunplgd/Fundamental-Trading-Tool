@@ -10,6 +10,29 @@ import yfinance as yf
 from datetime import datetime, timezone
 
 DB = "fx_data.db"
+# Liste explicite des paires utilisées par l'app (format BASE/QUOTE)
+PAIRS = [
+    "EUR/CAD",
+    "NZD/USD",
+    "AUD/USD",
+]
+
+# Données macro minimales requises pour les devises utilisées
+# (adapte les valeurs réelles selon tes sources)
+MACRO = {
+    "USD": {"cb": "Fed", "rate": 5.25, "yield_10y": 4.20, "gdp": 2.1, "cpi_prev": 3.4, "unem": 3.7, "score": 3},
+    "EUR": {"cb": "ECB", "rate": 3.50, "yield_10y": 2.10, "gdp": 1.2, "cpi_prev": 2.5, "unem": 6.5, "score": 1},
+    "CAD": {"cb": "BoC", "rate": 4.50, "yield_10y": 3.10, "gdp": 1.8, "cpi_prev": 2.9, "unem": 5.8, "score": 0},
+    "AUD": {"cb": "RBA", "rate": 4.10, "yield_10y": 3.00, "gdp": 2.3, "cpi_prev": 3.0, "unem": 4.0, "score": 1},
+    "NZD": {"cb": "RBNZ", "rate": 4.25, "yield_10y": 3.20, "gdp": 2.0, "cpi_prev": 3.1, "unem": 3.9, "score": 1},
+}
+
+# Taux spot (exemples) — utile pour l'affichage des KPI
+FX_RATES = {
+    "EUR/CAD": {"rate": 1.45, "chg": +0.12},
+    "NZD/USD": {"rate": 0.62, "chg": +0.14},
+    "AUD/USD": {"rate": 0.67, "chg": +0.05},
+}
 
 _MACRO_BASELINE = {
     "USD": {"name": "United States", "cb": "Federal Reserve", "rate": 4.00, "rate_prev": 4.25, "gdp": 0.5, "gdp_prev": 2.8, "cpi": 330.293, "cpi_prev": 2.9, "core_cpi": 2.8, "unem": 4.3, "unem_prev": 4.1, "wages": 37.38, "retail": 752063.0, "conf": 53.3, "ca": -3.2, "pmi": 51.4, "next_mtg": "30 Apr 2026", "bias": "Neutral / Hawkish", "score": 0, "color": "#3b82f6", "yield_10y": 4.15},
