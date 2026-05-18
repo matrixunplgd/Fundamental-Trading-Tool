@@ -9,7 +9,7 @@ from data import MACRO, FX_RATES, MARKET_ASSETS, detect_market_sentiment, HIST_R
 from utils.fx_calculations import compute_spreads, normalize_score, build_comparison_table
 from utils.sentiment_engine import regime_weights
 from utils.commodities_logic import wti_adjustment
-from utils.recommendations import rank_all_pairs
+from utils.recommendations import rank_unique_pairs as rank_all_pairs
 from utils.news import fetch_news
 
 # --- Page config ---
