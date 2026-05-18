@@ -11,6 +11,29 @@ from utils.sentiment_engine import regime_weights
 from utils.commodities_logic import wti_adjustment
 from utils.recommendations import rank_unique_pairs as rank_all_pairs
 from utils.news import fetch_news
+# app.py (extrait à insérer après imports)
+from data import start_background_updater, refresh_and_persist, MARKET_ASSETS
+import streamlit as st
+
+# Démarrer l'updater en arrière-plan (safe to call multiple times)
+start_background_updater(interval_seconds=120)  # ex: toutes les 2 minutes
+
+# Option Streamlit: auto refresh de la page côté UI (facultatif mais pratique)
+# st_autorefresh renvoie le nombre de refresh effectués; interval en ms
+st_autorefresh = st.experimental_get_query_params().get("autorefresh", ["1"])[0]
+# Pour activer le rafraîchissement automatique de la page toutes les N secondes:
+AUTO_REFRESH_SECONDS = 120  # même valeur que le background updater
+st.experimental_set_query_params(autorefresh="1")
+st_autorefresh_widget = st.experimental_rerun if False else None  # placeholder
+
+# Si tu veux forcer un refresh manuel via un bouton
+with st.sidebar:
+    if st.button("Forcer mise à jour maintenant"):
+        ok = refresh_and_persist()
+        if ok:
+            st.success("Mise à jour forcée terminée.")
+        else:
+            st.error("La mise à jour forcée a échoué.")
 
 # --- Page config ---
 st.set_page_config(page_title="FX Fundamental Terminal", layout="wide", initial_sidebar_state="collapsed")
