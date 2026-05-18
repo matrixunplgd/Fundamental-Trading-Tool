@@ -10,30 +10,36 @@ import yfinance as yf
 from datetime import datetime, timezone
 
 DB = "fx_data.db"
-# Liste explicite des paires utilisées par l'app (format BASE/QUOTE)
+
+# Liste explicite des paires utilisées par l'app (format BASE/QUOTE) - nettoyée et validée
 PAIRS = [
     "EUR/CAD",
+    "EUR/CHF",
+    "EUR/GBP",
     "NZD/USD",
     "AUD/USD",
+    "AUD/CHF",
+    "AUD/NZD",
+    "AUD/CAD",
+    "NZD/CHF",
+    "NZD/CAD",
+    "AUD/JPY",
+    "NZD/JPY",
+    "GBP/USD",
+    "GBP/CAD",
+    "GBP/CHF",
+    "USD/CHF",
+    "CAD/CHF",
+    "CAD/JPY",
+    "CHF/JPY",
+    "EUR/USD",
+    "USD/CHF",
+    "USD/CAD",
+    "USD/JPY"
 ]
 
 # Données macro minimales requises pour les devises utilisées
 # (adapte les valeurs réelles selon tes sources)
-MACRO = {
-    "USD": {"cb": "Fed", "rate": 5.25, "yield_10y": 4.20, "gdp": 2.1, "cpi_prev": 3.4, "unem": 3.7, "score": 3},
-    "EUR": {"cb": "ECB", "rate": 3.50, "yield_10y": 2.10, "gdp": 1.2, "cpi_prev": 2.5, "unem": 6.5, "score": 1},
-    "CAD": {"cb": "BoC", "rate": 4.50, "yield_10y": 3.10, "gdp": 1.8, "cpi_prev": 2.9, "unem": 5.8, "score": 0},
-    "AUD": {"cb": "RBA", "rate": 4.10, "yield_10y": 3.00, "gdp": 2.3, "cpi_prev": 3.0, "unem": 4.0, "score": 1},
-    "NZD": {"cb": "RBNZ", "rate": 4.25, "yield_10y": 3.20, "gdp": 2.0, "cpi_prev": 3.1, "unem": 3.9, "score": 1},
-}
-
-# Taux spot (exemples) — utile pour l'affichage des KPI
-FX_RATES = {
-    "EUR/CAD": {"rate": 1.45, "chg": +0.12},
-    "NZD/USD": {"rate": 0.62, "chg": +0.14},
-    "AUD/USD": {"rate": 0.67, "chg": +0.05},
-}
-
 _MACRO_BASELINE = {
     "USD": {"name": "United States", "cb": "Federal Reserve", "rate": 4.00, "rate_prev": 4.25, "gdp": 0.5, "gdp_prev": 2.8, "cpi": 330.293, "cpi_prev": 2.9, "core_cpi": 2.8, "unem": 4.3, "unem_prev": 4.1, "wages": 37.38, "retail": 752063.0, "conf": 53.3, "ca": -3.2, "pmi": 51.4, "next_mtg": "30 Apr 2026", "bias": "Neutral / Hawkish", "score": 0, "color": "#3b82f6", "yield_10y": 4.15},
     "EUR": {"name": "Euro Area", "cb": "European Central Bank", "rate": 2.00, "rate_prev": 2.25, "gdp": 0.91, "gdp_prev": 1.2, "cpi": 2.5, "cpi_prev": 2.3, "core_cpi": 2.3, "unem": 6.33, "unem_prev": 6.5, "wages": 3.2, "retail": 0.3, "conf": -14.2, "ca": 1.8, "pmi": 50.9, "next_mtg": "5 Jun 2026", "bias": "Neutral / Cautious", "score": 0, "color": "#8b5cf6", "yield_10y": 2.45},
@@ -56,65 +62,124 @@ def _load_json_cache(filename, baseline):
     filepath = os.path.join(os.path.dirname(__file__), filename)
     if os.path.exists(filepath):
         try:
-            with open(filepath, "r", encoding="utf-8") as f: return json.load(f)
-        except Exception: pass
+            with open(filepath, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            pass
     try:
-        with open(filepath, "w", encoding="utf-8") as f: json.dump(baseline, f, indent=4, ensure_ascii=False)
-    except Exception: pass
+        with open(filepath, "w", encoding="utf-8") as f:
+            json.dump(baseline, f, indent=4, ensure_ascii=False)
+    except Exception:
+        pass
     return baseline
 
+# Charger MACRO et MARKET_ASSETS depuis cache si présent, sinon baseline
 MACRO = _load_json_cache("macro_cache.json", _MACRO_BASELINE)
 MARKET_ASSETS = _load_json_cache("market_assets_cache.json", _MARKET_ASSETS_BASELINE)
 
+# Mois et historique des taux (exemples)
 MONTHS = ["Oct 25", "Nov 25", "Dec 25", "Jan 26", "Feb 26", "Mar 26", "Apr 26"]
-HIST_RATE = {"USD":[5.0,4.75,4.5,4.25,4.0],"EUR":[2.5,2.25,2.15,2.0,2.0],"GBP":[4.75,4.5,3.75,3.75,3.75],"JPY":[0.25,0.25,0.50,0.50,0.75],"CAD":[3.75,3.5,3.25,3.0,2.75],"AUD":[4.10,3.85,3.60,3.60,3.60],"NZD":[4.75,4.25,3.75,3.50,3.50],"CHF":[1.0,0.75,0.50,0.25,0.25]}
+HIST_RATE = {
+    "USD": [5.0, 4.75, 4.5, 4.25, 4.0],
+    "EUR": [2.5, 2.25, 2.15, 2.0, 2.0],
+    "GBP": [4.75, 4.5, 3.75, 3.75, 3.75],
+    "JPY": [0.25, 0.25, 0.50, 0.50, 0.75],
+    "CAD": [3.75, 3.5, 3.25, 3.0, 2.75],
+    "AUD": [4.10, 3.85, 3.60, 3.60, 3.60],
+    "NZD": [4.75, 4.25, 3.75, 3.50, 3.50],
+    "CHF": [1.0, 0.75, 0.50, 0.25, 0.25]
+}
 
 def compute_score(country_data):
     """Calcule un score fondamental pondéré."""
     score = (
-        (country_data["rate"] * 0.4) +
-        (country_data["yield_10y"] * 0.3) -
-        (country_data["unem"] * 0.3)
+        (country_data.get("rate", 0) * 0.4) +
+        (country_data.get("yield_10y", 0) * 0.3) -
+        (country_data.get("unem", 0) * 0.3)
     )
     return round(score, 2)
 
+# Mettre à jour les scores dans MACRO
 for ccy, info in MACRO.items():
-    info["score"] = compute_score(info)
+    try:
+        info["score"] = compute_score(info)
+    except Exception:
+        info["score"] = 0
 
+# Taux spot par défaut (exemples) — utile pour l'affichage des KPI
 FX_RATES = {
-    "EUR/USD": {"rate": 1.1712, "chg": 0.0}, "GBP/USD": {"rate": 1.3493, "chg": 0.0},
-    "USD/JPY": {"rate": 159.42, "chg": 0.0}, "USD/CAD": {"rate": 1.3681, "chg": 0.0},
-    "AUD/USD": {"rate": 0.7144, "chg": 0.0}, "NZD/USD": {"rate": 0.5874, "chg": 0.0},
-    "USD/CHF": {"rate": 0.7854, "chg": 0.0}
+    "EUR/CAD": {"rate": 1.45, "chg": +0.12},
+    "EUR/CHF": {"rate": 1.07, "chg": -0.02},
+    "EUR/GBP": {"rate": 0.86, "chg": +0.01},
+    "NZD/USD": {"rate": 0.5874, "chg": +0.14},
+    "AUD/USD": {"rate": 0.7144, "chg": +0.05},
+    "AUD/CHF": {"rate": 0.79, "chg": +0.03},
+    "AUD/NZD": {"rate": 1.08, "chg": -0.01},
+    "AUD/CAD": {"rate": 0.98, "chg": +0.02},
+    "NZD/CHF": {"rate": 0.46, "chg": +0.04},
+    "NZD/CAD": {"rate": 0.80, "chg": +0.02},
+    "AUD/JPY": {"rate": 88.5, "chg": +0.10},
+    "NZD/JPY": {"rate": 37.2, "chg": +0.08},
+    "GBP/USD": {"rate": 1.3493, "chg": -0.03},
+    "GBP/CAD": {"rate": 1.85, "chg": +0.05},
+    "GBP/CHF": {"rate": 1.05, "chg": -0.02},
+    "USD/CHF": {"rate": 0.7854, "chg": +0.10},
+    "CAD/CHF": {"rate": 0.69, "chg": -0.05},
 }
 
 def update_live_fx_rates():
-    mapping = {"EURUSD=X": "EUR/USD", "GBPUSD=X": "GBP/USD", "JPY=X": "USD/JPY", "CAD=X": "USD/CAD", "AUDUSD=X": "AUD/USD", "NZDUSD=X": "NZD/USD", "CHF=X": "USD/CHF"}
+    """
+    Met à jour FX_RATES et MARKET_ASSETS via yfinance.
+    Mapping minimal des tickers utilisés par l'app.
+    """
+    mapping = {
+        "EURUSD=X": "EUR/USD",
+        "GBPUSD=X": "GBP/USD",
+        "JPY=X": "USD/JPY",
+        "CAD=X": "USD/CAD",
+        "AUDUSD=X": "AUD/USD",
+        "NZDUSD=X": "NZD/USD",
+        "CHF=X": "USD/CHF"
+    }
     assets_mapping = {"GC=F": "GOLD", "CL=F": "WTI_CRUDE", "^GSPC": "US_500", "^VIX": "VIX"}
     try:
         tickers = list(mapping.keys()) + list(assets_mapping.keys())
         data = yf.download(tickers, period="5d", progress=False)
-        if data.empty: return False
+        if data.empty:
+            return False
         for yf_ticker, app_pair in mapping.items():
-            if yf_ticker not in data['Close']: continue
+            if yf_ticker not in data['Close']:
+                continue
             close_series = data['Close'][yf_ticker].dropna()
-            if len(close_series) < 1: continue
+            if len(close_series) < 1:
+                continue
             live_p = float(close_series.iloc[-1])
             open_p = float(data['Open'][yf_ticker].dropna().iloc[-1])
             FX_RATES[app_pair] = {"rate": round(live_p, 4), "chg": round(((live_p - open_p) / open_p) * 100, 2)}
         for yf_ticker, asset_name in assets_mapping.items():
-            if yf_ticker not in data['Close']: continue
+            if yf_ticker not in data['Close']:
+                continue
             series = data['Close'][yf_ticker].dropna()
-            if len(series) < 1: continue
+            if len(series) < 1:
+                continue
             c_p = float(series.iloc[-1])
             o_p = float(data['Open'][yf_ticker].dropna().iloc[-1])
             MARKET_ASSETS[asset_name] = {"price": c_p, "chg": round(((c_p - o_p) / o_p) * 100, 2)}
         return True
-    except Exception: return False
+    except Exception:
+        return False
 
-update_live_fx_rates()
+# Essayer une mise à jour live au démarrage (silencieuse)
+try:
+    update_live_fx_rates()
+except Exception:
+    pass
 
 def detect_market_sentiment():
+    """
+    Détecte un sentiment de marché simple basé sur SP500, VIX et Gold.
+    Retourne (label, color).
+    """
     try:
         sp500_chg = MARKET_ASSETS.get("US_500", {}).get("chg", 0.0)
         vix_price = MARKET_ASSETS.get("VIX", {}).get("price", 15.0)
@@ -134,7 +199,9 @@ def _db():
 
 def init_db():
     con = _db()
-    con.execute("CREATE TABLE IF NOT EXISTS update_log (id INTEGER PRIMARY KEY AUTOINCREMENT, session TEXT, trigger TEXT, status TEXT, ts TEXT, note TEXT);")
+    con.execute(
+        "CREATE TABLE IF NOT EXISTS update_log (id INTEGER PRIMARY KEY AUTOINCREMENT, session TEXT, trigger TEXT, status TEXT, ts TEXT, note TEXT);"
+    )
     con.commit()
     con.close()
 
@@ -153,8 +220,12 @@ def load_update_log():
     return [dict(r) for r in rows]
 
 def score_meta(s):
-    if s >= 2:  return "#10b981", "#052e16", "BULLISH"
-    if s == 1:  return "#3b82f6", "#0c1a3a", "MILD BULLISH"
-    if s == 0:  return "#6b7280", "#111827", "NEUTRAL"
-    if s == -1: return "#f59e0b", "#1c1100", "MILD BEARISH"
-    return              "#ef4444", "#1a0505", "BEARISH"
+    if s >= 2:
+        return "#10b981", "#052e16", "BULLISH"
+    if s == 1:
+        return "#3b82f6", "#0c1a3a", "MILD BULLISH"
+    if s == 0:
+        return "#6b7280", "#111827", "NEUTRAL"
+    if s == -1:
+        return "#f59e0b", "#1c1100", "MILD BEARISH"
+    return "#ef4444", "#1a0505", "BEARISH"
