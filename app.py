@@ -2,7 +2,7 @@
 """
 FX Intermarket Pro — v3.0
 Professional dark Fintech terminal. UI/UX redesign (complete, corrected).
-Table text colors adjusted for high contrast on dark blue background.
+Includes robust HTML rendering for Macro table with fallback to ensure visibility.
 """
 
 import os
@@ -66,9 +66,9 @@ st.markdown("""
 
 /* ── Tokens ── */
 :root {
-  --bg:       #071028;
+  --bg:       #080d1a;
   --surface:  #0d1424;
-  --panel:    #0f1726;
+  --panel:    #111927;
   --border:   rgba(255,255,255,0.06);
   --border-hi:rgba(255,255,255,0.12);
 
@@ -76,9 +76,9 @@ st.markdown("""
   --accent-2: #0891b2;
   --accent-g: linear-gradient(135deg, #7c3aed 0%, #0891b2 100%);
 
-  --txt:      #ffffff;
-  --txt-2:    #cbd5e1;
-  --txt-3:    #94a3b8;
+  --txt:      #e2e8f0;
+  --txt-2:    #94a3b8;
+  --txt-3:    #475569;
 
   --up:    #10b981;
   --down:  #f43f5e;
@@ -97,7 +97,7 @@ st.markdown("""
 
 /* ── Reset body ── */
 html, body, .stApp, .main, [data-testid="stAppViewContainer"] {
-  background: linear-gradient(180deg, #071028 0%, #041022 100%) !important;
+  background: var(--bg) !important;
   color: var(--txt);
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 14px;
@@ -114,7 +114,9 @@ html, body, .stApp, .main, [data-testid="stAppViewContainer"] {
 ::-webkit-scrollbar-thumb { background: rgba(124,58,237,.4); border-radius: 6px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(124,58,237,.7); }
 
-/* TOPBAR */
+/* ══════════════════════════════
+   TOPBAR
+══════════════════════════════ */
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -127,52 +129,406 @@ html, body, .stApp, .main, [data-testid="stAppViewContainer"] {
   box-shadow: var(--z3);
   backdrop-filter: blur(12px);
 }
-.topbar-brand { display:flex; align-items:center; gap:12px; }
-.topbar-logo { width:36px; height:36px; background:var(--accent-g); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:18px; box-shadow:0 0 18px rgba(124,58,237,.5); }
-.topbar-title { font-size:18px; font-weight:800; background:var(--accent-g); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-.topbar-sub { font-size:11px; color:var(--txt-2); margin-top:1px; }
-.topbar-right { text-align:right; }
-.regime-pill { display:inline-flex; align-items:center; gap:6px; padding:4px 12px; border-radius:999px; font-size:12px; font-weight:700; box-shadow:var(--z1); }
-.regime-bull { background: rgba(16,185,129,.12); color: #10b981; border:1px solid rgba(16,185,129,.2); }
-.regime-bear { background: rgba(244,63,94,.12); color: #f43f5e; border:1px solid rgba(244,63,94,.2); }
-.regime-neut { background: rgba(148,163,184,.08); color: #94a3b8; border:1px solid rgba(148,163,184,.12); }
-.topbar-ts { font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--txt-3); margin-top:4px; }
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.topbar-logo {
+  width: 36px; height: 36px;
+  background: var(--accent-g);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  box-shadow: 0 0 18px rgba(124,58,237,.5);
+}
+.topbar-title {
+  font-size: 18px; font-weight: 800;
+  letter-spacing: 0.04em;
+  background: var(--accent-g);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.topbar-sub { font-size: 11px; color: var(--txt-2); margin-top: 1px; }
+.topbar-right { text-align: right; }
+.regime-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  box-shadow: var(--z1);
+}
+.regime-bull  { background: rgba(16,185,129,.15); color: #10b981; border: 1px solid rgba(16,185,129,.3); }
+.regime-bear  { background: rgba(244,63,94,.15);  color: #f43f5e; border: 1px solid rgba(244,63,94,.3); }
+.regime-neut  { background: rgba(148,163,184,.12); color: #94a3b8; border: 1px solid rgba(148,163,184,.2); }
+.topbar-ts { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--txt-3); margin-top: 4px; }
 
-/* SIDEBAR */
-[data-testid="stSidebar"] { background: var(--surface) !important; border-right:1px solid var(--border) !important; }
-.sidebar-section { background: var(--panel); border:1px solid var(--border); border-radius:var(--r); padding:14px; margin-bottom:12px; }
-.sidebar-section label { font-size:12px !important; color:var(--txt-2) !important; }
+/* ══════════════════════════════
+   SIDEBAR
+══════════════════════════════ */
+[data-testid="stSidebar"] {
+  background: var(--surface) !important;
+  border-right: 1px solid var(--border) !important;
+}
+[data-testid="stSidebar"] .stMarkdown h3 {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase;
+  color: var(--txt-3) !important;
+  margin: 16px 0 10px !important;
+}
+.sidebar-section {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 14px;
+  margin-bottom: 12px;
+}
+.sidebar-section label { font-size: 12px !important; color: var(--txt-2) !important; }
 
-/* KPI */
-.kpi { background: var(--panel); border:1px solid var(--border); border-radius:var(--r2); padding:16px; box-shadow:var(--z2); position:relative; overflow:hidden; }
-.kpi-label { font-size:10px; font-weight:700; color:var(--txt-2); margin-bottom:8px; }
-.kpi-val { font-family:'JetBrains Mono', monospace; font-size:22px; font-weight:700; color:var(--txt); margin-bottom:4px; }
-.kpi-delta { font-family:'JetBrains Mono', monospace; font-size:12px; font-weight:600; }
+/* ══════════════════════════════
+   KPI CARDS
+══════════════════════════════ */
+.kpi-grid {
+  display: grid;
+  gap: 12px;
+}
+.kpi {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--r2);
+  padding: 16px;
+  box-shadow: var(--z2);
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+  position: relative;
+  overflow: hidden;
+}
+.kpi::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: var(--accent-g);
+  opacity: 0;
+  transition: opacity 200ms ease;
+  border-radius: var(--r2);
+}
+.kpi:hover { border-color: var(--border-hi); box-shadow: var(--z3); }
+.kpi:hover::before { opacity: 0.03; }
 
-/* Section title */
-.sec-title { font-size:13px; font-weight:700; color:var(--txt-2); margin:20px 0 12px; display:flex; align-items:center; gap:8px; }
-.sec-dot { width:6px; height:6px; border-radius:50%; background:var(--accent-g); }
+.kpi-label {
+  font-size: 10px; font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--txt-3);
+  margin-bottom: 8px;
+}
+.kpi-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px; font-weight: 700;
+  color: var(--txt);
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+.kpi-delta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; font-weight: 600;
+  display: flex; align-items: center; gap: 4px;
+}
+.kpi-up   { color: var(--up); }
+.kpi-down { color: var(--down); }
+.kpi-icon {
+  position: absolute; top: 14px; right: 14px;
+  font-size: 20px; opacity: 0.15;
+}
 
-/* Data table overrides for Streamlit default tables */
-.stDataFrame { border-radius:var(--r2) !important; overflow:hidden !important; border:1px solid var(--border) !important; box-shadow:var(--z2) !important; }
-.stDataFrame [data-testid="stDataFrameResizable"] { background: var(--panel) !important; }
-.stDataFrame th { background: rgba(124,58,237,.08) !important; color: var(--txt) !important; font-size:11px !important; font-weight:700 !important; text-transform:uppercase !important; }
-.stDataFrame td { color: var(--txt) !important; font-family:'JetBrains Mono', monospace !important; font-size:12px !important; }
+/* ══════════════════════════════
+   SECTION TITLE
+══════════════════════════════ */
+.sec-title {
+  font-size: 13px; font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--txt-2);
+  margin: 20px 0 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.sec-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.sec-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent-g);
+  display: inline-block;
+  flex-shrink: 0;
+}
 
-/* RP wrap */
-.rp-wrap { background: var(--panel); border:1px solid var(--border); border-radius:var(--r2); overflow:hidden; box-shadow:var(--z2); padding:8px; }
+/* ══════════════════════════════
+   DATA TABLE
+══════════════════════════════ */
+.stDataFrame {
+  border-radius: var(--r2) !important;
+  overflow: hidden !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--z2) !important;
+}
+.stDataFrame [data-testid="stDataFrameResizable"] {
+  background: var(--panel) !important;
+}
+.stDataFrame th {
+  background: rgba(124,58,237,.1) !important;
+  color: var(--txt-2) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+}
+.stDataFrame td {
+  color: var(--txt) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 12px !important;
+}
 
-/* Misc */
-.info-box { background: rgba(56,189,248,.07); border:1px solid rgba(56,189,248,.2); border-radius:var(--r); padding:12px 16px; color:#7dd3fc; margin:8px 0; }
-.warn-box { background: rgba(245,158,11,.07); border:1px solid rgba(245,158,11,.2); border-radius:var(--r); padding:12px 16px; color:#fcd34d; margin:8px 0; }
+/* ══════════════════════════════
+   INSIGHT CARDS
+══════════════════════════════ */
+.insight-pair {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 14px 16px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: border-color 150ms;
+}
+.insight-pair:hover { border-color: var(--border-hi); }
+.pair-name { font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 700; color: var(--txt); }
+.pair-raw  { font-size: 11px; color: var(--txt-3); margin-top: 2px; }
+.badge {
+  display: inline-flex; align-items: center;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.badge-up   { background: rgba(16,185,129,.15);  color: #10b981; border: 1px solid rgba(16,185,129,.25); }
+.badge-down { background: rgba(244,63,94,.15);   color: #f43f5e; border: 1px solid rgba(244,63,94,.25); }
+.badge-neut { background: rgba(148,163,184,.1);  color: #94a3b8; border: 1px solid rgba(148,163,184,.2); }
 
-/* Streamlit tabs */
-.stTabs [data-baseweb="tab-list"] { gap:4px !important; background:var(--surface) !important; padding:4px !important; border-radius:var(--r) !important; border:1px solid var(--border) !important; }
-.stTabs [data-baseweb="tab"] { border-radius:8px !important; padding:8px 16px !important; font-size:13px !important; font-weight:600 !important; color:var(--txt-2) !important; background:transparent !important; }
-.stTabs [aria-selected="true"] { background:var(--panel) !important; color:var(--txt) !important; box-shadow:var(--z1) !important; }
+/* progress bar */
+.prog-wrap { width: 100%; height: 4px; background: rgba(255,255,255,.06); border-radius: 999px; margin-top: 4px; overflow: hidden; }
+.prog-fill  { height: 100%; border-radius: 999px; transition: width 400ms cubic-bezier(.4,0,.2,1); }
+.prog-up    { background: linear-gradient(90deg, #10b981, #34d399); }
+.prog-down  { background: linear-gradient(90deg, #f43f5e, #fb7185); }
+
+/* ══════════════════════════════
+   EVENT CARDS
+══════════════════════════════ */
+.event-card {
+  display: flex;
+  gap: 14px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 14px 16px;
+  margin-bottom: 8px;
+  align-items: flex-start;
+}
+.event-pip { width: 4px; border-radius: 2px; flex-shrink: 0; margin-top: 2px; }
+.event-high-pip  { background: var(--down); }
+.event-med-pip   { background: var(--warn); }
+.event-low-pip   { background: var(--up);   }
+.event-name { font-size: 13px; font-weight: 600; color: var(--txt); }
+.event-meta { font-size: 11px; color: var(--txt-3); font-family: 'JetBrains Mono', monospace; margin-top: 2px; }
+.event-pairs { font-size: 11px; color: var(--txt-2); margin-top: 4px; }
+.imp-badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 10px; font-weight: 700; margin-left: 8px; }
+.imp-high { background: rgba(244,63,94,.15); color: #f43f5e; }
+.imp-med  { background: rgba(245,158,11,.15); color: #f59e0b; }
+.imp-low  { background: rgba(16,185,129,.15); color: #10b981; }
+
+/* ══════════════════════════════
+   COMPARISON TABLE
+══════════════════════════════ */
+.comp-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.comp-cell {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 12px;
+  text-align: center;
+}
+.comp-cell-label { font-size: 10px; font-weight: 700; color: var(--txt-3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+.comp-cell-val { font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 700; color: var(--txt); }
+
+/* ══════════════════════════════
+   SIGNAL BOX
+══════════════════════════════ */
+.signal-box {
+  background: var(--panel);
+  border-radius: var(--r2);
+  padding: 20px;
+  border: 1px solid var(--border);
+  box-shadow: var(--z2);
+  margin-top: 12px;
+}
+.signal-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--txt-3); margin-bottom: 8px; }
+.signal-main  { font-size: 26px; font-weight: 800; margin-bottom: 12px; }
+.sig-bull { color: var(--up); }
+.sig-bear { color: var(--down); }
+.signal-bar-wrap { width: 100%; height: 6px; background: rgba(255,255,255,.06); border-radius: 999px; overflow: hidden; margin-bottom: 12px; }
+.signal-bar { height: 100%; border-radius: 999px; }
+.bar-up   { background: linear-gradient(90deg, #10b981, #34d399); }
+.bar-down { background: linear-gradient(90deg, #f43f5e, #fb7185); }
+.signal-drivers { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.driver-chip {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px; font-weight: 600;
+  background: rgba(124,58,237,.12);
+  border: 1px solid rgba(124,58,237,.25);
+  color: #c4b5fd;
+}
+
+/* ══════════════════════════════
+   NEWS ITEM
+══════════════════════════════ */
+.news-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+.news-item:last-child { border-bottom: none; }
+.news-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--txt-3); width: 20px; flex-shrink: 0; margin-top: 2px; }
+.news-title { font-size: 13px; font-weight: 600; color: var(--txt); line-height: 1.4; }
+.news-meta { font-size: 11px; color: var(--txt-3); margin-top: 3px; }
+.news-title a { color: var(--info); text-decoration: none; }
+.news-title a:hover { text-decoration: underline; }
+
+/* ══════════════════════════════
+   LOG TABLE
+══════════════════════════════ */
+.log-entry {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--txt-2);
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 16px;
+}
+.log-entry:hover { background: rgba(255,255,255,.02); }
+.log-ts  { color: var(--txt-3); width: 160px; flex-shrink: 0; }
+.log-ok   { color: var(--up); }
+.log-fail { color: var(--down); }
+
+/* ══════════════════════════════
+   RATE PROBABILITY
+══════════════════════════════ */
+.rp-wrap {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--r2);
+  overflow: hidden;
+  box-shadow: var(--z2);
+}
+.rp-row {
+  display: grid;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  gap: 12px;
+  align-items: center;
+  font-size: 12px;
+}
+.rp-row:last-child { border-bottom: none; }
+.rp-header {
+  background: rgba(124,58,237,.08);
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--txt-3);
+}
+.rp-hike  { color: var(--up); font-weight: 700; }
+.rp-cut   { color: var(--down); font-weight: 700; }
+.rp-hold  { color: var(--txt-2); }
+
+/* ══════════════════════════════
+   MISC
+══════════════════════════════ */
+.info-box {
+  background: rgba(56,189,248,.07);
+  border: 1px solid rgba(56,189,248,.2);
+  border-radius: var(--r);
+  padding: 12px 16px;
+  font-size: 12px;
+  color: #7dd3fc;
+  margin: 8px 0;
+}
+.warn-box {
+  background: rgba(245,158,11,.07);
+  border: 1px solid rgba(245,158,11,.2);
+  border-radius: var(--r);
+  padding: 12px 16px;
+  font-size: 12px;
+  color: #fcd34d;
+  margin: 8px 0;
+}
+.divider { height: 1px; background: var(--border); margin: 20px 0; }
+
+/* Streamlit overrides */
+.stTabs [data-baseweb="tab-list"] {
+  gap: 4px !important;
+  background: var(--surface) !important;
+  padding: 4px !important;
+  border-radius: var(--r) !important;
+  border: 1px solid var(--border) !important;
+}
+.stTabs [data-baseweb="tab"] {
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--txt-2) !important;
+  background: transparent !important;
+  transition: all 150ms !important;
+}
+.stTabs [aria-selected="true"] {
+  background: var(--panel) !important;
+  color: var(--txt) !important;
+  box-shadow: var(--z1) !important;
+}
+.stSelectbox > div, .stSlider > div { font-size: 13px !important; }
+button[kind="primary"], .stButton > button {
+  background: var(--accent-g) !important;
+  border: none !important;
+  border-radius: var(--r) !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  padding: 10px 20px !important;
+  cursor: pointer !important;
+  transition: opacity 150ms, transform 100ms !important;
+}
+button[kind="primary"]:hover, .stButton > button:hover { opacity: 0.88 !important; }
+button[kind="primary"]:active, .stButton > button:active { transform: scale(0.97) !important; }
 
 /* Reduce-motion */
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration:0.01ms !important; animation-duration:0.01ms !important; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -180,6 +536,7 @@ html, body, .stApp, .main, [data-testid="stAppViewContainer"] {
 # Helpers
 # ─────────────────────────────────────────────
 def sparkline(values, color="#10b981", height=44):
+    # safe conversion for fillcolor
     def hex_to_rgb(hex_color):
         hex_color = hex_color.lstrip('#')
         return tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
@@ -205,8 +562,7 @@ def sparkline(values, color="#10b981", height=44):
 def delta_html(chg):
     arrow = "▲" if chg >= 0 else "▼"
     cls = "kpi-up" if chg >= 0 else "kpi-down"
-    color = "#10b981" if chg >= 0 else "#f43f5e"
-    return f'<span style="color:{color}; font-weight:700;">{arrow} {abs(chg):.2f}%</span>'
+    return f'<span class="{cls}">{arrow} {abs(chg):.2f}%</span>'
 
 def regime_class(sentiment):
     s = (sentiment or "").lower()
@@ -226,20 +582,15 @@ def score_style_html(val):
         color = "#f59e0b"
     else:
         color = "#f43f5e"
+    # include a small progress bar and the number
     pct = max(0, min(100, int(v)))
-    bar = (
-        f'<div style="width:100%; background:rgba(255,255,255,0.03); height:8px; border-radius:999px; overflow:hidden;">'
-        f'<div style="width:{pct}%; height:100%; background:linear-gradient(90deg,{color}, rgba(255,255,255,0.06));"></div></div>'
-    )
+    bar = f'<div style="width:100%; background:rgba(255,255,255,0.03); height:8px; border-radius:999px; overflow:hidden;"><div style="width:{pct}%; height:100%; background:linear-gradient(90deg,{color}, rgba(255,255,255,0.06));"></div></div>'
     return f'<div style="display:flex;flex-direction:column;gap:6px;align-items:center;"><div style="font-weight:700;color:{color};">{v:.0f}</div>{bar}</div>'
 
 def df_to_html_table(df, height=320):
     # Build header
     cols = list(df.columns)
-    thead = "<tr>" + "".join([
-        f'<th style="padding:10px;text-align:center;font-weight:700;color:var(--txt);font-size:12px;border-bottom:1px solid rgba(255,255,255,0.04);">{c}</th>'
-        for c in cols
-    ]) + "</tr>"
+    thead = "<tr>" + "".join([f'<th style="padding:8px;text-align:center;font-weight:700;color:#94a3b8;font-size:11px;">{c}</th>' for c in cols]) + "</tr>"
 
     # Build rows
     tbody_rows = []
@@ -249,17 +600,16 @@ def df_to_html_table(df, height=320):
             val = row[c]
             if c == "Score":
                 cell_html = score_style_html(val)
-                cells.append(f'<td style="padding:12px;text-align:center;vertical-align:middle;background:transparent;color:var(--txt);">{cell_html}</td>')
+                cells.append(f'<td style="padding:10px;text-align:center;vertical-align:middle;">{cell_html}</td>')
             else:
-                # ensure readable white text for all cells
-                cells.append(f'<td style="padding:12px;text-align:center;font-family:JetBrains Mono;color:var(--txt);">{val}</td>')
+                cells.append(f'<td style="padding:10px;text-align:center;font-family:JetBrains Mono;">{val}</td>')
         tbody_rows.append("<tr>" + "".join(cells) + "</tr>")
     tbody = "\n".join(tbody_rows)
 
     table_html = f"""
-    <div style="border-radius:12px; overflow:hidden; border:1px solid rgba(255,255,255,0.06); box-shadow: 0 6px 18px rgba(2,6,23,0.55); background:transparent;">
+    <div style="border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.06); box-shadow: 0 4px 16px rgba(0,0,0,0.55);">
       <table style="width:100%; border-collapse:collapse; background:transparent;">
-        <thead style="background:rgba(124,58,237,0.06);">{thead}</thead>
+        <thead style="background:rgba(124,58,237,0.08);">{thead}</thead>
         <tbody>{tbody}</tbody>
       </table>
     </div>
@@ -353,9 +703,9 @@ with tab_macro:
 
     # --- Robust Macro table rendering: try HTML card, fallback to st.dataframe ---
     try:
-        html_table = df_to_html_table(df_macro, height=360)
-        components.html(html_table, height=420, scrolling=True)
-        st.markdown("<div style='margin-top:8px;color:#cbd5e1;font-size:12px;'>Si le tableau stylé n'apparaît pas, voici une version alternative :</div>", unsafe_allow_html=True)
+        html_table = df_to_html_table(df_macro, height=320)
+        components.html(html_table, height=360, scrolling=True)
+        st.markdown("<div style='margin-top:8px;color:#94a3b8;font-size:12px;'>Si le tableau stylé n'apparaît pas, voici une version alternative :</div>", unsafe_allow_html=True)
         st.dataframe(df_macro, use_container_width=True, height=220)
     except Exception:
         st.warning("Rendu HTML du tableau indisponible — affichage de secours.")
@@ -378,7 +728,7 @@ with tab_macro:
         height=360,
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
-        font=dict(color="#cbd5e1", family="Inter"),
+        font=dict(color="#94a3b8", family="Inter"),
         xaxis=dict(
             title="Période",
             gridcolor="rgba(255,255,255,.04)",
@@ -616,7 +966,12 @@ with tab_intermarket:
                     df = pd.DataFrame(data_rows, columns=headers)
                 except Exception:
                     df = pd.DataFrame(data_rows)
+                # Try to detect common columns and color-code implied outcome
                 prob_col = next((c for c in df.columns if "prob" in c.lower()), None)
+                outcome_col = next((c for c in df.columns if "implied" in c.lower() or "outcome" in c.lower()), None)
+                bank_col = next((c for c in df.columns if "bank" in c.lower() or "institution" in c.lower()), None)
+                date_col = next((c for c in df.columns if "date" in c.lower() or "meeting" in c.lower() or "time" in c.lower()), None)
+
                 if prob_col:
                     def parse_pct(x):
                         try:
@@ -626,6 +981,7 @@ with tab_intermarket:
                     df["_prob_pct"] = df[prob_col].apply(parse_pct)
                 else:
                     df["_prob_pct"] = None
+
                 st.dataframe(df, use_container_width=True)
             else:
                 st.table(rows)
@@ -675,6 +1031,7 @@ with tab_insights:
         {"time": "2026-05-22 02:00 UTC", "event": "BoC Rate Statement", "impact": "Medium", "pairs": ["CAD/*"]},
     ]
     for c in catalysts:
+        cls = "imp-high" if c["impact"] == "High" else ("imp-med" if c["impact"] == "Medium" else "imp-low")
         st.markdown(
             f"<div class='event-card'><div class='event-pip event-high-pip'></div><div><div class='event-name'>{c['event']}</div><div class='event-meta'>{c['time']}</div><div class='event-pairs'>Pairs impactées: {', '.join(c['pairs'])}</div></div></div>",
             unsafe_allow_html=True,
@@ -714,6 +1071,6 @@ with tab_logs:
 # ─────────────────────────────────────────────
 st.markdown("---")
 st.markdown(
-    f"<div style='display:flex;justify-content:space-between;align-items:center;'><div style='color:#cbd5e1;'>Données: Yahoo Finance (yfinance), sources macro locales; modèle: indicateurs fondamentaux pondérés.</div><div style='color:#cbd5e1;'>Dernière mise à jour: {utc_now}</div></div>",
+    f"<div style='display:flex;justify-content:space-between;align-items:center;'><div class='small-muted'>Données: Yahoo Finance (yfinance), sources macro locales; modèle: indicateurs fondamentaux pondérés.</div><div class='small-muted'>Dernière mise à jour: {utc_now}</div></div>",
     unsafe_allow_html=True,
 )
