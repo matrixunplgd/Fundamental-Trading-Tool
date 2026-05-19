@@ -276,6 +276,205 @@ def render_macro_table(df: pd.DataFrame) -> str:
 
 
 # ─────────────────────────────────────────────
+# Generic styled HTML table renderer
+# ─────────────────────────────────────────────
+def _styled_table_html(headers, rows, col_formats=None, height=320, legend_items=None):
+    TH = (
+        "padding:11px 14px;text-align:center;font-size:11px;font-weight:700;"
+        "text-transform:uppercase;letter-spacing:0.1em;color:#94a3b8;white-space:nowrap;"
+        "border-bottom:1px solid rgba(255,255,255,0.06);position:sticky;top:0;z-index:2;"
+        "background:linear-gradient(180deg,#0f1e35,#0b1624);"
+    )
+    TD = "padding:11px 14px;text-align:center;vertical-align:middle;border-bottom:1px solid rgba(255,255,255,0.03);"
+    thead = "<tr>" + "".join(f'<th style="{TH}">{h}</th>' for h in headers) + "</tr>"
+    tbody_rows = []
+    for ri, row in enumerate(rows):
+        bg = "rgba(255,255,255,0.012)" if ri % 2 == 0 else "transparent"
+        hi = "this.style.background='rgba(124,58,237,0.07)'"
+        ho = f"this.style.background='{bg}'"
+        cells = []
+        for ci, val in enumerate(row):
+            if col_formats and ci in col_formats:
+                cell_html = col_formats[ci](val)
+            else:
+                cell_html = f'<span style="color:#fff;font-family:JetBrains Mono,monospace;">{val}</span>'
+            cells.append(f'<td style="{TD}">{cell_html}</td>')
+        tbody_rows.append(
+            f'<tr style="background:{bg};transition:background 150ms ease;" onmouseover="{hi}" onmouseout="{ho}">'
+            + "".join(cells) + "</tr>"
+        )
+    legend_html = ""
+    if legend_items:
+        items = "".join(
+            f'<div style="display:flex;align-items:center;gap:6px;font-size:11px;color:#94a3b8;">'
+            f'<div style="width:8px;height:8px;border-radius:50%;background:{li["dot"]};flex-shrink:0;"></div>'
+            f'{li["label"]}</div>'
+            for li in legend_items
+        )
+        legend_html = f'<div style="display:flex;gap:18px;flex-wrap:wrap;padding:10px 16px;border-top:1px solid rgba(255,255,255,0.05);background:rgba(255,255,255,0.01);">{items}</div>'
+    return f"""<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+  *{{box-sizing:border-box;margin:0;padding:0;}}
+  body{{background:transparent;font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}}
+  .wrap{{border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);background:linear-gradient(180deg,#0b1624,#0f2233);box-shadow:0 8px 32px rgba(0,0,0,.65);}}
+  .scroll{{overflow-x:auto;overflow-y:auto;max-height:{height}px;}}
+  table{{width:100%;border-collapse:collapse;}}
+</style></head><body>
+<div class="wrap">
+  <div class="scroll"><table><thead>{thead}</thead><tbody>{"".join(tbody_rows)}</tbody></table></div>
+  {legend_html}
+</div>
+</body></html>"""
+
+
+def render_comparison_table(df):
+    if df is None or df.empty:
+        return ""
+    headers = list(df.columns)
+    col_formats = {}
+    for ci, col in enumerate(headers):
+        c = col.lower()
+        if any(k in c for k in ("spread","diff","écart")):
+            def fmt_spread(val):
+                try:
+                    v = float(str(val).replace("%","").replace("bp","").strip())
+                    color = "#10b981" if v > 0 else "#f43f5e" if v < 0 else "#94a3b8"
+                    arrow = "▲" if v > 0 else "▼" if v < 0 else "–"
+                    return f'<span style="color:{color};font-weight:700;font-family:JetBrains Mono,monospace">{arrow} {v:+.2f}</span>'
+                except Exception:
+                    return f'<span style="color:#fff;font-family:JetBrains Mono,monospace">{val}</span>'
+            col_formats[ci] = fmt_spread
+        elif any(k in c for k in ("taux","rate","yield","rendement")):
+            def fmt_rate(val):
+                try:
+                    v = float(str(val).replace("%","").strip())
+                    color = "#38bdf8" if v >= 3.0 else "#94a3b8"
+                    return f'<span style="color:{color};font-weight:600;font-family:JetBrains Mono,monospace">{v:.2f}%</span>'
+                except Exception:
+                    return f'<span style="color:#fff;font-family:JetBrains Mono,monospace">{val}</span>'
+            col_formats[ci] = fmt_rate
+        elif any(k in c for k in ("score","note","rang")):
+            def fmt_score(val):
+                try:
+                    v = float(val)
+                    color = "#10b981" if v >= 65 else "#f59e0b" if v >= 40 else "#f43f5e"
+                    return (f'<span style="background:rgba(0,0,0,0.2);border:1px solid {color}55;color:{color};'
+                            f'font-weight:800;padding:3px 10px;border-radius:999px;font-family:JetBrains Mono,monospace">{v:.0f}</span>')
+                except Exception:
+                    return f'<span style="color:#fff;font-family:JetBrains Mono,monospace">{val}</span>'
+            col_formats[ci] = fmt_score
+        elif any(k in c for k in ("pib","gdp","croissance","growth")):
+            def fmt_gdp(val):
+                try:
+                    v = float(str(val).replace("%","").replace("+","").strip())
+                    color = "#10b981" if v > 0 else "#f43f5e" if v < 0 else "#94a3b8"
+                    arrow = "▲" if v > 0 else "▼" if v < 0 else "–"
+                    return f'<span style="color:{color};font-weight:700;font-family:JetBrains Mono,monospace">{arrow} {v:+.2f}%</span>'
+                except Exception:
+                    return f'<span style="color:#fff;font-family:JetBrains Mono,monospace">{val}</span>'
+            col_formats[ci] = fmt_gdp
+        elif any(k in c for k in ("inflation","cpi","ipc")):
+            def fmt_inf(val):
+                try:
+                    v = float(str(val).replace("%","").strip())
+                    color = "#f59e0b" if v >= 3.5 else "#10b981" if v <= 2.5 else "#cbd5e1"
+                    return f'<span style="color:{color};font-family:JetBrains Mono,monospace">{v:.1f}%</span>'
+                except Exception:
+                    return f'<span style="color:#fff;font-family:JetBrains Mono,monospace">{val}</span>'
+            col_formats[ci] = fmt_inf
+        elif any(k in c for k in ("chôm","unem","unemploy")):
+            def fmt_unem(val):
+                try:
+                    v = float(str(val).replace("%","").strip())
+                    color = "#f43f5e" if v >= 6.0 else "#10b981" if v <= 4.0 else "#cbd5e1"
+                    return f'<span style="color:{color};font-family:JetBrains Mono,monospace">{v:.1f}%</span>'
+                except Exception:
+                    return f'<span style="color:#fff;font-family:JetBrains Mono,monospace">{val}</span>'
+            col_formats[ci] = fmt_unem
+        elif ci == 0:
+            def fmt_label(val):
+                flag = CCY_FLAGS.get(str(val).strip().upper()[:3], "")
+                flag_html = f'<span style="font-size:15px;margin-right:5px;">{flag}</span>' if flag else ""
+                return (f'<div style="display:flex;align-items:center;justify-content:center;">'
+                        f'{flag_html}<span style="font-family:JetBrains Mono,monospace;font-weight:700;color:#fff;">{val}</span></div>')
+            col_formats[ci] = fmt_label
+    data_rows = [[str(df.iloc[i][col]) for col in headers] for i in range(len(df))]
+    legend = [
+        {"dot": "#10b981", "label": "Spread / PIB positif"},
+        {"dot": "#f43f5e", "label": "Spread / PIB négatif"},
+        {"dot": "#38bdf8", "label": "Taux ≥ 3%"},
+        {"dot": "#f59e0b", "label": "Inflation > 3.5%"},
+    ]
+    return _styled_table_html(headers, data_rows, col_formats=col_formats, height=280, legend_items=legend)
+
+
+def render_rateprob_table(rows):
+    if not rows or not all(isinstance(r, list) for r in rows):
+        return ""
+    headers = rows[0]
+    data_rows = rows[1:]
+    col_formats = {}
+    for ci, col in enumerate(headers):
+        c = col.lower()
+        if any(k in c for k in ("implied","outcome","décision","action","move")):
+            def fmt_outcome(val):
+                vl = str(val).lower()
+                if any(k in vl for k in ("hike","raise","hausse","up","increase")):
+                    return (f'<span style="background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);'
+                            f'color:#10b981;font-weight:700;padding:3px 10px;border-radius:999px;font-size:12px;">▲ {val}</span>')
+                if any(k in vl for k in ("cut","lower","baisse","down","decrease","réduction")):
+                    return (f'<span style="background:rgba(244,63,94,0.12);border:1px solid rgba(244,63,94,0.3);'
+                            f'color:#f43f5e;font-weight:700;padding:3px 10px;border-radius:999px;font-size:12px;">▼ {val}</span>')
+                return (f'<span style="background:rgba(148,163,184,0.08);border:1px solid rgba(148,163,184,0.2);'
+                        f'color:#94a3b8;font-weight:600;padding:3px 10px;border-radius:999px;font-size:12px;">— {val}</span>')
+            col_formats[ci] = fmt_outcome
+        elif any(k in c for k in ("prob","probability","%","chance","likelihood")):
+            def fmt_prob(val):
+                try:
+                    v = float(str(val).replace("%","").strip())
+                    color = "#10b981" if v >= 70 else "#f59e0b" if v >= 40 else "#f43f5e"
+                    bar_w = max(4, min(100, int(v)))
+                    return (f'<div style="display:flex;flex-direction:column;align-items:center;gap:4px;min-width:80px;">'
+                            f'<span style="color:{color};font-weight:700;font-family:JetBrains Mono,monospace">{v:.0f}%</span>'
+                            f'<div style="width:64px;height:4px;background:rgba(255,255,255,0.06);border-radius:999px;overflow:hidden;">'
+                            f'<div style="width:{bar_w}%;height:100%;background:{color};border-radius:999px;"></div>'
+                            f'</div></div>')
+                except Exception:
+                    return f'<span style="color:#cbd5e1;font-family:JetBrains Mono,monospace">{val}</span>'
+            col_formats[ci] = fmt_prob
+        elif any(k in c for k in ("bank","banque","institution","central")):
+            def fmt_bank(val):
+                key = str(val).split("/")[0].strip().upper()[:3]
+                flag = CCY_FLAGS.get(key, "🏦")
+                return (f'<div style="display:flex;align-items:center;gap:7px;justify-content:center;">'
+                        f'<span style="font-size:16px;">{flag}</span>'
+                        f'<span style="color:#fff;font-weight:600;font-size:13px;">{val}</span></div>')
+            col_formats[ci] = fmt_bank
+        elif any(k in c for k in ("date","meeting","réunion","time","when")):
+            def fmt_date(val):
+                return f'<span style="color:#cbd5e1;font-family:JetBrains Mono,monospace;font-size:12px;">{val}</span>'
+            col_formats[ci] = fmt_date
+        elif any(k in c for k in ("rate","taux","current","actuel")):
+            def fmt_rate_rp(val):
+                try:
+                    v = float(str(val).replace("%","").strip())
+                    color = "#38bdf8" if v >= 3.0 else "#94a3b8"
+                    return f'<span style="color:{color};font-weight:600;font-family:JetBrains Mono,monospace">{v:.2f}%</span>'
+                except Exception:
+                    return f'<span style="color:#cbd5e1;font-family:JetBrains Mono,monospace">{val}</span>'
+            col_formats[ci] = fmt_rate_rp
+    legend = [
+        {"dot": "#10b981", "label": "Hike / Hausse"},
+        {"dot": "#f43f5e", "label": "Cut / Baisse"},
+        {"dot": "#94a3b8", "label": "Hold / Stable"},
+        {"dot": "#f59e0b", "label": "Prob. 40–69%"},
+    ]
+    return _styled_table_html(headers, data_rows, col_formats=col_formats, height=300, legend_items=legend)
+
+
+# ─────────────────────────────────────────────
 # Helpers
 # ─────────────────────────────────────────────
 def sparkline(values, color="#10b981", height=44):
@@ -493,7 +692,11 @@ with tab_compare:
         b_data, q_data = MACRO.get(base_ccy,{}), MACRO.get(quote_ccy,{})
         spreads = compute_spreads(b_data, q_data)
         df_comp = build_comparison_table(base_ccy, quote_ccy, b_data, q_data, spreads)
-        st.dataframe(df_comp, use_container_width=True)
+        try:
+            comp_html = render_comparison_table(df_comp)
+            components.html(comp_html, height=340, scrolling=False)
+        except Exception:
+            st.dataframe(df_comp, use_container_width=True)
 
         regime_tuple = regime_weights("Automatique", auto_sentiment)
         wti_bull  = MARKET_ASSETS.get("WTI_CRUDE",{}).get("chg",0) > 0
@@ -592,9 +795,13 @@ with tab_intermarket:
     else:
         st.markdown(f'<div style="font-size:11px;color:#94a3b8;margin-bottom:6px;font-family:JetBrains Mono">Dernière récupération: {ts}</div>', unsafe_allow_html=True)
         if isinstance(rows,list) and rows and all(isinstance(r,list) for r in rows):
-            try: df_rp = pd.DataFrame(rows[1:], columns=rows[0])
-            except Exception: df_rp = pd.DataFrame(rows[1:])
-            st.dataframe(df_rp, use_container_width=True)
+            try:
+                rp_html = render_rateprob_table(rows)
+                components.html(rp_html, height=370, scrolling=False)
+            except Exception:
+                try: df_rp = pd.DataFrame(rows[1:], columns=rows[0])
+                except Exception: df_rp = pd.DataFrame(rows[1:])
+                st.dataframe(df_rp, use_container_width=True)
         else:
             st.table(rows)
 
