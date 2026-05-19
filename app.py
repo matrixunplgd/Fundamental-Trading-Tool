@@ -2,7 +2,7 @@
 """
 FX Intermarket Pro — v3.0
 Professional dark Fintech terminal. UI/UX redesign (complete, corrected).
-Includes robust HTML rendering for Macro table (avoids pandas Styler compatibility issues).
+Includes robust HTML rendering for Macro table with fallback to ensure visibility.
 """
 
 import os
@@ -582,7 +582,10 @@ def score_style_html(val):
         color = "#f59e0b"
     else:
         color = "#f43f5e"
-    return f'<span style="color:{color}; font-weight:700;">{v:.0f}</span>'
+    # include a small progress bar and the number
+    pct = max(0, min(100, int(v)))
+    bar = f'<div style="width:100%; background:rgba(255,255,255,0.03); height:8px; border-radius:999px; overflow:hidden;"><div style="width:{pct}%; height:100%; background:linear-gradient(90deg,{color}, rgba(255,255,255,0.06));"></div></div>'
+    return f'<div style="display:flex;flex-direction:column;gap:6px;align-items:center;"><div style="font-weight:700;color:{color};">{v:.0f}</div>{bar}</div>'
 
 def df_to_html_table(df, height=320):
     # Build header
@@ -597,7 +600,7 @@ def df_to_html_table(df, height=320):
             val = row[c]
             if c == "Score":
                 cell_html = score_style_html(val)
-                cells.append(f'<td style="padding:10px;text-align:center;">{cell_html}</td>')
+                cells.append(f'<td style="padding:10px;text-align:center;vertical-align:middle;">{cell_html}</td>')
             else:
                 cells.append(f'<td style="padding:10px;text-align:center;font-family:JetBrains Mono;">{val}</td>')
         tbody_rows.append("<tr>" + "".join(cells) + "</tr>")
@@ -698,9 +701,15 @@ with tab_macro:
         for ccy, info in MACRO.items()
     ])
 
-    # Render Macro table as HTML (robust across pandas versions)
-    html_table = df_to_html_table(df_macro, height=320)
-    components.html(html_table, height=340, scrolling=True)
+    # --- Robust Macro table rendering: try HTML card, fallback to st.dataframe ---
+    try:
+        html_table = df_to_html_table(df_macro, height=320)
+        components.html(html_table, height=360, scrolling=True)
+        st.markdown("<div style='margin-top:8px;color:#94a3b8;font-size:12px;'>Si le tableau stylé n'apparaît pas, voici une version alternative :</div>", unsafe_allow_html=True)
+        st.dataframe(df_macro, use_container_width=True, height=220)
+    except Exception:
+        st.warning("Rendu HTML du tableau indisponible — affichage de secours.")
+        st.dataframe(df_macro, use_container_width=True, height=360)
 
     st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
     st.markdown('<div class="sec-title"><span class="sec-dot"></span> Évolution des Taux Directeurs</div>', unsafe_allow_html=True)
