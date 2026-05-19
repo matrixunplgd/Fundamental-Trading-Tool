@@ -2,6 +2,7 @@
 """
 FX Intermarket Pro — v3.0
 Professional dark Fintech terminal. UI/UX redesign (complete, corrected).
+Includes robust HTML rendering for Macro table (avoids pandas Styler compatibility issues).
 """
 
 import os
@@ -12,6 +13,7 @@ from datetime import datetime, timezone
 
 import pandas as pd
 import streamlit as st
+import streamlit.components.v1 as components
 import plotly.graph_objects as go
 
 # Optional: BeautifulSoup for scraping RateProbability
@@ -568,6 +570,50 @@ def regime_class(sentiment):
     if "bear" in s or "risk off" in s: return "regime-bear", "🔴"
     return "regime-neut", "⚪"
 
+# HTML table renderer for Macro (robust alternative to pandas Styler)
+def score_style_html(val):
+    try:
+        v = float(val)
+    except Exception:
+        return f'<span style="color:var(--txt);">{val}</span>'
+    if v >= 70:
+        color = "#10b981"
+    elif v >= 40:
+        color = "#f59e0b"
+    else:
+        color = "#f43f5e"
+    return f'<span style="color:{color}; font-weight:700;">{v:.0f}</span>'
+
+def df_to_html_table(df, height=320):
+    # Build header
+    cols = list(df.columns)
+    thead = "<tr>" + "".join([f'<th style="padding:8px;text-align:center;font-weight:700;color:#94a3b8;font-size:11px;">{c}</th>' for c in cols]) + "</tr>"
+
+    # Build rows
+    tbody_rows = []
+    for _, row in df.iterrows():
+        cells = []
+        for c in cols:
+            val = row[c]
+            if c == "Score":
+                cell_html = score_style_html(val)
+                cells.append(f'<td style="padding:10px;text-align:center;">{cell_html}</td>')
+            else:
+                cells.append(f'<td style="padding:10px;text-align:center;font-family:JetBrains Mono;">{val}</td>')
+        tbody_rows.append("<tr>" + "".join(cells) + "</tr>")
+    tbody = "\n".join(tbody_rows)
+
+    table_html = f"""
+    <div style="border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.06); box-shadow: 0 4px 16px rgba(0,0,0,0.55);">
+      <table style="width:100%; border-collapse:collapse; background:transparent;">
+        <thead style="background:rgba(124,58,237,0.08);">{thead}</thead>
+        <tbody>{tbody}</tbody>
+      </table>
+    </div>
+    """
+    wrapper = f'<div style="padding:8px; height:{height}px; overflow:auto;">{table_html}</div>'
+    return wrapper
+
 # ─────────────────────────────────────────────
 # Header
 # ─────────────────────────────────────────────
@@ -652,37 +698,9 @@ with tab_macro:
         for ccy, info in MACRO.items()
     ])
 
-    def color_score(val):
-        try:
-            v = float(val)
-        except Exception:
-            return ""
-        if v >= 70:
-            return "color: #10b981; font-weight: 700"
-        if v >= 40:
-            return "color: #f59e0b; font-weight: 600"
-        return "color: #f43f5e; font-weight: 700"
-
-    # Build a Styler and apply styling to the Score column in a pandas-compatible way
-    styled = df_macro.style
-
-    # Apply color to the Score column cells
-    styled = styled.applymap(lambda x: color_score(x), subset=["Score"])
-
-    # Formatting numeric columns
-    styled = styled.format({
-        "Taux (%)":      "{:.2f}",
-        "10Y Yield (%)": "{:.2f}",
-        "PIB (%)":       "{:+.2f}",
-        "Inflation (%)": "{:.1f}",
-        "Chômage (%)":   "{:.1f}",
-    })
-
-    # Center text for readability
-    styled = styled.set_properties(**{"text-align": "center"})
-
-    # Render the styled dataframe
-    st.dataframe(styled, use_container_width=True, height=320)
+    # Render Macro table as HTML (robust across pandas versions)
+    html_table = df_to_html_table(df_macro, height=320)
+    components.html(html_table, height=340, scrolling=True)
 
     st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
     st.markdown('<div class="sec-title"><span class="sec-dot"></span> Évolution des Taux Directeurs</div>', unsafe_allow_html=True)
