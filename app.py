@@ -66,64 +66,91 @@ BG = "#071028"
 CARD_BG = "rgba(255,255,255,0.02)"
 
 st.markdown(
-    f"""
+    """
     <style>
-    :root {{
-      --bg: {BG};
-      --primary: {PRIMARY};
-      --accent: {ACCENT};
-      --accent-2: {ACCENT2};
-      --muted: {MUTED};
-      --card-bg: {CARD_BG};
-      --radius: 12px;
-      --shadow: 0 10px 30px rgba(2,6,23,0.6);
-    }}
-    html, body, .stApp {{
-      background: linear-gradient(180deg, #071028 0%, #041022 100%) !important;
+    :root{
+      --bg:#0b1020;
+      --panel:#0f1726;
+      --muted:#9aa3c7;
+      --accent:#6d28d9;
+      --accent-2:#0ea5a3;
+      --primary:#e6eefc;
+      --success:#10b981;
+      --danger:#ef4444;
+      --warning:#f59e0b;
+      --glass: rgba(255,255,255,0.03);
+      --card-shadow: 0 8px 30px rgba(2,6,23,0.6);
+      --radius:12px;
+    }
+
+    .stApp, .main {
+      background: linear-gradient(180deg, var(--bg) 0%, #071028 100%) !important;
       color: var(--primary);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }}
-    /* Header */
-    .ft-header {{
+    }
+
+    .ft-header {
       display:flex; justify-content:space-between; align-items:center;
-      gap:16px;
-      background: linear-gradient(90deg, rgba(109,40,217,0.95), rgba(14,165,163,0.95));
-      padding:18px; border-radius:14px; color:var(--primary);
-      box-shadow: var(--shadow); margin-bottom:18px; border:1px solid rgba(255,255,255,0.04);
-    }}
-    .ft-title {{ font-weight:800; font-size:20px; letter-spacing:0.4px; }}
-    .ft-sub {{ font-size:12px; color: rgba(255,255,255,0.9); margin-top:4px; }}
-    .ft-meta {{ font-family: monospace; font-size:13px; opacity:0.95; }}
+      background: linear-gradient(90deg, rgba(109,40,217,0.95) 0%, rgba(14,165,163,0.95) 100%);
+      padding:16px; border-radius:14px; color:var(--primary);
+      box-shadow: var(--card-shadow); margin-bottom:18px;
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+    .ft-title { font-weight:800; font-size:20px; letter-spacing:0.6px; color: #fff; }
+    .ft-meta { font-family: monospace; font-size:13px; opacity:0.95; color: rgba(255,255,255,0.9); }
 
-    /* Sidebar tweaks */
-    .stSidebar .stButton>button { border-radius:8px; padding:8px 12px; }
-    .stSidebar .stSelectbox>div>div { border-radius:8px; }
-
-    /* KPI card */
-    .kpi-card {{
+    .kpi-card {
       background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:var(--radius); padding:12px; box-shadow: var(--shadow);
-      border: 1px solid rgba(255,255,255,0.03); margin-bottom:8px;
-    }}
-    .kpi-title {{ font-size:12px; color:var(--muted); font-weight:700; }}
-    .kpi-value {{ font-size:20px; font-weight:900; color:var(--primary); }}
-    .kpi-sub {{ font-size:12px; color:var(--muted); }}
+      border-radius:var(--radius); padding:14px; box-shadow: var(--card-shadow);
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+    .kpi-title { font-size:12px; color:var(--muted); font-weight:700; margin-bottom:6px; }
+    .kpi-value { font-size:20px; font-weight:900; color:var(--primary); }
+    .small-muted { color:var(--muted); font-size:12px; }
+    .delta-up { color: #10b981; font-weight:700; }
+    .delta-down { color: #ef4444; font-weight:700; }
 
-    /* RateProbability card */
-    .rp-card {{
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,0.03); box-shadow: var(--shadow);
-    }}
+    .badge { display:inline-block; padding:6px 10px; border-radius:999px; font-weight:800; color:white; font-size:12px; margin-left:8px; box-shadow: 0 6px 18px rgba(2,6,23,0.6); }
+    .badge-bull { background: linear-gradient(90deg,var(--success), #059669); }
+    .badge-bear { background: linear-gradient(90deg,var(--danger), #dc2626); }
+    .badge-neutral { background: linear-gradient(90deg,#374151,#1f2937); color:#cbd5e1; }
 
-    /* Table */
-    .stTable table {{ color: var(--primary); border-collapse: collapse; width:100%; }}
-    .stTable thead th {{ background: rgba(109,40,217,0.08); color:var(--primary); font-weight:700; padding:8px; }}
-    .stTable tbody td {{ padding:10px; border-bottom:1px solid rgba(255,255,255,0.02); }}
+    .insight-card { background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-left:6px solid var(--accent); padding:14px; border-radius:12px; box-shadow: var(--card-shadow); color:var(--primary); }
 
-    /* Responsive */
-    @media (max-width: 900px) {{
-      .ft-header {{ flex-direction:column; align-items:flex-start; gap:8px; }}
-    }}
+    .event-high { border-left:6px solid var(--danger); background: linear-gradient(90deg, rgba(239,68,68,0.06), rgba(255,255,255,0.01)); padding:12px; border-radius:8px; }
+    .event-med { border-left:6px solid var(--warning); background: linear-gradient(90deg, rgba(245,158,11,0.06), rgba(255,255,255,0.01)); padding:12px; border-radius:8px; }
+    .event-low { border-left:6px solid var(--success); background: linear-gradient(90deg, rgba(16,185,129,0.06), rgba(255,255,255,0.01)); padding:12px; border-radius:8px; }
+
+    .stTable table {
+      background: transparent;
+      color: var(--primary);
+      border-collapse: collapse;
+      width: 100%;
+    }
+    .stTable thead th {
+      background: linear-gradient(90deg, rgba(109,40,217,0.12), rgba(14,165,163,0.06));
+      color: var(--primary);
+      font-weight:700;
+      padding:8px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .stTable tbody td {
+      background: rgba(255,255,255,0.01);
+      padding:10px;
+      border-bottom: 1px solid rgba(255,255,255,0.02);
+      color: var(--primary);
+    }
+
+    .rp-card { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,0.03); box-shadow: var(--card-shadow); }
+
+    footer { color: var(--muted); font-size:12px; }
+
+    ::-webkit-scrollbar { height:8px; width:8px; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(90deg, rgba(109,40,217,0.6), rgba(14,165,163,0.6)); border-radius:8px; }
+
+    @media (max-width: 800px) {
+      .ft-title { font-size:16px; }
+      .kpi-value { font-size:18px; }
+    }
     </style>
     """,
     unsafe_allow_html=True,
