@@ -136,4 +136,8 @@ with tab_compare:
             st.markdown(f'<div style="height:10px;background:rgba(255,255,255,0.03);border-radius:999px;margin-top:8px;"><div style="width:{100-score_pct}%;height:100%;background:linear-gradient(90deg,#f43f5e,#fb7185);border-radius:999px;"></div></div>',unsafe_allow_html=True)
 
         # ➕ Mention explicite du sentiment
-        st.markdown(f"<div style='color:#cbd5e1;font-size:12px;margin-top:6px;'>Mouvement pondéré selon le sentiment actuel du marché : {auto_sentiment}</div>",
+        st.markdown(
+            f"<div style='color:#cbd5e1;font-size:12px;margin-top:6px;'>"
+            f"Mouvement pondéré selon le sentiment actuel du marché : {auto_sentiment}</div>",
+            unsafe_allow_html=True
+        )
