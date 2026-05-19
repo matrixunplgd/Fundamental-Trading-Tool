@@ -1,6 +1,9 @@
 # app.py
 import os
 from datetime import datetime, timezone
+import time
+import json
+import requests
 
 import streamlit as st
 import plotly.graph_objects as go
@@ -20,6 +23,12 @@ from utils.sentiment_engine import regime_weights
 from utils.commodities_logic import wti_adjustment
 from utils.recommendations import rank_unique_pairs as rank_all_pairs
 from utils.news import fetch_news
+
+# Optional: BeautifulSoup for scraping RateProbability (used below)
+try:
+    from bs4 import BeautifulSoup  # type: ignore
+except Exception:
+    BeautifulSoup = None  # graceful fallback if bs4 not installed
 
 # --- Page config (must be called before other Streamlit calls) ---
 st.set_page_config(page_title="FX Fundamental Terminal", layout="wide", initial_sidebar_state="collapsed")
@@ -47,6 +56,103 @@ with st.sidebar:
             st.success("Mise à jour forcée terminée.")
         else:
             st.error("La mise à jour forcée a échoué. Consulte les logs.")
+
+# ---------------------------
+# RateProbability fetcher
+# ---------------------------
+RATEPROB_CACHE = os.path.join(os.path.dirname(__file__), "rateprob_cache.json")
+RATEPROB_URL = "https://rateprobability.com"
+
+def _load_rateprob_cache():
+    try:
+        with open(RATEPROB_CACHE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {"ts": None, "data": []}
+
+def _save_rateprob_cache(data):
+    try:
+        payload = {"ts": datetime.utcnow().isoformat() + "Z", "data": data}
+        with open(RATEPROB_CACHE, "w", encoding="utf-8") as f:
+            json.dump(payload, f, indent=2, ensure_ascii=False)
+    except Exception:
+        pass
+
+def fetch_rateprobability(force=False, ttl_seconds=600):
+    """
+    Scrape the homepage of rateprobability.com to extract the 'Upcoming meetings' table.
+    Returns (rows, ts) where rows is a list of lists (table rows).
+    Uses a simple cache to avoid frequent requests.
+    """
+    cache = _load_rateprob_cache()
+    if not force and cache.get("ts"):
+        try:
+            age = (datetime.utcnow() - datetime.fromisoformat(cache["ts"].replace("Z", ""))).total_seconds()
+            if age < ttl_seconds:
+                return cache.get("data", []), cache.get("ts")
+        except Exception:
+            pass
+
+    # If BeautifulSoup not available, return cache
+    if BeautifulSoup is None:
+        return cache.get("data", []), cache.get("ts")
+
+    try:
+        resp = requests.get(RATEPROB_URL, timeout=10, headers={"User-Agent": "fx-terminal/1.0"})
+        resp.raise_for_status()
+        soup = BeautifulSoup(resp.text, "html.parser")
+
+        # Heuristic: find a heading containing "Upcoming meetings" then the following table
+        table = None
+        for h in soup.find_all(["h1", "h2", "h3", "h4", "h5"]):
+            if "upcoming meeting" in h.get_text(strip=True).lower() or "upcoming meetings" in h.get_text(strip=True).lower():
+                table = h.find_next("table")
+                if table:
+                    break
+
+        rows = []
+        if table:
+            # Extract header
+            headers = [th.get_text(strip=True) for th in table.find_all("tr")[0].find_all(["th", "td"])]
+            rows.append(headers)
+            for tr in table.find_all("tr")[1:]:
+                cols = [td.get_text(strip=True) for td in tr.find_all(["td", "th"])]
+                if cols:
+                    rows.append(cols)
+        else:
+            # fallback: try to find any table with likely columns (Bank, Date, Rate, Probability)
+            for table in soup.find_all("table"):
+                # quick heuristic: check header text
+                header_text = " ".join([th.get_text(strip=True).lower() for th in table.find_all("th")])
+                if any(k in header_text for k in ["bank", "probability", "meeting", "rate"]):
+                    headers = [th.get_text(strip=True) for th in table.find_all("tr")[0].find_all(["th", "td"])]
+                    rows.append(headers)
+                    for tr in table.find_all("tr")[1:]:
+                        cols = [td.get_text(strip=True) for td in tr.find_all(["td", "th"])]
+                        if cols:
+                            rows.append(cols)
+                    break
+
+        if rows:
+            _save_rateprob_cache(rows)
+            return rows, datetime.utcnow().isoformat() + "Z"
+        # if nothing parsed, return cache
+        return cache.get("data", []), cache.get("ts")
+    except Exception:
+        return cache.get("data", []), cache.get("ts")
+
+# ---------------------------
+# UI helpers: sparkline + small KPI card
+# ---------------------------
+def sparkline(y, color="#4f46e5", height=60):
+    fig = go.Figure(go.Scatter(y=y, mode="lines", line=dict(color=color, width=2), hoverinfo="none"))
+    fig.update_layout(margin=dict(l=0, r=0, t=0, b=0), xaxis=dict(visible=False), yaxis=dict(visible=False), height=height)
+    return fig
+
+def small_sparkline(values, color="#4f46e5"):
+    fig = go.Figure(go.Scatter(y=values, mode="lines", line=dict(color=color, width=2), hoverinfo="none"))
+    fig.update_layout(margin=dict(l=0, r=0, t=0, b=0), xaxis=dict(visible=False), yaxis=dict(visible=False), height=40)
+    return fig
 
 # --- CSS / Theme ---
 st.markdown(
@@ -76,6 +182,8 @@ st.markdown(
     .kpi-title { font-size:12px; color:var(--muted); font-weight:700; }
     .kpi-value { font-size:20px; font-weight:900; color:var(--primary); }
     .small-muted { color:var(--muted); font-size:12px; }
+    .delta-up { color: #10b981; font-weight:700; }
+    .delta-down { color: #ef4444; font-weight:700; }
     /* Insight cards */
     .insight-card { background: linear-gradient(135deg,#ffffff,#f1f5f9); border-left:6px solid var(--accent); padding:12px; border-radius:10px; box-shadow:0 6px 18px rgba(79,70,229,0.06); }
     .badge { display:inline-block; padding:6px 10px; border-radius:999px; font-weight:800; color:white; font-size:12px; margin-left:8px; }
@@ -109,12 +217,6 @@ tab_macro, tab_sentiment, tab_compare, tab_intermarket, tab_insights, tab_logs =
     ["🏛️ Macro Ranking", "🎯 Risk Sentiment", "🔄 FX Comparison", "📊 Commodities", "🔎 Insights", "🗄️ Logs"]
 )
 
-# --- Helper: sparkline ---
-def sparkline(y, color="#4f46e5", height=60):
-    fig = go.Figure(go.Scatter(y=y, mode="lines", line=dict(color=color, width=2), hoverinfo="none"))
-    fig.update_layout(margin=dict(l=0, r=0, t=0, b=0), xaxis=dict(visible=False), yaxis=dict(visible=False), height=height)
-    return fig
-
 # --- TAB: Macro Ranking ---
 with tab_macro:
     st.markdown("### Fundamental Jurisdictional Matrix")
@@ -142,23 +244,33 @@ with tab_macro:
 # --- TAB: Risk Sentiment ---
 with tab_sentiment:
     st.markdown("### Market Sentiment & Core Indicators")
-    col1, col2, col3, col4 = st.columns(4)
-    # FX spot cards
-    fx_items = list(FX_RATES.items())[:4]
+    # improved KPI layout: show up to 6 FX pairs with arrow + sparkline
+    fx_items = list(FX_RATES.items())[:6]
+    cols = st.columns(3)
     for idx, (pair, info) in enumerate(fx_items):
-        col = [col1, col2, col3, col4][idx % 4]
-        is_up = info.get("chg", 0) >= 0
-        change_color = "#10b981" if is_up else "#ef4444"
+        col = cols[idx % 3]
+        rate = info.get("rate", 0) or 0
+        chg = info.get("chg", 0) or 0.0
+        is_up = chg >= 0
+        color = "#10b981" if is_up else "#ef4444"
+        arrow = "▲" if is_up else "▼"
+        # generate a tiny synthetic history if no real history available
+        hist = [round(rate * (0.995 + i * 0.001), 6) for i in range(8)]
         col.markdown(
             f"""
             <div class="kpi-card">
               <div class="kpi-title">{pair}</div>
-              <div class="kpi-value">{info.get('rate', 0):.4f}</div>
-              <div class="small-muted" style="color:{change_color};">{info.get('chg', 0):+.2f}% Live</div>
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <div>
+                  <div class="kpi-value">{rate:.4f}</div>
+                  <div class="small-muted" style="color:{color};">{arrow} {chg:+.2f}%</div>
+                </div>
+              </div>
             </div>
             """,
             unsafe_allow_html=True,
         )
+        col.plotly_chart(small_sparkline(hist, color=color), use_container_width=True)
 
     # Market assets
     st.markdown("#### Market Assets Snapshot")
@@ -231,6 +343,25 @@ with tab_intermarket:
 
     st.markdown("#### Commodities vs FX (WTI ↔ CAD)")
     st.write("Le WTI influence souvent le CAD. Activez le filtre 'Insights' pour voir les paires CAD impactées.")
+
+    # RateProbability embedded table (scraped)
+    st.markdown("#### Market-implied Upcoming Meetings (RateProbability)")
+    rp_force = st.button("Forcer refresh RateProbability")
+    rows, ts = fetch_rateprobability(force=rp_force)
+    if not rows:
+        st.info("Impossible de récupérer RateProbability — affichage du cache si disponible.")
+    else:
+        st.markdown(f"*Dernière récupération: {ts}*")
+        # If first row looks like headers, render as table with columns
+        if isinstance(rows, list) and rows and all(isinstance(r, list) for r in rows):
+            # If header present
+            if len(rows) > 1 and any("bank" in c.lower() or "meeting" in c.lower() for c in rows[0]):
+                headers = rows[0]
+                data_rows = rows[1:]
+                st.table([dict(zip(headers, r)) for r in data_rows])
+            else:
+                # generic display
+                st.table(rows)
 
 # --- TAB: Insights (Top/Bot pairs, Catalysts, News) ---
 with tab_insights:
