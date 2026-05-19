@@ -1,17 +1,7 @@
+# app.py
 """
 FX Intermarket Pro — v3.0
-Professional dark Fintech terminal. UI/UX redesign:
-- Glass-morphism dark panels, tight 8px grid system
-- Tab bar with icon + label, active indicator
-- KPI cards: monospaced figures, semantic delta colors, micro-sparklines
-- RateProbability table: color-coded by outcome with progress bars
-- Sidebar: grouped controls with clear labels
-- Insights: ranked pair cards with animated progress bars
-- Macro table: color-coded Score column
-- Consistent elevation scale: --z1 → --z4
-- prefers-reduced-motion respected
-- cursor-pointer on all interactives
-- WCAG AA color contrast for all text
+Professional dark Fintech terminal. UI/UX redesign (complete, corrected).
 """
 
 import os
@@ -24,11 +14,13 @@ import pandas as pd
 import streamlit as st
 import plotly.graph_objects as go
 
+# Optional: BeautifulSoup for scraping RateProbability
 try:
     from bs4 import BeautifulSoup
 except Exception:
     BeautifulSoup = None
 
+# Project imports (assumes these modules exist in your repo)
 from data import (
     MACRO,
     FX_RATES,
@@ -56,6 +48,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+# Start background updater (idempotent)
 try:
     start_background_updater(interval_seconds=120)
 except Exception:
@@ -541,11 +534,17 @@ button[kind="primary"]:active, .stButton > button:active { transform: scale(0.97
 # Helpers
 # ─────────────────────────────────────────────
 def sparkline(values, color="#10b981", height=44):
+    # safe conversion for fillcolor
+    def hex_to_rgb(hex_color):
+        hex_color = hex_color.lstrip('#')
+        return tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
+    rgb = hex_to_rgb(color) if isinstance(color, str) and color.startswith("#") else (16,185,129)
+    fill = f"rgba({rgb[0]},{rgb[1]},{rgb[2]},0.08)"
     fig = go.Figure(go.Scatter(
         y=values, mode="lines",
         line=dict(color=color, width=2),
         fill="tozeroy",
-        fillcolor=f"rgba({','.join(str(int(int(color.lstrip('#')[i:i+2], 16))) for i in (0,2,4))},0.08)",
+        fillcolor=fill,
         hoverinfo="none",
     ))
     fig.update_layout(
@@ -654,24 +653,35 @@ with tab_macro:
     ])
 
     def color_score(val):
-        if isinstance(val, (int, float)):
-            if val >= 70:   return "color: #10b981; font-weight: 700"
-            if val >= 40:   return "color: #f59e0b; font-weight: 600"
-            return "color: #f43f5e; font-weight: 700"
-        return ""
+        try:
+            v = float(val)
+        except Exception:
+            return ""
+        if v >= 70:
+            return "color: #10b981; font-weight: 700"
+        if v >= 40:
+            return "color: #f59e0b; font-weight: 600"
+        return "color: #f43f5e; font-weight: 700"
 
-    styled = (
-        df_macro.style
-        .applymap(color_score, subset=["Score"])
-        .format({
-            "Taux (%)":      "{:.2f}",
-            "10Y Yield (%)": "{:.2f}",
-            "PIB (%)":       "{:+.2f}",
-            "Inflation (%)": "{:.1f}",
-            "Chômage (%)":   "{:.1f}",
-        })
-        .set_properties(**{"text-align": "center"})
-    )
+    # Build a Styler and apply styling to the Score column in a pandas-compatible way
+    styled = df_macro.style
+
+    # Apply color to the Score column cells
+    styled = styled.applymap(lambda x: color_score(x), subset=["Score"])
+
+    # Formatting numeric columns
+    styled = styled.format({
+        "Taux (%)":      "{:.2f}",
+        "10Y Yield (%)": "{:.2f}",
+        "PIB (%)":       "{:+.2f}",
+        "Inflation (%)": "{:.1f}",
+        "Chômage (%)":   "{:.1f}",
+    })
+
+    # Center text for readability
+    styled = styled.set_properties(**{"text-align": "center"})
+
+    # Render the styled dataframe
     st.dataframe(styled, use_container_width=True, height=320)
 
     st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
@@ -723,9 +733,9 @@ with tab_sentiment:
 
     fx_items = list(FX_RATES.items())[:kpi_count]
     cols_per_row = 3
-    rows = [fx_items[i:i+cols_per_row] for i in range(0, len(fx_items), cols_per_row)]
+    rows_fx = [fx_items[i:i+cols_per_row] for i in range(0, len(fx_items), cols_per_row)]
 
-    for row in rows:
+    for row in rows_fx:
         cols = st.columns(len(row))
         for col, (pair, info) in zip(cols, row):
             rate = info.get("rate", 0) or 0
@@ -785,51 +795,45 @@ with tab_compare:
         b_data, q_data = MACRO.get(base_ccy, {}), MACRO.get(quote_ccy, {})
         spreads = compute_spreads(b_data, q_data)
         df_comp = build_comparison_table(base_ccy, quote_ccy, b_data, q_data, spreads)
-        st.dataframe(df_comp, use_container_width=True, hide_index=True)
+
+        st.dataframe(df_comp, use_container_width=True)
 
         regime_tuple = regime_weights("Automatique", auto_sentiment)
-        wti_bull  = MARKET_ASSETS.get("WTI_CRUDE", {}).get("chg", 0) > 0
+        wti_bull = MARKET_ASSETS.get("WTI_CRUDE", {}).get("chg", 0) > 0
         wti_bonus = wti_adjustment(base_ccy, quote_ccy, wti_bull)
 
-        expected_move = (
-            spreads[2] * regime_tuple[1] +
-            spreads[1] * regime_tuple[2] +
-            spreads[0] * regime_tuple[3] +
-            wti_bonus
-        )
+        expected_move = (spreads[2] * regime_tuple[1]) + (spreads[1] * regime_tuple[2]) + (spreads[0] * regime_tuple[3]) + wti_bonus
         score_pct = normalize_score(expected_move)
-        bullish = score_pct >= 50
-        bar_width = score_pct if bullish else (100 - score_pct)
-        bar_cls   = "bar-up" if bullish else "bar-down"
-        sig_label = "BULLISH" if bullish else "BEARISH"
-        sig_cls   = "sig-bull" if bullish else "sig-bear"
 
+        # Signal box
+        st.markdown('<div class="signal-box">', unsafe_allow_html=True)
+        if score_pct >= 50:
+            st.markdown(f'<div class="signal-main sig-bull">BULLISH — {score_pct}%</div>', unsafe_allow_html=True)
+            bar_html = f'<div class="signal-bar-wrap"><div class="signal-bar bar-up" style="width:{score_pct}%;"></div></div>'
+        else:
+            st.markdown(f'<div class="signal-main sig-bear">BEARISH — {100-score_pct}%</div>', unsafe_allow_html=True)
+            bar_html = f'<div class="signal-bar-wrap"><div class="signal-bar bar-down" style="width:{100-score_pct}%;"></div></div>'
+        st.markdown(bar_html, unsafe_allow_html=True)
         drivers = []
-        if spreads[0] > 0: drivers.append("Taux directeur")
-        if spreads[1] > 0: drivers.append("Rendement 10Y")
-        if spreads[2] > 0: drivers.append("Score fondamental")
-        if wti_bonus != 0: drivers.append("Impact WTI/CAD")
-        if not drivers:    drivers.append("Aucun signal dominant")
-
-        chips = "".join(f'<span class="driver-chip">{d}</span>' for d in drivers)
-
-        st.markdown(f"""
-        <div class="signal-box">
-          <div class="signal-label">Orientation Macro — {base_ccy}/{quote_ccy}</div>
-          <div class="signal-main {sig_cls}">{sig_label} <span style="font-size:18px;opacity:.6">{bar_width}%</span></div>
-          <div class="signal-bar-wrap">
-            <div class="signal-bar {bar_cls}" style="width:{bar_width}%"></div>
-          </div>
-          <div class="signal-label" style="margin-top:12px">Drivers détectés</div>
-          <div class="signal-drivers">{chips}</div>
-        </div>
-        """, unsafe_allow_html=True)
+        if spreads[0] > 0:
+            drivers.append("Taux directeur favorable")
+        if spreads[1] > 0:
+            drivers.append("Rendement 10Y favorable")
+        if spreads[2] > 0:
+            drivers.append("Score fondamental supérieur")
+        if wti_bonus != 0:
+            drivers.append("Impact WTI/CAD")
+        if drivers:
+            chips = " ".join([f'<span class="driver-chip">{d}</span>' for d in drivers])
+            st.markdown(f'<div class="signal-drivers">{chips}</div>', unsafe_allow_html=True)
+        st.markdown('</div>', unsafe_allow_html=True)
 
 # ═══════════════════════════════════════════
-# TAB — COMMODITIES / INTERMARKET
+# TAB — COMMODITIES / INTERMARKET (with RateProbability)
 # ═══════════════════════════════════════════
+# RateProbability fetcher (scrape + cache)
 RATEPROB_CACHE = os.path.join(os.path.dirname(__file__), "rateprob_cache.json")
-RATEPROB_URL   = "https://rateprobability.com"
+RATEPROB_URL = "https://rateprobability.com"
 
 def _load_rateprob_cache():
     try:
@@ -850,7 +854,7 @@ def fetch_rateprobability(force=False, ttl_seconds=600):
     cache = _load_rateprob_cache()
     if not force and cache.get("ts"):
         try:
-            age = (datetime.utcnow() - datetime.fromisoformat(cache["ts"].replace("Z",""))).total_seconds()
+            age = (datetime.utcnow() - datetime.fromisoformat(cache["ts"].replace("Z", ""))).total_seconds()
             if age < ttl_seconds:
                 return cache.get("data", []), cache.get("ts")
         except Exception:
@@ -860,33 +864,44 @@ def fetch_rateprobability(force=False, ttl_seconds=600):
         return cache.get("data", []), cache.get("ts")
 
     try:
-        resp = requests.get(RATEPROB_URL, timeout=10, headers={"User-Agent": "fx-terminal/2.0"})
+        resp = requests.get(RATEPROB_URL, timeout=10, headers={"User-Agent": "fx-terminal/1.0"})
         resp.raise_for_status()
         soup = BeautifulSoup(resp.text, "html.parser")
+
         table = None
-        for h in soup.find_all(["h1","h2","h3","h4","h5"]):
-            if "upcoming meeting" in h.get_text(strip=True).lower():
+        for h in soup.find_all(["h1", "h2", "h3", "h4", "h5"]):
+            txt = h.get_text(strip=True).lower()
+            if "upcoming meeting" in txt or "upcoming meetings" in txt:
                 table = h.find_next("table")
-                if table: break
+                if table:
+                    break
+
         rows = []
         if table:
-            ths = table.find("tr")
-            if ths:
-                rows.append([t.get_text(strip=True) for t in ths.find_all(["th","td"])])
+            first_tr = table.find("tr")
+            if first_tr:
+                headers = [th.get_text(strip=True) for th in first_tr.find_all(["th", "td"])]
+                if headers:
+                    rows.append(headers)
             for tr in table.find_all("tr")[1:]:
-                cells = [td.get_text(strip=True) for td in tr.find_all(["td","th"])]
-                if cells: rows.append(cells)
-        if not rows:
-            for tbl in soup.find_all("table"):
-                hdr = " ".join(th.get_text(strip=True).lower() for th in tbl.find_all("th"))
-                if any(k in hdr for k in ["bank","probability","meeting","rate","implied"]):
-                    ths = tbl.find("tr")
-                    if ths:
-                        rows.append([t.get_text(strip=True) for t in ths.find_all(["th","td"])])
-                    for tr in tbl.find_all("tr")[1:]:
-                        cells = [td.get_text(strip=True) for td in tr.find_all(["td","th"])]
-                        if cells: rows.append(cells)
+                cols = [td.get_text(strip=True) for td in tr.find_all(["td", "th"])]
+                if cols:
+                    rows.append(cols)
+        else:
+            for table in soup.find_all("table"):
+                header_text = " ".join([th.get_text(strip=True).lower() for th in table.find_all("th")])
+                if any(k in header_text for k in ["bank", "probability", "meeting", "rate", "implied"]):
+                    first_tr = table.find("tr")
+                    if first_tr:
+                        headers = [th.get_text(strip=True) for th in first_tr.find_all(["th", "td"])]
+                        if headers:
+                            rows.append(headers)
+                    for tr in table.find_all("tr")[1:]:
+                        cols = [td.get_text(strip=True) for td in tr.find_all(["td", "th"])]
+                        if cols:
+                            rows.append(cols)
                     break
+
         if rows:
             _save_rateprob_cache(rows)
             return rows, datetime.utcnow().isoformat() + "Z"
@@ -895,197 +910,140 @@ def fetch_rateprobability(force=False, ttl_seconds=600):
         return cache.get("data", []), cache.get("ts")
 
 with tab_intermarket:
-    st.markdown('<div class="sec-title"><span class="sec-dot"></span> Commodités & Marchés</div>', unsafe_allow_html=True)
+    st.markdown('<div class="sec-title"><span class="sec-dot"></span> Intermarket Analytics & Commodities</div>', unsafe_allow_html=True)
+    cols = st.columns(3)
+    gold = MARKET_ASSETS.get("GOLD", {"price": None, "chg": None})
+    wti = MARKET_ASSETS.get("WTI_CRUDE", {"price": None, "chg": None})
+    sp500 = MARKET_ASSETS.get("US_500", {"price": None, "chg": None})
+    cols[0].markdown(f"<div class='kpi'><div class='kpi-icon'>✦</div><div class='kpi-label'>Gold Spot</div><div class='kpi-val'>{gold.get('price')}</div><div class='kpi-delta'>{delta_html(gold.get('chg',0))}</div></div>", unsafe_allow_html=True)
+    cols[1].markdown(f"<div class='kpi'><div class='kpi-icon'>🛢</div><div class='kpi-label'>WTI Crude</div><div class='kpi-val'>{wti.get('price')}</div><div class='kpi-delta'>{delta_html(wti.get('chg',0))}</div></div>", unsafe_allow_html=True)
+    cols[2].markdown(f"<div class='kpi'><div class='kpi-icon'>📈</div><div class='kpi-label'>S&P 500</div><div class='kpi-val'>{sp500.get('price')}</div><div class='kpi-delta'>{delta_html(sp500.get('chg',0))}</div></div>", unsafe_allow_html=True)
 
-    commodity_assets = [
-        ("GOLD",      "✦",  "Gold Spot"),
-        ("WTI_CRUDE", "🛢", "WTI Crude"),
-        ("US_500",    "📈", "S&P 500"),
-        ("SILVER",    "◆",  "Silver"),
-    ]
-    ccols = st.columns(4)
-    for col, (key, icon, label) in zip(ccols, commodity_assets):
-        a = MARKET_ASSETS.get(key, {"price": "—", "chg": 0})
-        price = a.get("price") or "—"
-        chg   = a.get("chg", 0) or 0
-        with col:
-            st.markdown(f"""
-            <div class="kpi">
-              <div class="kpi-icon">{icon}</div>
-              <div class="kpi-label">{label}</div>
-              <div class="kpi-val">{price}</div>
-              <div class="kpi-delta">{delta_html(chg)}</div>
-            </div>
-            """, unsafe_allow_html=True)
+    st.markdown("#### Commodities vs FX (WTI ↔ CAD)")
+    st.write("Le WTI influence souvent le CAD. Activez le filtre 'Insights' pour voir les paires CAD impactées.")
 
-    st.markdown('<div class="info-box">ℹ Le WTI influence structurellement le CAD. Voir l\'onglet Insights pour les paires CAD concernées.</div>', unsafe_allow_html=True)
-
-    # RateProbability
-    st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
-    st.markdown('<div class="sec-title"><span class="sec-dot"></span> Upcoming Meetings — RateProbability</div>', unsafe_allow_html=True)
-
-    rp_col, _ = st.columns([1, 3])
-    with rp_col:
-        rp_force = st.button("🔄 Rafraîchir RateProbability")
-
+    # RateProbability embedded table (styled)
+    st.markdown("#### Market-implied Upcoming Meetings (RateProbability)")
+    rp_force = st.button("Forcer refresh RateProbability")
     rows, ts = fetch_rateprobability(force=rp_force)
     if not rows:
-        st.markdown('<div class="warn-box">⚠ Données indisponibles — cache vide ou erreur réseau.</div>', unsafe_allow_html=True)
+        st.info("Impossible de récupérer RateProbability — affichage du cache si disponible.")
     else:
-        st.markdown(f'<div style="font-size:11px;color:var(--txt-3);margin-bottom:8px;font-family:\'JetBrains Mono\',monospace">Dernière synchro: {ts}</div>', unsafe_allow_html=True)
-        if isinstance(rows, list) and rows and all(isinstance(r, list) for r in rows):
-            headers, data_rows = rows[0], rows[1:]
-            df_rp = pd.DataFrame(data_rows, columns=headers)
-            outcome_col = next((c for c in df_rp.columns if "implied" in c.lower() or "outcome" in c.lower()), None)
-            prob_col    = next((c for c in df_rp.columns if "prob" in c.lower()), None)
+        st.markdown(f"*Dernière récupération: {ts}*")
+        with st.container():
+            st.markdown("<div class='rp-wrap'>", unsafe_allow_html=True)
+            if isinstance(rows, list) and rows and all(isinstance(r, list) for r in rows):
+                headers = rows[0]
+                data_rows = rows[1:]
+                try:
+                    df = pd.DataFrame(data_rows, columns=headers)
+                except Exception:
+                    df = pd.DataFrame(data_rows)
+                # Try to detect common columns and color-code implied outcome
+                prob_col = next((c for c in df.columns if "prob" in c.lower()), None)
+                outcome_col = next((c for c in df.columns if "implied" in c.lower() or "outcome" in c.lower()), None)
+                bank_col = next((c for c in df.columns if "bank" in c.lower() or "institution" in c.lower()), None)
+                date_col = next((c for c in df.columns if "date" in c.lower() or "meeting" in c.lower() or "time" in c.lower()), None)
 
-            def color_outcome(v):
-                if not isinstance(v, str): return ""
-                vl = v.lower()
-                if "hike" in vl or "raise" in vl: return "color: #10b981; font-weight: 700"
-                if "cut"  in vl or "lower" in vl: return "color: #f43f5e; font-weight: 700"
-                return "color: #94a3b8"
+                if prob_col:
+                    def parse_pct(x):
+                        try:
+                            return float(str(x).replace("%","").strip())
+                        except Exception:
+                            return None
+                    df["_prob_pct"] = df[prob_col].apply(parse_pct)
+                else:
+                    df["_prob_pct"] = None
 
-            styled_rp = df_rp.style
-            if outcome_col:
-                styled_rp = styled_rp.applymap(color_outcome, subset=[outcome_col])
-            st.dataframe(styled_rp, use_container_width=True, hide_index=True)
-        else:
-            st.table(rows)
+                st.dataframe(df, use_container_width=True)
+            else:
+                st.table(rows)
+            st.markdown("</div>", unsafe_allow_html=True)
 
 # ═══════════════════════════════════════════
 # TAB — INSIGHTS
 # ═══════════════════════════════════════════
 with tab_insights:
+    st.markdown('<div class="sec-title"><span class="sec-dot"></span> Insights & Recommandations</div>', unsafe_allow_html=True)
     regime_tuple = regime_weights("Automatique", auto_sentiment)
     wti_bull = MARKET_ASSETS.get("WTI_CRUDE", {}).get("chg", 0) > 0
-    ranked   = rank_all_pairs(regime_tuple, wti_bull)
+    ranked = rank_all_pairs(regime_tuple, wti_bull)
 
-    top_bull  = [r for r in ranked if r["score_pct"] >= 50][:4]
-    top_bear  = sorted(ranked, key=lambda x: x["score_pct"])[:4]
+    top_bull = [r for r in ranked if r["score_pct"] >= 50][:3]
+    top_bear = sorted(ranked, key=lambda x: x["score_pct"])[:3]
 
-    col_bull, col_bear = st.columns(2)
-
-    with col_bull:
-        st.markdown('<div class="sec-title"><span class="sec-dot"></span> Top Bullish</div>', unsafe_allow_html=True)
+    cols = st.columns(2)
+    with cols[0]:
+        st.markdown("<div class='insight-pair'><div><div class='pair-name'>Top 3 Bullish</div></div></div>", unsafe_allow_html=True)
         if not top_bull:
-            st.markdown('<div class="info-box">Aucune paire bullish détectée.</div>', unsafe_allow_html=True)
+            st.info("Aucune paire bullish détectée.")
         for item in top_bull:
-            pct = item["score_pct"]
-            st.markdown(f"""
-            <div class="insight-pair">
-              <div>
-                <div class="pair-name">{item["pair"]}</div>
-                <div class="pair-raw">Score brut: {item["raw"]:.2f}</div>
-                <div class="prog-wrap"><div class="prog-fill prog-up" style="width:{pct}%"></div></div>
-              </div>
-              <div><span class="badge badge-up">▲ {pct}%</span></div>
-            </div>
-            """, unsafe_allow_html=True)
-
-    with col_bear:
-        st.markdown('<div class="sec-title"><span class="sec-dot"></span> Top Bearish</div>', unsafe_allow_html=True)
+            pct = item.get("score_pct", 0)
+            raw = item.get("raw", 0)
+            st.markdown(
+                f"<div class='insight-pair'><div><div class='pair-name'>{item['pair']}</div><div class='pair-raw'>raw: {raw:.2f}</div></div><div><span class='badge badge-up'>{pct}%</span></div></div>",
+                unsafe_allow_html=True,
+            )
+    with cols[1]:
+        st.markdown("<div class='insight-pair'><div><div class='pair-name'>Top 3 Bearish</div></div></div>", unsafe_allow_html=True)
         if not top_bear:
-            st.markdown('<div class="info-box">Aucune paire bearish détectée.</div>', unsafe_allow_html=True)
+            st.info("Aucune paire bearish détectée.")
         for item in top_bear:
-            pct = 100 - item["score_pct"]
-            st.markdown(f"""
-            <div class="insight-pair">
-              <div>
-                <div class="pair-name">{item["pair"]}</div>
-                <div class="pair-raw">Score brut: {item["raw"]:.2f}</div>
-                <div class="prog-wrap"><div class="prog-fill prog-down" style="width:{pct}%"></div></div>
-              </div>
-              <div><span class="badge badge-down">▼ {pct}%</span></div>
-            </div>
-            """, unsafe_allow_html=True)
+            pct = item.get("score_pct", 0)
+            raw = item.get("raw", 0)
+            st.markdown(
+                f"<div class='insight-pair'><div><div class='pair-name'>{item['pair']}</div><div class='pair-raw'>raw: {raw:.2f}</div></div><div><span class='badge badge-down'>{pct}%</span></div></div>",
+                unsafe_allow_html=True,
+            )
 
-    st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
-    st.markdown('<div class="sec-title"><span class="sec-dot"></span> Catalyseurs à Venir</div>', unsafe_allow_html=True)
-
+    st.markdown("---")
+    st.markdown("#### 📅 Catalyseurs à venir (sélection rapide)")
     catalysts = [
-        {"time": "2026-05-20 · 13:30 UTC", "event": "US Nonfarm Payrolls (NFP)",  "impact": "High",   "pairs": ["USD/*"]},
-        {"time": "2026-05-21 · 08:00 UTC", "event": "ECB Rate Decision",           "impact": "High",   "pairs": ["EUR/*"]},
-        {"time": "2026-05-22 · 02:00 UTC", "event": "BoC Rate Statement",          "impact": "Medium", "pairs": ["CAD/*"]},
-        {"time": "2026-05-23 · 01:30 UTC", "event": "RBA Minutes",                 "impact": "Low",    "pairs": ["AUD/*"]},
+        {"time": "2026-05-20 13:30 UTC", "event": "US Nonfarm Payrolls (NFP)", "impact": "High", "pairs": ["USD/*"]},
+        {"time": "2026-05-21 08:00 UTC", "event": "ECB Rate Decision", "impact": "High", "pairs": ["EUR/*"]},
+        {"time": "2026-05-22 02:00 UTC", "event": "BoC Rate Statement", "impact": "Medium", "pairs": ["CAD/*"]},
     ]
     for c in catalysts:
-        pip_cls = {"High": "event-high-pip", "Medium": "event-med-pip", "Low": "event-low-pip"}.get(c["impact"], "event-low-pip")
-        imp_cls = {"High": "imp-high",       "Medium": "imp-med",       "Low": "imp-low"}.get(c["impact"], "imp-low")
-        pairs_str = ", ".join(c["pairs"])
-        st.markdown(f"""
-        <div class="event-card">
-          <div class="event-pip {pip_cls}" style="height:48px"></div>
-          <div>
-            <div class="event-name">
-              {c["event"]}
-              <span class="imp-badge {imp_cls}">{c["impact"]}</span>
-            </div>
-            <div class="event-meta">{c["time"]}</div>
-            <div class="event-pairs">Paires: {pairs_str}</div>
-          </div>
-        </div>
-        """, unsafe_allow_html=True)
+        cls = "imp-high" if c["impact"] == "High" else ("imp-med" if c["impact"] == "Medium" else "imp-low")
+        st.markdown(
+            f"<div class='event-card'><div class='event-pip event-high-pip'></div><div><div class='event-name'>{c['event']}</div><div class='event-meta'>{c['time']}</div><div class='event-pairs'>Pairs impactées: {', '.join(c['pairs'])}</div></div></div>",
+            unsafe_allow_html=True,
+        )
 
-    st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
-    st.markdown('<div class="sec-title"><span class="sec-dot"></span> News & Flux</div>', unsafe_allow_html=True)
-
+    st.markdown("---")
+    st.markdown("#### 📰 News & Catalyseurs (flux)")
     articles = fetch_news(limit=6)
     if articles:
-        st.markdown('<div style="background:var(--panel);border:1px solid var(--border);border-radius:var(--r2);padding:8px 16px;">', unsafe_allow_html=True)
         for i, a in enumerate(articles, 1):
             title = a.get("title") or "Untitled"
-            src   = a.get("source") or ""
-            ts    = (a.get("publishedAt") or "")[:19].replace("T", " ")
-            url   = a.get("url") or "#"
-            st.markdown(f"""
-            <div class="news-item">
-              <div class="news-num">#{i:02d}</div>
-              <div>
-                <div class="news-title"><a href="{url}" target="_blank" rel="noopener">{title}</a></div>
-                <div class="news-meta">{src} · {ts}</div>
-              </div>
-            </div>
-            """, unsafe_allow_html=True)
-        st.markdown('</div>', unsafe_allow_html=True)
+            src = a.get("source") or ""
+            ts = (a.get("publishedAt") or "")[:19].replace("T", " ")
+            url = a.get("url") or "#"
+            st.markdown(f"<div class='news-item'><div class='news-num'>{i}</div><div><div class='news-title'><a href='{url}' target='_blank'>{title}</a></div><div class='news-meta'>{src} · {ts}</div></div></div>", unsafe_allow_html=True)
     else:
-        st.markdown('<div class="info-box">ℹ Aucune news — vérifiez <code>NEWS_API_KEY</code> ou le cache local.</div>', unsafe_allow_html=True)
+        st.info("Aucune news disponible — vérifie la variable d'environnement NEWS_API_KEY ou le cache local.")
 
 # ═══════════════════════════════════════════
 # TAB — LOGS
 # ═══════════════════════════════════════════
 with tab_logs:
     st.markdown('<div class="sec-title"><span class="sec-dot"></span> System Logs</div>', unsafe_allow_html=True)
-
     try:
         logs = load_update_log()
     except Exception:
         logs = []
-
     if logs:
-        st.markdown('<div style="background:var(--panel);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;">', unsafe_allow_html=True)
         for entry in logs:
-            status    = entry.get("status", "")
-            status_cls = "log-ok" if str(status).lower() in ("ok","success","200") else "log-fail"
-            st.markdown(f"""
-            <div class="log-entry">
-              <span class="log-ts">{entry.get("ts","—")}</span>
-              <span>Session: <b>{entry.get("session","—")}</b></span>
-              <span>Trigger: <b>{entry.get("trigger","—")}</b></span>
-              <span class="{status_cls}">Status: {status}</span>
-            </div>
-            """, unsafe_allow_html=True)
-        st.markdown('</div>', unsafe_allow_html=True)
+            status_cls = "log-ok" if entry.get("status") == "success" else "log-fail"
+            st.markdown(f"<div class='log-entry'><div class='log-ts'>{entry.get('ts')}</div><div style='flex:1'>{entry.get('session')} · {entry.get('trigger')}</div><div class='{status_cls}'>{entry.get('status')}</div></div>", unsafe_allow_html=True)
     else:
-        st.markdown('<div class="info-box">ℹ Aucun log disponible.</div>', unsafe_allow_html=True)
+        st.info("Aucun log disponible.")
 
 # ─────────────────────────────────────────────
 # Footer
 # ─────────────────────────────────────────────
-st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
-st.markdown(f"""
-<div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;">
-  <div style="font-size:11px;color:var(--txt-3);">Sources: Yahoo Finance (yfinance) · Indicateurs macro fondamentaux pondérés · rateprobability.com</div>
-  <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--txt-3);">{utc_now}</div>
-</div>
-""", unsafe_allow_html=True)
+st.markdown("---")
+st.markdown(
+    f"<div style='display:flex;justify-content:space-between;align-items:center;'><div class='small-muted'>Données: Yahoo Finance (yfinance), sources macro locales; modèle: indicateurs fondamentaux pondérés.</div><div class='small-muted'>Dernière mise à jour: {utc_now}</div></div>",
+    unsafe_allow_html=True,
+)
