@@ -6,6 +6,24 @@ import json
 from datetime import datetime, timezone
 import yfinance as yf
 
+
+# scraper.py (Extrait de l'intégration)
+from utilitaires.news import fetch_news
+
+# Dans ta fonction principale run_global_scraper() :
+def run_global_scraper():
+    # ... tes autres scrapings (rateprob, etc.) ...
+    
+    # Récupération des articles financiers via NewsAPI
+    articles_presse = fetch_news(limit=6)
+    
+    # Tu structures le tout et tu sauvegardes dans le news_cache.json de la racine
+    output = {
+        "metadata": { ... },
+        "macro_data": { ... },
+        "news_feed": articles_presse # Tes articles NewsAPI prêts pour Streamlit !
+    }
+
 # Sécurité pour Streamlit Cloud : On force l'ajout du répertoire racine au chemin de recherche Python
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
