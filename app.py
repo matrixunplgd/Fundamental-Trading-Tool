@@ -4,8 +4,7 @@ import json
 import pandas as pd
 import plotly.graph_objects as go
 
-# Import de ton moteur de scraping pour l'option de rafraîchissement manuel
-from scraper import run_global_scraper
+# L'import de run_global_scraper a été RETIRÉ d'ici pour éviter le crash au démarrage
 from data import FX_RATES
 
 st.set_page_config(page_title="LNE - WATCH TOWER", layout="wide")
@@ -38,17 +37,22 @@ with col_btn:
     st.markdown("<div style='padding-top:15px;'></div>", unsafe_allow_html=True)
     if st.button("🔄 Force Market Refresh", use_container_width=True):
         with st.spinner("Scraping global en cours..."):
+            # L'import se fait UNIQUEMENT ici au moment du clic
+            from scraper import run_global_scraper
             run_global_scraper()
         st.success("Données actualisées !")
         st.rerun()
 
 # Chargement du cache local
 try:
-    with open("news_cache.json", "r") as f:
+    with open("news_cache.json", "r", encoding="utf-8") as f:
         cache = json.load(f)
 except Exception:
-    run_global_scraper()
-    with open("news_cache.json", "r") as f:
+    # Sécurité : Si le fichier de cache est manquant au premier déploiement
+    with st.spinner("Initialisation des données de marché..."):
+        from scraper import run_global_scraper
+        run_global_scraper()
+    with open("news_cache.json", "r", encoding="utf-8") as f:
         cache = json.load(f)
 
 meta = cache["metadata"]
