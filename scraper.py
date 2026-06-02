@@ -3,26 +3,40 @@ import os
 import sys
 import json
 from datetime import datetime, timezone
+from pathlib import Path
 import yfinance as yf
 
-# ─── SÉCURITÉ TRAJECTOIRE POUR STREAMLIT CLOUD & GITHUB ACTIONS ───
-# On configure le chemin absolu de la racine AVANT de faire le moindre import local
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-if BASE_DIR not in sys.path:
-    sys.path.insert(0, BASE_DIR)
+# ─── SÉCURISATION ABSOLUE DES CHEMINS (ROOT & PACKAGES) ───
+# On trouve le dossier racine du projet de manière dynamique et absolue
+ROOT_DIR = Path(__file__).resolve().parent
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
 
-# Maintenant que les chemins sont verrouillés, les imports ne planteront plus
+# On cherche dynamiquement si ton dossier s'appelle 'utilitaires' ou 'utils'
+utils_folder = "utilitaires" if (ROOT_DIR / "utilitaires").exists() else "utils"
+utils_path = ROOT_DIR / utils_folder
+
+if utils_path.exists() and str(utils_path) not in sys.path:
+    sys.path.insert(0, str(utils_path))
+
+# ─── IMPORTS PROTOCOLAIRES ───
 try:
-    from utilitaires.rateprob import get_rate_probabilities
-    from utilitaires.sentiment_engine import analyze_market_sentiment
-    from utilitaires.news import fetch_news
+    if utils_folder == "utilitaires":
+        from utilitaires.rateprob import get_rate_probabilities
+        from utilitaires.sentiment_engine import analyze_market_sentiment
+        from utilitaires.news import fetch_news
+    else:
+        from utils.rateprob import get_rate_probabilities
+        from utils.sentiment_engine import analyze_market_sentiment
+        from utils.news import fetch_news
 except ModuleNotFoundError:
-    # Fallback au cas où l'environnement exécute depuis le sous-dossier directement
+    # Fallback direct
     from rateprob import get_rate_probabilities
     from sentiment_engine import analyze_market_sentiment
     from news import fetch_news
 
 
+# ─── MOTEUR DE SCRAPING ───
 def run_global_scraper():
     print("Démarrage du scraping global pour le complexe G10...")
     
