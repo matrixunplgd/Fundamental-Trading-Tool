@@ -1,10 +1,20 @@
+
 # scraper.py
+import os
+import sys
 import json
 from datetime import datetime, timezone
 import yfinance as yf
 
+# Sécurité pour Streamlit Cloud : On force l'ajout du répertoire racine au chemin de recherche Python
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+# Maintenant, on importe en utilisant le chemin absolu depuis la racine du projet
 from utilitaires.rateprob import get_rate_probabilities
 from utilitaires.sentiment_engine import analyze_market_sentiment
+
+# Le reste de ton code run_global_scraper()...
+
 
 def run_global_scraper():
     print("Démarrage du scraping global pour le complexe G10...")
