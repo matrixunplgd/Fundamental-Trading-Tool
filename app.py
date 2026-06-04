@@ -36,11 +36,11 @@ with col_title:
 with col_btn:
     st.markdown("<div style='padding-top:15px;'></div>", unsafe_allow_html=True)
     if st.button("🔄 Force Market Refresh", use_container_width=True):
-        with st.spinner("Scraping global en cours..."):
+        with st.spinner("Scraping global haute précision en cours..."):
             # L'import se fait UNIQUEMENT ici au moment du clic
             from scraper import run_global_scraper
             run_global_scraper()
-        st.success("Données actualisées !")
+        st.success("Données actualisées avec succès !")
         st.rerun()
 
 # ─── SÉCURISATION RADICALE ET DECODAGE DU CACHE LOCAL ───
@@ -58,7 +58,7 @@ except Exception:
 
 # Étape B : Si le cache est invalide, inexistant ou corrompu, on force la génération
 if not cache:
-    with st.spinner("Initialisation et génération de la matrice macro G10..."):
+    with st.spinner("Initialisation et génération de la matrice macro haute précision G10..."):
         try:
             from scraper import run_global_scraper
             run_global_scraper()  # Génère un news_cache.json tout neuf au bon format
@@ -77,7 +77,7 @@ if not cache or "metadata" not in cache or "macro_data" not in cache:
     st.error("Impossible de charger la structure des données de marché. Le fichier de cache est corrompu.")
     st.stop()
 
-# Extraction désormais garantie sans crash
+# Extraction garantie sans crash
 meta = cache["metadata"]
 macro_data = cache["macro_data"]
 
@@ -100,7 +100,7 @@ with st.sidebar:
 tab_matrix, tab_ois = st.tabs(["📊 SCORING MATRIX", "🔮 OIS RATE PROBABILITIES"])
 
 with tab_matrix:
-    st.markdown("### G10 Macro Convergence Model")
+    st.markdown("### G10 Macro Convergence Model (Advanced Accuracy)")
     
     rows = []
     for ccy, info in macro_data.items():
@@ -108,8 +108,11 @@ with tab_matrix:
             "Currency": ccy,
             "Central Bank": info["cb"],
             "Policy Rate": f"{info['rate']:.2f}%",
+            "10Y Bond Yield": f"{info.get('yield_10y', 0.0):.2f}%",
             "Core Bias": info["bias"],
             "CPI (Inflation)": f"{info['cpi']:.1f}%",
+            "PMI Activity": f"{info.get('pmi', 50.0):.1f}",
+            "Retail Sales M/M": f"{info.get('retail_sales', 0.0):+.1f}%",
             "Unemployment": f"{info['unem']:.1f}%",
             "Algorithmic Score": cache["scores"].get(ccy, 0)
         })
