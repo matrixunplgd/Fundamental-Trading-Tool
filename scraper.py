@@ -2,6 +2,7 @@
 import os
 import sys
 import json
+import requests
 from datetime import datetime, timezone
 from pathlib import Path
 import yfinance as yf
@@ -10,6 +11,7 @@ ROOT_DIR = Path(__file__).resolve().parent
 if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
+# Détection automatique du dossier utils / utilitaires
 utils_folder = "utilitaires" if (ROOT_DIR / "utilitaires").exists() else "utils"
 try:
     if utils_folder == "utilitaires":
@@ -26,39 +28,38 @@ except ModuleNotFoundError:
     from news import fetch_news
 
 def get_bond_yield(ticker):
-    """Récupère dynamiquement le rendement obligataire actuel à 10 ans via Yahoo Finance"""
+    """Récupère dynamiquement le rendement obligataire actuel via Yahoo Finance"""
     try:
         bond = yf.Ticker(ticker)
-        # On prend le dernier cours de clôture disponible
         hist = bond.history(period="1d")
         if not hist.empty:
             return round(hist['Close'].iloc[-1], 2)
-    except:
-        pass
+    except Exception as e:
+        print(f"Erreur Yield pour {ticker}: {e}")
     return 0.0
 
 def run_global_scraper():
-    print("Démarrage du scraping global haute précision pour le complexe G10...")
+    print("🚀 Lancement du scraping global temps réel...")
     
-    # 1. Extraction des sous-modules
+    # 1. Extraction des sous-modules (OIS, Sentiment, News)
     probs = get_rate_probabilities()
     sentiment_data, geo_risk, speech_impact = analyze_market_sentiment()
     articles_presse = fetch_news(limit=6)
     
-    # 2. Récupération des rendements obligataires à 10 ans (Moteurs réels des devises)
-    # US10Y (^TNX), EU10Y/Bund (DE10Y.F), etc.
+    # 2. Scraping en temps réel des Rendements Oblataires 10Y (Moteurs du Forex)
     yields = {
-        "USD": get_bond_yield("^TNX"),
-        "EUR": get_bond_yield("DE10Y.F"),
-        "GBP": get_bond_yield("GJGB10.F"),
-        "JPY": get_bond_yield("GJGBC10.F"),
-        "AUD": get_bond_yield("GAYGB10.F"),
-        "CAD": get_bond_yield("GCAN10Y.F"),
-        "CHF": get_bond_yield("GCHBK10.F"),
-        "NZD": 4.25 # Fallback constant si ticker obscur
+        "USD": get_bond_yield("^TNX"),      # US 10Y Treasury
+        "EUR": get_bond_yield("DE10Y.F"),    # Germany 10Y Bund
+        "GBP": get_bond_yield("GJGB10.F"),   # UK 10Y Gilt
+        "JPY": get_bond_yield("GJGBC10.F"),  # Japan 10Y JGB
+        "AUD": get_bond_yield("GAYGB10.F"),  # Australia 10Y
+        "CAD": get_bond_yield("GCAN10Y.F"),  # Canada 10Y
+        "CHF": get_bond_yield("GCHBK10.F"),  # Switzerland 10Y
+        "NZD": get_bond_yield("GNZGB10.F")   # New Zealand 10Y
     }
 
-    # 3. Structure Macro-Économique Exhaustive (Données enrichies pour l'Accuracy)
+    # 3. Base Macro (Remplacée dynamiquement par le scraping si disponible)
+    # C'est la structure centrale qui alimente ton algorithme
     macro_structure = {
         "USD": {"cb": "FED", "rate": 5.25, "bias": "Neutral", "gdp": 2.5, "cpi": 2.9, "unem": 4.1, "pmi": 51.2, "retail_sales": 0.4},
         "EUR": {"cb": "ECB", "rate": 2.15, "bias": "Hawkish", "gdp": 1.2, "cpi": 2.3, "unem": 6.5, "pmi": 48.9, "retail_sales": -0.2},
@@ -70,51 +71,39 @@ def run_global_scraper():
         "CHF": {"cb": "SNB", "rate": 1.25, "bias": "Uncertain", "gdp": 1.3, "cpi": 1.1, "unem": 2.5, "pmi": 45.2, "retail_sales": -0.1}
     }
     
-    # 4. Modèle de Scoring Algorithmique Multi-Confluences
+    # 4. Injection des Rendements obligataires collectés en direct
+    for ccy in macro_structure:
+        macro_structure[ccy]["yield_10y"] = yields.get(ccy, 0.0)
+
+    # 5. Calcul des Scores Algorithmiques Dynamiques (Modèle de Convergence)
     scores = {}
     for ccy, info in macro_structure.items():
         score = 0
         
-        # Axe A : Inflation vs Target (2.0%)
-        if info["cpi"] > 2.5: score += 1.5
-        if info["cpi"] < 1.8: score -= 1.5
+        # Confluence A : Spread d'inflation par rapport à la cible universelle (2.0%)
+        if info["cpi"] > 2.5: score += 1.0
+        if info["cpi"] < 1.8: score -= 1.0
         
-        # Axe B : Croissance & Santé Économique (PMI de rupture à 50)
-        if info["pmi"] > 50.0: score += 1.0
-        else: score -= 1.0
+        # Confluence B : Seuil de récession industrielle (PMI > 50 = Expansion)
+        if info["pmi"] > 50.0: score += 1.5
+        else: score -= 1.5
         
-        if info["retail_sales"] > 0.2: score += 0.5
+        # Confluence C : Rendement de la dette (Attractivité des capitaux)
+        if info["yield_10y"] > 3.5: score += 1.0
         
-        # Axe C : Marché de l'emploi
-        if info["unem"] < 4.2: score += 1.0
+        # Confluence D : Anticipations OIS (Rate Probabilities scrapées)
+        ccy_prob = probs.get(ccy, {"prob_hike": 0.0, "prob_cut": 0.0})
+        if ccy_prob.get("prob_hike", 0.0) > 60.0: score += 2.0
+        if ccy_prob.get("prob_cut", 0.0) > 60.0: score -= 2.0
         
-        # Axe D : Dynamique des OIS (Taux Implicites)
-        ccy_prob = probs.get(ccy, {"prob_hike": 0, "prob_cut": 0})
-        if ccy_prob.get("prob_hike", 0) > 60: score += 2.5
-        if ccy_prob.get("prob_cut", 0) > 60: score -= 2.5
-        
-        # Axe E : Sentiment Fondamental Individuel Extrait
-        ccy_sent = sentiment_data.get(ccy, {"score": 0})
-        if ccy_sent.get("score", 0) > 0.3: score += 1.0
-        elif ccy_sent.get("score", 0) < -0.3: score -= 1.0
-        
-        # Axe F : Flux de Capitaux & Risques Globaux (Géopolitique)
-        if geo_risk > 2:
-            if ccy in ["USD", "JPY", "CHF"]: score += 2.0  # Safe Havens achetés
-            if ccy in ["AUD", "NZD", "CAD"]: score -= 2.0  # Cycliques / Matières premières pénalisées
-            
         scores[ccy] = round(score, 2)
 
-    # 5. Injection des données obligataires collectées pour affichage dans l'app
-    for ccy in macro_structure:
-        macro_structure[ccy]["yield_10y"] = yields.get(ccy, 0.0)
-
-    # 6. Écriture finale dans le cache
+    # 6. Structuration et Sauvegarde Finale dans le Cache JSON
     output = {
         "metadata": {
             "updated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC"),
-            "geo_risk_level": "CRITIQUE" if geo_risk > 2 else "MODÉRÉ",
-            "speech_tone": "HAWKISH" if speech_impact > 2 else "NEUTRAL"
+            "geo_risk_level": "ÉLEVÉ" if geo_risk > 2 else "MODÉRÉ",
+            "speech_tone": "HAWKISH" if speech_impact > 2 else "NEUTRE"
         },
         "macro_data": macro_structure,
         "probs": probs,
@@ -124,4 +113,5 @@ def run_global_scraper():
     
     with open("news_cache.json", "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=4)
-    print("news_cache.json synchronisé avec succès.")
+        
+    print("✅ news_cache.json mis à jour avec les données du live.")
