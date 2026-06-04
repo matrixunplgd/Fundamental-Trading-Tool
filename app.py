@@ -98,7 +98,6 @@ tab_macro, tab_cb, tab_flows, tab_sentiment, tab_tech = st.tabs([
 # ─── ONGLET 1 : MACRO CONVERGENCE (Le cœur du réacteur) ───
 with tab_macro:
     st.markdown("### Modèle Quantitatif G10 (Yields, Inflation, PMI)")
-    st.json(ccy_p)
     # KPIs globaux en haut de l'onglet
     c1, c2, c3, c4 = st.columns(4)
     with c1: st.markdown(f"<div class='metric-card'><div class='metric-title'>Indice de Risque Géopolitique</div><div class='metric-value' style='color:#ef4444;'>{meta.get('geo_risk_level', 'MODÉRÉ')}</div></div>", unsafe_allow_html=True)
@@ -135,7 +134,9 @@ with tab_cb:
         st.markdown(f"**Institution:** {info_cb.get('cb', 'N/A')}")
         st.markdown(f"**Taux Actuel:** {info_cb.get('rate', 0.0)}%")
         st.markdown(f"**Biais Déclaré:** {info_cb.get('bias', 'Neutral')}")
-    
+
+        st.markdown("#### 🔍 Données brutes scrapées :")
+        st.json(ccy_p)
     with col_chart:
         fig = go.Figure(data=[go.Pie(
             labels=['Probabilité de Baisse (Cut)', 'Probabilité de Hausse (Hike)'],
