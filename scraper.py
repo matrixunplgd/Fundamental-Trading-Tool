@@ -92,9 +92,18 @@ def run_global_scraper():
         if info["yield_10y"] > 3.5: score += 1.0
         
         # Confluence D : Anticipations OIS (Rate Probabilities scrapées)
-        ccy_prob = probs.get(ccy, {"prob_hike": 0.0, "prob_cut": 0.0})
-        if ccy_prob.get("prob_hike", 0.0) > 60.0: score += 2.0
-        if ccy_prob.get("prob_cut", 0.0) > 60.0: score -= 2.0
+        ccy_prob = probs.get(ccy, {})
+        
+        # On extrait la liste, et on prend la prochaine réunion (index 0)
+        # On sécurise avec [0.0] si la liste est vide ou absente
+        list_hike = ccy_prob.get("prob_hike", [0.0])
+        list_cut = ccy_prob.get("prob_cut", [0.0])
+        
+        prob_hike_next = list_hike[0] if isinstance(list_hike, list) and len(list_hike) > 0 else 0.0
+        prob_cut_next = list_cut[0] if isinstance(list_cut, list) and len(list_cut) > 0 else 0.0
+        
+        if prob_hike_next > 60.0: score += 2.0
+        if prob_cut_next > 60.0: score -= 2.0
         
         scores[ccy] = round(score, 2)
 
