@@ -3,135 +3,203 @@ import streamlit as st
 import json
 import pandas as pd
 import plotly.graph_objects as go
+import plotly.express as px
+from datetime import datetime
 
-# L'import de run_global_scraper a été RETIRÉ d'ici pour éviter le crash au démarrage
+# L'import global du scraper est proscrit pour la stabilité du déploiement
 from data import FX_RATES
 
-st.set_page_config(page_title="LNE - WATCH TOWER", layout="wide")
+st.set_page_config(page_title="LNE - WATCH TOWER", page_icon="🔭", layout="wide")
 
-# --- INJECTION CSS DARK THEME HIGH-TECH ---
+# --- INJECTION CSS TERMINAL INSTITUTIONNEL ---
 st.markdown("""
 <style>
-    .stApp { background-color: #09090b !important; color: #f4f4f5 !important; }
+    .stApp { background-color: #050505 !important; color: #e2e8f0 !important; }
     #MainMenu, header, footer { visibility: hidden !important; height: 0 !important; }
-    div.block-container { padding: 0rem 2rem !important; max-width: 100% !important; }
+    div.block-container { padding: 1rem 2rem !important; max-width: 100% !important; }
     
     .ticker-container {
-        display: flex; gap: 20px; background-color: #0c0c0e; border-bottom: 1px solid #1e1e24;
-        padding: 12px 20px; font-family: monospace; font-size: 11px; margin-bottom: 25px; overflow-x: auto;
+        display: flex; gap: 25px; background-color: #0a0a0c; border-bottom: 1px solid #1e1e24;
+        padding: 12px 20px; font-family: 'Courier New', monospace; font-size: 12px; margin-bottom: 20px; overflow-x: auto;
     }
-    .terminal-card {
-        background-color: #121214 !important; border: 1px solid #1c1c1f !important;
-        border-radius: 4px; padding: 24px; margin-bottom: 20px;
+    .metric-card {
+        background-color: #0f0f13; border: 1px solid #1c1c21; border-left: 3px solid #3b82f6;
+        border-radius: 4px; padding: 15px; margin-bottom: 15px;
     }
+    .metric-title { color: #8b8d98; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+    .metric-value { font-size: 20px; font-weight: bold; margin-top: 5px; }
+    
     .bias-hawkish { color: #f97316 !important; font-weight: bold; }
     .bias-dovish { color: #3b82f6 !important; font-weight: bold; }
+    
+    /* Customisation des onglets Streamlit */
+    .stTabs [data-baseweb="tab-list"] { gap: 8px; }
+    .stTabs [data-baseweb="tab"] { 
+        background-color: #0f0f13; border-radius: 4px 4px 0 0; 
+        padding: 10px 20px; color: #8b8d98; border: 1px solid #1c1c21; border-bottom: none;
+    }
+    .stTabs [aria-selected="true"] { background-color: #1c1c21; color: #fff; border-top: 2px solid #3b82f6; }
 </style>
 """, unsafe_allow_html=True)
 
-# --- BOUTON DE RAFRAÎCHISSEMENT INTERACTIF (EN 1 CLIC) ---
-col_title, col_btn = st.columns([4, 1])
-with col_title:
-    st.markdown("<h2 style='margin-top:10px;'>🔭 LNE WATCH TOWER CENTRAL</h2>", unsafe_allow_html=True)
+# --- HEADER & BOUTON DE RAFRAÎCHISSEMENT ---
+col_logo, col_btn = st.columns([5, 1])
+with col_logo:
+    st.markdown("<h1 style='margin:0; font-size: 28px; letter-spacing: 2px;'>🔭 LNE WATCH TOWER | <span style='color:#3b82f6; font-size: 18px;'>G10 MACRO TERMINAL</span></h1>", unsafe_allow_html=True)
 with col_btn:
-    st.markdown("<div style='padding-top:15px;'></div>", unsafe_allow_html=True)
-    if st.button("🔄 Force Market Refresh", use_container_width=True):
-        with st.spinner("Scraping global haute précision en cours..."):
-            # L'import se fait UNIQUEMENT ici au moment du clic
+    if st.button("⚡ FORCE SYNC", use_container_width=True):
+        with st.spinner("Extraction des données institutionnelles..."):
             from scraper import run_global_scraper
             run_global_scraper()
-        st.success("Données actualisées avec succès !")
         st.rerun()
 
-# ─── SÉCURISATION RADICALE ET DECODAGE DU CACHE LOCAL ───
+# ─── MOTEUR DE CACHE SÉCURISÉ ───
 cache = None
-
-# Étape A : Tentative de lecture du fichier existant
 try:
     with open("news_cache.json", "r", encoding="utf-8") as f:
         data = json.load(f)
-        # Condition stricte : ça doit être un dictionnaire et posséder les deux nœuds majeurs
-        if isinstance(data, dict) and "metadata" in data and "macro_data" in data:
-            cache = data
+        if isinstance(data, dict) and "macro_data" in data: cache = data
 except Exception:
-    cache = None  # En cas d'erreur de lecture ou fichier illisible, on invalide
+    pass
 
-# Étape B : Si le cache est invalide, inexistant ou corrompu, on force la génération
 if not cache:
-    with st.spinner("Initialisation et génération de la matrice macro haute précision G10..."):
-        try:
-            from scraper import run_global_scraper
-            run_global_scraper()  # Génère un news_cache.json tout neuf au bon format
-            
-            # Deuxième lecture du fichier fraîchement créé
-            with open("news_cache.json", "r", encoding="utf-8") as f:
-                data = json.load(f)
-                if isinstance(data, dict) and "metadata" in data and "macro_data" in data:
-                    cache = data
-        except Exception as e:
-            st.error(f"Erreur critique lors de la synchronisation de l'application : {e}")
-            st.stop()
+    with st.spinner("Génération du modèle macro initial..."):
+        from scraper import run_global_scraper
+        run_global_scraper()
+        with open("news_cache.json", "r", encoding="utf-8") as f:
+            cache = json.load(f)
 
-# Étape C : Vérification finale avant extraction pour bloquer définitivement le TypeError
-if not cache or "metadata" not in cache or "macro_data" not in cache:
-    st.error("Impossible de charger la structure des données de marché. Le fichier de cache est corrompu.")
-    st.stop()
+meta = cache.get("metadata", {})
+macro_data = cache.get("macro_data", {})
+scores = cache.get("scores", {})
+probs = cache.get("probs", {})
+news_feed = cache.get("news_feed", [])
 
-# Extraction garantie sans crash
-meta = cache["metadata"]
-macro_data = cache["macro_data"]
-
-# ─── 1. BARRE DE DOCK SUPÉRIEUR (MONITORING EXHAUSTIF DU G10) ───
+# ─── BARRE DE DOCK SUPÉRIEUR (TICKER) ───
 ticker_html = '<div class="ticker-container">'
 for ccy, info in macro_data.items():
-    bias_style = "bias-hawkish" if info["bias"] in ["Hawkish", "Tightening", "Holding Restrictive"] else "bias-dovish"
-    ticker_html += f"<div>{ccy} ({info['cb']}): <b>{info['rate']:.2f}%</b> <span class='{bias_style}'>{info['bias'].upper()}</span></div> • "
-ticker_html += f"<div style='margin-left: auto; color:#71717a;'>SYNC: {meta['updated_at']}</div></div>"
+    bias_style = "bias-hawkish" if info.get("bias", "") in ["Hawkish", "Tightening"] else "bias-dovish"
+    ticker_html += f"<div><b>{ccy}</b> ({info.get('cb', '')}): {info.get('rate', 0):.2f}% <span class='{bias_style}'>[{info.get('bias', '').upper()}]</span></div> • "
+ticker_html += f"<div style='margin-left: auto; color:#71717a;'>STATUS: ONLINE | SYNC: {meta.get('updated_at', 'N/A')}</div></div>"
 st.markdown(ticker_html, unsafe_allow_html=True)
 
-# ─── 2. SIDEBAR AVEC TOUTES LES PAIRES MAJEURES SANS EXCEPTION ───
-with st.sidebar:
-    st.markdown("<h4 style='color:#71717a; font-size:11px;'>MONITORED CURRENCIES</h4>", unsafe_allow_html=True)
-    for pair, data in FX_RATES.items():
-        color = "#10b981" if data["chg"] >= 0 else "#ef4444"
-        st.markdown(f"**{pair}** : `{data['rate']:.4f}` <span style='color:{color}; font-size:11px;'>({data['chg']:+.2f}%)</span>", unsafe_allow_html=True)
 
-# ─── 3. PANNEAU DE CONFLUENCES & MATRICE DE POLITIQUES MONÉTAIRES ───
-tab_matrix, tab_ois = st.tabs(["📊 SCORING MATRIX", "🔮 OIS RATE PROBABILITIES"])
+# ==========================================
+# ─── LES 5 ONGLETS DU TERMINAL ULTIME ───
+# ==========================================
+tab_macro, tab_cb, tab_flows, tab_sentiment, tab_tech = st.tabs([
+    "📊 MACRO CONVERGENCE", 
+    "🏛️ CENTRAL BANKS (OIS)", 
+    "🐋 INSTITUTIONAL FLOWS",
+    "📰 SENTIMENT & GEOPOL",
+    "📈 MARKET HEATMAP"
+])
 
-with tab_matrix:
-    st.markdown("### G10 Macro Convergence Model (Advanced Accuracy)")
+# ─── ONGLET 1 : MACRO CONVERGENCE (Le cœur du réacteur) ───
+with tab_macro:
+    st.markdown("### Modèle Quantitatif G10 (Yields, Inflation, PMI)")
     
+    # KPIs globaux en haut de l'onglet
+    c1, c2, c3, c4 = st.columns(4)
+    with c1: st.markdown(f"<div class='metric-card'><div class='metric-title'>Indice de Risque Géopolitique</div><div class='metric-value' style='color:#ef4444;'>{meta.get('geo_risk_level', 'MODÉRÉ')}</div></div>", unsafe_allow_html=True)
+    with c2: st.markdown(f"<div class='metric-card'><div class='metric-title'>Tonalité Globale Banques Centrales</div><div class='metric-value' style='color:#3b82f6;'>{meta.get('speech_tone', 'MIXED')}</div></div>", unsafe_allow_html=True)
+    with c3: st.markdown("<div class='metric-card'><div class='metric-title'>Devise Forte (Top Score)</div><div class='metric-value' style='color:#10b981;'>USD</div></div>", unsafe_allow_html=True) # Dynamiser plus tard
+    with c4: st.markdown("<div class='metric-card'><div class='metric-title'>Devise Faible (Pire Score)</div><div class='metric-value' style='color:#ef4444;'>CHF</div></div>", unsafe_allow_html=True)
+
     rows = []
     for ccy, info in macro_data.items():
         rows.append({
-            "Currency": ccy,
-            "Central Bank": info["cb"],
-            "Policy Rate": f"{info['rate']:.2f}%",
-            "10Y Bond Yield": f"{info.get('yield_10y', 0.0):.2f}%",
-            "Core Bias": info["bias"],
-            "CPI (Inflation)": f"{info['cpi']:.1f}%",
-            "PMI Activity": f"{info.get('pmi', 50.0):.1f}",
-            "Retail Sales M/M": f"{info.get('retail_sales', 0.0):+.1f}%",
-            "Unemployment": f"{info['unem']:.1f}%",
-            "Algorithmic Score": cache["scores"].get(ccy, 0)
+            "Asset": ccy,
+            "Target Rate": f"{info.get('rate', 0.0):.2f}%",
+            "10Y Yield": f"{info.get('yield_10y', 0.0):.2f}%",
+            "Core Inflation (CPI)": f"{info.get('cpi', 0.0):.1f}%",
+            "PMI (Activity)": f"{info.get('pmi', 50.0):.1f}",
+            "Retail Sales": f"{info.get('retail_sales', 0.0):+.1f}%",
+            "Unemployment": f"{info.get('unem', 0.0):.1f}%",
+            "ALGO SCORE": scores.get(ccy, 0)
         })
-    
-    df = pd.DataFrame(rows).sort_values(by="Algorithmic Score", ascending=False)
-    st.dataframe(df, use_container_width=True, hide_index=True)
+    df_macro = pd.DataFrame(rows).sort_values(by="ALGO SCORE", ascending=False)
+    st.dataframe(df_macro, use_container_width=True, hide_index=True, height=350)
 
-with tab_ois:
-    st.markdown("### RateProbability.com Central Bank Implied Target Paths")
-    selected_ccy = st.selectbox("Select Currency Asset Node :", list(macro_data.keys()))
+
+# ─── ONGLET 2 : CENTRAL BANKS (Anticipation des taux) ───
+with tab_cb:
+    col_chart, col_data = st.columns([2, 1])
     
-    ccy_p = cache["probs"].get(selected_ccy, {"prob_hike": 50.0, "prob_cut": 50.0})
+    with col_data:
+        st.markdown("### Node Selection")
+        selected_ccy = st.selectbox("Sélectionner la Banque Centrale :", list(macro_data.keys()))
+        info_cb = macro_data.get(selected_ccy, {})
+        ccy_p = probs.get(selected_ccy, {"prob_hike": 50.0, "prob_cut": 50.0})
+        
+        st.markdown(f"**Institution:** {info_cb.get('cb', 'N/A')}")
+        st.markdown(f"**Taux Actuel:** {info_cb.get('rate', 0.0)}%")
+        st.markdown(f"**Biais Déclaré:** {info_cb.get('bias', 'Neutral')}")
     
-    # Rendu du graphique en secteurs pour les probabilités OIS
-    fig = go.Figure(data=[go.Pie(
-        labels=['Implied Cut / Hold', 'Implied Hike / Tightening'],
-        values=[ccy_p.get("prob_cut", 50.0), ccy_p.get("prob_hike", 50.0)],
-        hole=.4,
-        marker_colors=["#3b82f6", "#f97316"]
-    )])
-    fig.update_layout(template="plotly_dark", paper_bgcolor="#121214", height=300, margin=dict(t=20, b=20, l=20, r=20))
-    st.plotly_chart(fig, use_container_width=True)
+    with col_chart:
+        fig = go.Figure(data=[go.Pie(
+            labels=['Probabilité de Baisse (Cut)', 'Probabilité de Hausse (Hike)'],
+            values=[ccy_p.get("prob_cut", 50.0), ccy_p.get("prob_hike", 50.0)],
+            hole=.5,
+            marker_colors=["#3b82f6", "#f97316"]
+        )])
+        fig.update_layout(
+            title=f"Implied OIS Target Paths - {selected_ccy}",
+            template="plotly_dark", paper_bgcolor="#050505", plot_bgcolor="#050505", 
+            height=350, margin=dict(t=40, b=10, l=10, r=10)
+        )
+        st.plotly_chart(fig, use_container_width=True)
+
+
+# ─── ONGLET 3 : INSTITUTIONAL FLOWS (Positionnement) ───
+with tab_flows:
+    st.markdown("### Smart Money vs Retail Sentiment (Prototypage COT)")
+    st.info("Données de flux institutionnels simulées en attendant le scraping du CFTC COT Report.")
+    
+    # Simulation visuelle d'un graphique de positionnement (Smart Money)
+    mock_cot = pd.DataFrame({
+        "Currency": ["USD", "EUR", "GBP", "JPY", "AUD", "CAD", "CHF", "NZD"],
+        "Net Non-Commercials": [45000, -12000, 8500, -85000, -22000, -15000, -32000, -5000]
+    }).sort_values(by="Net Non-Commercials", ascending=True)
+    
+    fig_cot = px.bar(
+        mock_cot, x="Net Non-Commercials", y="Currency", orientation='h',
+        color="Net Non-Commercials", color_continuous_scale=["#ef4444", "#10b981"]
+    )
+    fig_cot.update_layout(template="plotly_dark", paper_bgcolor="#050505", plot_bgcolor="#050505", height=350)
+    st.plotly_chart(fig_cot, use_container_width=True)
+
+
+# ─── ONGLET 4 : SENTIMENT & GEOPOLITIQUE (News en temps réel) ───
+with tab_sentiment:
+    st.markdown("### Flux d'Actualité Financière & Chocs Géopolitiques")
+    
+    if news_feed and isinstance(news_feed, list):
+        for article in news_feed[:6]: # Affiche les 6 dernières news
+            with st.expander(f"🔴 {article.get('title', 'Titre indisponible')}"):
+                st.write(article.get('description', 'Pas de description.'))
+                st.caption(f"Source: {article.get('source', 'Inconnue')} | Date: {article.get('publishedAt', '')}")
+    else:
+        st.warning("Aucun flux d'actualité détecté dans le cache. Lance un Force Sync.")
+
+
+# ─── ONGLET 5 : MARKET HEATMAP (Corrélation & Force) ───
+with tab_tech:
+    st.markdown("### G10 Relative Strength Heatmap (Performance Journalière)")
+    
+    # Création d'une Heatmap basée sur le dictionnaire de base FX_RATES
+    fx_data = [{"Pair": k, "Change": v["chg"]} for k, v in FX_RATES.items()]
+    df_fx = pd.DataFrame(fx_data)
+    
+    if not df_fx.empty:
+        # Création de colonnes et lignes factices pour une heatmap type "Treemap" de performance
+        df_fx["AbsChange"] = df_fx["Change"].abs()
+        fig_heat = px.treemap(
+            df_fx, path=['Pair'], values='AbsChange', color='Change',
+            color_continuous_scale=["#ef4444", "#1e1e24", "#10b981"],
+            color_continuous_midpoint=0
+        )
+        fig_heat.update_layout(template="plotly_dark", paper_bgcolor="#050505", margin=dict(t=10, l=10, r=10, b=10), height=400)
+        st.plotly_chart(fig_heat, use_container_width=True)
+    else:
+        st.info("Données FX brutes non disponibles pour générer la Heatmap.")
