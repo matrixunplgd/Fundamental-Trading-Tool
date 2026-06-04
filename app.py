@@ -43,18 +43,41 @@ with col_btn:
         st.success("Données actualisées !")
         st.rerun()
 
-# Chargement du cache local
+# ─── SÉCURISATION RADICALE ET DECODAGE DU CACHE LOCAL ───
+cache = None
+
+# Étape A : Tentative de lecture du fichier existant
 try:
     with open("news_cache.json", "r", encoding="utf-8") as f:
-        cache = json.load(f)
+        data = json.load(f)
+        # Condition stricte : ça doit être un dictionnaire et posséder les deux nœuds majeurs
+        if isinstance(data, dict) and "metadata" in data and "macro_data" in data:
+            cache = data
 except Exception:
-    # Sécurité : Si le fichier de cache est manquant au premier déploiement
-    with st.spinner("Initialisation des données de marché..."):
-        from scraper import run_global_scraper
-        run_global_scraper()
-    with open("news_cache.json", "r", encoding="utf-8") as f:
-        cache = json.load(f)
+    cache = None  # En cas d'erreur de lecture ou fichier illisible, on invalide
 
+# Étape B : Si le cache est invalide, inexistant ou corrompu, on force la génération
+if not cache:
+    with st.spinner("Initialisation et génération de la matrice macro G10..."):
+        try:
+            from scraper import run_global_scraper
+            run_global_scraper()  # Génère un news_cache.json tout neuf au bon format
+            
+            # Deuxième lecture du fichier fraîchement créé
+            with open("news_cache.json", "r", encoding="utf-8") as f:
+                data = json.load(f)
+                if isinstance(data, dict) and "metadata" in data and "macro_data" in data:
+                    cache = data
+        except Exception as e:
+            st.error(f"Erreur critique lors de la synchronisation de l'application : {e}")
+            st.stop()
+
+# Étape C : Vérification finale avant extraction pour bloquer définitivement le TypeError
+if not cache or "metadata" not in cache or "macro_data" not in cache:
+    st.error("Impossible de charger la structure des données de marché. Le fichier de cache est corrompu.")
+    st.stop()
+
+# Extraction désormais garantie sans crash
 meta = cache["metadata"]
 macro_data = cache["macro_data"]
 
