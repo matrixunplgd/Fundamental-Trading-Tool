@@ -102,7 +102,7 @@ with tab_macro:
     c1, c2, c3, c4 = st.columns(4)
     with c1: st.markdown(f"<div class='metric-card'><div class='metric-title'>Indice de Risque Géopolitique</div><div class='metric-value' style='color:#ef4444;'>{meta.get('geo_risk_level', 'MODÉRÉ')}</div></div>", unsafe_allow_html=True)
     with c2: st.markdown(f"<div class='metric-card'><div class='metric-title'>Tonalité Globale Banques Centrales</div><div class='metric-value' style='color:#3b82f6;'>{meta.get('speech_tone', 'MIXED')}</div></div>", unsafe_allow_html=True)
-    with c3: st.markdown("<div class='metric-card'><div class='metric-title'>Devise Forte (Top Score)</div><div class='metric-value' style='color:#10b981;'>USD</div></div>", unsafe_allow_html=True) # Dynamiser plus tard
+    with c3: st.markdown("<div class='metric-card'><div class='metric-title'>Devise Forte (Top Score)</div><div class='metric-value' style='color:#10b981;'>USD</div></div>", unsafe_allow_html=True) 
     with c4: st.markdown("<div class='metric-card'><div class='metric-title'>Devise Faible (Pire Score)</div><div class='metric-value' style='color:#ef4444;'>CHF</div></div>", unsafe_allow_html=True)
 
     rows = []
@@ -129,7 +129,7 @@ with tab_cb:
         st.markdown("### Node Selection")
         selected_ccy = st.selectbox("Sélectionner la Banque Centrale :", list(macro_data.keys()))
         info_cb = macro_data.get(selected_ccy, {})
-        ccy_p = probs.get(selected_ccy, {"prob_hike": 50.0, "prob_cut": 50.0})
+        ccy_p = probs.get(selected_ccy, {})
         
         st.markdown(f"**Institution:** {info_cb.get('cb', 'N/A')}")
         st.markdown(f"**Taux Actuel:** {info_cb.get('rate', 0.0)}%")
@@ -137,17 +137,68 @@ with tab_cb:
 
         st.markdown("#### 🔍 Données brutes scrapées :")
         st.json(ccy_p)
+        
     with col_chart:
-        fig = go.Figure(data=[go.Pie(
-            labels=['Probabilité de Baisse (Cut)', 'Probabilité de Hausse (Hike)'],
-            values=[ccy_p.get("prob_cut", 50.0), ccy_p.get("prob_hike", 50.0)],
-            hole=.5,
-            marker_colors=["#3b82f6", "#f97316"]
-        )])
+        # Extraction et sécurisation des données temporelles (Listes OIS)
+        meetings = ccy_p.get("meetings", ["Prochaine Réunion"])
+        prob_cut = ccy_p.get("prob_cut", [0.0])
+        prob_hold = ccy_p.get("prob_hold", [100.0])
+        prob_hike = ccy_p.get("prob_hike", [0.0])
+        
+        # Sécurité : Forcer le format liste si les données de cache sont scalaires
+        if not isinstance(meetings, list): meetings = [meetings]
+        if not isinstance(prob_cut, list): prob_cut = [prob_cut]
+        if not isinstance(prob_hold, list): prob_hold = [prob_hold]
+        if not isinstance(prob_hike, list): prob_hike = [prob_hike]
+        
+        # Construction du graphique Stacked Bar professionnel
+        fig = go.Figure()
+        
+        # 1. Segment Baisse (Dovish)
+        fig.add_trace(go.Bar(
+            x=meetings, y=prob_cut, name='Baisse (Cut)',
+            marker_color='#3b82f6', # Bleu Dovish
+            hovertemplate='%{y}% de probabilité de Baisse<extra></extra>'
+        ))
+        
+        # 2. Segment Maintien (Neutre)
+        fig.add_trace(go.Bar(
+            x=meetings, y=prob_hold, name='Maintien (Hold)',
+            marker_color='#1c1c21', # Gris ardoise (couleur de tes cartes CSS)
+            marker_line=dict(width=1, color='#2d2d3d'),
+            hovertemplate='%{y}% de probabilité de Maintien<extra></extra>'
+        ))
+        
+        # 3. Segment Hausse (Hawkish)
+        fig.add_trace(go.Bar(
+            x=meetings, y=prob_hike, name='Hausse (Hike)',
+            marker_color='#f97316', # Orange Hawkish
+            hovertemplate='%{y}% de probabilité de Hausse<extra></extra>'
+        ))
+        
         fig.update_layout(
             title=f"Implied OIS Target Paths - {selected_ccy}",
-            template="plotly_dark", paper_bgcolor="#050505", plot_bgcolor="#050505", 
-            height=350, margin=dict(t=40, b=10, l=10, r=10)
+            title_font=dict(size=14, color='#ffffff', family="monospace"),
+            barmode='stack', # Empilement des barres à 100%
+            template="plotly_dark",
+            paper_bgcolor="#050505", 
+            plot_bgcolor="#050505", 
+            height=380, 
+            margin=dict(t=50, b=40, l=40, r=10),
+            legend=dict(
+                orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1,
+                font=dict(color="#8b8d98", size=11)
+            ),
+            xaxis=dict(
+                gridcolor='#141419', 
+                tickfont=dict(color='#8b8d98', family="monospace")
+            ),
+            yaxis=dict(
+                gridcolor='#141419', 
+                tickfont=dict(color='#8b8d98'), 
+                range=[0, 100],
+                ticksuffix="%"
+            )
         )
         st.plotly_chart(fig, use_container_width=True)
 
