@@ -56,10 +56,30 @@ st.markdown(ticker_html, unsafe_allow_html=True)
 tab_macro, tab_cb, tab_flows, tab_sentiment, tab_tech = st.tabs(["📊 MACRO", "🏛️ WIRP", "🐋 FLOWS", "📰 SENTIMENT", "📈 HEATMAP"])
 
 with tab_macro:
-    st.markdown("### Modèle Quantitatif")
-    rows = [{"Asset": c, **v, "Score": scores.get(c, 0)} for c, v in macro_data.items()]
-    st.dataframe(pd.DataFrame(rows).sort_values("Score", ascending=False), use_container_width=True)
-
+    st.markdown("### Modèle Quantitatif G10 (Yields, Inflation, PMI)")
+    
+    # 1. Construction sécurisée des lignes
+    rows = []
+    for ccy, info in macro_data.items():
+        # On définit explicitement chaque valeur pour éviter les erreurs de clés manquantes
+        rows.append({
+            "Asset": ccy,
+            "Target Rate": f"{info.get('rate', 0.0):.2f}%",
+            "10Y Yield": f"{info.get('yield_10y', 0.0):.2f}%",
+            "Core CPI": f"{info.get('cpi', 0.0):.1f}%",
+            "PMI": f"{info.get('pmi', 50.0):.1f}",
+            "Unemployment": f"{info.get('unem', 0.0):.1f}%",
+            "ALGO SCORE": float(scores.get(ccy, 0.0)) # Forcer en float
+        })
+    
+    # 2. Création du DataFrame avec vérification de présence de colonnes
+    df_macro = pd.DataFrame(rows)
+    
+    if not df_macro.empty and "ALGO SCORE" in df_macro.columns:
+        df_macro = df_macro.sort_values(by="ALGO SCORE", ascending=False)
+        st.dataframe(df_macro, use_container_width=True, hide_index=True)
+    else:
+        st.write("Données macro insuffisantes pour afficher le tableau.")
 with tab_cb:
     if not probs:
         st.warning("Données WIRP en attente de synchronisation.")
