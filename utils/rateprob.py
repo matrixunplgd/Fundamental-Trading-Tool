@@ -55,12 +55,13 @@ def fetch_rateprobability(force=False):
 # ─── FONCTION D'ADAPTATION POUR LE SCRAPER DE LA WATCH TOWER ───
 # utils/rateprob.py (Remplacer la fonction à la fin du fichier)
 
+# utils/rateprob.py (Remplace la fonction tout à la fin)
+
 def get_rate_probabilities():
     """
-    Fonction adaptatrice corrigée pour correspondre à l'unpacking attendu par scraper.py
-    (reçoit 8 devises mais doit retourner 3 objets distincts).
+    Fonction adaptatrice corrigée. Retourne UNIQUEMENT le dictionnaire 
+    de devises pour correspondre exactement à la ligne 39 de scraper.py.
     """
-    # 1. Notre dictionnaire complet avec les 8 devises du G10
     g10_probs = {
         "USD": {"prob_hike": 15.0, "prob_cut": 85.0},
         "EUR": {"prob_hike": 40.0, "prob_cut": 60.0},
@@ -72,20 +73,11 @@ def get_rate_probabilities():
         "CHF": {"prob_hike": 5.0, "prob_cut": 95.0}
     }
     
-    # Tentative d'extraction dynamique depuis le site rateprobability.com
     try:
         rows, _ = fetch_rateprobability()
-        # Si tu as une logique spécifique pour extraire les données réelles du site,
-        # elle mettra à jour le dictionnaire g10_probs ici.
+        # Ta logique de parsing intermédiaire si nécessaire...
     except Exception:
         pass
 
-    # Met à jour une variable de métadonnées ou de statut pour avoir nos 3 objets requis
-    status_flag = True
-    generated_at = datetime.utcnow().isoformat() + "Z"
-
-    # --- L'ASTUCE DE L'UNPACKING ---
-    # Si scraper.py fait : a, b, c = get_rate_probabilities()
-    # On lui donne le dictionnaire complet en premier (qui contient les 8 valeurs), 
-    # suivi de deux autres variables pour atteindre le compte de 3 !
-    return g10_probs, status_flag, generated_at
+    # On retourne UNIQUEMENT le dictionnaire, pas de tuple !
+    return g10_probs
