@@ -122,87 +122,130 @@ with tab_macro:
 
 
 # ─── ONGLET 2 : CENTRAL BANKS (Anticipation des taux) ───
+# ─── ONGLET 2 : CENTRAL BANKS (Anticipation des taux OIS - Style Bloomberg WIRP) ───
 with tab_cb:
-    col_chart, col_data = st.columns([2, 1])
+    # Menu de sélection global de la devise en haut de l'onglet
+    selected_ccy = st.selectbox("Sélectionner le Node Interbancaire OIS :", list(probs.keys()) if probs else ["CAD"])
     
-    with col_data:
-        st.markdown("### Node Selection")
-        selected_ccy = st.selectbox("Sélectionner la Banque Centrale :", list(macro_data.keys()))
-        info_cb = macro_data.get(selected_ccy, {})
-        ccy_p = probs.get(selected_ccy, {})
-        
-        st.markdown(f"**Institution:** {info_cb.get('cb', 'N/A')}")
-        st.markdown(f"**Taux Actuel:** {info_cb.get('rate', 0.0)}%")
-        st.markdown(f"**Biais Déclaré:** {info_cb.get('bias', 'Neutral')}")
+    # Récupération sécurisée du dictionnaire de la devise
+    ccy_ois = probs.get(selected_ccy, {
+        "current_rate": 0.0, "next_decision": "N/A", "next_decision_date": "N/A",
+        "next_meeting_pricing": "N/A", "next_meeting_bps": "0.0 bps",
+        "outlook_12m": "0.0 bps", "outlook_hikes": "N/A", "last_fixation": "N/A",
+        "table_data": [], "chart_meetings": [], "curve_current": [], "curve_1w_ago": [], "curve_3w_ago": []
+    })
 
-        st.markdown("#### 🔍 Données brutes scrapées :")
-        st.json(ccy_p)
+    # --- STYLE SPECIFIQUE DES BOITES HAUT DE PAGE ---
+    st.markdown("""
+    <style>
+        .wirp-card {
+            background-color: #0b0c10; border: 1px solid #1f232d; border-radius: 6px; padding: 12px 18px; height: 105px;
+        }
+        .wirp-label { color: #787f91; font-size: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; }
+        .wirp-main { font-size: 24px; font-weight: bold; font-family: 'Courier New', monospace; margin-top: 2px; }
+        .wirp-sub { font-size: 11px; margin-top: 2px; }
+        .text-green { color: #00e676 !important; }
+        .text-blue { color: #3b82f6 !important; }
+    </style>
+    """, unsafe_allow_html=True)
+
+    # --- LIGNE 1 : LES 4 BLOCS DE COMPTEURS ---
+    kpi1, kpi2, kpi3, kpi4 = st.columns(4)
+    
+    with kpi1:
+        st.markdown(f"""<div class="wirp-card">
+            <div class="wirp-label">Prochaine Décision</div>
+            <div class="wirp-main" style="color: #ffffff;">{ccy_ois.get('next_decision')}</div>
+            <div class="wirp-sub" style="color: #535b6e;">{ccy_ois.get('next_decision_date')}</div>
+        </div>""", unsafe_allow_html=True)
         
-    with col_chart:
-        # Extraction et sécurisation des données temporelles (Listes OIS)
-        meetings = ccy_p.get("meetings", ["Prochaine Réunion"])
-        prob_cut = ccy_p.get("prob_cut", [0.0])
-        prob_hold = ccy_p.get("prob_hold", [100.0])
-        prob_hike = ccy_p.get("prob_hike", [0.0])
+    with kpi2:
+        bps_val = ccy_ois.get('next_meeting_bps', '')
+        color_class = "text-green" if "+" in bps_val else "text-blue"
+        st.markdown(f"""<div class="wirp-card">
+            <div class="wirp-label">Tarifs de la prochaine réunion</div>
+            <div class="wirp-main {color_class}">{ccy_ois.get('next_meeting_pricing')}</div>
+            <div class="wirp-sub {color_class}">{bps_val}</div>
+        </div>""", unsafe_allow_html=True)
         
-        # Sécurité : Forcer le format liste si les données de cache sont scalaires
-        if not isinstance(meetings, list): meetings = [meetings]
-        if not isinstance(prob_cut, list): prob_cut = [prob_cut]
-        if not isinstance(prob_hold, list): prob_hold = [prob_hold]
-        if not isinstance(prob_hike, list): prob_hike = [prob_hike]
+    with kpi3:
+        st.markdown(f"""<div class="wirp-card">
+            <div class="wirp-label">Current Rate</div>
+            <div class="wirp-main" style="color: #ffffff;">{ccy_ois.get('current_rate')}%</div>
+            <div class="wirp-sub" style="color: #8b8d98;">{ccy_ois.get('last_fixation')}</div>
+        </div>""", unsafe_allow_html=True)
         
-        # Construction du graphique Stacked Bar professionnel
-        fig = go.Figure()
+    with kpi4:
+        out_val = ccy_ois.get('outlook_12m', '')
+        color_class = "text-green" if "+" in out_val else "text-blue"
+        st.markdown(f"""<div class="wirp-card">
+            <div class="wirp-label">Perspectives à 12 Mois</div>
+            <div class="wirp-main {color_class}">{out_val}</div>
+            <div class="wirp-sub" style="color: #ffffff;">{ccy_ois.get('outlook_hikes')}</div>
+        </div>""", unsafe_allow_html=True)
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    # --- LIGNE 2 : DEUX COLONNES (TABLEAU À GAUCHE | GRAPHique À DROITE) ---
+    col_table, col_curve = st.columns([1.1, 0.9])
+    
+    with col_table:
+        st.markdown("<p style='font-family:monospace; font-size:12px; font-weight:bold; color:#ffffff; margin-bottom:5px;'>ÉVOLUTION DU TAUX CIBLE AU JOUR LE JOUR : ATTENTES DU MARCHÉ</p>", unsafe_allow_html=True)
         
-        # 1. Segment Baisse (Dovish)
-        fig.add_trace(go.Bar(
-            x=meetings, y=prob_cut, name='Baisse (Cut)',
-            marker_color='#3b82f6', # Bleu Dovish
-            hovertemplate='%{y}% de probabilité de Baisse<extra></extra>'
-        ))
-        
-        # 2. Segment Maintien (Neutre)
-        fig.add_trace(go.Bar(
-            x=meetings, y=prob_hold, name='Maintien (Hold)',
-            marker_color='#1c1c21', # Gris ardoise (couleur de tes cartes CSS)
-            marker_line=dict(width=1, color='#2d2d3d'),
-            hovertemplate='%{y}% de probabilité de Maintien<extra></extra>'
-        ))
-        
-        # 3. Segment Hausse (Hawkish)
-        fig.add_trace(go.Bar(
-            x=meetings, y=prob_hike, name='Hausse (Hike)',
-            marker_color='#f97316', # Orange Hawkish
-            hovertemplate='%{y}% de probabilité de Hausse<extra></extra>'
-        ))
-        
-        fig.update_layout(
-            title=f"Implied OIS Target Paths - {selected_ccy}",
-            title_font=dict(size=14, color='#ffffff', family="monospace"),
-            barmode='stack', # Empilement des barres à 100%
-            template="plotly_dark",
-            paper_bgcolor="#050505", 
-            plot_bgcolor="#050505", 
-            height=380, 
-            margin=dict(t=50, b=40, l=40, r=10),
-            legend=dict(
-                orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1,
-                font=dict(color="#8b8d98", size=11)
-            ),
-            xaxis=dict(
-                gridcolor='#141419', 
-                tickfont=dict(color='#8b8d98', family="monospace")
-            ),
-            yaxis=dict(
-                gridcolor='#141419', 
-                tickfont=dict(color='#8b8d98'), 
-                range=[0, 100],
-                ticksuffix="%"
+        # Génération dynamique du tableau à partir des données structurées
+        if ccy_ois.get("table_data"):
+            df_wirp = pd.DataFrame(ccy_ois.get("table_data"))
+            st.dataframe(
+                df_wirp, 
+                use_container_width=True, 
+                hide_index=True, 
+                height=340
             )
+        else:
+            st.info("Aucune donnée temporelle disponible pour ce node.")
+            
+        st.markdown("<p style='font-size:10px; color:#535b6e; line-height:1.2;'>Les estimations reflètent les anticipations du marché concernant le taux cible implicite. Les données proviennent des courbes de swaps OIS interbancaires actualisées.</p>", unsafe_allow_html=True)
+
+    with col_curve:
+        st.markdown("<p style='font-family:monospace; font-size:12px; font-weight:bold; color:#ffffff; margin-bottom:5px;'>TRAJET DE TAUX IMPLICITE (OIS TARGET PATH)</p>", unsafe_allow_html=True)
+        
+        # Construction du graphique à lignes de tendances passées
+        fig_curve = go.Figure()
+        x_axis = ccy_ois.get("chart_meetings", [])
+        
+        # Courbe 3 semaines avant (Gris clair)
+        fig_curve.add_trace(go.Scatter(
+            x=x_axis, y=ccy_ois.get("curve_3w_ago", []),
+            name="3w ago", mode="lines+markers",
+            line=dict(color="#64748b", width=1.5), marker=dict(size=5, color="#ffffff")
+        ))
+        
+        # Courbe 1 semaine avant (Jaune)
+        fig_curve.add_trace(go.Scatter(
+            x=x_axis, y=ccy_ois.get("curve_1w_ago", []),
+            name="1w ago", mode="lines+markers",
+            line=dict(color="#eab308", width=1.5), marker=dict(size=5, color="#eab308")
+        ))
+        
+        # Courbe temps réel (Bleu vif / Ligne principale)
+        fig_curve.add_trace(go.Scatter(
+            x=x_axis, y=ccy_ois.get("curve_current", []),
+            name="Current", mode="lines+markers",
+            line=dict(color="#3b82f6", width=2.5), marker=dict(size=6, color="#3b82f6")
+        ))
+        
+        fig_curve.update_layout(
+            template="plotly_dark",
+            paper_bgcolor="#050505",
+            plot_bgcolor="#090a0f",
+            height=340,
+            margin=dict(t=10, b=20, l=40, r=10),
+            legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, font=dict(size=10)),
+            xaxis=dict(gridcolor='#1e2230', tickfont=dict(color='#787f91', family="monospace")),
+            yaxis=dict(gridcolor='#1e2230', tickfont=dict(color='#787f91'), ticksuffix="%")
         )
-        st.plotly_chart(fig, use_container_width=True)
-
-
+        
+        st.plotly_chart(fig_curve, use_container_width=True)
 # ─── ONGLET 3 : INSTITUTIONAL FLOWS (Positionnement) ───
 with tab_flows:
     st.markdown("### Smart Money vs Retail Sentiment (Prototypage COT)")
