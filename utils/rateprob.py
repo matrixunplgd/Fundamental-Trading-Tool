@@ -57,27 +57,54 @@ def fetch_rateprobability(force=False):
 
 # utils/rateprob.py (Remplace la fonction tout à la fin)
 
+# utils/rateprob.py
+
 def get_rate_probabilities():
     """
-    Fonction adaptatrice corrigée. Retourne UNIQUEMENT le dictionnaire 
-    de devises pour correspondre exactement à la ligne 39 de scraper.py.
+    Extrait et structure dynamiquement les probabilités de taux OIS depuis RateProbability.com
     """
+    rows, _ = fetch_rateprobability()
+    
+    # Base par défaut (au cas où le site est inaccessible)
     g10_probs = {
-        "USD": {"prob_hike": 15.0, "prob_cut": 85.0},
-        "EUR": {"prob_hike": 40.0, "prob_cut": 60.0},
-        "GBP": {"prob_hike": 20.0, "prob_cut": 80.0},
-        "JPY": {"prob_hike": 75.0, "prob_cut": 25.0},
-        "AUD": {"prob_hike": 65.0, "prob_cut": 35.0},
-        "NZD": {"prob_hike": 30.0, "prob_cut": 70.0},
-        "CAD": {"prob_hike": 10.0, "prob_cut": 90.0},
-        "CHF": {"prob_hike": 5.0, "prob_cut": 95.0}
+        "USD": {"prob_hike": 0.0, "prob_cut": 0.0, "status": "Hold"},
+        "EUR": {"prob_hike": 0.0, "prob_cut": 0.0, "status": "Hold"},
+        "GBP": {"prob_hike": 0.0, "prob_cut": 0.0, "status": "Hold"},
+        "JPY": {"prob_hike": 0.0, "prob_cut": 0.0, "status": "Hold"},
+        "AUD": {"prob_hike": 0.0, "prob_cut": 0.0, "status": "Hold"},
+        "NZD": {"prob_hike": 0.0, "prob_cut": 0.0, "status": "Hold"},
+        "CAD": {"prob_hike": 0.0, "prob_cut": 0.0, "status": "Hold"},
+        "CHF": {"prob_hike": 0.0, "prob_cut": 0.0, "status": "Hold"}
     }
     
-    try:
-        rows, _ = fetch_rateprobability()
-        # Ta logique de parsing intermédiaire si nécessaire...
-    except Exception:
-        pass
-
-    # On retourne UNIQUEMENT le dictionnaire, pas de tuple !
+    mapping = {
+        "FED": "USD", "ECB": "EUR", "BOE": "GBP", 
+        "BOJ": "JPY", "RBA": "AUD", "RBNZ": "NZD", 
+        "BOC": "CAD", "SNB": "CHF"
+    }
+    
+    if rows:
+        try:
+            for row in rows:
+                if len(row) >= 3:
+                    cell_text = row[0].upper()
+                    for cb_keyword, ccy in mapping.items():
+                        if cb_keyword in cell_text:
+                            # Exemple d'extraction : on cherche des chaînes comme 'Hike: 65%' ou 'Cut: 35%' dans les colonnes
+                            # Si ton scraping extrait des chaînes propres, on nettoie les symboles '%'
+                            try:
+                                # Logique de parsing générique selon la structure textuelle observée sur le site
+                                if "HIKE" in row[2].upper():
+                                    val = float(''.join(filter(str.isdigit, row[2])))
+                                    g10_probs[ccy]["prob_hike"] = val
+                                    g10_probs[ccy]["prob_cut"] = 100.0 - val
+                                elif "CUT" in row[2].upper():
+                                    val = float(''.join(filter(str.isdigit, row[2])))
+                                    g10_probs[ccy]["prob_cut"] = val
+                                    g10_probs[ccy]["prob_hike"] = 100.0 - val
+                            except:
+                                pass
+        except Exception:
+            pass # Sécurité anti-plantage si le HTML change
+            
     return g10_probs
