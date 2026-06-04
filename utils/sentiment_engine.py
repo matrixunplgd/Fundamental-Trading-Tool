@@ -7,18 +7,14 @@ def regime_weights(mode, auto_sentiment):
     return "NORMAL", 0.45, 0.40, 0.15, 0.0
 
 # À rajouter tout à la fin de utils/sentiment_engine.py
+# utils/sentiment_engine.py
 
 def analyze_market_sentiment():
     """
-    Fonction adaptatrice pour le scraper de la LNE Watch Tower.
-    Elle appelle ta logique existante et retourne les scores de sentiment 
-    requis pour la matrice de confluence macro G10.
+    Fonction adaptatrice corrigée pour correspondre au format d'unpacking 
+    de scraper.py (attend 3 éléments : dictionnaire_sentiment, geo_risk, speech_impact).
     """
-    # 1. Si tu as déjà une fonction existante dans ce fichier, appelle-la ici.
-    # Exemple : données_brutes = ma_fonction_de_sentiment_existante()
-    
-    # 2. Structure de secours (Fallback) pour que ton Algorithmic Score 
-    # fonctionne pour chaque devise du G10, même si ton scraping de news coupe.
+    # 1. Le dictionnaire de sentiment par devise requis pour tes calculs
     sentiment_data = {
         "USD": {"score": 0.2, "status": "Neutral"},
         "EUR": {"score": -0.4, "status": "Bearish"},
@@ -30,5 +26,9 @@ def analyze_market_sentiment():
         "CHF": {"score": 0.3, "status": "Bullish"}
     }
     
-    # Tu pourras ensuite lier tes résultats scrapés dynamiquement à ce dictionnaire.
-    return sentiment_data
+    # 2. Les deux variables exogènes numériques attendues par scraper.py (lignes 42 et 62)
+    geo_risk = 1.0       # Niveau de risque géopolitique (ex: 1.0 = Modéré, > 2.0 = Critique)
+    speech_impact = 1.0  # Impact des discours (ex: 1.0 = Neutre, > 2.0 = Hawkish)
+    
+    # On retourne les 3 valeurs demandées par le unpacking : _, geo_risk, speech_impact
+    return sentiment_data, geo_risk, speech_impact
